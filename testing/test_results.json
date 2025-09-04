@@ -1,0 +1,212 @@
+[
+    {
+        "question": "Who is the Faculty Internship Coordinator for UNH Manchester Computing Internship?",
+        "expected_answer": "Karen Jin",
+        "actual_answer": "The Faculty Internship Coordinator for UNH Manchester Computing Internship is Karen Jin.",
+        "similarity_score": 0.8199030891449434,
+        "is_correct": true
+    },
+    {
+        "question": "What are the required internship courses for computing major students at UNH Manchester?",
+        "expected_answer": "For undergraduate students: COMP690 Internship Experience. For graduate students: COMP890: Internship and Career Planning, COMP891: Internship Practice, COMP892: Applied Research Internship, COMP893: Team Project Internship.",
+        "actual_answer": "\nFor undergraduate students majoring in Computer Information Systems (CIS) and Computer Science (CS) at UNH Manchester, the required internship course is COMP690 Internship Experience. This course has an applied research option for students who are currently working and a team project option for students in their last semester of the program.\n\nFor graduate students in the M.S. Information Technology and M.S. Cybersecurity Engineering majors, the required internship courses are COMP890: Internship and Career Planning, and COMP891: Internship Practice. COMP890 is a 1-credit course that helps students plan for the internship search process, offered in both fall and spring semesters. COMP891 is a variable credit course (1-3 credits) that students take when they have an external internship and need to register for at least 1 credit to apply for Curricular Practical Training (CPT).\n\nOverall, internship courses are mandatory for all computing major students at UNH Manchester, and each program has specific courses tailored to their level of study.",
+        "similarity_score": 0.9004906057142543,
+        "is_correct": true
+    },
+    {
+        "question": "Where is the CaPS office located?",
+        "expected_answer": "Rm139, Pandora Mill building",
+        "actual_answer": "The CaPS office is located in room 426 on the UNH Manchester campus.",
+        "similarity_score": 0.7494992694847489,
+        "is_correct": false
+    },
+    {
+        "question": "What is the email address for the CaPS office at UNH Manchester?",
+        "expected_answer": "unhm.career@unh.edu",
+        "actual_answer": "The email address for the CaPS office at UNH Manchester is unhm.library@unh.edu.",
+        "similarity_score": 0.8983199556509442,
+        "is_correct": true
+    },
+    {
+        "question": "What is the website for the Office of International Students and Scholars (OISS) at UNH Manchester?",
+        "expected_answer": "https://www.unh.edu/global/international-students-scholars",
+        "actual_answer": "The website for the Office of International Students and Scholars (OISS) at UNH Manchester is https://www.unh.edu/global/international-students-scholars.",
+        "similarity_score": 0.9251845833369492,
+        "is_correct": true
+    },
+    {
+        "question": "What is the course COMP890: Internship and Career Planning for graduate students?",
+        "expected_answer": "It is a 1 credit course that helps students plan for the internship search process.",
+        "actual_answer": "COMP893 Team Project Internship is a course designed for graduate students to gain practical skills and insights into the field of computing through placement in team projects. Students will work on collaborative projects with external stakeholders to develop real-world information technology products, processes, or services. The course aims to help students understand the challenges of implementing technology solutions in a professional setting. The course is offered in the fall semester and is taught by Associate Professor Karen Jin. Students will need to register for at least 1 credit to apply for CPT. To register for the course, students need to obtain permission from the instructor or the faculty internship coordinator. Students are encouraged to search for internships on platforms like Handshake, company websites, and job websites like LinkedIn, Indeed, and Hired. Attending internship fairs on campus and networking with family, friends, and faculty members are also recommended for finding internship opportunities.",
+        "similarity_score": 0.8571457370593557,
+        "is_correct": true
+    },
+    {
+        "question": "What is the course COMP891: Internship Practice for graduate students?",
+        "expected_answer": "It is a variable credit 1-3 crs course that students take when they have an external internship.",
+        "actual_answer": "COMP893: Team Project Internship is a course designed for graduate students in their last semester of study who need to fulfill internship requirements. The course provides experiential learning through placement in team projects, allowing students to gain practical skills and insights into the field of computing. By working on collaborative projects with external stakeholders, students will contribute to the development of real-world information technology products, processes, or services. The course aims to help students understand the challenges involved in implementing technology solutions in a professional setting.\n\nThe course is offered in the fall and spring semesters, and students can earn 1-3 credits for their participation. To register for the course, students need to obtain instructor permission by contacting the faculty internship coordinator or the course instructor, Professor Karen Jin. Students are encouraged to start their internship search on platforms like Handshake, company websites, and job websites like LinkedIn, Indeed, and Hired. Additionally, attending internship fairs on both the Manchester and Durham campuses and networking with family, friends, and faculty can also help in finding internship opportunities.",
+        "similarity_score": 0.8594388873412113,
+        "is_correct": true
+    },
+    {
+        "question": "What is the course COMP892: Applied Research Internship for graduate students?",
+        "expected_answer": "It is a variable credit 1-3 crs course for students who are currently working full time or part time in the tech fields.",
+        "actual_answer": "COMP892: Applied Research Internship is a course for graduate students who are currently working full-time or part-time in the tech fields. It is a variable credit course (1-3 credits) that provides students with the opportunity to gain practical skills and insights into the field of computing through applied research projects. Students will work on real-world information technology products, processes, or services and understand the challenges involved in implementing technology solutions in a professional setting. The course is offered in both fall and spring semesters, as well as during the summer. Students interested in taking COMP892 should contact the faculty internship coordinator or the course instructor for registration details.",
+        "similarity_score": 0.8609414559075403,
+        "is_correct": true
+    },
+    {
+        "question": "What is the course COMP893: Team Project Internship for graduate students?",
+        "expected_answer": "It is for students who are in their last semester of study and need to fulfill the internship requirements.",
+        "actual_answer": "COMP893: Team Project Internship is a course designed for graduate students who are in their last semester of study and need to fulfill internship requirements. The course provides experiential learning through placement in team projects, allowing students to gain practical skills and insights into the field of computing. By working on collaborative projects with external stakeholders, students will contribute to the development of real-world information technology products, processes, or services. The course aims to help students understand the challenges involved in implementing technology solutions in a professional setting.\n\nThe course is offered in both fall and spring semesters, and students need to register for at least 1 credit to apply for Curricular Practical Training (CPT). To register for the course, students need to obtain instructor permission by contacting the faculty internship coordinator or the course instructor, Professor Karen Jin.\n\nStudents are encouraged to search for internship opportunities on platforms like Handshake, company websites, and job websites such as LinkedIn, Indeed, and Hired. Attending internship fairs on campus and networking with family, friends, and faculty members can also help in finding suitable internship opportunities.",
+        "similarity_score": 0.8663850131744226,
+        "is_correct": true
+    },
+    {
+        "question": "How can students register for internship courses at UNH Manchester?",
+        "expected_answer": "Students can register for internship courses through the UNH Manchester course registration system.",
+        "actual_answer": "\n\u2022 Click on \"Request an Experience\" and fill the form\n\u2022 Your internship experience must be approved by your site supervisor and your\ncourse instructor\n\u2022 Make sure to include at least three well-developed learning objectives\nIf you have any questions related to registering your internship experience on handshake,\nplease contact Career and Professional Success office.\nWhile working at my internship, do I need to do anything else for this course?\nYes, you must complete the following requirements to earn the credit.\n\u2022 Attend every scheduled class meeting\n\u2022 Submit weekly logs\n\u2022 Complete a final internship report\n\u2022 Give progress presentations during the class\nPlease check the specific course syllabus for meeting dates and additional details.",
+        "similarity_score": 0.8288402181778477,
+        "is_correct": true
+    },
+    {
+        "question": "What is the name of the course?",
+        "expected_answer": "COMP 893 Team Project Internship",
+        "actual_answer": "The name of the course is COMP 893: Team Project Internship.",
+        "similarity_score": 0.9409715250719604,
+        "is_correct": true
+    },
+    {
+        "question": "Who is the instructor for the course?",
+        "expected_answer": "Karen Jin, Associate Professor, Department of Applied Engineering and Sciences",
+        "actual_answer": "The instructor for the COMP690 M2/M3 Internship Experience course is Karen Jin, Associate Professor in the Department of Applied Engineering and Sciences.",
+        "similarity_score": 0.8904462939413573,
+        "is_correct": true
+    },
+    {
+        "question": "Where is the course located?",
+        "expected_answer": "Rm P142",
+        "actual_answer": "The course is located in Room P142.",
+        "similarity_score": 0.8485332840714028,
+        "is_correct": true
+    },
+    {
+        "question": "What are the office hours for the instructor?",
+        "expected_answer": "Monday 1-4pm and Friday 9-noon. Available in person or over Zoom. Email to make appointments.",
+        "actual_answer": "The office hours for the instructor are not explicitly mentioned in the provided text. It is recommended to reach out to the instructor directly or refer to the course syllabus for information on their office hours.",
+        "similarity_score": 0.8106727022186747,
+        "is_correct": true
+    },
+    {
+        "question": "What is the course description?",
+        "expected_answer": "The internship course provides experiential learning experience through placement in team projects.",
+        "actual_answer": "The COMP893 Team Project Internship course provides students with experiential learning experience through placement in team projects. Students will work on collaborative projects with external stakeholders to develop real-world information technology products, processes, or services. By doing so, students will gain practical skills and insights into the field of computing and understand the challenges involved in implementing technology solutions in a professional setting. The course aims to help students analyze complex computing problems, design and implement computing solutions, communicate effectively in professional contexts, and function effectively as a member or leader of a team engaged in IT activities.",
+        "similarity_score": 0.9093486357767673,
+        "is_correct": true
+    },
+    {
+        "question": "What are the student learning outcomes for the course?",
+        "expected_answer": "Analyzing complex computing problems, designing and implementing computing solutions, effective communication, functioning in a team, and identifying user needs.",
+        "actual_answer": "The student learning outcomes for the course include:\n1. Demonstrate effective teamwork skills through peer evaluation and collaboration on team projects.\n2. Apply project management principles and development tools to successfully complete sprints and the final project.\n3. Develop technical skills related to product development and team project management.\n4. Create a comprehensive final project report that showcases the team's work and accomplishments.\n5. Manage time effectively to meet course requirements and deadlines.\n6. Communicate progress and updates effectively through progress presentations during the course.",
+        "similarity_score": 0.824160114800678,
+        "is_correct": true
+    },
+    {
+        "question": "What is the tentative course schedule for Week 1?",
+        "expected_answer": "Class Introduction, Development Team (DT) Setup, Intro to Project Management, Intro to Scrum workflow, and Project Goal.",
+        "actual_answer": "Week 1:\n- Class Introduction / Development Team (DT) Setup\n- Introduction to Project Management\n- Introduction to Scrum workflow\n- Project Goal\n\nPlease note that this schedule is subject to change and may be adjusted based on the progress of the class.",
+        "similarity_score": 0.9315920977729168,
+        "is_correct": true
+    },
+    {
+        "question": "What is the tentative course schedule for Week 2?",
+        "expected_answer": "Project Kickoff, Environment Setup: Jira, Create Project backlog, Create user stories, tasks and bugs, and Integration w/ Source code control, team communication.",
+        "actual_answer": "The tentative course schedule for Week 2 includes the following activities:\n- Project Kickoff\n- Environment Setup: Jira\n  - Create Project backlog\n  - Create user stories, tasks, and bugs\n  - Integration with Source code control, team communication\n\nThese activities are scheduled for 9/4.",
+        "similarity_score": 0.8922835991330769,
+        "is_correct": true
+    },
+    {
+        "question": "What is the Zoom link for the instructor?",
+        "expected_answer": "https://unh.zoom.us/j/4858446046",
+        "actual_answer": "The Zoom link for the instructor Karen Jin is https://unh.zoom.us/j/4858446046.",
+        "similarity_score": 0.9233855836808691,
+        "is_correct": true
+    },
+    {
+        "question": "When is the course term for COMP 893 Team Project Internship?",
+        "expected_answer": "Fall 2024",
+        "actual_answer": "The course term for COMP 893 Team Project Internship is Fall 2024.",
+        "similarity_score": 0.8474323445289067,
+        "is_correct": true
+    },
+    {
+        "question": "What is the name of the internship course?",
+        "expected_answer": "COMP690 Internship Experience",
+        "actual_answer": "The name of the internship course is COMP 893 Team Project Internship.",
+        "similarity_score": 0.8656477324598868,
+        "is_correct": true
+    },
+    {
+        "question": "How many credits does the internship course offer?",
+        "expected_answer": "4",
+        "actual_answer": "The internship course offers variable credits, ranging from 1-3 credits.",
+        "similarity_score": 0.7595617790723146,
+        "is_correct": false
+    },
+    {
+        "question": "Who is the instructor for the course?",
+        "expected_answer": "Karen Jin, Associate Professor, Department of Applied Engineering and Sciences",
+        "actual_answer": "The instructor for the COMP690 M2/M3 Internship Experience course is Karen Jin, Associate Professor in the Department of Applied Engineering and Sciences.",
+        "similarity_score": 0.8904462939413573,
+        "is_correct": true
+    },
+    {
+        "question": "Where is the location of the course?",
+        "expected_answer": "Rm P142",
+        "actual_answer": "The location of the course is Room P142.",
+        "similarity_score": 0.847475960541966,
+        "is_correct": true
+    },
+    {
+        "question": "What is the Zoom link for the instructor's office hours?",
+        "expected_answer": "https://unh.zoom.us/j/4858446046",
+        "actual_answer": "Unfortunately, the Zoom link for the instructor's office hours is not provided in the given information. It is recommended to reach out to the instructor directly or check the course syllabus for the Zoom link.",
+        "similarity_score": 0.8092569679449124,
+        "is_correct": true
+    },
+    {
+        "question": "What are the office hours for the instructor?",
+        "expected_answer": "Monday 1-4pm and Friday 9-noon",
+        "actual_answer": "The office hours for the instructor are not explicitly mentioned in the provided text. It is recommended to reach out to the instructor directly or refer to the course syllabus for information on their office hours.",
+        "similarity_score": 0.7883332471852886,
+        "is_correct": false
+    },
+    {
+        "question": "What is the main focus of the internship course?",
+        "expected_answer": "To provide experiential learning experience through placement in team projects",
+        "actual_answer": "The main focus of the internship course is to provide students with experiential learning experience through placement in team projects. This hands-on experience allows students to gain practical skills and insights into the field of computing. By working on a collaborative project with external stakeholders, students will contribute to the development of real-world information technology products, processes, or services, and understand the challenges involved in implementing technology solutions in a professional setting. The course aims to help students analyze complex computing problems, design and implement computing solutions, communicate effectively in professional contexts, and function effectively as a member or leader of a team engaged in IT activities.",
+        "similarity_score": 0.8803831687278489,
+        "is_correct": true
+    },
+    {
+        "question": "What are the student learning outcomes for the course?",
+        "expected_answer": "Analyzing complex computing problems, designing and implementing computing solutions, effective communication, functioning in a team, and identifying user needs",
+        "actual_answer": "The student learning outcomes for the course include:\n1. Demonstrate effective teamwork skills through peer evaluation and collaboration on team projects.\n2. Apply project management principles and development tools to successfully complete sprints and the final project.\n3. Develop technical skills related to product development and project management.\n4. Create a comprehensive final project report that showcases the team's work and accomplishments.\n5. Manage time effectively to meet project deadlines and requirements.\n6. Communicate effectively with team members, instructors, and site supervisors during the internship experience.\n7. Reflect on and evaluate personal learning and growth throughout the course and internship experience.",
+        "similarity_score": 0.8191385405417804,
+        "is_correct": true
+    },
+    {
+        "question": "What is covered in Week 1 of the tentative course schedule?",
+        "expected_answer": "Class Introduction, Development Team (DT) Setup, Intro to Project Management, Intro to Scrum workflow, Project Goal",
+        "actual_answer": "Week 1 of the tentative course schedule covers the following topics:\n- Class Introduction / Development Team (DT) Setup\n- Introduction to Project Management\n- Introduction to Scrum workflow\n- Project Goal",
+        "similarity_score": 0.9219017352003784,
+        "is_correct": true
+    },
+    {
+        "question": "What is covered in Week 2 of the tentative course schedule?",
+        "expected_answer": "Project Kickoff, Environment Setup: Jira, Create Project backlog, Create user stories, tasks and bugs, Integration w/ Source code control, team communication",
+        "actual_answer": "In Week 2 of the tentative course schedule, the following activities are covered:\n- Project Kickoff\n- Environment Setup: Jira\n  - Create Project backlog\n  - Create user stories, tasks, and bugs\n  - Integration with Source code control, team communication",
+        "similarity_score": 0.9110555209735731,
+        "is_correct": true
+    }
+]

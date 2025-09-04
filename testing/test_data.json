@@ -1,0 +1,152 @@
+[
+    {
+        "question": "Who is the Faculty Internship Coordinator for UNH Manchester Computing Internship?",
+        "answer": "Karen Jin",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What are the required internship courses for computing major students at UNH Manchester?",
+        "answer": "For undergraduate students: COMP690 Internship Experience. For graduate students: COMP890: Internship and Career Planning, COMP891: Internship Practice, COMP892: Applied Research Internship, COMP893: Team Project Internship.",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "Where is the CaPS office located?",
+        "answer": "Rm139, Pandora Mill building",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the email address for the CaPS office at UNH Manchester?",
+        "answer": "unhm.career@unh.edu",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the website for the Office of International Students and Scholars (OISS) at UNH Manchester?",
+        "answer": "https://www.unh.edu/global/international-students-scholars",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the course COMP890: Internship and Career Planning for graduate students?",
+        "answer": "It is a 1 credit course that helps students plan for the internship search process.",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the course COMP891: Internship Practice for graduate students?",
+        "answer": "It is a variable credit 1-3 crs course that students take when they have an external internship.",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the course COMP892: Applied Research Internship for graduate students?",
+        "answer": "It is a variable credit 1-3 crs course for students who are currently working full time or part time in the tech fields.",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the course COMP893: Team Project Internship for graduate students?",
+        "answer": "It is for students who are in their last semester of study and need to fulfill the internship requirements.",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "How can students register for internship courses at UNH Manchester?",
+        "answer": "Students can register for internship courses through the UNH Manchester course registration system.",
+        "source": "chatbot-doc.pdf"
+    },
+    {
+        "question": "What is the name of the course?",
+        "answer": "COMP 893 Team Project Internship",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "Who is the instructor for the course?",
+        "answer": "Karen Jin, Associate Professor, Department of Applied Engineering and Sciences",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "Where is the course located?",
+        "answer": "Rm P142",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What are the office hours for the instructor?",
+        "answer": "Monday 1-4pm and Friday 9-noon. Available in person or over Zoom. Email to make appointments.",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What is the course description?",
+        "answer": "The internship course provides experiential learning experience through placement in team projects.",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What are the student learning outcomes for the course?",
+        "answer": "Analyzing complex computing problems, designing and implementing computing solutions, effective communication, functioning in a team, and identifying user needs.",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What is the tentative course schedule for Week 1?",
+        "answer": "Class Introduction, Development Team (DT) Setup, Intro to Project Management, Intro to Scrum workflow, and Project Goal.",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What is the tentative course schedule for Week 2?",
+        "answer": "Project Kickoff, Environment Setup: Jira, Create Project backlog, Create user stories, tasks and bugs, and Integration w/ Source code control, team communication.",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What is the Zoom link for the instructor?",
+        "answer": "https://unh.zoom.us/j/4858446046",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "When is the course term for COMP 893 Team Project Internship?",
+        "answer": "Fall 2024",
+        "source": "Comp893.pdf"
+    },
+    {
+        "question": "What is the name of the internship course?",
+        "answer": "COMP690 Internship Experience",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "How many credits does the internship course offer?",
+        "answer": "4",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "Who is the instructor for the course?",
+        "answer": "Karen Jin, Associate Professor, Department of Applied Engineering and Sciences",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "Where is the location of the course?",
+        "answer": "Rm P142",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "What is the Zoom link for the instructor's office hours?",
+        "answer": "https://unh.zoom.us/j/4858446046",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "What are the office hours for the instructor?",
+        "answer": "Monday 1-4pm and Friday 9-noon",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "What is the main focus of the internship course?",
+        "answer": "To provide experiential learning experience through placement in team projects",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "What are the student learning outcomes for the course?",
+        "answer": "Analyzing complex computing problems, designing and implementing computing solutions, effective communication, functioning in a team, and identifying user needs",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "What is covered in Week 1 of the tentative course schedule?",
+        "answer": "Class Introduction, Development Team (DT) Setup, Intro to Project Management, Intro to Scrum workflow, Project Goal",
+        "source": "Comp693.pdf"
+    },
+    {
+        "question": "What is covered in Week 2 of the tentative course schedule?",
+        "answer": "Project Kickoff, Environment Setup: Jira, Create Project backlog, Create user stories, tasks and bugs, Integration w/ Source code control, team communication",
+        "source": "Comp693.pdf"
+    }
+]
