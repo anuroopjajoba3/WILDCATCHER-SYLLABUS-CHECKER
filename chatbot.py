@@ -13,7 +13,7 @@ load_dotenv()  # Load environment variables from .env file
 from flask import Flask, request, jsonify, render_template
 import pdfplumber
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
@@ -24,9 +24,7 @@ import json
 from datetime import datetime
 import hashlib
 from concurrent.futures import ThreadPoolExecutor
-import json
 import asyncio
-import hashlib
 from docx import Document as DocxDocument
 from database import DocumentInfo, Session
 import zipfile
@@ -409,7 +407,6 @@ def custom_split_documents_by_weeks(documents):
 
 
 # Load OpenAI embeddings for vector search
-from langchain_openai import OpenAIEmbeddings
 embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", openai_api_key=apikey)
 
 # Create a Chroma vector store for semantic search
