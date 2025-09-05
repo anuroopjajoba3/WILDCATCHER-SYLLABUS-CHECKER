@@ -16,7 +16,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_community.chat_models import ChatOpenAI
-from langchain.vectorstores import Chroma
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document, HumanMessage
 from langchain.memory import ConversationBufferMemory
@@ -24,7 +23,6 @@ import re
 import json
 from datetime import datetime
 import hashlib
-from langchain.chat_models import ChatOpenAI
 from concurrent.futures import ThreadPoolExecutor
 import json
 import asyncio
@@ -411,6 +409,7 @@ def custom_split_documents_by_weeks(documents):
 
 
 # Load OpenAI embeddings for vector search
+from langchain_openai import OpenAIEmbeddings
 embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", openai_api_key=apikey)
 
 # Create a Chroma vector store for semantic search
