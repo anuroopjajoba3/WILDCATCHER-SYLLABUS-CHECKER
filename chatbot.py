@@ -13,9 +13,8 @@ load_dotenv()  # Load environment variables from .env file
 from flask import Flask, request, jsonify, render_template
 import pdfplumber
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document, HumanMessage
 from langchain.memory import ConversationBufferMemory
