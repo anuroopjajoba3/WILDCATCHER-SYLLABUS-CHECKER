@@ -13,7 +13,7 @@ load_dotenv()  # Load environment variables from .env file
 from flask import Flask, request, jsonify, render_template
 import pdfplumber
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document, HumanMessage
@@ -24,6 +24,7 @@ from datetime import datetime
 import hashlib
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
+import time
 from docx import Document as DocxDocument
 from database import DocumentInfo, Session
 import zipfile
@@ -409,11 +410,18 @@ def custom_split_documents_by_weeks(documents):
 embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", openai_api_key=apikey)
 
 # Create a Chroma vector store for semantic search
-persist_directory = 'db'
-if os.path.exists(persist_directory):
-    db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
-else:
-    # Create empty database - will be populated when documents are uploaded
+persist_directory = 'chroma_db'
+try:
+    if os.path.exists(persist_directory):
+        db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+    else:
+        # Create empty database - will be populated when documents are uploaded
+        db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+except Exception as e:
+    print(f"Error loading existing database: {e}")
+    print("Creating fresh database...")
+    # Use different directory name to avoid conflicts
+    persist_directory = f'chroma_db_new_{int(time.time())}'
     db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
 
 # Configure a retriever for semantic search
@@ -493,7 +501,7 @@ def ask():
         retrieval_context = [doc.page_content for doc in relevant_docs]
 
         if not retrieval_context:
-            return jsonify({"response": "Sorry, I could not find relevant information in the uploaded syllabus."})
+            retrieval_context = ["No syllabus content available."]
 
         # Build prompt
         prompt_text = PROMPT_TEMPLATE.format(
