@@ -13,3 +13,6 @@ pytest==8.3.3
 
 # Additional dependencies for docx handling
 lxml>=4.9.0
+
+# Semantic similarity dependencies
+numpy>=1.21.0

@@ -1,0 +1,7 @@
+Collecting numpy
+  Downloading numpy-2.3.2-cp311-cp311-win_amd64.whl.metadata (60 kB)
+     -------------------------------------- 60.9/60.9 kB 545.1 kB/s eta 0:00:00
+Downloading numpy-2.3.2-cp311-cp311-win_amd64.whl (13.1 MB)
+   ---------------------------------------- 13.1/13.1 MB 46.7 MB/s eta 0:00:00
+Installing collected packages: numpy
+Successfully installed numpy-2.3.2

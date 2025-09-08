@@ -108,7 +108,7 @@ Date: 11-30-2024
             background-color: transparent;
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-                url('/Users/bubby/TeamGulliver/static/logo.png');
+                url('{{ url_for('static', filename='logo3.png') }}');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -713,7 +713,7 @@ const reportText = `
                                 <td>${minimalStatus}</td>
                                 <td>
                                     <div class="d-flex flex-column gap-2">
-                                        <button class="btn custom-blue-btn btn-sm" onclick="viewReport('${reportId}')">View</button>
+                                        <button class="btn custom-blue-btn btn-sm" onclick="viewReport('${reportId}', '${baseFilename}')">View</button>
                                     </div>
                                     <textarea id="${reportId}" style="display:none;">${reportText}</textarea>
                                 </td>
@@ -915,7 +915,7 @@ const reportText = `
                                 <td>${minimalStatus}</td>
                                 <td>
                                     <div class="d-flex flex-column gap-2">
-                                        <button class="btn custom-blue-btn btn-sm" onclick="viewReport('${reportId}')">View</button>
+                                        <button class="btn custom-blue-btn btn-sm" onclick="viewReport('${reportId}', '${baseFilename}')">View</button>
                                     </div>
                                     <textarea id="${reportId}" style="display:none;">${reportText}</textarea>
                                 </td>
@@ -1505,6 +1505,7 @@ const reportText = `
 
 
             const reportId = `report-${Date.now()}-${file.name}`;
+            const baseFilename = file.name; // Extract filename for single file upload
 
             const tableHtml = `
                 <div class="table-responsive">
@@ -1526,7 +1527,7 @@ const reportText = `
                             <td>${minimalStatus}</td>
                             <td>
                                 <div class="d-flex flex-column gap-2">
-                                    <button class="btn custom-blue-btn btn-sm" onclick="viewReport('${reportId}')">View</button>
+                                    <button class="btn custom-blue-btn btn-sm" onclick="viewReport('${reportId}', '${baseFilename}')">View</button>
                                 </div>
                                 <textarea id="${reportId}" style="display:none;">${reportText}</textarea>
                             </td>
@@ -1561,12 +1562,17 @@ const reportText = `
             handleSend();
         }
     });
-    function viewReport(reportId) {
+    let currentReportFilename = ""; // Store current report filename
+
+    function viewReport(reportId, filename) {
         const reportElement = document.getElementById(reportId);
         if (!reportElement) {
             alert("No report found for this entry.");
             return;
         }
+        
+        // Store the filename for this specific report
+        currentReportFilename = filename || "Unknown_File";
     
         // Extract the report content
         let reportContent = reportElement.value;
@@ -1640,8 +1646,10 @@ const reportText = `
 function downloadReportFromModal() {
     const modalContent = document.getElementById("reportContent");
 
-    // Check if the uploaded file name is available
-    if (!uploadedFileName || uploadedFileName === "") {
+    // Use currentReportFilename if available, otherwise fall back to uploadedFileName
+    const filename = currentReportFilename || uploadedFileName || "Unknown_File";
+    
+    if (!filename || filename === "") {
         alert("File name is not available. Please upload a file first.");
         return;
     }
@@ -1649,7 +1657,7 @@ function downloadReportFromModal() {
     // Use html2pdf to generate the PDF
     const options = {
         margin: [0.5, 0.5, 0.5, 0.5], // Top, right, bottom, left margins in inches
-        filename: `SYLLABUS_REPORT- ${uploadedFileName.replace(/\.[^/.]+$/, "")}.pdf`, // Remove file extension and add suffix
+        filename: `SYLLABUS_REPORT_${filename.replace(/\.[^/.]+$/, "")}.pdf`, // Remove file extension and add suffix
         html2canvas: {
             scale: 2, // Increase scale for better quality
             useCORS: true, // Enable cross-origin resource sharing

@@ -11,8 +11,9 @@ load_dotenv()
 from flask import Flask, request, jsonify, render_template
 import pdfplumber
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document, HumanMessage
 from langchain.memory import ConversationBufferMemory
@@ -22,7 +23,6 @@ from datetime import datetime
 import hashlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import asyncio
-import time
 from docx import Document as DocxDocument
 from database import DocumentInfo, Session
 import zipfile
@@ -32,6 +32,7 @@ import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import numpy as np
 
 # Configure logging
 logging.basicConfig(
@@ -45,6 +46,129 @@ logging.basicConfig(
 
 session = Session()
 app = Flask(__name__)
+
+def cosine_similarity(vec1, vec2):
+    """Calculate cosine similarity between two vectors."""
+    vec1 = np.array(vec1)
+    vec2 = np.array(vec2)
+    
+    # Handle zero vectors
+    norm1 = np.linalg.norm(vec1)
+    norm2 = np.linalg.norm(vec2)
+    
+    if norm1 == 0 or norm2 == 0:
+        return 0.0
+    
+    return np.dot(vec1, vec2) / (norm1 * norm2)
+
+def find_similar_content(text, target_concept, embeddings):
+    """Find content similar to target concept using embeddings."""
+    if not text or not target_concept:
+        return []
+    
+    try:
+        # Split text into chunks for analysis
+        chunks = [chunk.strip() for chunk in text.split('\n\n') if chunk.strip()]
+        
+        # Filter out very short chunks
+        chunks = [chunk for chunk in chunks if len(chunk) > 20]
+        
+        if not chunks:
+            return []
+        
+        # Limit chunks for performance (top 50 chunks)
+        if len(chunks) > 50:
+            chunks = chunks[:50]
+        
+        # Get embeddings for chunks and target concept
+        chunk_embeddings = embeddings.embed_documents(chunks)
+        target_embedding = embeddings.embed_query(target_concept)
+        
+        # Calculate similarities
+        similarities = []
+        for chunk_emb in chunk_embeddings:
+            similarity = cosine_similarity(target_embedding, chunk_emb)
+            similarities.append(similarity)
+        
+        # Get top 3 most similar chunks above threshold
+        threshold = 0.7  # Similarity threshold
+        top_indices = sorted(range(len(similarities)), 
+                           key=lambda i: similarities[i], 
+                           reverse=True)
+        
+        # Filter by threshold and return top 3
+        relevant_chunks = []
+        for idx in top_indices[:3]:
+            if similarities[idx] > threshold:
+                relevant_chunks.append(chunks[idx])
+        
+        return relevant_chunks
+        
+    except Exception as e:
+        logging.error(f"Error in find_similar_content: {e}")
+        return []
+
+def semantic_field_extraction(text, embeddings):
+    """Use semantic similarity to find missing fields with different phrasing."""
+    
+    # Define field concepts to search for
+    field_concepts = {
+        "Attendance Policy": [
+            "class attendance requirements",
+            "participation expectations", 
+            "meeting attendance policy",
+            "course attendance rules"
+        ],
+        "Late Submission Policy": [
+            "late assignment penalty",
+            "deadline extension policy",
+            "overdue work rules",
+            "submission deadline policy"
+        ],
+        "Academic Integrity": [
+            "cheating and plagiarism policy",
+            "academic honesty expectations",
+            "collaboration guidelines",
+            "ethical conduct standards"
+        ],
+        "Office Hours": [
+            "instructor availability",
+            "meeting with instructor",
+            "office consultation times",
+            "student help sessions"
+        ],
+        "Grading Procedures": [
+            "grade calculation method",
+            "assessment scoring rubric",
+            "evaluation criteria",
+            "point distribution system"
+        ],
+        "Student Learning Outcomes": [
+            "course learning objectives",
+            "educational goals",
+            "skill development targets",
+            "knowledge acquisition goals"
+        ]
+    }
+    
+    results = {}
+    
+    for field_name, concepts in field_concepts.items():
+        best_content = []
+        
+        # Try each concept variation for this field
+        for concept in concepts:
+            similar_content = find_similar_content(text, concept, embeddings)
+            if similar_content:
+                best_content.extend(similar_content)
+        
+        # If we found relevant content, store the best matches
+        if best_content:
+            # Remove duplicates and limit to top 2 matches
+            unique_content = list(dict.fromkeys(best_content))[:2]
+            results[field_name] = " | ".join(unique_content)
+    
+    return results
 
 # Helper function to validate extracted information
 def validate_extracted_info(info):
@@ -154,6 +278,176 @@ def extract_text_from_docx(docx_path):
         logging.info(f"Extracted {len(combined_text)} characters from {docx_path}")
         return combined_text
 
+def identify_missing_fields(extracted_info):
+    """
+    Identify fields that are missing or likely to be false negatives.
+    Returns a list of field names that need targeted extraction.
+    """
+    if not extracted_info or not isinstance(extracted_info, dict):
+        return []
+    
+    # Define critical fields that often have false negatives
+    critical_fields = [
+        "Instructor Department",
+        "Instructor Response Time", 
+        "Phone Number",
+        "Office Hours",
+        "Student Learning Outcomes",
+        "Grading Procedures",
+        "Final Grade Scale",
+        "Other Materials",
+        "Attendance Policy",
+        "Academic Integrity",
+        "Assignment Types and Delivery"
+    ]
+    
+    missing_fields = []
+    for field in critical_fields:
+        field_value = extracted_info.get(field)
+        # Check if field is missing or empty (handle both string and non-string values)
+        if (field not in extracted_info or 
+            not field_value or 
+            (isinstance(field_value, str) and field_value.strip() == "")):
+            missing_fields.append(field)
+    
+    return missing_fields
+
+async def targeted_field_extraction(text, llm, missing_fields):
+    """
+    Perform targeted extraction for specific missing fields.
+    """
+    if not missing_fields:
+        return {}
+    
+    # Create targeted prompts for each field type
+    field_prompts = {
+        "Instructor Department": """
+        Find the instructor's department/program affiliation in this text:
+        - Look for "Department of [X]", "College of [X]", "Program in [X]"
+        - Check course department context
+        - Look for instructor title mentions with department
+        """,
+        
+        "Instructor Response Time": """
+        Find email response time or availability information:
+        - "within 24 hours", "24-48 hours", "responds to emails within"
+        - "I will respond to emails..." or general response policies
+        - If found, extract the specific policy
+        """,
+        
+        "Phone Number": """
+        Find phone/telephone contact information:
+        - Actual phone numbers with digits
+        - References to "office phone", "telephone contact", "phone available"
+        - Even if no digits, note if phone contact is mentioned as available
+        """,
+        
+        "Office Hours": """
+        Find office hours or meeting availability:
+        - Specific office hours with days/times
+        - "By appointment", "Open door policy", "Available after class"
+        - "Email to schedule meeting" or flexible meeting policies
+        """,
+        
+        "Student Learning Outcomes": """
+        Find learning objectives or outcomes:
+        - Headers: "Student Learning Outcome", "Learning Objectives", "Course Objectives"
+        - Bullet points starting with action verbs: "Analyze", "Design", "Implement", "Evaluate"
+        - Numbered or bulleted lists of what students will learn/do
+        """,
+        
+        "Grading Procedures": """
+        Find grading breakdown and calculation methods:
+        - Percentage breakdowns that add up to 100%
+        - Assignment weights and calculation formulas
+        - Rubrics or evaluation criteria mentioned
+        """,
+        
+        "Final Grade Scale": """
+        Find letter grade scale or grading standards:
+        - "A: 90-100%", "B: 80-89%" type scales
+        - References to "standard university grading scale" or "UNH grading scale"
+        - Any mention of grading standards or scale
+        """,
+        
+        "Other Materials": """
+        Find course materials, textbooks, or resources:
+        - "Materials available via Canvas/MyCourses"
+        - "No required textbook but supplemental readings"
+        - Online resources, course packets, software tools
+        """,
+        
+        "Attendance Policy": """
+        Find attendance requirements or policies:
+        - "No scheduled class times" or flexible attendance
+        - "Self-paced", "Asynchronous" delivery
+        - Any mention of attendance expectations or requirements
+        """,
+        
+        "Academic Integrity": """
+        Find academic integrity or honor code policies:
+        - "plagiarism", "academic misconduct", "AI tools", "ChatGPT"
+        - "Collaboration policy", "Individual work", "Group work guidelines"
+        - References to university honor code or academic standards
+        """,
+        
+        "Assignment Types and Delivery": """
+        Find types of assignments and how they're submitted:
+        - "Homework", "Projects", "Exams", "Presentations", "Reports"
+        - Delivery methods: "Canvas", "In-person", "Online submission"
+        - Assignment formats and submission requirements
+        """
+    }
+    
+    results = {}
+    
+    # Process each missing field with targeted extraction
+    for field in missing_fields:
+        if field in field_prompts:
+            prompt = f"""
+            You are extracting specific information from a syllabus. Focus ONLY on finding: {field}
+
+            {field_prompts[field]}
+
+            Text to search:
+            {text[:15000]}  # Limit text for focused search
+
+            Return ONLY the extracted information for "{field}" or "Not found" if truly absent.
+            Be generous - if there's any related information, include it rather than marking as missing.
+            """
+            
+            try:
+                response = await llm.ainvoke(prompt)
+                result = response.content.strip()
+                
+                # Clean up the response
+                if result and result.lower() not in ["not found", "not specified", "n/a", ""]:
+                    results[field] = result
+                    
+            except Exception as e:
+                logging.error(f"Targeted extraction error for {field}: {e}")
+                continue
+    
+    return results
+
+async def multi_pass_extraction(text, llm):
+    """
+    Multi-pass extraction system to reduce false negatives.
+    """
+    # First pass: general extraction
+    first_pass = await extract_course_information(text, llm)
+    
+    # Second pass: targeted search for missing fields
+    missing_fields = identify_missing_fields(first_pass)
+    if missing_fields:
+        logging.info(f"Performing targeted extraction for missing fields: {missing_fields}")
+        second_pass = await targeted_field_extraction(text, llm, missing_fields)
+        
+        # Merge results, second pass takes priority for previously missing fields
+        first_pass.update(second_pass)
+    
+    return first_pass
+
 async def extract_course_information(text, llm):
     """
     Enhanced extraction with much better field detection patterns.
@@ -242,6 +536,44 @@ async def extract_course_information(text, llm):
     - Software tools mentioned: "Canvas", "Teams", development tools
     - Hardware needs
     - For computing courses, may mention programming languages or IDEs
+
+    **ENHANCED PATTERN RECOGNITION EXAMPLES**:
+    
+    **Instructor Department/Affiliation Patterns**:
+    - "Department of [X]", "College of [X]", "Program in [X]"
+    - If document says "Department of Security Studies" anywhere, that's likely the instructor's department
+    - Look for department context even if not directly after instructor name
+    
+    **Phone Number Detection**:
+    - May say "Telephone contact as secondary method" without giving number - mark as present if contact method mentioned
+    - Look for "office phone", "contact number", "telephone", even without digits
+    
+    **Response Time Patterns**:
+    - "within 24 hours", "24-48 hours", "responds to emails within"
+    - "I will respond to emails..." or "Email responses typically..." indicates policy exists
+    
+    **Materials/Textbook Detection**:
+    - "Materials available via MyCourses" = textbook/materials ARE specified
+    - "Posted on Canvas", "Available online", "Course packets" = materials specified
+    - "No required textbook but supplemental readings" = materials policy exists
+    
+    **Attendance Policy Detection**:
+    - "No scheduled class times" or "Monday to Sunday schedule" = attendance policy exists
+    - "Flexible attendance", "Self-paced", "Asynchronous" = attendance policy specified
+    - Any mention of attendance expectations counts as policy
+    
+    **Academic Integrity Detection**:
+    - Look for "plagiarism", "academic misconduct", "AI tools", "ChatGPT", "homework help"
+    - "Collaboration policy", "Individual work", "Group work guidelines" = academic integrity
+    - References to university honor code or academic standards
+    
+    **Grading Scale Detection**:
+    - References to "standard university grading scale" or "UNH grading scale" = scale specified
+    - Even if not explicit percentages, any mention of grading standards counts
+    
+    **Office Hours Detection**:
+    - "By appointment", "Open door policy", "Available after class" = office hours specified
+    - "Email to schedule meeting" = office hours policy exists
 
     SPECIFIC EXAMPLES FROM TEXT:
     - If you see "Karen Jin, Associate Professor of Computer Science" → Instructor Department = "Computer Science"
@@ -390,16 +722,6 @@ def enhanced_post_process(info, original_text):
         # Academic standard if not specified
         info["Instructor Response Time"] = "Standard academic response time (24-48 hours)"
     
-    # Materials check
-    if "Other Materials" not in info:
-        if "Canvas" in original_text or "posted in Canvas" in original_text.lower():
-            info["Other Materials"] = "Course materials and resources posted in Canvas"
-    
-    # Technical requirements for computing courses
-    if "Technical Requirements" not in info:
-        if any(term in original_text.lower() for term in ["canvas", "teams", "scrum", "development"]):
-            info["Technical Requirements"] = "Canvas LMS, Microsoft Teams, development tools as specified"
-    
     # Assignment types from grading section
     if "Assignment Types and Delivery" not in info:
         types = []
@@ -413,6 +735,113 @@ def enhanced_post_process(info, original_text):
             types.append("Reports")
         if types:
             info["Assignment Types and Delivery"] = ", ".join(types) + " (via Canvas)"
+    
+    # IMPROVED REGEX PATTERNS FOR BETTER FIELD DETECTION
+    
+    # Better attendance detection
+    if "Attendance Policy" not in info:
+        attendance_patterns = [
+            r"no scheduled class times",
+            r"Monday to Sunday schedule",
+            r"expected to spend \d+ hours per week",
+            r"attendance.*required",
+            r"class meetings"
+        ]
+        for pattern in attendance_patterns:
+            if re.search(pattern, original_text, re.IGNORECASE):
+                info["Attendance Policy"] = "Found - see syllabus for details"
+                break
+    
+    # Better late policy detection
+    if "Late Submission Policy" not in info:
+        late_patterns = [
+            r"\d+% (per day|deduction|late)",
+            r"late (submission|assignment|policy)",
+            r"deadline.*extension",
+            r"6 days to submit"
+        ]
+        for pattern in late_patterns:
+            if re.search(pattern, original_text, re.IGNORECASE):
+                match = re.search(r"(.*late.*?\.)", original_text, re.IGNORECASE | re.DOTALL)
+                if match:
+                    info["Late Submission Policy"] = match.group(1).strip()
+                else:
+                    info["Late Submission Policy"] = "Late policy found - see syllabus for details"
+                break
+    
+    # Academic integrity detection
+    if "Academic Integrity" not in info:
+        ai_patterns = [
+            r"academic (integrity|honesty|misconduct)",
+            r"plagiarism",
+            r"AI (writing )?tools",
+            r"ChatGPT",
+            r"homework help websites",
+            r"chegg"
+        ]
+        for pattern in ai_patterns:
+            if re.search(pattern, original_text, re.IGNORECASE):
+                info["Academic Integrity"] = "Policy present - see syllabus"
+                break
+    
+    # Enhanced materials detection (replaces existing basic check)
+    if "Textbook" not in info and "Other Materials" not in info:
+        if re.search(r"materials.*available.*mycourses", original_text, re.IGNORECASE):
+            info["Other Materials"] = "Materials available via MyCourses"
+        elif re.search(r"no.*required.*textbook", original_text, re.IGNORECASE):
+            info["Textbook"] = "No required textbook"
+    
+    # Enhanced technical requirements (replaces existing basic check)
+    if "Technical Requirements" not in info:
+        tech_patterns = [
+            r"mycourses",
+            r"canvas",
+            r"zoom",
+            r"microsoft teams",
+            r"online platform"
+        ]
+        tech_found = []
+        for pattern in tech_patterns:
+            if re.search(pattern, original_text, re.IGNORECASE):
+                # Clean up pattern for display (remove regex chars and title case)
+                clean_name = re.sub(r'[r"\\]', '', pattern).title()
+                tech_found.append(clean_name)
+        if tech_found:
+            info["Technical Requirements"] = ", ".join(tech_found)
+    
+    # SEMANTIC SIMILARITY FALLBACK - Last resort for missing fields
+    # Only use for critical fields that are still missing after all other methods
+    missing_critical_fields = []
+    semantic_target_fields = [
+        "Attendance Policy", 
+        "Late Submission Policy", 
+        "Academic Integrity", 
+        "Office Hours", 
+        "Grading Procedures", 
+        "Student Learning Outcomes"
+    ]
+    
+    for field in semantic_target_fields:
+        if field not in info or not info.get(field):
+            missing_critical_fields.append(field)
+    
+    # Only run semantic extraction if we have missing critical fields
+    # and we have access to embeddings
+    if missing_critical_fields:
+        try:
+            # Use the global embeddings object that's already initialized
+            semantic_results = semantic_field_extraction(original_text, embeddings)
+            
+            # Only add semantic results for fields that are truly missing
+            for field in missing_critical_fields:
+                if field in semantic_results and semantic_results[field]:
+                    info[field] = f"Semantic match: {semantic_results[field]}"
+                    logging.info(f"Semantic fallback found content for {field}")
+                    
+        except Exception as e:
+            logging.error(f"Semantic fallback error: {e}")
+            # Continue without semantic fallback if it fails
+            pass
     
     return info
 
@@ -461,8 +890,8 @@ def upload_file():
     if extracted_text is None:
         return jsonify({'error': 'Failed to extract text from document.'}), 400
 
-    # Extract course information
-    extracted_info = asyncio.run(extract_course_information(extracted_text, llm))
+    # Extract course information using multi-pass extraction
+    extracted_info = asyncio.run(multi_pass_extraction(extracted_text, llm))
     
     if extracted_info and isinstance(extracted_info, dict):
         return jsonify({'extracted_information': extracted_info})
@@ -552,6 +981,72 @@ text_splitter = RecursiveCharacterTextSplitter(
     separators=["\n\n", "\n", " "]
 )
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+
+# Custom document splitting logic based on weekly sections
+def custom_split_documents_by_weeks(documents):
+    """Splits documents into logical sections by weeks or content."""
+    chunks = []
+    for doc in documents:
+        if "<TABLE_START>" in doc.page_content:
+            week_sections = re.split(r"(Week \d+)", doc.page_content)
+            current_week = None
+            for part in week_sections:
+                week_match = re.match(r"Week \d+", part)
+                if week_match:
+                    current_week = part.strip()
+                elif current_week:
+                    chunks.append(Document(page_content=f"{current_week}\n{part.strip()}", metadata=doc.metadata))
+        else:
+            chunked_texts = text_splitter.split_text(doc.page_content)
+            for chunk in chunked_texts:
+                chunks.append(Document(page_content=chunk, metadata=doc.metadata))
+    return chunks
+
+#texts = custom_split_documents_by_weeks(documents)
+
+
+
+# Load OpenAI embeddings for vector search
+from langchain_openai import OpenAIEmbeddings
+embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", openai_api_key=apikey)
+
+# Create a Chroma vector store for semantic search
+persist_directory = 'db'
+if os.path.exists(persist_directory):
+    db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+else:
+    # Create empty database - will be populated when documents are uploaded
+    db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+
+# Configure a retriever for semantic search
+retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 5})
+
+# Set up conversation memory and load previous context
+
+previous_memory = load_conversation_memory()
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True, k=3)
+for item in previous_memory:
+    memory.chat_memory.add_user_message(item["user"])
+    memory.chat_memory.add_ai_message(item["assistant"])
+
+
+
+# Initialize the open AI LLM Model
+apikey = os.getenv("OPENAI_API_KEY")
+llm = ChatOpenAI(
+    model="gpt-3.5-turbo",
+    openai_api_key=apikey,
+    temperature=0,
+    top_p=1
+)
+
+# Define the custom prompt template for friendly, conversational tone
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 PROMPT_TEMPLATE = """
 You are a helpful assistant who reviews course syllabi for NECHE and UNH compliance.
 
@@ -587,12 +1082,31 @@ def ask():
         # Retrieve context
         try:
             relevant_docs = db.similarity_search(user_question, **retriever.search_kwargs)
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+            print(f" Retrieved {len(relevant_docs)} relevant docs")
+        except Exception as retrieval_error:
+            print(" Retrieval error:", retrieval_error)
+            return jsonify({"response": ":warning: Retrieval system failed. Check vector DB setup."}), 500
+
+        retrieval_context = [doc.page_content for doc in relevant_docs]
+
+        if not retrieval_context:
+            return jsonify({"response": "Sorry, I could not find relevant information in the uploaded syllabus."})
+
+=======
+=======
+>>>>>>> Stashed changes
         except Exception as e:
             logging.error(f"Retrieval error: {e}")
             relevant_docs = []
         
         retrieval_context = [doc.page_content for doc in relevant_docs] if relevant_docs else ["No syllabus content available."]
         
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         # Build prompt
         prompt_text = PROMPT_TEMPLATE.format(
             context="\n".join(retrieval_context),
@@ -643,7 +1157,7 @@ def upload_folder():
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         try:
-            extracted_info = loop.run_until_complete(extract_course_information(extracted_text, llm))
+            extracted_info = loop.run_until_complete(multi_pass_extraction(extracted_text, llm))
         finally:
             loop.close()
 
@@ -670,7 +1184,7 @@ def process_file(file_path, filename):
             extracted_text = extract_text_from_docx(file_path)
             
         if extracted_text:
-            extracted_info = asyncio.run(extract_course_information(extracted_text, llm))
+            extracted_info = asyncio.run(multi_pass_extraction(extracted_text, llm))
             return {filename: extracted_info}
         else:
             return {filename: {"error": "No text extracted"}}
@@ -756,4 +1270,15 @@ def email_report():
 initialize_chat_history_file()
 
 if __name__ == '__main__':
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    app.run(debug=False, host='0.0.0.0', port=8002, threaded=True)
+    
+    
+    
+=======
     app.run(debug=True, host='0.0.0.0', port=8001, threaded=True)
+>>>>>>> Stashed changes
+=======
+    app.run(debug=True, host='0.0.0.0', port=8001, threaded=True)
+>>>>>>> Stashed changes
