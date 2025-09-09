@@ -385,10 +385,8 @@ def enhanced_post_process(info, original_text):
         if match:
             info["Course Format"] = match.group(0).strip()
     
-    # Email response time - if email exists but no response time
-    if info.get("Instructor Email") and ("Instructor Response Time" not in info):
-        # Academic standard if not specified
-        info["Instructor Response Time"] = "Standard academic response time (24-48 hours)"
+    # Email response time - only extract if explicitly mentioned (removed auto-fill to prevent false positives)
+    # The enhanced post-processing in course_extraction.py handles this properly
     
     # Materials check
     if "Other Materials" not in info:
