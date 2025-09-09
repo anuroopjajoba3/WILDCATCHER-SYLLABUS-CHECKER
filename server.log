@@ -1,0 +1,111 @@
+nohup: ignoring input
+2025-09-04 23:26:55,934 INFO: Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-04 23:26:56,050 ERROR: Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2025-09-04 23:26:56,052 ERROR: Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
+/home/ta1184@ad.unh.edu/Fall2025-Team-Alpha/chatbot.py:433: LangChainDeprecationWarning: Please see the migration guide at: https://python.langchain.com/docs/versions/migrating_memory/
+  memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True, k=3)
+ * Serving Flask app 'chatbot'
+ * Debug mode: off
+2025-09-04 23:26:56,082 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8001
+ * Running on http://132.177.242.107:8001
+2025-09-04 23:26:56,082 INFO: [33mPress CTRL+C to quit[0m
+2025-09-04 23:26:58,297 INFO: 127.0.0.1 - - [04/Sep/2025 23:26:58] "GET / HTTP/1.1" 200 -
+2025-09-04 23:27:04,130 INFO: HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-04 23:27:04,146 ERROR: Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2025-09-04 23:27:05,819 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-04 23:27:05,830 INFO: 127.0.0.1 - - [04/Sep/2025 23:27:05] "POST /ask HTTP/1.1" 200 -
+2025-09-04 23:30:52,837 INFO: 127.0.0.1 uploaded folder file: NIS 898 analys.docx
+2025-09-04 23:30:52,855 INFO: 127.0.0.1 - - [04/Sep/2025 23:30:52] "POST /upload_pdf HTTP/1.1" 200 -
+2025-09-04 23:50:14,576 INFO: 127.0.0.1 uploaded folder file: 2025-spring-comp690-M2-M3-jin.pdf
+2025-09-04 23:50:15,138 INFO: Retrying request to /chat/completions in 0.402758 seconds
+2025-09-04 23:50:20,077 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-04 23:50:20,090 INFO: 127.0.0.1 - - [04/Sep/2025 23:50:20] "POST /upload_pdf HTTP/1.1" 200 -
+2025-09-04 23:56:14,918 INFO: 127.0.0.1 uploaded folder file: NSIA 898 Syllabus.docx
+2025-09-04 23:56:14,952 INFO: Retrying request to /chat/completions in 0.449583 seconds
+2025-09-04 23:56:22,688 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-04 23:56:22,698 INFO: 127.0.0.1 - - [04/Sep/2025 23:56:22] "POST /upload_pdf HTTP/1.1" 200 -
+2025-09-05 00:00:57,486 INFO: 127.0.0.1 uploaded folder file: 2025-summer-comp690-comp891-jin.pdf
+2025-09-05 00:00:58,252 INFO: Retrying request to /chat/completions in 0.498652 seconds
+2025-09-05 00:01:02,748 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+ Retrieved 0 relevant docs
+📄 Prompt (preview):
+ 
+You are a helpful and friendly assistant who reviews course syllabi to determine if they meet NECHE and UNH minimal compliance requirements.
+
+You should respond to questions based on the syllabus content below.
+
+- If the question is a greeting or casual small talk (e.g., "hi", "how are you", "good morning"), reply politely and conversationally.
+- If the question is about syllabus content (like instructor name, grading, schedule), answer based on the information provided.
+- If the answer is not in the syllabus, respond with: "I'm sorry, I couldn't find that information in the syllabus."
+- If the question is unrelated to NECHE or syllabi (e.g., library help, course registration, study rooms), respond with: "I'm here to help check if your uploaded syllabus meets NECHE and minimal compliance requirements. For other questions, please contact the appropriate department."
+
+---
+
+### Syllabus Content:
+No syllabus content available.
+
+### User's Question:
+hi
+
+--- 
+
+Your Answer:
+
+ LLM Response: Hi there! How can I assist you today regarding your syllabus?
+Extracted 2184 characters from uploads/NIS 898 analys.docx
+Using cached document info.
+Extracted Course Information: {'Course Id': 'NSIA 898', 'Course Name': '', 'Credits': '', 'Modality': '', 'Term': '', 'Department': '', 'Prerequisites': '', 'Instructor Name': '', 'Instructor Title/Rank': '', 'Instructor Department': '', 'Instructor Email': '', 'Instructor Response Time': '', 'Office Location': '', 'Phone Number': '', 'Office Hours': '', 'Teaching Assistant Info': '', 'Course Format': '', 'Student Learning Outcomes': '', 'Course Topics & Dates': '', 'Sensitive Content': '', 'Credit Hour Workload Estimate': '', 'Assignment Types and Delivery': '', 'Grading Procedures': '', 'Final Grade Scale': '', 'Textbook': '', 'Other Materials': '', 'Technical Requirements': '', 'Attendance Policy': '', 'Late Submission Policy': '', 'Academic Integrity': '', 'Program Accreditation Info': ''}
+Extracted 9188 characters from uploads/2025-spring-comp690-M2-M3-jin.pdf
+
+DEBUG: OpenAI Raw Response:
+ {
+    "Course Id": "COMP690",
+    "Course Name": "Internship Experience",
+    "Credits": "4",
+    "Modality": "M2 Section: Wednesday 9:10am-12pm. Room: P301",
+    "Term": "Spring 2025 January 21 – May 5 2025",
+    "Department": "Department of Applied Engineering and Sciences",
+    "Prerequisites": "N/A",
+    "Instructor Name": "Karen Jin",
+    "Instructor Title/Rank": "Associate Professor",
+    "Instructor Department": "Dept. of Applied Engineering and Sciences",
+    "Instructor Email": "karen.j
+Extracted Course Information: {'Course Id': 'COMP690', 'Course Name': 'Internship Experience', 'Credits': '4', 'Modality': 'M2 Section: Wednesday 9:10am-12pm. Room: P301', 'Term': 'Spring 2025 January 21 – May 5 2025', 'Department': 'Department of Applied Engineering and Sciences', 'Prerequisites': 'N/A', 'Instructor Name': 'Karen Jin', 'Instructor Title/Rank': 'Associate Professor', 'Instructor Department': 'Dept. of Applied Engineering and Sciences', 'Instructor Email': 'karen.jin@unh.edu', 'Instructor Response Time': '48 hours during business days', 'Office Location': 'Rm 139, Pandora Mill building', 'Phone Number': '(603) 641-4398', 'Office Hours': 'Wednesdays 4-5pm and Fridays noon–3pm', 'Course Format': 'Experiential learning experience through placement in team projects', 'Student Learning Outcomes': ['Analyze complex computing problems and identify solutions by applying principles of computing', 'Design, implement, and evaluate computing solutions that meet IT computing requirements', 'Communicate effectively in a variety of professional contexts', 'Function effectively as a member or leader of a team engaged in IT activities', 'Identify and analyze user needs in the process of developing and operating computing systems'], 'Course Topics & Dates': 'Weeks Activities as per the provided schedule', 'Credit Hour Workload Estimate': '45 hours of student academic work per credit per term', 'Grading Procedures': '10% Class Attendance, 60% Sprint Grade, 15% Homework, 15% Final Project Report', 'Final Grade Scale': 'Based on the provided grading components', 'Textbook': '', 'Other Materials': '', 'Technical Requirements': '', 'Attendance Policy': 'Students are responsible for attending scheduled meetings', 'Late Submission Policy': 'Policy for late submissions is very strict and applies only in exceptional cases', 'Academic Integrity': 'UNH Academic Integrity policy: Academic Integrity Policy link', 'Program Accreditation Info': ''}
+Extracted 10725 characters from uploads/NSIA 898 Syllabus.docx
+
+DEBUG: OpenAI Raw Response:
+ {
+    "Course Id": "NSIA 898",
+    "Course Name": "Master's Capstone",
+    "Credits": "3",
+    "Modality": "Remote",
+    "Term": "2025 Term 5: 5/19 to 7/13",
+    "Department": "Department of Security Studies - National Security Intelligence Analysis Program",
+    "Prerequisites": "NSIA 870",
+    "Instructor Name": "Bridget Rose Nolan",
+    "Instructor Title/Rank": "Assistant Professor of Security Studies",
+    "Instructor Department": "Department of Security Studies",
+    "Instructor Email": "br
+Extracted Course Information: {'Course Id': 'NSIA 898', 'Course Name': "Master's Capstone", 'Credits': '3', 'Modality': 'Remote', 'Term': '2025 Term 5: 5/19 to 7/13', 'Department': 'Department of Security Studies - National Security Intelligence Analysis Program', 'Prerequisites': 'NSIA 870', 'Instructor Name': 'Bridget Rose Nolan', 'Instructor Title/Rank': 'Assistant Professor of Security Studies', 'Instructor Department': 'Department of Security Studies', 'Instructor Email': 'bridget.nolan@unh.edu', 'Instructor Response Time': 'generally responds within 24 hours', 'Office Location': 'Remote', 'Office Hours': 'Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolan, and by appointment', 'Course Format': 'Students will use UNH MyCourses to access class lectures and assignments. There are no scheduled class times however we follow a Monday to Sunday schedule.', 'Student Learning Outcomes': 'Apply critical thinking concepts to qualitative and quantitative problems. Conduct qualitative and quantitative analysis. Critique analytical products. Demonstrate appropriate writing, editing, presentation, and organizational skills.', 'Course Topics & Dates': 'Module 1: Welcome to the Caucasus Desk, Week 1: Caucasus Desk Week 2, Week 2: Caucasus Desk Week 3, Week 3: Caucasus Desk Week 4, Week 4: Caucasus Desk Week 5, Week 5: Caucasus Desk Week 6, Week 6: Caucasus Desk Week 7, Week 7: Caucasus Desk Week 8', 'Credit Hour Workload Estimate': 'You are expected to spend at least 16 hours per week on this class.', 'Assignment Types and Delivery': 'Participation Assignments, Analytical Products', 'Grading Procedures': 'Your assignments are due on or before the deadlines listed in the class materials. Missing assignments are automatically graded as zero. MyCourses will automatically subtract 15% of the total grade per day it is late. Final grades are based on a scale where A is 100% to 94%, A- is < 94% to 90%, B+ is < 90% to 87%, B is < 87% to 84%, B- is < 84% to 80%, C+ is < 80% to 77%, C is < 77% to 74%, C- is < 74% to 70%, D+ is < 70% to 67%, D is < 67% to 64%, D- is < 64% to 60%, F is < 60% to 0%.', 'Final Grade Scale': 'A: 100% to 94%, A-: < 94% to 90%, B+: < 90% to 87%, B: < 87% to 84%, B-: < 84% to 80%, C+: < 80% to 77%, C: < 77% to 74%, C-: < 74% to 70%, D+: < 70% to 67%, D: < 67% to 64%, D-: < 64% to 60%, F: < 60% to 0%'}
+Extracted 15195 characters from uploads/2025-summer-comp690-comp891-jin.pdf
+
+DEBUG: OpenAI Raw Response:
+ {
+    "Course Id": "COMP690",
+    "Course Name": "Internship Practice",
+    "Credits": "4",
+    "Modality": "Online",
+    "Term": "Summer 2025 May 19, 2025 - Aug 08, 2025",
+    "Department": "Department of Applied Engineering and Sciences",
+    "Prerequisites": "N/A",
+    "Instructor Name": "Karen Jin",
+    "Instructor Title/Rank": "Associate Professor",
+    "Instructor Department": "Dept. of Applied Engineering and Sciences",
+    "Instructor Email": "karen.jin@unh.edu",
+    "Instructor Response
+Extracted Course Information: 2025-09-05 00:01:02,763 INFO: 127.0.0.1 - - [05/Sep/2025 00:01:02] "POST /upload_pdf HTTP/1.1" 200 -
+2025-09-05 10:32:09,014 INFO: 127.0.0.1 - - [05/Sep/2025 10:32:09] "GET / HTTP/1.1" 200 -
+2025-09-09 08:10:51,311 INFO: 127.0.0.1 - - [09/Sep/2025 08:10:51] "GET / HTTP/1.1" 200 -
+2025-09-09 08:10:58,755 INFO: 127.0.0.1 - - [09/Sep/2025 08:10:58] "GET / HTTP/1.1" 200 -
