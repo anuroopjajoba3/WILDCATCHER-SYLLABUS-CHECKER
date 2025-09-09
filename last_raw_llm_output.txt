@@ -1,0 +1,102 @@
+{
+  "Course Id": "NSIA 898",
+  "Course Name": "Master's Capstone",
+  "Credits": "3",
+  "Modality": "Online",
+  "Term": "2025 Term 5",
+  "Department": "Security Studies - National Security Intelligence Analysis Program",
+  "Prerequisites": "NSIA 870, Faculty permission required",
+  "Instructor Name": "Bridget Rose Nolan, Ph.D.",
+  "Instructor Title/Rank": "Assistant Professor of Security Studies",
+  "Instructor Department": "Department of Security Studies",
+  "Instructor Email": "bridget.nolan@unh.edu",
+  "Instructor Response Time": "Within 24 hours, Monday-Friday",
+  "Office Location": "",
+  "Phone Number": "603.862.2607",
+  "Office Hours": "By appointment only",
+  "Teaching Assistant Info": "",
+  "Course Format": "Capstone project-based course",
+  "Student Learning Outcomes": [
+    "Apply critical thinking concepts to qualitative and quantitative problems.",
+    "Conduct qualitative and quantitative analysis.",
+    "Critique analytical products.",
+    "Demonstrate appropriate writing, editing, presentation, and organizational skills."
+  ],
+  "Course Topics & Dates": [
+    {
+      "Module": "1",
+      "Topic": "Welcome to the Caucasus Desk"
+    },
+    {
+      "Module": "2",
+      "Topic": "Caucasus Desk Week 2"
+    },
+    {
+      "Module": "3",
+      "Topic": "Caucasus Desk Week 3"
+    },
+    {
+      "Module": "4",
+      "Topic": "Caucasus Desk Week 4"
+    },
+    {
+      "Module": "5",
+      "Topic": "Caucasus Desk Week 5"
+    },
+    {
+      "Module": "6",
+      "Topic": "Caucasus Desk Week 6"
+    },
+    {
+      "Module": "7",
+      "Topic": "Caucasus Desk Week 7"
+    },
+    {
+      "Module": "8",
+      "Topic": "Caucasus Desk Week 8"
+    }
+  ],
+  "Sensitive Content": "",
+  "Credit Hour Workload Estimate": "16 hours per week",
+  "Assignment Types and Delivery": [
+    {
+      "Type": "Participation Assignments",
+      "Description": "Weekly discussion board inputs, assignments, and student-instructor dialogue questions."
+    },
+    {
+      "Type": "Analytical Products",
+      "Description": "Analytical products demonstrating various analytic methodologies."
+    }
+  ],
+  "Grading Procedures": [
+    {
+      "Criteria": "Participation",
+      "Total Points": "47.5"
+    },
+    {
+      "Criteria": "Analytical Products",
+      "Total Points": "52.5"
+    }
+  ],
+  "Final Grade Scale": {
+    "A": "94-100%",
+    "A-": "90-93%",
+    "B+": "87-89%",
+    "B": "84-86%",
+    "B-": "80-83%",
+    "C+": "77-79%",
+    "C": "74-76%",
+    "C-": "70-73%",
+    "D+": "67-69%",
+    "D": "64-66%",
+    "D-": "60-63%",
+    "F": "0-59%"
+  },
+  "Textbook": "",
+  "Other Materials": "Available via MyCourses",
+  "Technical Requirements": "",
+  "Attendance Policy": "Regular attendance is expected.",
+  "Late Submission Policy": "15% penalty per day late, up to 90% for 6 days late",
+  "Academic Integrity": "Plagiarism and academic dishonesty will not be tolerated.",
+  "Program Accreditation Info": ""
+}
