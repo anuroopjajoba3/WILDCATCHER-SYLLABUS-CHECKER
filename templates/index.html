@@ -593,23 +593,37 @@ async function uploadZip(zipFile) {
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch('/upload_zip', {
+        const response = await fetch('/upload', {
             method: "POST",
             body: formData,
         });
         const data = await response.json();
         console.log("ZIP upload response:", data);
 
-        if (response.ok && data.extracted_information) {
-            const extractedInfo = data.extracted_information;
+        // SIMPLIFIED: Handle new SLO-only format for ZIP uploads
+        if (response.ok && (data.extracted_information || data.results)) {
+            const extractedInfo = data.results || data.extracted_information;
             const batchSize = 10; // Change this number as needed
             const totalBatches = Math.ceil(extractedInfo.length / batchSize);
 
             // Update the uploading message to show completion
             uploadingMessage.querySelector('.message-content').innerHTML = `✅ Uploaded ZIP file: <strong>${zipFile.name}</strong>`;
-            addMessage(`Extracted information from ${extractedInfo.length} files. Splitting into ${totalBatches} batch(es).`, false);
 
-            // Process each batch and wrap its details in a collapsible container
+            // SIMPLIFIED: Process SLO results directly for ZIP
+            addMessage(`Processed ${extractedInfo.length} files for SLO detection.`, false);
+
+            // Check if this is the new simplified format
+            const isNewFormat = extractedInfo.length > 0 && extractedInfo[0].slo_status;
+
+            if (isNewFormat) {
+                // New simplified SLO format - display each result
+                extractedInfo.forEach(result => {
+                    displaySLOResult(result);
+                });
+                return;
+            }
+
+            // Legacy format processing (keeping for backward compatibility)
             for (let i = 0; i < extractedInfo.length; i += batchSize) {
                 const batch = extractedInfo.slice(i, i + batchSize);
                 let tableRowsHtml = "";
@@ -799,21 +813,34 @@ async function uploadFolder(files) {
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch('/upload_folder', {
+        const response = await fetch('/upload', {
             method: "POST",
             body: formData,
         });
         const data = await response.json();
         console.log("Folder upload response:", data);
 
-        if (response.ok && data.extracted_information) {
-            const extractedInfo = data.extracted_information;
+        // SIMPLIFIED: Handle new SLO-only format for folder uploads
+        if (response.ok && (data.extracted_information || data.results)) {
+            const extractedInfo = data.results || data.extracted_information;
             const batchSize = 10; // Adjust batch size as needed
             const totalBatches = Math.ceil(extractedInfo.length / batchSize);
 
-            addMessage(`Extracted information from ${extractedInfo.length} files. Splitting into ${totalBatches} batch(es).`, false);
+            // SIMPLIFIED: Process SLO results directly
+            addMessage(`Processed ${extractedInfo.length} files for SLO detection.`, false);
 
-            // Process each batch and wrap details in a collapsible container
+            // Check if this is the new simplified format
+            const isNewFormat = extractedInfo.length > 0 && extractedInfo[0].slo_status;
+
+            if (isNewFormat) {
+                // New simplified SLO format - display each result
+                extractedInfo.forEach(result => {
+                    displaySLOResult(result);
+                });
+                return;
+            }
+
+            // Legacy format processing (keeping for backward compatibility)
             for (let i = 0; i < extractedInfo.length; i += batchSize) {
                 const batch = extractedInfo.slice(i, i + batchSize);
                 let tableRowsHtml = "";
@@ -999,14 +1026,45 @@ const reportText = `
             addMessage(fileNameMessage, true);
         }
     
+        // SIMPLIFIED: Display SLO detection result
+        function displaySLOResult(data) {
+            const status = data.slo_status === "PASS"
+                ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>'
+                : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+
+            const sloPreview = data.slo_content
+                ? `<div style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                     <strong>SLO Content Found:</strong><br>
+                     <pre style="white-space: pre-wrap; font-size: 12px;">${data.slo_content}</pre>
+                   </div>`
+                : '';
+
+            const resultHTML = `
+                <div class="upload-result">
+                    <h3><i class="fas fa-file-pdf"></i> ${data.filename}</h3>
+                    <div class="analysis-summary">
+                        <div class="status-item">
+                            <strong>SLO Detection:</strong> ${status}
+                        </div>
+                        <div class="message">
+                            <strong>Result:</strong> ${data.message}
+                        </div>
+                        ${sloPreview}
+                    </div>
+                </div>
+            `;
+
+            addHTMLMessage(resultHTML, false);
+        }
+
         // Display the default welcome message
         function displayWelcomeMessage() {
             const welcomeMessage = `
                 <span class="emoji"></span>
-                Welcome to NECHEcker! Please upload any course syllabus in word or pdf or in a folder or in zip folder format, I can help you check whether it is NECHE complaint and meeting the minimal requirements or not.
+                Welcome to NECHEcker! This simplified version only checks if syllabi contain Student Learning Outcomes (SLOs) using regex patterns. Upload a PDF or DOCX file to check for SLOs.
     `       ;
-           
-    
+
+
             addHTMLMessage(welcomeMessage, false);
         }
     
@@ -1416,7 +1474,7 @@ const reportText = `
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch("/upload_pdf", {
+        const response = await fetch("/upload", {
             method: "POST",
             body: formData
         });
@@ -1424,7 +1482,14 @@ const reportText = `
         const data = await response.json();
         console.log("File upload response:", data);
 
-        if (response.ok && data.extracted_information) {
+        // SIMPLIFIED: Handle new SLO-only response format
+        if (response.ok && (data.extracted_information || data.slo_status)) {
+            // Handle both old format (data.extracted_information) and new simplified format (data.slo_status)
+            if (data.slo_status) {
+                // New simplified SLO-only format
+                displaySLOResult(data);
+                return;
+            }
             const extracted = data.extracted_information;
 
             const missingNECHE = checkNECHECompliance(extracted);
