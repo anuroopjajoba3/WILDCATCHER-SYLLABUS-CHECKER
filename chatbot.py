@@ -511,7 +511,6 @@ def save_conversation_memory(memory):
         json.dump(memory, file, indent=4)
 
 # Initialize OpenAI
-# apikey = os.getenv("OPENAI_API_KEY")
 apikey = "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"
 llm = ChatOpenAI(
     model="gpt-4o-mini",

@@ -1,7 +1,6 @@
 
-
 # Makes sure we are using python 3.11, as needed for program to work.
-# eventually we may be able to update this
+# eventually we may be able to update this.
 FROM python:3.11-slim
 
 # Set working directory

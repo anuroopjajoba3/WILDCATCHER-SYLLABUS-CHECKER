@@ -18,11 +18,3 @@ lxml>=4.9.0
 # Semantic similarity dependencies
 numpy>=1.21.0
 
-# Other dependencies from imports
-# requests
-# jinja2
-# werkzeug
-# itsdangerous
-# blinker
-# smtplib
-# email
