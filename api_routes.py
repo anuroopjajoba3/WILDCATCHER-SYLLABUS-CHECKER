@@ -68,11 +68,17 @@ def _process_single_file(file, temp_dir):
         # Check for SLOs
         has_slos, slo_content = detect_slos_with_regex(extracted_text)
 
+        # Create structured message format with HTML line breaks
+        if has_slos:
+            message = "SLOs detected"
+        else:
+            message = "Student Learning Outcome: Not find the acceptable title for SLO<br>• Student Learning Outcomes<br>• Student Learning Objectives<br>• Learning Outcomes<br>• Learning Objectives"
+
         result = {
             "filename": filename,
             "slo_status": "PASS" if has_slos else "FAIL",
             "has_slos": has_slos,
-            "message": "SLOs detected" if has_slos else "No SLOs found"
+            "message": message
         }
 
         # Include SLO content if found (truncated)

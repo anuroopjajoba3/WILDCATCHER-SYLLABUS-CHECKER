@@ -1039,15 +1039,18 @@ const reportText = `
                    </div>`
                 : '';
 
+            // Choose label based on pass/fail status
+            const messageLabel = data.slo_status === "PASS" ? "Result:" : "Missing Fields:";
+
             const resultHTML = `
                 <div class="upload-result">
                     <h3><i class="fas fa-file-pdf"></i> ${data.filename}</h3>
                     <div class="analysis-summary">
                         <div class="status-item">
-                            <strong>SLO Detection:</strong> ${status}
+                            <strong>Result:</strong> ${status}
                         </div>
                         <div class="message">
-                            <strong>Result:</strong> ${data.message}
+                            <strong>${messageLabel}</strong> ${data.message}
                         </div>
                         ${sloPreview}
                     </div>
