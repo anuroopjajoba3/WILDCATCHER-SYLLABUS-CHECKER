@@ -106,12 +106,6 @@ Date: 11-30-2024
             flex-direction: column;
             gap: 1rem;
             background-color: transparent;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-                url('{{ url_for('static', filename='logo3.png') }}');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
 
         /* Container for edit icon positioned at bottom-right */
@@ -1304,33 +1298,6 @@ const reportText = `
             }
         });
     
-        async function handleSend() {
-            const message = userInput.value.trim();
-            if (message) {
-                addMessage(message, true);
-                userInput.value = '';
-    
-                try {
-                    const response = await fetch('/ask', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ message }),
-                    });
-    
-                    if (response.ok) {
-                        const data = await response.json();
-                        addMessage(data.response, false);
-                    } else {
-                        addMessage('Error: Unable to get a response.', false);
-                    }
-                } catch (error) {
-                    addMessage('Error: Unable to communicate with the server.', false);
-                }
-            }
-        }
-
          // Typing indicator functions
         function addTypingIndicator() {
             const typingDiv = document.createElement('div');

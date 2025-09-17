@@ -108,3 +108,167 @@ Ready to add your first field?
 6. Test it
 
 Start with simple fields like course_id, instructor_email, or instructor_name.
+
+## Displaying New Fields on the Frontend
+
+### Step 3: Update the Frontend Display
+
+After creating your detector and integrating it in `api_routes.py`, you need to update the frontend to display the new field results.
+
+#### A. Update the API Response Format
+
+First, modify `api_routes.py` to return the new field data in the response:
+
+```python
+def _process_single_file(file, temp_dir):
+    # ... existing code ...
+
+    # Check for SLOs
+    has_slos, slo_content = detect_slos_with_regex(extracted_text)
+
+    # Add your new field detection
+    course_detector = CourseDetector()
+    course_result = course_detector.detect(extracted_text)
+
+    # Create messages for each field
+    if has_slos:
+        slo_message = "SLOs detected"
+    else:
+        slo_message = "Student Learning Outcome: Not find the acceptable title for SLO<br>• Student Learning Outcomes<br>• Student Learning Objectives<br>• Learning Outcomes<br>• Learning Objectives"
+
+    if course_result['found']:
+        course_message = "Course ID detected"
+    else:
+        course_message = "Course ID: Not found<br>• Must include course identifier (e.g., CS 101, MATH 205)"
+
+    # Build combined message
+    if has_slos and course_result['found']:
+        message = "All fields detected"
+    else:
+        missing_fields = []
+        if not has_slos:
+            missing_fields.append(slo_message)
+        if not course_result['found']:
+            missing_fields.append(course_message)
+        message = "Missing Fields:<br>" + "<br><br>".join(missing_fields)
+
+    result = {
+        "filename": filename,
+        "slo_status": "PASS" if (has_slos and course_result['found']) else "FAIL",
+        "has_slos": has_slos,
+        "message": message,
+        "course_id": course_result.get('content', None)  # Add new field data
+    }
+
+    # Include SLO content if found
+    if has_slos and slo_content:
+        result["slo_content"] = slo_content[:300] + "..." if len(slo_content) > 300 else slo_content
+
+    return result
+```
+
+#### B. Update the Frontend JavaScript
+
+Modify the `displaySLOResult` function in `templates/index.html` to handle the new field:
+
+```javascript
+// Find the displaySLOResult function (around line 1030) and update it:
+function displaySLOResult(data) {
+    const status = data.slo_status === "PASS"
+        ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>'
+        : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+
+    const sloPreview = data.slo_content
+        ? `<div style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+             <strong>SLO Content Found:</strong><br>
+             <pre style="white-space: pre-wrap; font-size: 12px;">${data.slo_content}</pre>
+           </div>`
+        : '';
+
+    // Add display for your new field
+    const courseIdPreview = data.course_id
+        ? `<div style="margin-top: 10px; padding: 10px; background: #e8f4ff; border-radius: 5px;">
+             <strong>Course ID Found:</strong><br>
+             <span style="font-size: 14px; font-weight: bold;">${data.course_id}</span>
+           </div>`
+        : '';
+
+    // Choose label based on pass/fail status
+    const messageLabel = data.slo_status === "PASS" ? "Result:" : "Missing Fields:";
+
+    const resultHTML = `
+        <div class="upload-result">
+            <h3><i class="fas fa-file-pdf"></i> ${data.filename}</h3>
+            <div class="analysis-summary">
+                <div class="status-item">
+                    <strong>Result:</strong> ${status}
+                </div>
+                <div class="message">
+                    <strong>${messageLabel}</strong> ${data.message}
+                </div>
+                ${sloPreview}
+                ${courseIdPreview}
+            </div>
+        </div>
+    `;
+
+    addHTMLMessage(resultHTML, false);
+}
+```
+
+#### C. Update CSS Styling (Optional)
+
+You can add custom styling for your new field in the `<style>` section of `index.html`:
+
+```css
+/* Add this to the existing styles */
+.course-id-preview {
+    margin-top: 10px;
+    padding: 10px;
+    background: #e8f4ff;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+.course-id-preview strong {
+    color: #007bff;
+}
+```
+
+### Frontend Integration Checklist
+
+When adding a new field to the frontend:
+
+- [ ] Update `api_routes.py` to include new field data in the response
+- [ ] Modify the message format to include your field's missing/found status
+- [ ] Update `displaySLOResult()` function in `index.html`
+- [ ] Add preview section for when your field is found
+- [ ] Update the overall PASS/FAIL logic to include your field
+- [ ] Test with both passing and failing cases
+- [ ] Add custom CSS styling if needed
+
+### Example Output
+
+With multiple fields, your frontend will show:
+
+**PASS case:**
+```
+Result: PASS
+Result: All fields detected
+SLO Content Found: [SLO content]
+Course ID Found: CS 101
+```
+
+**FAIL case:**
+```
+Result: FAIL
+Missing Fields:
+Student Learning Outcome: Not find the acceptable title for SLO
+• Student Learning Outcomes
+• Student Learning Objectives
+• Learning Outcomes
+• Learning Objectives
+
+Course ID: Not found
+• Must include course identifier (e.g., CS 101, MATH 205)
+```
