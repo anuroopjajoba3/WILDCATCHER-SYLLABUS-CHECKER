@@ -107,44 +107,120 @@ class SLODetector:
         """
         lines = text.split('\n')
 
+        # Find all potential matches first, then pick the best one
+        potential_matches = []
+
         for i, line in enumerate(lines):
             line_clean = line.strip().lower()
-
-            # Remove common punctuation for comparison
             line_for_comparison = line_clean.replace(':', '').replace('.', '').strip()
 
-            # Check if this line starts with one of our approved titles
-            if any(line_for_comparison.startswith(title) for title in self.approved_titles):
-                # Found an approved title! Extract the title and some following content
-                title = line.strip()
+            # Check if any approved title appears properly (not just as part of a sentence)
+            contains_approved_title = False
+            for title in self.approved_titles:
+                if title in line_for_comparison:
+                    # Additional check: line should be relatively short and not part of a long sentence
+                    # or the title should be at the start/end of the line
+                    line_words = line_for_comparison.split()
+                    title_words = title.split()
 
-                # Get the next few lines as content (up to 10 lines or 500 characters)
-                content_lines = [title]
-                content_length = len(title)
+                    # Much stricter check: title must appear in header-like format
+                    is_valid_header = False
 
-                for j in range(i + 1, min(i + 10, len(lines))):
-                    if j >= len(lines):
+                    # Case 1: Very short line (title + max 2 extra words) with proper formatting
+                    if len(line_words) <= len(title_words) + 2:
+                        has_proper_formatting = (
+                            ':' in line or                           # Has colon (section header)
+                            line.strip().isupper() or              # All caps
+                            (len(line_words) == len(title_words) and  # Exact title match
+                             not line_clean.endswith((',', ';', '.', '!', '?')))
+                        )
+                        if has_proper_formatting:
+                            is_valid_header = True
+
+                    # Case 2: Title at the very beginning of line (starts with title)
+                    elif line_for_comparison.startswith(title):
+                        # But only if it looks like a header (has colon or is short)
+                        if ':' in line or len(line_words) <= len(title_words) + 4:
+                            is_valid_header = True
+
+                    # Case 3: Title at the very end of line (ends with title)
+                    elif line_for_comparison.endswith(title):
+                        # Only if it's a short line
+                        if len(line_words) <= len(title_words) + 3:
+                            is_valid_header = True
+
+                    if is_valid_header:
+                        contains_approved_title = True
                         break
 
-                    next_line = lines[j].strip()
-                    if not next_line:
-                        continue
+            if contains_approved_title:
+                # Score this match based on how likely it is to be a section header
+                score = 0
 
-                    # Stop if we hit another section title
-                    if any(section in next_line.lower() for section in
-                           ['course description', 'course objectives', 'course goals',
-                            'prerequisites', 'textbook', 'grading', 'schedule']):
+                # Higher score for lines that start with approved titles
+                starts_with_approved = False
+                for title in self.approved_titles:
+                    if line_for_comparison.startswith(title):
+                        starts_with_approved = True
                         break
+                if starts_with_approved:
+                    score += 10
 
-                    content_lines.append(next_line)
-                    content_length += len(next_line)
+                # Higher score for shorter lines (more likely to be headers)
+                if len(line_for_comparison) < 50:
+                    score += 5
 
-                    # Stop after reasonable amount of content
-                    if content_length > 500:
-                        break
+                # Lower score for very long lines (likely mentions in text)
+                if len(line_for_comparison) > 100:
+                    score -= 5
 
-                content = '\n'.join(content_lines)
-                return True, content
+                # Higher score for lines with colons (section headers often have colons)
+                if ':' in line:
+                    score += 3
+
+                # Higher score for lines in ALL CAPS
+                if line.strip().isupper():
+                    score += 2
+
+                potential_matches.append((score, i, line))
+
+        # Sort by score (highest first) and pick the best match
+        if potential_matches:
+            potential_matches.sort(key=lambda x: x[0], reverse=True)
+            best_score, best_i, best_line = potential_matches[0]
+
+            # Only accept matches with a reasonable score (likely section headers)
+            if best_score < 5:  # Minimum threshold to avoid false positives
+                return False, ""
+
+            # Extract content from the best match
+            title = best_line.strip()
+            content_lines = [title]
+            content_length = len(title)
+
+            for j in range(best_i + 1, min(best_i + 10, len(lines))):
+                if j >= len(lines):
+                    break
+
+                next_line = lines[j].strip()
+                if not next_line:
+                    continue
+
+                # Stop if we hit another section title
+                if any(section in next_line.lower() for section in
+                       ['course description', 'course objectives', 'course goals',
+                        'prerequisites', 'textbook', 'grading', 'schedule']):
+                    break
+
+                content_lines.append(next_line)
+                content_length += len(next_line)
+
+                # Stop after reasonable amount of content
+                if content_length > 500:
+                    break
+
+            content = '\n'.join(content_lines)
+            return True, content
 
         return False, ""
 
