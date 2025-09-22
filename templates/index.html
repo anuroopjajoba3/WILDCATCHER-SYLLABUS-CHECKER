@@ -587,7 +587,7 @@ async function uploadZip(zipFile) {
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch('/t1/upload', {
+        const response = await fetch('/upload', {
             method: "POST",
             body: formData,
         });
@@ -807,7 +807,7 @@ async function uploadFolder(files) {
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch('/t1/upload', {
+        const response = await fetch('/upload', {
             method: "POST",
             body: formData,
         });
@@ -1338,7 +1338,7 @@ const reportText = `
                 addTypingIndicator();
 
                 try {
-                    const response = await fetch('/t1/ask', {
+                    const response = await fetch('/ask', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -1370,7 +1370,7 @@ const reportText = `
                 addTypingIndicator();
         
                 // Send the edited message to the server
-                const response = await fetch('/t1/ask', {
+                const response = await fetch('/ask', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1444,7 +1444,7 @@ const reportText = `
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch("/t1/upload", {
+        const response = await fetch("/upload", {
             method: "POST",
             body: formData
         });
