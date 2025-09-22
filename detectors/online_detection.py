@@ -203,3 +203,4 @@ def format_modality_card(result: Dict[str, object], meta: Dict[str, str] | None 
         "header": header_lines,           # list of 0-2 lines (course/instructor/email)
         "evidence": evidence,             # short bullets
     }
+
