@@ -593,7 +593,7 @@ async function uploadZip(zipFile) {
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch('/upload_zip', {
+        const response = await fetch('/t1/upload_zip', {
             method: "POST",
             body: formData,
         });
@@ -799,7 +799,7 @@ async function uploadFolder(files) {
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch('/upload_folder', {
+        const response = await fetch('/t1/upload_folder', {
             method: "POST",
             body: formData,
         });
@@ -1250,7 +1250,7 @@ const reportText = `
                 userInput.value = '';
     
                 try {
-                    const response = await fetch('/ask', {
+                    const response = await fetch('/t1/ask', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1310,7 +1310,7 @@ const reportText = `
                 addTypingIndicator();
 
                 try {
-                    const response = await fetch('/ask', {
+                    const response = await fetch('/t1/ask', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -1342,7 +1342,7 @@ const reportText = `
                 addTypingIndicator();
         
                 // Send the edited message to the server
-                const response = await fetch('/ask', {
+                const response = await fetch('/t1/ask', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1416,7 +1416,7 @@ const reportText = `
     chatHistory.scrollTop = chatHistory.scrollHeight;
 
     try {
-        const response = await fetch("/upload_pdf", {
+        const response = await fetch("/t1/upload_pdf", {
             method: "POST",
             body: formData
         });
