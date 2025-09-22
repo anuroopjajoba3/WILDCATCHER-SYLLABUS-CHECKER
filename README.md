@@ -1,108 +1,106 @@
-# Student Learning Outcomes Detector
+# Syllabus SLO & Online Modality Detector
 
 ## Overview
-
-This application analyzes academic syllabus documents to detect Student Learning Outcomes (SLOs) and verify compliance with educational standards. It provides a simple web interface for uploading PDF and DOCX files and returns immediate feedback on whether the required SLO sections are present.
+This application analyzes academic syllabus documents to detect Student Learning Outcomes (SLOs) and determine course delivery modality (Online, In-Person, or Hybrid). It provides a simple web interface for uploading PDF and DOCX files and returns immediate, human-readable feedback.
 
 ## What It Does
-
-The system examines uploaded syllabus documents and checks for the presence of properly formatted Student Learning Outcomes sections. It looks for specific title formats and validates that the content follows standard academic formatting.
+The system examines uploaded syllabi and:
+Checks for the presence of properly formatted Student Learning Outcomes sections.
+Classifies course delivery as Online, In-Person, or Hybrid with a confidence score, based on explicit wording (e.g., “asynchronous,” “via Canvas/Zoom”) or clear on-campus signals (e.g., building/room, meeting days/times).
 
 ## Supported Formats
-
-The application accepts individual PDF files, Word documents, ZIP archives containing multiple files, and folder uploads for batch processing.
+Individual PDF files
+Word documents (.docx)
+ZIP archives containing multiple files
+Folder uploads for batch processing
 
 ## How It Works
-
-Users upload their syllabus documents through a web interface. The system extracts text from the documents and analyzes it using pattern matching to identify SLO sections. Results are displayed immediately, showing whether the document passes or fails the compliance check.
+Extracts text from the document and normalizes it for reliable matching.
+Uses lightweight, explainable pattern matching to detect SLO sections and modality cues.
+Returns results immediately in the UI, including PASS/FAIL for SLOs and an Online/In-Person/Hybrid badge with confidence.
 
 ## SLO Requirements
-
 The detector looks for sections with these specific titles:
-- Student Learning Outcomes
-- Student Learning Objectives
-- Learning Outcomes
-- Learning Objectives
+Student Learning Outcomes
+Student Learning Objectives
+Learning Outcomes
+Learning Objectives
+The system is intentionally strict about titles and structure to align with academic compliance expectations.
 
-The system is designed to be strict about formatting to ensure academic compliance standards are met.
+## Online Modality Detection
+The modality detector looks for:
+Online indicators: online, asynchronous, synchronous online, Canvas/MyCourses, LMS, Zoom/Teams, delivered remotely.
+In-Person indicators: building/room names, “Room ###,” “Hall,” meeting days/times with a physical location.
+Hybrid indicators: combinations of on-campus meeting info plus online platforms or “hybrid” wording.
+It assigns a confidence score based on the strength and number of signals found.
 
 ## Getting Started
-
-Run the application using Python and access the web interface through your browser. Upload your syllabus documents and receive instant feedback on SLO compliance.
+Run the application using Python and access the web interface in your browser. Upload your syllabus documents to receive instant SLO and modality results.
 
 ## Development
-
-The application is built with Flask and uses a modular detector system. New field detectors can be easily added to check for additional syllabus requirements beyond SLOs.
+The app is built with Flask and a modular “detectors” pattern. You can add new field detectors easily (for example, instructor email or grading scale) without touching the rest of the system.
 
 ## Project Structure
 
-### Core Application Files
+# Core Application Files
 
-**main.py** - Application Entry Point
-- Starts the Flask web server
-- Creates the Flask app, loads configuration, registers routes, and runs the server
-- Launches the application on port 8001
+**main.py** — Application entry point
+Starts the Flask server
+Loads configuration and registers routes
+Runs on port 8001
 
-**config.py** - Application Configuration
-- Manages application settings and logging
-- Sets up logging, defines server settings (host, port, debug mode)
-- Configures host (0.0.0.0), port (8001), and debug mode
+**config.py** — Application configuration
+Sets logging level and server settings (host, port, debug)
 
-**api_routes.py** - Web Request Handler
-- Handles all HTTP requests and file uploads
-- Processes file uploads (PDF, DOCX, ZIP, folders)
-- Calls SLO detector to analyze documents
-- Returns results to the frontend
-- Manages the upload endpoint and home page routing
+**api_routes.py** — Web request handler
+Handles uploads for PDF/DOCX/ZIP/folders
+Calls detectors (SLO and Online Modality)
+Returns structured results to the frontend
 
-### Document Processing
+# Document Processing
 
-**document_processing.py** - File Text Extraction
-- Extracts text from uploaded documents
-- Reads PDF files using pdfplumber
-- Reads Word documents using python-docx
-- Handles extraction errors and provides fallback methods
-- Returns clean text for analysis
+**document_processing.py** — File text extraction
+Extracts text from PDFs (pdfplumber) and DOCX (python-docx)
+Normalizes text and handles extraction edge cases
+Detectors
 
-**detectors/slo_detector.py** - SLO Detection Engine
-- Analyzes text to find Student Learning Outcomes
-- Searches for approved SLO titles (Student Learning Outcomes, Learning Objectives, etc.)
-- Uses smart scoring to distinguish section headers from casual mentions
-- Extracts SLO content and returns structured results
-- Prevents false positives with strict validation
+**detectors/slo_detector.py** — SLO detection engine
+Finds approved SLO section titles
+Applies strict header matching and content checks
+Returns PASS/FAIL and preview of SLO content
 
-### Frontend
+**detectors/online_detection.py** — Course modality detection
+Scans for online, in-person, and hybrid indicators
+Weights multiple signals to compute a confidence score
+Returns modality label and supporting evidence
 
-**templates/index.html** - User Interface
-- Provides the web interface users interact with
-- File upload interface (drag-and-drop, browse files)
-- Displays SLO detection results (PASS/FAIL)
-- Shows found SLO content or missing field messages
-- Handles multiple file uploads and ZIP processing
+## Frontend
 
-### Documentation
+**templates/index.html** — User interface
+Drag-and-drop file upload
+Shows SLO status (PASS/FAIL) with messages and SLO preview
+Shows modality badge (Online/In-Person/Hybrid) with confidence and evidence
+Supports multiple files and ZIP processing
 
-**README.md** - Project Overview
-- Describes what the application does
-- Simple explanation of SLO detection, supported formats, and usage
+# Documentation
 
-**DEVELOPER_GUIDE.md** - Development Instructions
-- Guide for developers adding new features
-- How to create new field detectors
-- Backend integration steps
-- Frontend display instructions
-- Code examples and best practices
+**README.md** — Project overview (this file)
+Explains features, formats, and workflow
 
-**requirements.txt** - Dependencies List
-- Lists all Python packages needed to run the application
-- Flask, pdfplumber, python-docx, and other required libraries
+**DEVELOPER_GUIDE.md** — Development instructions
+How to add new detectors
+How to wire them into the API and UI
+Best practices for patterns and messaging
 
-### Data Flow
+**requirements.txt** — Dependencies
+Minimal stack: Flask, pdfplumber, python-docx, and standard utilities
+No LangChain or OpenAI required
 
-1. User uploads file through the web interface
-2. File is sent to the server via api_routes.py
-3. Text is extracted using document_processing.py
-4. Text is analyzed by detectors/slo_detector.py
-5. Results are returned to the user through the web interface
+## Data Flow
+User uploads file via the web interface.
+api_routes.py receives the file and calls document_processing.py for text extraction.
+Normalized text is passed to detectors/slo_detector.py and detectors/online_detection.py.
+The SLO detector returns PASS/FAIL and any extracted SLO content; the modality detector returns Online/In-Person/Hybrid with confidence and evidence.
+Results are rendered back to the user in the UI with clear messaging.
 
-Each file has a specific, focused responsibility in the SLO detection pipeline.
+Each file has a focused responsibility in the SLO and modality detection pipeline.
