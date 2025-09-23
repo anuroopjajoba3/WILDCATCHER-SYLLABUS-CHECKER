@@ -2,7 +2,7 @@
 
 ## Building and Running the Docker Container
 
-This guide explains how to build and run the Docker container for this project, both locally and on a remote VM (e.g., whitemountain server).
+This guide explains how to build and run the Docker container for this project on the vm, but it can be run locally the same way for development.
 
 ---
 
