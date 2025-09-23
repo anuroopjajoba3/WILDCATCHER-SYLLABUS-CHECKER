@@ -13,18 +13,12 @@ This guide explains how to build and run the Docker container for this project, 
 
 ---
 
-## Local Build & Run
+## Build & Run
 
 ### 1. Build the Docker Image
 First, make sure Docker is installed on your device, and is open and running currently.
 
-Open a terminal and cd into root directory root (where the Dockerfile is located) and run:
 
-```
-docker build -t syllabus-checker .
-```
-- This command builds the Docker image and names it `syllabus-checker`.
-- You will have to wait a moment for docker to install the required dependencies listed in the requirements file.
 
 ### 2. Run the Docker Container
 To run the container and expose port 8001 (Flask default):
@@ -33,20 +27,9 @@ To run the container and expose port 8001 (Flask default):
 docker run -p 8001:8001 chatbot-container
 ```
 - This maps port 8001 in the container to port 8001 on your host.
-- Access the app at [http://localhost:8001](http://localhost:8001)
+- Access the app at [
 
----
-
-## Running on Whitemount VM (in review currently!)
-
-### 1. Transfer Project Files
-- Use `scp` or SFTP to copy your project folder (including Dockerfile) to the VM.
-- Example:
-  ```
-  scp -r /path/to/project username@whitemountain:/home/username/project
-  ```
-
-### 2. SSH into the VM
+### 1. SSH into the VM
 ```
 ssh username@whitemount.sr.unh.edu
 ```
@@ -54,43 +37,22 @@ ssh username@whitemount.sr.unh.edu
 ### 3. Build the Docker Image on the VM
 Navigate to your project directory:
 ```
-cd /home/username/project
+cd /home/user/[your user id]/project
 ```
 Build the image:
 ```
-docker build -t chatbot-container .
-``` 
+docker build -t syllabus-checker .
+```
+- This command builds the Docker image and names it `syllabus-checker`.
+- the `.` at the end dictates where to build the docker container. `.` means in the working dir
+- You may have to wait a moment for docker to install the required dependencies listed in the requirements file.
 
 ### 4. Run the Docker Container on the VM
 ```
-docker run -p 8001:8001 chatbot-container
+docker run -p 8001:8001 syllabus-checker
 ```
-- If you want the app accessible from outside the VM, ensure firewall rules allow traffic to port 8001.
-- Access the app at `http://whitemount:8001` (or use the VM's IP address).
-
----
-
-## Notes
-- If you change requirements.txt or Dockerfile, rebuild the image.
-- 
-- You may need to run Docker commands with `sudo`:
-  ```
-  sudo docker build -t chatbot-container .
-  sudo docker run -p 8001:8001 chatbot-container
-  ```
-
-
----
-
-## Troubleshooting
-- If you see missing package errors, check requirements.txt and rebuild.
-- If the container won't start, check logs with:
-  ```
-  docker logs <container_id>
-  ```
-- For port conflicts, use a different host port: `-p 8080:8001`
-
----
+- ensures use of the port 8001 
+- Access the app at `https://whitemount-t1.sr.unh.edu` 
 
 ## Useful Commands
 - List images: `docker images`
@@ -101,5 +63,17 @@ docker run -p 8001:8001 chatbot-container
 
 ---
 
-## Contact
-For further help, contact the project maintainer or your system administrator.
+## Notes
+- If you change requirements.txt or Dockerfile, rebuild the image.
+- If you log out of the vm, the container will still run. use `docker ps` to see all running containers on vm to verify
+- if you need to stop the container (to rebuild), use `docker stop [container ID or name]` 
+---
+
+## Troubleshooting
+- If you see missing package errors, check requirements.txt and rebuild.
+- If the container won't start, check logs with:
+  ```
+  docker logs <container_id>
+  ```
+
+
