@@ -15,21 +15,8 @@ This guide explains how to build and run the Docker container for this project o
 
 ## Build & Run
 
-### 1. Build the Docker Image
-First, make sure Docker is installed on your device, and is open and running currently.
-
-
-
-### 2. Run the Docker Container
-To run the container and expose port 8001 (Flask default):
-
-```
-docker run -p 8001:8001 chatbot-container
-```
-- This maps port 8001 in the container to port 8001 on your host.
-- Access the app at [
-
 ### 1. SSH into the VM
+First, ssh into the vm using your user id
 ```
 ssh username@whitemount.sr.unh.edu
 ```
