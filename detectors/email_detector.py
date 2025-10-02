@@ -260,7 +260,7 @@ class emailDetector:
         # Check for action verbs
         line_lower = line.lower()
         #verb_count = sum(1 for verb in self.action_verbs if verb in line_lower)
-        address_count = sum(1 for verb in self.action_verbs if verb in line_lower)
+        verb_count = sum(1 for verb in self.action_verbs if verb in line_lower)
         return verb_count >= 1
 
     def _is_list_item(self, line: str) -> bool:
