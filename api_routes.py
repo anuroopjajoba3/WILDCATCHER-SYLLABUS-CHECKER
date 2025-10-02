@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import re
+from detectors.email_detector import emailDetector
 import logging
 import tempfile
 import shutil
@@ -38,6 +39,18 @@ except Exception:
 
 # -----------------------------------------------------------------------------
 # Helpers
+def detect_email_with_regex(text: str) -> tuple[bool, str | None]:
+    """
+    Email detection using the email detector.
+    Returns (has_email: bool, email_content: str or None)
+    """
+    email_detector = emailDetector()
+    result = email_detector.detect(text)
+    has_email = bool(result.get("found"))
+    email_content = result.get("content")
+    if isinstance(email_content, list):
+        email_content = ', '.join(email_content)
+    return has_email, email_content
 # -----------------------------------------------------------------------------
 
 def detect_slos_with_regex(text: str) -> tuple[bool, str | None]:
@@ -171,9 +184,10 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "message": "Could not extract text from file",
             }
 
-        # --- SLO detection (existing behavior) ---
+        # --- SLO detection ---
         has_slos, slo_content = detect_slos_with_regex(extracted_text)
-
+        # --- Email detection ---
+        has_email, email_content = detect_email_with_regex(extracted_text)
         result = {
             "filename": filename,
             "slo_status": "PASS" if has_slos else "FAIL",
@@ -184,10 +198,15 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "• Student Learning Outcomes<br>• Student Learning Objectives<br>"
                 "• Learning Outcomes<br>• Learning Objectives"
             ),
+            "email_status": "PASS" if has_email else "FAIL",
+            "has_email": has_email,
+            "email_message": "Email detected" if has_email else "No email found",
+            "email_content": email_content,
         }
         if has_slos and slo_content:
             result["slo_content"] = (slo_content[:300] + "...") if len(slo_content) > 300 else slo_content
-
+        if has_email and email_content:
+            result["email_content"] = (email_content[:300] + "...") if len(email_content) > 300 else email_content
         # Provide a dedicated SLO "card" block too
         result["slos"] = _format_slo_card_from_info(has_slos, slo_content)
 

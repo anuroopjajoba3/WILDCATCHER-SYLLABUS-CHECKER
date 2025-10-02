@@ -196,6 +196,7 @@ Date: 2025-09-20
         This tool now checks:
         <ul style="margin:8px 0 0 18px;">
           <li><strong>SLOs</strong> (regex-based headings & bullets)</li>
+          <li><strong>Email</strong> (regex-based detection of instructor email)</li>
           <li><strong>Course Delivery</strong> — Online / Hybrid / In-Person (rule-based detector)</li>
         </ul>
         Upload a PDF or DOCX (or a ZIP/folder) to get results.
@@ -358,9 +359,33 @@ Date: 2025-09-20
         </div>
       `;
 
+      // Email detection box
+      const emailstatus = data.email_status === 'PASS'
+        ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>'
+        : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+
+      const emailPreview = data.email_content
+        ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;">
+             <strong>Email Content Found:</strong><br>
+             <pre style="white-space: pre-wrap; font-size:12px;">${data.email_content}</pre>
+           </div>` : '';
+
+      const emailmessageLabel = data.email_status === 'PASS' ? 'Result:' : 'Missing Fields:';
+
+      const emailHTML = `
+        <div class="upload-result">
+          <h3><i class="fas fa-envelope"></i> ${data.filename || 'Uploaded Document'}</h3>
+          <div class="analysis-summary">
+            <div class="status-item"><strong>Email:</strong> ${emailstatus}</div>
+            <div class="message"><strong>${emailmessageLabel}</strong> ${data.email_message || ''}</div>
+            ${emailPreview}
+          </div>
+        </div>
+      `;
+
       const modalityHTML = renderModalityCardFromData(data);
 
-      addHTMLMessage(sloHTML + modalityHTML, false);
+      addHTMLMessage(sloHTML + emailHTML + modalityHTML, false);
     }
 
     // ---------- Upload handlers ----------

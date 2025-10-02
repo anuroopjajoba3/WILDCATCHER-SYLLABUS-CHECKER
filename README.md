@@ -5,8 +5,9 @@ This application analyzes academic syllabus documents to detect Student Learning
 
 ## What It Does
 The system examines uploaded syllabi and:
-Checks for the presence of properly formatted Student Learning Outcomes sections.
-Classifies course delivery as Online, In-Person, or Hybrid with a confidence score, based on explicit wording (e.g., “asynchronous,” “via Canvas/Zoom”) or clear on-campus signals (e.g., building/room, meeting days/times).
+- Checks for the presence of properly formatted Student Learning Outcomes sections.
+- Detects instructor email addresses using regex-based pattern matching, and displays results in a dedicated box in the UI.
+- Classifies course delivery as Online, In-Person, or Hybrid with a confidence score, based on explicit wording (e.g., “asynchronous,” “via Canvas/Zoom”) or clear on-campus signals (e.g., building/room, meeting days/times).
 
 ## Supported Formats
 Individual PDF files
@@ -34,11 +35,24 @@ In-Person indicators: building/room names, “Room ###,” “Hall,” meeting d
 Hybrid indicators: combinations of on-campus meeting info plus online platforms or “hybrid” wording.
 It assigns a confidence score based on the strength and number of signals found.
 
+## Email Requirements
+The detector looks for these specific keywords:
+email:
+emails:
+contact information:
+contact:
+e-mail:
+preferred contact method:
+contact info
+
 ## Getting Started
 Run the application using Python and access the web interface in your browser. Upload your syllabus documents to receive instant SLO and modality results.
 
 ## Development
 The app is built with Flask and a modular “detectors” pattern. You can add new field detectors easily (for example, instructor email or grading scale) without touching the rest of the system.
+
+## Email Detection
+The system includes an email detector that scans for instructor email addresses in uploaded syllabi. Results are shown in a dedicated box in the UI, with PASS/FAIL status and a preview of detected email(s).
 
 ## Project Structure
 
