@@ -13,6 +13,8 @@
     "class_location": "Room 105",
     "modality": "Hybrid (face-to-face weekly + async online)",
     "SLOs": "Understand key concepts in course material; Apply methods in practical scenarios; Develop critical thinking in subject area",
+    "credit_hour": "4-Credits",
+    "workload": "minimum of 180 hours of total student work",
     "": ""
   },
   {
@@ -29,6 +31,8 @@
     "class_location": "Pandora Rm. 529",
     "modality": "In-Person",
     "SLOs": "Demonstrate foundational knowledge of major concepts, theories, historical trends, and empirical findings in psychology.\nUnderstand research methods (design, data analysis, interpretation) and conduct psychological research with appropriate attention to ethics.\nEngage in scientific reasoning and problem solving to evaluate the quality and implications of scientific research.\nWrite APA-style research reports and literature reviews and present findings from scientific research.",
+    "credit_hour": "4 credits",
+    "workload": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
     "": ""
   },
   {
@@ -45,6 +49,8 @@
     "class_location": "Zoom or on-campus (scheduled)",
     "modality": "In-Person (Pandra Lab 443)",
     "SLOs": "Apply design principles to publications; Use software tools to create layouts; Critically evaluate design work",
+    "credit_hour": "4 credits",
+    "workload": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
     "": ""
   },
   {
@@ -61,6 +67,8 @@
     "class_location": "Lecture – P502,  Lab – P540",
     "modality": "In-Person (lab/classroom conduct rules)",
     "SLOs": "Understand biotechnology applications; Evaluate scientific literature; Design experiments with ethical considerations",
+    "credit_hour": "Not found",
+    "workload": "Not found",
     "": ""
   },
   {
@@ -77,6 +85,8 @@
     "class_location": "Room P102",
     "modality": "In-Person",
     "SLOs": "Gain the necessary background to succeed in Calculus I.\nStudy properties and graphs of polynomial, rational, exponential, logarithmic, and trigonometric functions.\nDiscover the power of mathematics through analysis of functions.\nDevelop algebraic and geometric skills to apply in higher-level math courses.",
+    "credit_hour": "Credits: 4",
+    "workload": "three hours of student academic work each week",
     "": ""
   },
   {
@@ -93,6 +103,8 @@
     "class_location": "Room 142 (classroom)",
     "modality": "In-Person (room 142)",
     "SLOs": "Understand advanced computer science concepts; Implement algorithms efficiently; Communicate technical results",
+    "credit_hour": "3 credits",
+    "workload": "minimum of 4 hours engaged time per week per credit",
     "": ""
   },
   {
@@ -109,6 +121,8 @@
     "class_location": "Pandra 345",
     "modality": "In-Person (class meets Pandra 345)",
     "SLOs": "Develop academic writing skills; Interpret literary texts; Apply critical analysis in essays",
+    "credit_hour": "Not found",
+    "workload": "minimum 3 hours of engaged time per week per credit",
     "": ""
   },
   {
@@ -125,6 +139,8 @@
     "class_location": "Remote (Zoom)",
     "modality": "Online (Synchronous)",
     "SLOs": "Combine technical and writing skills; Communicate effectively in professional contexts; Analyze interdisciplinary problems",
+    "credit_hour": "Not found",
+    "workload": "minimum 3 hours of engaged time per week per credit",
     "": ""
   },
   {
@@ -141,6 +157,8 @@
     "class_location": "Pandora Rm. 103",
     "modality": "In-Person by default; may switch to online",
     "SLOs": "Understand systems engineering concepts; Model complex systems; Apply project management principles",
+    "credit_hour": "4.0 credit",
+    "workload": "minimum 3 hours of engaged time per week per credit",
     "": ""
   },
   {
@@ -157,6 +175,8 @@
     "class_location": "Field sites around/near campus",
     "modality": "In-Person (outdoor/field meetings)",
     "SLOs": "Identify local forest species; Apply field research methods; Communicate ecological findings through art",
+    "credit_hour": "Credits: 4.0",
+    "workload": "three hours of student academic work and engagement each week",
     "": ""
   },
   {
@@ -173,6 +193,8 @@
     "class_location": "Online",
     "modality": "Online",
     "SLOs": "Understand AI/ML fundamentals; Implement algorithms in real projects; Evaluate ethical implications of AI",
+    "credit_hour": "Credits: 4",
+    "workload": "minimum 45 hours of course work per credit, which includes 40 hours of onsite work hours per credit",
     "": ""
   },
   {
@@ -189,6 +211,8 @@
     "class_location": "Zoom/Teams weekly optional sessions",
     "modality": "Online",
     "SLOs": "Analyze security intelligence frameworks; Evaluate policy implications; Apply analytic tools to case studies",
+    "credit_hour": "3 credits",
+    "workload": "Not found",
     "": ""
   },
   {
@@ -205,6 +229,8 @@
     "class_location": "Zoom/Teams weekly optional sessions",
     "modality": "Online (Asynchronous)",
     "SLOs": "Develop strategic analysis skills; Communicate intelligence findings; Apply quantitative methods in national security",
+    "credit_hour": "3 credits",
+    "workload": "Not found",
     "": ""
   },
   {
@@ -221,6 +247,26 @@
     "class_location": "Zoom/Teams weekly optional sessions",
     "modality": "Online (Asynchronous)",
     "SLOs": "Analyze contemporary issues in national security; Apply intelligence methods to real-world problems; Communicate findings effectively to policymakers",
+    "credit_hour": "3 credits",
+    "workload": "At least 16 hours per week on coursework",
+    "": ""
+  },
+  {
+    "filename": "BMS 507: Human Anatomy & Physiology I (Summer 2025)",
+    "instructor_name": "Dr. Sue Cooke",
+    "title_rank": "Senior Lecturer",
+    "department_program": "Life Science, Bio/Biotech program",
+    "preferred_contact_method": "Email",
+    "email": "suzanne.cooke@unh.edu",
+    "response_time": "no response time specified",
+    "office_address": "Pandora, Room 569",
+    "office_phone": "603-641-4328",
+    "office_hours": "Online",
+    "class_location": "TBD(remote)",
+    "modality": "Online (Asynchronous)",
+    "SLOs": "Demonstrate understanding of terminology & topics covered\nRecognize, define, and use terminology for systems studied\nIdentify/explain structures and functions of systems covered\nUnderstand relationship between structure & function\nRelate symptoms of disease to underlying anatomy/physiology",
+    "credit_hour": "Not found",
+    "workload": "",
     "": ""
   }
 ]
