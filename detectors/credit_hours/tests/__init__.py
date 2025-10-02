@@ -1,0 +1,4 @@
+"""
+Credit Hours Detection Tests
+=============================
+"""
