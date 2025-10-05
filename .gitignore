@@ -12,3 +12,24 @@ conversation_memory.json
 uploads/
 db/
 gunicorn.log
+
+# Claude Code files
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python build artifacts
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
