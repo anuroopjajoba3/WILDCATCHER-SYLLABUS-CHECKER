@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import re
+from detectors.instructor_detector import InstructorDetector
 import logging
 import tempfile
 import shutil
@@ -138,15 +139,12 @@ def _massage_modality_card(card: dict, meta: dict) -> dict:
 
 
 def _process_single_file(file, temp_dir: str) -> dict:
-    """
-    Process a single PDF or DOCX file: extract text, detect SLOs + Modality.
-    Returns a JSON-serializable dict for the frontend.
-    """
     filename = file.filename
     file_path = os.path.join(temp_dir, filename)
     file.save(file_path)
 
     logging.info(f"Uploaded file: {filename}")
+
 
     try:
         # Extract text
@@ -171,6 +169,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "message": "Could not extract text from file",
             }
 
+
         # --- SLO detection (existing behavior) ---
         has_slos, slo_content = detect_slos_with_regex(extracted_text)
 
@@ -190,6 +189,16 @@ def _process_single_file(file, temp_dir: str) -> dict:
 
         # Provide a dedicated SLO "card" block too
         result["slos"] = _format_slo_card_from_info(has_slos, slo_content)
+
+        # --- Instructor detection ---
+        instructor_detector = InstructorDetector()
+        instructor_info = instructor_detector.detect(extracted_text)
+        result["instructor"] = {
+            "found": bool(instructor_info.get("found")),
+            "name": instructor_info.get("name"),
+            "title": instructor_info.get("title"),
+            "department": instructor_info.get("department"),
+        }
 
         # --- Modality detection (Online / Hybrid / In-Person) ---
         if not (detect_course_delivery and format_modality_card and quick_course_metadata):

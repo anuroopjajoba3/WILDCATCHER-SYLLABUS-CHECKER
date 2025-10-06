@@ -333,6 +333,27 @@ Date: 2025-09-20
       `;
     }
 
+    function renderInstructorCard(data) {
+      const name = data.name;
+      const title = data.title;
+      const department = data.department;
+      const confidence = typeof data.confidence === 'number' ? data.confidence : null;
+      let html = '<div class="upload-result" style="margin-top: 12px;">';
+      html += '<h4><i class="fas fa-user"></i> Instructor Information</h4>';
+      if (!name && !title && !department || name === 'N/A' || title === 'N/A' || department === 'N/A') {
+        html += '<div class="analysis-summary"><strong>Not found</strong></div>';
+      } else {
+        html += '<div class="analysis-summary">';
+        if (name) html += `<div><strong>Name:</strong> ${name}</div>`;
+        if (title) html += `<div><strong>Title:</strong> ${title}</div>`;
+        if (department) html += `<div><strong>Department:</strong> ${department}</div>`;
+        if (confidence !== null) html += `<div><strong>Confidence:</strong> ${confidence}</div>`;
+        html += '</div>';
+      }
+      html += '</div>';
+      return html;
+    }
+
     // Existing SLO block (kept) + Modality block (new)
     function displayDetections(data) {
       const status = data.slo_status === 'PASS'
@@ -358,9 +379,27 @@ Date: 2025-09-20
         </div>
       `;
 
+
+        // Instructor info box
+        const instructor = data.instructor || {};
+        const instructorFound = instructor.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+        const instructorHTML = `
+          <div class="upload-result">
+            <h3><i class="fas fa-user-tie"></i> ${data.filename || 'Uploaded Document'}</h3>
+            <div class="analysis-summary">
+              <div class="status-item"><strong>Instructor Info:</strong> ${instructorFound}</div>
+              <div class="message">
+                <strong>Name:</strong> ${instructor.name || 'N/A'}<br>
+                <strong>Title:</strong> ${instructor.title || 'N/A'}<br>
+                <strong>Department:</strong> ${instructor.department || 'N/A'}
+              </div>
+            </div>
+          </div>
+        `;
+
       const modalityHTML = renderModalityCardFromData(data);
 
-      addHTMLMessage(sloHTML + modalityHTML, false);
+  addHTMLMessage(sloHTML + instructorHTML + modalityHTML, false);
     }
 
     // ---------- Upload handlers ----------
