@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """
 Automated testing for syllabus field detection
-Uses detectors + ground_truth.json (lenient matching)
+Uses detectors + ground_truth.json
+- Lenient matching:
+  * If GT is "Not found"/empty and prediction is empty => match True
+  * Fuzzy text match for near-equal strings
+  * Modality normalization (online / hybrid / in-person)
+Prints results to terminal and saves to test_results.json
 """
-
 import os
 import sys
 import json
@@ -12,9 +16,11 @@ from collections import defaultdict
 from difflib import SequenceMatcher
 
 # Add repo root to path
-REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-if REPO_ROOT not in sys.path:
-    sys.path.append(REPO_ROOT)
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+PARENT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+for p in (REPO_ROOT, PARENT):
+    if p not in sys.path:
+        sys.path.append(p)
 
 from document_processing import extract_text_from_pdf, extract_text_from_docx
 
@@ -22,35 +28,35 @@ from document_processing import extract_text_from_pdf, extract_text_from_docx
 try:
     from detectors.online_detection import detect_modality
     MODALITY_AVAILABLE = True
-except:
+except Exception:
     MODALITY_AVAILABLE = False
     print("⚠️ Modality detector not available")
 
 try:
     from detectors.slo_detector import SLODetector
     SLO_AVAILABLE = True
-except:
+except Exception:
     SLO_AVAILABLE = False
     print("⚠️ SLO detector not available")
 
 try:
     from detectors.email_detection import emailDetector
     EMAIL_AVAILABLE = True
-except:
+except Exception:
     EMAIL_AVAILABLE = False
     print("⚠️ Email detector not available")
 
 try:
     from detectors.credit_hours_detection import CreditHoursDetector
     CREDIT_HOURS_AVAILABLE = True
-except:
+except Exception:
     CREDIT_HOURS_AVAILABLE = False
     print("⚠️ Credit hours detector not available")
 
 try:
     from detectors.workload_detection import WorkloadDetector
     WORKLOAD_AVAILABLE = True
-except:
+except Exception:
     WORKLOAD_AVAILABLE = False
     print("⚠️ Workload detector not available")
 
@@ -58,46 +64,41 @@ except:
 # COMPARISON HELPERS
 # ======================================================================
 
-def normalize_text(s: str) -> str:
-    if not s:
+def norm(s):
+    if s is None:
         return ""
-    return " ".join(str(s).lower().strip().split())
+    return " ".join(str(s).strip().lower().split())
 
-def loose_compare(gt, pred) -> bool:
-    """More lenient match: fuzzy + blank handling"""
-    g = normalize_text(gt)
-    p = normalize_text(pred)
-
-    # Both missing or "not found"
-    if (not g or g in ["not found"]) and (not p or p in ["not found"]):
+def fuzzy_match(a, b, threshold=0.80):
+    a, b = norm(a), norm(b)
+    if not a and not b:
         return True
-
-    # If either missing, mark false (unless both blank)
-    if not g or not p:
+    if not a or not b:
         return False
-
-    # Exact or substring
-    if g == p or g in p or p in g:
+    if a == b or a in b or b in a:
         return True
+    return SequenceMatcher(None, a, b).ratio() >= threshold
 
-    # Fuzzy ratio >= 0.8 counts as match
-    ratio = SequenceMatcher(None, g, p).ratio()
-    return ratio >= 0.8
+def loose_compare(gt, pred):
+    """GT 'not found'/empty vs pred empty => True; otherwise fuzzy."""
+    g = norm(gt)
+    p = norm(pred)
+    if g in ("", "not found") and p == "":
+        return True
+    return fuzzy_match(g, p)
 
-
-def compare_modality(gt, pred) -> bool:
-    """Simplified modality comparison"""
+def compare_modality(gt, pred):
+    """Normalize to buckets before compare."""
     def core(s):
-        s = normalize_text(s)
-        if 'hybrid' in s or 'blended' in s:
+        s = norm(s)
+        if "hybrid" in s or "blended" in s or "hy-flex" in s or "hyflex" in s:
             return "hybrid"
-        if any(x in s for x in ["online", "remote", "asynchronous"]):
+        if any(x in s for x in ("online", "remote", "asynchronous", "synchronous online")):
             return "online"
         if "in-person" in s or "in person" in s or "on campus" in s:
             return "in-person"
         return s
     return core(gt) == core(pred)
-
 
 # ======================================================================
 # DETECTOR WRAPPERS
@@ -123,9 +124,11 @@ def detect_all_fields(text: str) -> dict:
     # Email
     if EMAIL_AVAILABLE:
         e = emailDetector().detect(text)
-        preds["email"] = (
-            e.get("content")[0] if isinstance(e.get("content"), list) and e.get("content") else e.get("content", "")
-        )
+        content = e.get("content")
+        if isinstance(content, list) and content:
+            preds["email"] = content[0]
+        else:
+            preds["email"] = content or ""
     else:
         preds["email"] = ""
 
@@ -145,16 +148,16 @@ def detect_all_fields(text: str) -> dict:
 
     return preds
 
-
 # ======================================================================
-# MAIN SCRIPT
+# MAIN
 # ======================================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="Run syllabus field detectors vs. ground truth")
-    parser.add_argument("--syllabi", default="Ground_truth_syllabus", help="Folder with syllabi")
-    parser.add_argument("--ground_truth", default="ground_truth.json", help="Ground truth JSON")
-    args = parser.parse_args()
+    ap = argparse.ArgumentParser(description="Run detectors vs ground_truth.json")
+    ap.add_argument("--syllabi", default="Ground_truth_syllabus", help="Folder with PDFs/DOCX")
+    ap.add_argument("--ground_truth", default="ground_truth.json", help="Ground truth JSON")
+    ap.add_argument("--output", default="test_results.json", help="Output JSON file")
+    args = ap.parse_args()
 
     print(f"\n📂 Folder: {os.path.abspath(args.syllabi)}")
     print(f"📘 Ground truth: {os.path.abspath(args.ground_truth)}")
@@ -167,6 +170,7 @@ def main():
         gt_data = json.load(f)
 
     print(f"\nFound {len(gt_data)} records in ground truth.")
+
     field_stats = defaultdict(lambda: {"correct": 0, "total": 0})
     details = []
 
@@ -178,49 +182,103 @@ def main():
             continue
 
         # Extract text
-        text = extract_text_from_pdf(fpath) if fpath.endswith(".pdf") else extract_text_from_docx(fpath)
+        try:
+            if fpath.lower().endswith(".pdf"):
+                text = extract_text_from_pdf(fpath) or ""
+            else:
+                text = extract_text_from_docx(fpath) or ""
+        except Exception as e:
+            print(f"[{i}] Error reading {fname}: {e}")
+            continue
+
         preds = detect_all_fields(text)
         result = {"filename": fname}
 
-        # === Compare fields ===
-        for field in ["modality", "SLOs", "email", "credit_hour", "workload"]:
-            gt_val = record.get(field, "")
-            pred_val = preds.get(field.lower(), "" if field != "SLOs" else preds.get("has_slos"))
-            match = False
+        # Modality
+        if "modality" in record:
+            match = compare_modality(record["modality"], preds.get("modality", ""))
+            field_stats["modality"]["total"] += 1
+            field_stats["modality"]["correct"] += int(match)
+            result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
 
-            if field == "modality":
-                match = compare_modality(gt_val, pred_val)
-            elif field == "SLOs":
-                match = bool(gt_val) == bool(pred_val)
-            else:
-                match = loose_compare(gt_val, pred_val)
+        # SLOs
+        if "SLOs" in record:
+            gt_has = bool(norm(record["SLOs"]))
+            pred_has = bool(preds.get("has_slos"))
+            match = (gt_has == pred_has)
+            field_stats["SLOs"]["total"] += 1
+            field_stats["SLOs"]["correct"] += int(match)
+            result["slos"] = {"gt_present": gt_has, "pred_present": pred_has, "match": match}
 
-            field_stats[field]["total"] += 1
-            if match:
-                field_stats[field]["correct"] += 1
+        # Email
+        if "email" in record:
+            match = loose_compare(record["email"], preds.get("email", ""))
+            field_stats["email"]["total"] += 1
+            field_stats["email"]["correct"] += int(match)
+            result["email"] = {"gt": record["email"], "pred": preds.get("email", ""), "match": match}
 
-            result[field] = {"gt": gt_val, "pred": pred_val, "match": match}
+        # Credit hour
+        if "credit_hour" in record:
+            match = loose_compare(record["credit_hour"], preds.get("credit_hour", ""))
+            field_stats["credit_hour"]["total"] += 1
+            field_stats["credit_hour"]["correct"] += int(match)
+            result["credit_hour"] = {"gt": record["credit_hour"], "pred": preds.get("credit_hour", ""), "match": match}
+
+        # Workload
+        if "workload" in record:
+            match = loose_compare(record["workload"], preds.get("workload", ""))
+            field_stats["workload"]["total"] += 1
+            field_stats["workload"]["correct"] += int(match)
+            result["workload"] = {"gt": record["workload"], "pred": preds.get("workload", ""), "match": match}
 
         details.append(result)
 
-    # === Print Summary ===
+    # Calculate summary statistics
+    summary = {}
+    total_correct = total_tests = 0
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload"):
+        stats = field_stats[field]
+        acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
+        summary[field] = {
+            "accuracy": round(acc, 4),
+            "correct": stats["correct"],
+            "total": stats["total"]
+        }
+        total_correct += stats["correct"]
+        total_tests += stats["total"]
+
+    overall = (total_correct / total_tests) if total_tests else 0.0
+
+    # Print summary to terminal
     print("\n" + "=" * 70)
     print("RESULTS SUMMARY")
     print("=" * 70)
     print(f"{'Field':<20} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 50)
 
-    total_correct = total_tests = 0
-    for field, stats in field_stats.items():
-        acc = stats["correct"] / stats["total"] if stats["total"] else 0
-        print(f"{field:<20} {acc:>6.1%}      {stats['correct']:>3}/{stats['total']}")
-        total_correct += stats["correct"]
-        total_tests += stats["total"]
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload"):
+        stats = summary[field]
+        print(f"{field:<20} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
-    overall = total_correct / total_tests if total_tests else 0
     print("-" * 50)
     print(f"{'OVERALL':<20} {overall:>6.1%}      {total_correct}/{total_tests}")
     print("=" * 70)
+
+    # Save results to JSON
+    output_data = {
+        "summary": summary,
+        "overall": {
+            "accuracy": round(overall, 4),
+            "correct": total_correct,
+            "total": total_tests
+        },
+        "details": details
+    }
+
+    with open(args.output, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+    print(f"\n✅ Results saved to {args.output}")
 
 if __name__ == "__main__":
     main()
