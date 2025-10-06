@@ -74,6 +74,9 @@ Scans for online, in-person, and hybrid indicators
 Weights multiple signals to compute a confidence score
 Returns modality label and supporting evidence
 
+**detectors/instructor_detector.py**
+Scans first page of syllabi for instructor name, department, and title. It looks for keywords like "instructor", "Name", "Dept.", etc. If it cannot find the keyword, it will scan the first page for  a "section" with other instructor keywords and look there for a match, and if it still cannot find an instructor name for some reason, it will search the syllabi using a given list of 1000 common last names as a last-ditch effort to find an instructor before giving up and saying "N/A".
+
 ## Frontend
 
 **templates/index.html** — User interface
