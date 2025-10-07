@@ -71,6 +71,9 @@ class WorkloadDetector:
             # "expected to involve a minimum of X hours"
             r'expected\s+to\s+involve\s+a\s+minimum\s+of\s+(\d+)\s+hours?',
 
+            # "expected to spend at least X hours per week on this class"
+            r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week\s+on\s+this\s+class',
+
             # "12 hours/week (4 credits x 3 hours per credit)" - this should be lower priority
             r'(\d+)\s+hours?/week\s*\([^)]*credits?\s*x\s*\d+\s+hours?\s+per\s+credit[^)]*\)',
         ]
