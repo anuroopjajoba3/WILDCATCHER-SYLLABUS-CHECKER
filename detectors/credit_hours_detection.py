@@ -120,7 +120,7 @@ class CreditHoursDetector:
                 position = match.start()
 
                 # Get context around the match
-                start = max(0, match.start() - 150)
+                start = max(0, match.start() - 30)
                 end = min(len(search_text), match.end() + 100)
                 context = search_text[start:end].lower()
 
