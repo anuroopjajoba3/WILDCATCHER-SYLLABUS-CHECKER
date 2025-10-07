@@ -338,8 +338,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Instructor",
-        "pred": "Adjunct",
-        "match": true
+        "pred": null,
+        "match": false
       },
       "instructor_department": {
         "gt": "Mathematics and Statistics (MATH418)",
@@ -458,7 +458,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Professor",
+        "pred": "Phd",
         "match": true
       },
       "instructor_department": {
@@ -518,7 +518,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Professor",
+        "pred": "Phd",
         "match": true
       },
       "instructor_department": {
@@ -638,8 +638,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": "Dr",
-        "match": false
+        "pred": "Adjunct Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Program in Biological Sciences",

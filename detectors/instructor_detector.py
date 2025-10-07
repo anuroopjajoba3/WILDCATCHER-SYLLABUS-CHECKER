@@ -32,7 +32,7 @@ class InstructorDetector:
             'Instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr'
         ]
         self.title_keywords = [
-            'assistant professor', 'associate professor', 'professor', 'senior lecturer', 'lecturer', 'adjunct', 'phd', 'ph.d', 'Dr', 'Dr.'
+            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'phd', 'ph.d', 'Dr', 'Dr.'
         ]
         self.dept_keywords = [
             'Department', 'Dept.', 'School of', 'Division of', 'Program', 'College of', 'Department/Program', 'Department and Program'
@@ -197,16 +197,24 @@ class InstructorDetector:
         Returns:
             str: The extracted title, or None if not found.
         """
+        # First, look for any title except 'Dr'/'Dr.' and 'Phd'/'Ph.D'
+        found_title = None
         for line in lines:
             for kw in self.title_keywords:
-                # Only match 'Dr' or 'Dr.' exactly (case sensitive)
-                if kw in ['Dr', 'Dr.']:
-                    if kw in line:
-                        return kw
-                else:
-                    # For other keywords, match case-insensitive
+                if kw not in ['Dr', 'Dr.', 'phd', 'ph.d', 'Phd', 'Ph.D']:
                     if kw.lower() in line.lower():
                         return kw.title() if kw.islower() else kw
+                elif kw.lower() in ['phd', 'ph.d']:
+                    if kw.lower() in line.lower():
+                        found_title = kw.title() if kw.islower() else kw
+        # If no other title found, use 'Dr'/'Dr.' if present
+        for line in lines:
+            for kw in ['Dr', 'Dr.']:
+                if kw in line:
+                    return kw
+        # If no other title found, use 'Phd'/'Ph.D' if present
+        if found_title:
+            return found_title
         return None
 
     def extract_department(self, lines):

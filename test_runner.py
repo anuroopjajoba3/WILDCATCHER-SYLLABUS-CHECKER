@@ -198,7 +198,7 @@ def detect_all_fields(text: str) -> dict:
 
 def main():
     ap = argparse.ArgumentParser(description="Run detectors vs ground_truth.json")
-    ap.add_argument("--syllabi", default="Ground_truth_syllabus", help="Folder with PDFs/DOCX")
+    ap.add_argument("--syllabi", default="ground_truth_syllabus", help="Folder with PDFs/DOCX")
     ap.add_argument("--ground_truth", default="ground_truth.json", help="Ground truth JSON")
     ap.add_argument("--output", default="test_results.json", help="Output JSON file")
     args = ap.parse_args()
