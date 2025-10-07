@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import re
+from detectors.instructor_detector import InstructorDetector
 import logging
 import tempfile
 import shutil
@@ -138,10 +139,6 @@ def _massage_modality_card(card: dict, meta: dict) -> dict:
 
 
 def _process_single_file(file, temp_dir: str) -> dict:
-    """
-    Process a single PDF or DOCX file: extract text, detect SLOs + Modality.
-    Returns a JSON-serializable dict for the frontend.
-    """
     filename = file.filename
     file_path = os.path.join(temp_dir, filename)
     file.save(file_path)
@@ -171,6 +168,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "message": "Could not extract text from file",
             }
 
+
         # --- SLO detection (existing behavior) ---
         has_slos, slo_content = detect_slos_with_regex(extracted_text)
 
@@ -190,6 +188,16 @@ def _process_single_file(file, temp_dir: str) -> dict:
 
         # Provide a dedicated SLO "card" block too
         result["slos"] = _format_slo_card_from_info(has_slos, slo_content)
+
+        # --- Instructor detection ---
+        instructor_detector = InstructorDetector()
+        instructor_info = instructor_detector.detect(extracted_text)
+        result["instructor"] = {
+            "found": bool(instructor_info.get("found")),
+            "name": instructor_info.get("name"),
+            "title": instructor_info.get("title"),
+            "department": instructor_info.get("department"),
+        }
 
         # --- Modality detection (Online / Hybrid / In-Person) ---
         if not (detect_course_delivery and format_modality_card and quick_course_metadata):
@@ -222,6 +230,89 @@ def _process_single_file(file, temp_dir: str) -> dict:
 
             # Rich card for chatbot bubble (matches your early example)
             result["modality"] = delivery_card
+
+        # --- Office Information detection ---
+        try:
+            from detectors.office_information_detection import OfficeInformationDetector
+        except ImportError:
+            OfficeInformationDetector = None
+
+        if OfficeInformationDetector:
+            office_detector = OfficeInformationDetector()
+            office_info = office_detector.detect(extracted_text)
+            result["office_information"] = {
+                "location": office_info.get("office_location", {}).get("content"),
+                "hours": office_info.get("office_hours", {}).get("content"),
+                "phone": office_info.get("phone", {}).get("content"),
+                "found": office_info.get("found", False)
+            }
+        else:
+            result["office_information"] = {
+                "location": None,
+                "hours": None,
+                "phone": None,
+                "found": False
+            }
+
+        # --- Email detection ---
+        try:
+            from detectors.email_detector import emailDetector
+        except ImportError:
+            emailDetector = None
+
+        if emailDetector:
+            email_detector = emailDetector()
+            email_info = email_detector.detect(extracted_text)
+            result["email_information"] = {
+                "email": email_info.get("content"),
+                "found": email_info.get("found", False),
+                "confidence": email_info.get("confidence", 0.0)
+            }
+        else:
+            result["email_information"] = {
+                "email": None,
+                "found": False,
+                "confidence": 0.0
+            }
+
+        # --- Credit Hours detection ---
+        try:
+            from detectors.credit_hours_detection import CreditHoursDetector
+        except ImportError:
+            CreditHoursDetector = None
+
+        if CreditHoursDetector:
+            credit_detector = CreditHoursDetector()
+            credit_info = credit_detector.detect(extracted_text)
+            result["credit_hours"] = {
+                "hours": credit_info.get("content"),
+                "found": credit_info.get("found", False)
+            }
+        else:
+            result["credit_hours"] = {
+                "hours": None,
+                "found": False
+            }
+
+
+        # --- Workload detection ---
+        try:
+            from detectors.workload_detection import WorkloadDetector
+        except ImportError:
+            WorkloadDetector = None
+
+        if WorkloadDetector:
+            workload_detector = WorkloadDetector()
+            workload_info = workload_detector.detect(extracted_text)
+            result["workload_information"] = {
+                "description": workload_info.get("content"),
+                "found": workload_info.get("found", False)
+            }
+        else:
+            result["workload_information"] = {
+                "description": None,
+                "found": False
+            }
 
         return result
 

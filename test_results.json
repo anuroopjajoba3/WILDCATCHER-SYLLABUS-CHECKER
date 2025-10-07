@@ -1,0 +1,966 @@
+{
+  "summary": {
+    "modality": {
+      "accuracy": 0.9333,
+      "correct": 14,
+      "total": 15
+    },
+    "SLOs": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    },
+    "email": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    },
+    "credit_hour": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    },
+    "workload": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    },
+    "instructor_name": {
+      "accuracy": 0.8667,
+      "correct": 13,
+      "total": 15
+    },
+    "instructor_title": {
+      "accuracy": 0.9333,
+      "correct": 14,
+      "total": 15
+    },
+    "instructor_department": {
+      "accuracy": 0.9333,
+      "correct": 14,
+      "total": 15
+    },
+    "office_address": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    },
+    "office_hours": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    },
+    "office_phone": {
+      "accuracy": 1.0,
+      "correct": 15,
+      "total": 15
+    }
+  },
+  "overall": {
+    "accuracy": 0.9697,
+    "correct": 160,
+    "total": 165
+  },
+  "details": [
+    {
+      "filename": "557_syllabus.pdf",
+      "modality": {
+        "gt": "Hybrid (face-to-face weekly + async online)",
+        "pred": "Hybrid",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "jeremiah.johnson@unh.edu",
+        "pred": "jeremiah.johnson@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "a 4-credit course",
+        "pred": "a 4-credit course",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum of 180 hours of total student work",
+        "pred": "minimum of 180 hours of total student work",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Jeremiah W. Johnson",
+        "pred": "Jeremiah W.",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Dept. of Applied Engineering & Sciences",
+        "pred": "of Applied Engineering & Sci-",
+        "match": true
+      },
+      "office_address": {
+        "gt": "Room 105",
+        "pred": "Pandora Room 105",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "TR 9:10 – 10:00 AM",
+        "pred": "TR 9:10 - 10:00 AM",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "(603) 641-4127",
+        "pred": "(603) 641-4127",
+        "match": true
+      }
+    },
+    {
+      "filename": "PSYC 511 Syllabus Fall 2025.pdf",
+      "modality": {
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "STUDENT/PROGRAM LEARNING OUTCOMES\n• Demonstrate fundamental knowledge and comprehension of the major concepts, theoretical\nperspectives, historical trends, and empirical findings in psychology.\n• Understand basic research methods in psychology including design, data analysis, and\ninterpretation; and utilize this knowledge to conduct their own psychological research, with an\nappreciation of the ethical issues involved in human and non-human research.\nPage 5\n• Engage in scientific reasoning and problem solving so that they can evaluate the quality and implications of scientific research",
+        "pred_text": "STUDENT/PROGRAM LEARNING OUTCOMES\n• Demonstrate fundamental knowledge and comprehension of the major concepts, theoretical\nperspectives, historical trends, and empirical findings in psychology.\n• Understand basic research methods in psychology including design, data analysis, and\ninterpretation; and utilize this knowledge to conduct their own psychological research, with an\nappreciation of the ethical issues involved in human and non-human research.\nPage 5\n• Engage in scientific reasoning and problem solving so that they can evaluate the quality and"
+      },
+      "email": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "4 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "John Sparrow",
+        "pred": "John Sparrow",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Associate Professor(Ph.D.)",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandra Rm. 529",
+        "pred": "Pandora Room 529",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Tuesday - 4:00 – 5:00;Thursday - 3:00 – 5:00;\nFriday - 1:00 – 2:00",
+        "pred": "Tuesday - 4:00 - 5:00;Thursday - 3:00 - 5:00;\nFriday - 1:00 - 2:00",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "641-4151",
+        "pred": "641-4151 (",
+        "match": true
+      }
+    },
+    {
+      "filename": "Beverly Hodsdon - CA520 Special Topics in Communications - Publication Design_Syllabus_FALL 2025.pdf",
+      "modality": {
+        "gt": "In-Person (Pandra Lab 443)",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "beverly.hodsdon@unh.edu",
+        "pred": "beverly.hodsdon@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credit Hours: 4",
+        "pred": "Credit Hours: 4",
+        "match": true
+      },
+      "workload": {
+        "gt": "The expected effort for a semester-long 4-credit course is 12 hours/week (4 credits x 3 hours per credit).",
+        "pred": "12 hours/week (4 credits x 3 hours per credit)",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Beverly A. Hodsdon",
+        "pred": "Beverly A. Hodsdon",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora Room 443",
+        "pred": "Pandora Room 443",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Anytime by Zoom appt. or on campus if scheduled",
+        "pred": "Anytime by ZOOM appointment or on campus if scheduled in advance",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "(603) 531-3894",
+        "pred": "(603) 531-3894",
+        "match": true
+      }
+    },
+    {
+      "filename": "BIOT 780.880 Lecture Fall2025 Syllabus.pdf",
+      "modality": {
+        "gt": "In-Person (lab/classroom conduct rules)",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "mark.scimone@unh.edu",
+        "pred": "mark.scimone@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mark T. Scimone",
+        "pred": "Mark T.",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Phd",
+        "pred": "Phd",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Room 628",
+        "pred": "Pandora Room 628",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Tuesdays 3-4pm or by appointment",
+        "pred": "Tuesdays 3-4pm or by appointment",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "603-641-4389",
+        "pred": "603-641-4389",
+        "match": true
+      }
+    },
+    {
+      "filename": "Math 418 Syllabus Fall 2025.pdf",
+      "modality": {
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Lesley.Fallu@unh.edu",
+        "pred": "Lesley.Fallu@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credits: 4",
+        "pred": "Credits: 4",
+        "match": true
+      },
+      "workload": {
+        "gt": "three hours of student academic work each week",
+        "pred": "three hours of student academic work each week",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Lesley Fallu",
+        "pred": "Lesley Fallu",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Mathematics and Statistics (MATH418)",
+        "pred": "Mathematics and Statistics Email",
+        "match": true
+      },
+      "office_address": {
+        "gt": "Room 115",
+        "pred": "Pandora Room 115",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "I will be available from 1:30 - 3:00 on M/W. You do not need an appointment to stop by",
+        "pred": "I will be available from 1:30 - 3:00 on M/W. You do not need an appointment to stop by",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      }
+    },
+    {
+      "filename": "Comp855 Syllabus.pdf",
+      "modality": {
+        "gt": "In-Person (room 142)",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Learning Objectives:\nStudents should develop understanding of main goals of digital forensics, which include\nidentifying and preserving digital evidence, conducting in-depth data analysis using forensic\ntools, documenting findings, and presenting them in a detailed comprehensive manner. It also\ninvolves understanding the principles of computer and network systems, data storage, and\ndeveloping critical thinking and communication skills to build a narrative of events from digital\nartifacts.",
+        "pred_text": "Learning Objectives:\nStudents should develop understanding of main goals of digital forensics, which include\nidentifying and preserving digital evidence, conducting in-depth data analysis using forensic\ntools, documenting findings, and presenting them in a detailed comprehensive manner. It also\ninvolves understanding the principles of computer and network systems, data storage, and\ndeveloping critical thinking and communication skills to build a narrative of events from digital\nartifacts."
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "3 credits",
+        "pred": "3 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum of 4 hours engaged time per week per credit",
+        "pred": "minimum of 4 hours engaged time per week per credit",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas ",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Room 141",
+        "pred": "Pandora Room 141",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment, physical office (Room 141)",
+        "pred": "by appointment",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      }
+    },
+    {
+      "filename": "ENGL401M1-F25Syllabus.pdf",
+      "modality": {
+        "gt": "In-Person (class meets Pandra 345)",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Focus on a purpose;Respond to the needs of different audiences;Respond & revise appropriately to different kinds of rhetorical situations;Use conventions (format & structure) appropriate to the rhetorical situation;Adopt appropriate voice, tone, and level of formality;Understand how genres shape reading and writing (particularly as they;move into various disciplines and eventually the workplace);Write in several genres;Acknowledge diverse perspectives, communicate with diverse audiences,;think critically about issues of equity and inclusion, and develop other skills essential to engaging a complex world",
+        "pred_text": "Learning Objectives\nMaterials\nBy the end of this course, you will be able to: p. 2\nAssignments\nFocus on a purpose\npp. 2-5\nRespond to the needs of different audiences"
+      },
+      "email": {
+        "gt": "c.c.hendricks@unh.edu",
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15- week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "C.C. Hendricks",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor (PhD)",
+        "pred": "Phd",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Tuesdays, 11:00-1:00 PM",
+        "pred": "Tuesdays, 11:00-1:00 PM",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      }
+    },
+    {
+      "filename": "ET625ENGL502-F25Syllabus.pdf",
+      "modality": {
+        "gt": "Online (Synchronous)",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Demonstrate an understanding of key concepts in technical communication;Write accurate, precise technical prose for different audiences;Develop texts that use accessible grammatical, stylistic, and genre conventions;Use discourse and technology to develop, design, and deliver document",
+        "pred_text": "Learning Objectives\nMaterials\nBy the end of this course, you will be able to: p. 2\nAssignments\nDemonstrate an understanding of key concepts in technical communication pp. 2-5"
+      },
+      "email": {
+        "gt": "c.c.hendricks@unh.edu",
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15- week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "C.C. Hendricks",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor (PhD)",
+        "pred": "Phd",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Tuesdays, 11:00-1:00 PM",
+        "pred": "Tuesdays, 11:00-1:00 PM",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      }
+    },
+    {
+      "filename": "ET674 Syllabus_FA2025-Rev0.pdf",
+      "modality": {
+        "gt": "Hybrid",
+        "pred": "Hybrid",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Sean.Tavares@unh.edu",
+        "pred": "Sean.Tavares@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4.0 credit",
+        "pred": "a 4.0 credit course",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Sean Tavares",
+        "pred": "Sean Tavares",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Associate Professor(Ph.D.)",
+        "pred": "Phd",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Engineering Technology (ET 674)",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "Pandra Rm. 103",
+        "pred": "Pandora Room 103",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Wednesday & Thursday, 2:40pm-3:40pm, and by appointment",
+        "pred": "Wednesday & Thursday, 2:40pm-3:40pm, and by appointment.",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "(603) 641-4322",
+        "pred": "(603) 641-4322",
+        "match": true
+      }
+    },
+    {
+      "filename": "Exploring NH Forests, Drawing to Discover the Tree Community.pdf",
+      "modality": {
+        "gt": "In-Person (outdoor/field meetings)",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Student Learning Outcomes\nUpon successful completion of this course, students will be able to:\n● Understand and appreciate art and its historical role in observational science\n● Demonstrate foundational drawing skills such as line, value, form, perspective and composition\n● Identify common New Hampshire tree species and their roles within forest communities\n● Apply and explain the ecological principles that govern forest dynamics, including species\ninteractions, succession and forest biodiversity\n● Produce a written and illustrated report that integrates ecological research, field observations",
+        "pred_text": "Student Learning Outcomes\nUpon successful completion of this course, students will be able to:\n● Understand and appreciate art and its historical role in observational science\n● Demonstrate foundational drawing skills such as line, value, form, perspective and composition\n● Identify common New Hampshire tree species and their roles within forest communities\n● Apply and explain the ecological principles that govern forest dynamics, including species\ninteractions, succession and forest biodiversity\n● Produce a written and illustrated report that integrates ecological research, field observations"
+      },
+      "email": {
+        "gt": "christine.andrews@unh.edu",
+        "pred": "christine.andrews@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credits: 4.0",
+        "pred": "Credits: 4.0",
+        "match": true
+      },
+      "workload": {
+        "gt": "three hours of student academic work and engagement each week",
+        "pred": "three hours of student academic work and engagement each week",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Christine Andrews",
+        "pred": "Christine Andrews",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct Professor",
+        "pred": "Adjunct Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Program in Biological Sciences",
+        "pred": "of Life Sciences, Program in Biological Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandra, Room 244",
+        "pred": "Pandora Room 244",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "TBD",
+        "pred": "TBD",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "603-641-4338",
+        "pred": "603-641-4338",
+        "match": true
+      }
+    },
+    {
+      "filename": "2025-summer-comp690-comp891-jin.pdf",
+      "modality": {
+        "gt": "Online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Apply protocols for an effective job search;Gain insight into a possible career path of interest while learning about the industry in;which the organization resides, organizational structure, and roles and responsibilities within that structure;Understand of how coursework ties to professional careers of interest;Develop professional connections and identify a strategy for maintaining those connections;Reflection on the internship experiences;Ability to articulate what was learned and how it will be applied to your professional career goals;Identification of professions that may be of interest as a result of this experience;Identification of additional skills that will need to be developed to ensure career readiness;This might include learning a new technology, developing a broader network, additional coursework, etc.",
+        "pred_text": "STUDENT LEARNING OUTCOME\nUpon completion of this course, students should be able to:\n▪ Apply protocols for an effective job search.\n▪ Gain insight into a possible career path of interest while learning about the industry in\nwhich the organization resides, organizational structure, and roles and responsibilities\nwithin that structure.\n▪ Understand of how coursework ties to professional careers of interest.\n▪ Develop professional connections and identify a strategy for maintaining those connections\n▪ Reflection on the internship experiences, including:"
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credits: 4",
+        "pred": "Credits: 4",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 45 hours of course work per credit, which includes 40 hours of onsite work hours per credit",
+        "pred": "45 hours of course work per credit",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "of Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora Room 139",
+        "pred": "Pandora Room 139",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Available in person or virtually over Microsoft Teams",
+        "pred": "Available in person or virtually over Microsoft Teams",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "(603) 641-4398",
+        "pred": "(603) 641-4398",
+        "match": true
+      }
+    },
+    {
+      "filename": "NSIA 820 syllabus 05_2025.pdf",
+      "modality": {
+        "gt": "Online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Analyze security intelligence frameworks; Evaluate policy implications; Apply analytic tools to case studies",
+        "pred_text": "Learning Objectives\nStudents that successfully complete this course will be able to:\n• Understand the role of the analyst in the intelligence cycle.\n• Understand the relationship between analysis and synthesis; and relate logic and\ncritical thinking to intelligence analysis.\nNSIA 820 / NSIA 720\nIntelligence Analysis\nUPDATED 05/07/2025\nInstructor\nJohn Borek, Ph.D."
+      },
+      "email": {
+        "gt": "john.borek@unh.edu",
+        "pred": "john.borek@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credits: 3",
+        "pred": "Credits: 3",
+        "match": true
+      },
+      "workload": {
+        "gt": "expected to spend at least 16 hours per week on this class",
+        "pred": "expected to spend at least 16 hours per week on this class",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "John Borek",
+        "pred": "John Borek",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct Instructor(Ph.D.)",
+        "pred": "Ph.D",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Department of Security Studies",
+        "pred": "of Security Studies",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment",
+        "pred": "By appointment",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "434-981-2446",
+        "pred": "434-981-2446",
+        "match": true
+      }
+    },
+    {
+      "filename": "NSIA 850 syllabus_summer 2025.pdf",
+      "modality": {
+        "gt": "Online (Asynchronous)",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Develop strategic analysis skills; Communicate intelligence findings; Apply quantitative methods in national security",
+        "pred_text": "Learning Objectives\nStudents that successfully complete this course will be able to:\n• Distinguish among the core elements of the intelligence enterprise (collection, analysis,\noperations) as they relate to national security.\n• Assess the applicability of intelligence assets in support of national security objectives.\n• Understand the role of intelligence as a component of whole of government efforts in\nsupport of national security objectives.\n• Evaluate the conduct of intelligence activities.\n• Design a plan for intelligence in support of national security policies."
+      },
+      "email": {
+        "gt": "john.borek@unh.edu",
+        "pred": "john.borek@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credits: 3",
+        "pred": "Credits: 3",
+        "match": true
+      },
+      "workload": {
+        "gt": "expected to spend at least 16 hours per week on this class",
+        "pred": "expected to spend at least 16 hours per week on this class",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "John Borek",
+        "pred": "John Borek",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct Instructor(Ph.D.)",
+        "pred": "Ph.D",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "College of Professional Studies",
+        "pred": "Professional Studies",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment (remote or phone/Zoom)",
+        "pred": "By appointment",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "434-981-2446",
+        "pred": "434-981-2446",
+        "match": true
+      }
+    },
+    {
+      "filename": "NSIA 898 Syllabus-2.docx",
+      "modality": {
+        "gt": "Online (Asynchronous)",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Analyze contemporary issues in national security; Apply intelligence methods to real-world problems; Communicate findings effectively to policymakers",
+        "pred_text": "Learning Objectives\nStudents that successfully complete this course will be able to:\nApply critical thinking concepts to qualitative and quantitative problems.\nConduct qualitative and quantitative analysis.\nCritique analytical products.\nDemonstrate appropriate writing, editing, presentation, and organizational skills.\nAttendance, Class Format, and Instructor Contact\nAttendance and Class Format"
+      },
+      "email": {
+        "gt": "bridget.nolan@unh.edu",
+        "pred": "bridget.nolan@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Credits: 3",
+        "pred": "Credits: 3",
+        "match": true
+      },
+      "workload": {
+        "gt": "expected to spend at least 16 hours per week on this class",
+        "pred": "expected to spend at least 16 hours per week on this class",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Bridget Rose Nolan",
+        "pred": "Bridget Rose Nolan",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Assistant Professor(Ph.D.)",
+        "pred": "Ph.D",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Department of Security Studies - National Security Intelligence Analysis Program",
+        "pred": "of Security Studies - National Security Intelligence Analysis Program",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
+        "pred": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      }
+    },
+    {
+      "filename": "BMS507 Human A&P syllabus, Sum25.pdf",
+      "modality": {
+        "gt": "Online (Asynchronous)",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "suzanne.cooke@unh.edu",
+        "pred": "suzanne.cooke@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Sue Cooke",
+        "pred": "Sue Cooke",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Senior Lecturer",
+        "pred": "Senior Lecturer",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Life Science, Bio/Biotech program",
+        "pred": "Life Science, Bio",
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora, Room 569",
+        "pred": "Pandora Room 569",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Online",
+        "pred": "online, TBD",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "603-641-4328",
+        "pred": "603-641-4328",
+        "match": true
+      }
+    }
+  ]
+}
