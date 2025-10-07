@@ -12,3 +12,7 @@ conversation_memory.json
 uploads/
 db/
 gunicorn.log
+test_results.json
+
+# Claude Code files
+.claude/
