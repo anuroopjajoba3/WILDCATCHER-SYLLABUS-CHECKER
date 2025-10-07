@@ -1,8 +1,8 @@
 {
   "summary": {
     "modality": {
-      "accuracy": 0.0,
-      "correct": 0,
+      "accuracy": 0.8,
+      "correct": 12,
       "total": 15
     },
     "SLOs": {
@@ -11,8 +11,8 @@
       "total": 15
     },
     "email": {
-      "accuracy": 0.0,
-      "correct": 0,
+      "accuracy": 1.0,
+      "correct": 15,
       "total": 15
     },
     "credit_hour": {
@@ -57,8 +57,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.7333,
-    "correct": 121,
+    "accuracy": 0.897,
+    "correct": 148,
     "total": 165
   },
   "details": [
@@ -66,8 +66,8 @@
       "filename": "557_syllabus.pdf",
       "modality": {
         "gt": "Hybrid (face-to-face weekly + async online)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -78,8 +78,8 @@
       },
       "email": {
         "gt": "jeremiah.johnson@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "jeremiah.johnson@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "a 4-credit course",
@@ -126,8 +126,8 @@
       "filename": "PSYC 511 Syllabus Fall 2025.pdf",
       "modality": {
         "gt": "In-Person",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -138,8 +138,8 @@
       },
       "email": {
         "gt": "john.sparrow@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "john.sparrow@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4 credits",
@@ -186,8 +186,8 @@
       "filename": "Beverly Hodsdon - CA520 Special Topics in Communications - Publication Design_Syllabus_FALL 2025.pdf",
       "modality": {
         "gt": "In-Person (Pandra Lab 443)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -198,8 +198,8 @@
       },
       "email": {
         "gt": "beverly.hodsdon@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "beverly.hodsdon@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credit Hours: 4",
@@ -246,8 +246,8 @@
       "filename": "BIOT 780.880 Lecture Fall2025 Syllabus.pdf",
       "modality": {
         "gt": "In-Person (lab/classroom conduct rules)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -258,8 +258,8 @@
       },
       "email": {
         "gt": "mark.scimone@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "mark.scimone@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -318,8 +318,8 @@
       },
       "email": {
         "gt": "Lesley.Fallu@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "Lesley.Fallu@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 4",
@@ -366,8 +366,8 @@
       "filename": "Comp855 Syllabus.pdf",
       "modality": {
         "gt": "In-Person (room 142)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -378,8 +378,8 @@
       },
       "email": {
         "gt": "mcy59@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "mcy59@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "3 credits",
@@ -426,8 +426,8 @@
       "filename": "ENGL401M1-F25Syllabus.pdf",
       "modality": {
         "gt": "In-Person (class meets Pandra 345)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -438,8 +438,8 @@
       },
       "email": {
         "gt": "c.c.hendricks@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -486,8 +486,8 @@
       "filename": "ET625ENGL502-F25Syllabus.pdf",
       "modality": {
         "gt": "Online (Synchronous)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Online",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -498,8 +498,8 @@
       },
       "email": {
         "gt": "c.c.hendricks@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -546,8 +546,8 @@
       "filename": "ET674 Syllabus_FA2025-Rev0.pdf",
       "modality": {
         "gt": "Hybrid",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -558,8 +558,8 @@
       },
       "email": {
         "gt": "Sean.Tavares@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "Sean.Tavares@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4.0 credit",
@@ -618,8 +618,8 @@
       },
       "email": {
         "gt": "christine.andrews@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "christine.andrews@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 4.0",
@@ -666,8 +666,8 @@
       "filename": "2025-summer-comp690-comp891-jin.pdf",
       "modality": {
         "gt": "Online",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Online",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -678,8 +678,8 @@
       },
       "email": {
         "gt": "karen.jin@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "karen.jin@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 4",
@@ -726,8 +726,8 @@
       "filename": "NSIA 820 syllabus 05_2025.pdf",
       "modality": {
         "gt": "Online",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Online",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -738,8 +738,8 @@
       },
       "email": {
         "gt": "john.borek@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "john.borek@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 3",
@@ -786,7 +786,7 @@
       "filename": "NSIA 850 syllabus_summer 2025.pdf",
       "modality": {
         "gt": "Online (Asynchronous)",
-        "pred": "Unknown",
+        "pred": "In-Person",
         "match": false
       },
       "slos": {
@@ -798,8 +798,8 @@
       },
       "email": {
         "gt": "john.borek@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "john.borek@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 3",
@@ -846,8 +846,8 @@
       "filename": "NSIA 898 Syllabus-2.docx",
       "modality": {
         "gt": "Online (Asynchronous)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Online",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -858,8 +858,8 @@
       },
       "email": {
         "gt": "bridget.nolan@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "bridget.nolan@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 3",
@@ -906,8 +906,8 @@
       "filename": "BMS507 Human A&P syllabus, Sum25.pdf",
       "modality": {
         "gt": "Online (Asynchronous)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "Online",
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -918,8 +918,8 @@
       },
       "email": {
         "gt": "suzanne.cooke@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "suzanne.cooke@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",

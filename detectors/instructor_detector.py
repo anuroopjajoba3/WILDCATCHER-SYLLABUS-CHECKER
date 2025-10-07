@@ -201,7 +201,7 @@ class InstructorDetector:
         found_title = None
         for line in lines:
             for kw in self.title_keywords:
-                if kw not in ['Dr', 'Dr.', 'phd', 'ph.d', 'Phd', 'Ph.D']:
+                if kw not in ['Dr', 'Dr.']:
                     if kw.lower() in line.lower():
                         return kw.title() if kw.islower() else kw
                 elif kw.lower() in ['phd', 'ph.d']:
@@ -212,10 +212,6 @@ class InstructorDetector:
             for kw in ['Dr', 'Dr.']:
                 if kw in line:
                     return kw
-        # If no other title found, use 'Phd'/'Ph.D' if present
-        if found_title:
-            return found_title
-        return None
 
     def extract_department(self, lines):
         """

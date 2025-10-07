@@ -41,7 +41,7 @@ except Exception:
     print("⚠️ SLO detector not available")
 
 try:
-    from detectors.email_detection import emailDetector
+    from detectors.email_detector import emailDetector
     EMAIL_AVAILABLE = True
 except Exception:
     EMAIL_AVAILABLE = False
