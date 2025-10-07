@@ -39,6 +39,8 @@ def _find_class_location_section(text: str) -> str:
         r"(?i)^(?:meeting\s+)?(?:location|place|where)",
         r"(?i)^(?:time\s+and\s+)?location",
         r"(?i)^(?:class|course)\s+delivery",
+        r"(?i)^delivery\s+(?:method|format|mode)",
+        r"(?i)^modality",
     ]
 
     for i, line in enumerate(lines[:300]):
@@ -65,7 +67,7 @@ def _has_zoom_class_phrase(s: str) -> bool:
     if not s:
         return False
     # examples: "class meets on Zoom", "meets via Zoom", "meeting on Teams"
-    return bool(re.search(r"(?i)\b(meets?|meeting|class)\b.*\b(zoom|microsoft\s*teams|teams|webex)\b", s))
+    return bool(re.search(r"(?i)\b(meets?|meeting|class|delivered|offered)\b.*\b(zoom|microsoft\s*teams|teams|webex)\b", s))
 
 def _has_physical_room_phrase(s: str) -> bool:
     """Physical location cues in class context."""
@@ -99,11 +101,23 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         "100% online", "fully online", "completely online", "entirely online",
         "online only", "course is online", "this course is online",
         "delivered entirely online", "offered online",
-        "synchronous online", "meets online", "meets on zoom", "meets via zoom"
+        "synchronous online", "meets online", "meets on zoom", "meets via zoom",
+        "asynchronous online", "fully asynchronous", "entirely asynchronous",
+        "this course meets synchronously online", "course meets synchronously online",
+        "no scheduled class times", "no scheduled class meeting times",
+        "there are no scheduled class times", "there are no scheduled meeting times"
     ]
     for phrase in online_definitive:
         if phrase in t_lower:
             return {"modality": "Online", "confidence": 0.95, "evidence": [phrase]}
+    
+    # Check for "Time/Location: ... Online" pattern (common in headers)
+    if re.search(r"(?i)(?:time\s+and\s+)?location[:\s]+.*\bonline\b", t_lower[:800]):
+        return {"modality": "Online", "confidence": 0.93, "evidence": ["location states online"]}
+    
+    # Check for day/time followed by "online" in first 800 chars
+    if re.search(r"(?i)(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*[,\s]+\d{1,2}:\d{2}.*\bonline\b", t_lower[:800]):
+        return {"modality": "Online", "confidence": 0.93, "evidence": ["class time shows online"]}
 
     hybrid_definitive = [
         "hybrid course", "hy-flex", "hyflex", "blended course",
@@ -126,10 +140,18 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         if _has_physical_room_phrase(class_section):
             return {"modality": "In-Person", "confidence": 0.90, "evidence": ["class meets in physical room"]}
 
-    # A header “meets in Room/Lab/Pandra/Pandora …” in the very top section is strong in-person
+    # Check for explicit "Delivery Method: Online" or similar in first 1000 chars
+    header_1000 = t_lower[:1000]
+    if re.search(r"(?i)(?:delivery|modality|format|mode)\s*[:\-]?\s*(?:online|asynchronous|synchronous online)", header_1000):
+        return {"modality": "Online", "confidence": 0.92, "evidence": ["delivery method states online"]}
+
+    # A header "meets in Room/Lab/Pandra/Pandora …" in the very top section is strong in-person
     header_500 = t_lower[:600]
     if re.search(rf"(?i)\b(meets?|meeting)\b.*\b({BUILDING_WORDS})\b.*\b[A-Za-z]?\d{{2,4}}\b", header_500):
-        return {"modality": "In-Person", "confidence": 0.92, "evidence": ["header shows physical meeting room"]}
+        # But check it's not in office hours context
+        office_in_header = "office" in header_500[max(0, header_500.find("meets")-50):header_500.find("meets")+150] if "meets" in header_500 else False
+        if not office_in_header:
+            return {"modality": "In-Person", "confidence": 0.92, "evidence": ["header shows physical meeting room"]}
 
     # === PHASE 3: Asynchronous (guard against office hours / tutoring) ===
     if "asynchronous" in t_lower:
@@ -137,12 +159,13 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         snippet = t_lower[max(0, i-220): i+220]
         # ignore support-service/non-modality contexts
         bad_context = ["tutoring", "writing lab", "writing center", "owl", "support service",
-                       "recorded lectures", "temporary", "accommodations", "miss class", "office hours"]
+                       "recorded lectures", "temporary", "accommodations", "miss class"]
+        # Don't exclude "office hours" here - that's already handled separately
         if not any(b in snippet for b in bad_context):
             # online context nearby
-            if any(w in snippet for w in ["online", "remote", "delivered", "format", "course is", "meets online"]):
+            if any(w in snippet for w in ["online", "remote", "delivered", "format", "course is", "meets online", "delivery"]):
                 if not any(w in snippet for w in ["meets in", "classroom", "in person", "on campus"]):
-                    return {"modality": "Online", "confidence": 0.84, "evidence": ["asynchronous online delivery"]}
+                    return {"modality": "Online", "confidence": 0.88, "evidence": ["asynchronous online delivery"]}
 
     # === PHASE 4: Scoring (soft signals) ===
     score_online = 0.0
@@ -150,17 +173,19 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
     score_inperson = 0.0
 
     online_patterns = [
-        (r"(?i)\bcourse\s+(?:is\s+)?(?:delivered|offered|taught)\s+online\b", 3.0),
-        (r"(?i)\bonline\s+(?:course|format|delivery|instruction)\b", 2.5),
-        (r"(?i)\bsynchronous\s+online\b", 2.6),
-        (r"(?i)\bremote\s+(?:course|instruction|learning)\b", 2.0),
-        (r"(?i)\bvirtual\s+course\b", 2.0),
-        (r"(?i)\bclass\s+meets?\s+(?:on|via)\s+(?:zoom|microsoft\s*teams|teams|webex)\b", 3.0),
+        (r"(?i)\bcourse\s+(?:is\s+)?(?:delivered|offered|taught)\s+online\b", 3.5),
+        (r"(?i)\bonline\s+(?:course|format|delivery|instruction)\b", 3.0),
+        (r"(?i)\bsynchronous\s+online\b", 3.2),
+        (r"(?i)\basynchronous\s+(?:course|format|delivery)\b", 3.2),
+        (r"(?i)\bremote\s+(?:course|instruction|learning)\b", 2.5),
+        (r"(?i)\bvirtual\s+course\b", 2.5),
+        (r"(?i)\bclass\s+meets?\s+(?:on|via)\s+(?:zoom|microsoft\s*teams|teams|webex)\b", 3.5),
+        (r"(?i)\bdelivered\s+(?:entirely\s+)?(?:online|remotely|asynchronously)\b", 3.5),
     ]
     for pat, w in online_patterns:
         if re.search(pat, t_lower):
             score_online += w
-            evidence.append(f"hit:{pat}")
+            evidence.append(f"online_pattern_match")
 
     # shallow section for early Zoom mentions (avoid office context)
     first_1500 = t_lower[:1500]
@@ -169,7 +194,7 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         # if "office" not close to zoom mention, treat as course cue
         near = first_1500[max(0, zpos-60): zpos+60]
         if "office" not in near:
-            score_online += 1.2
+            score_online += 2.0
 
     inperson_patterns = [
         (rf"(?i)\b(?:class|course|lecture)\s+(?:meets?|is held|location).*(?:{BUILDING_WORDS})\b", 3.0),
@@ -187,18 +212,26 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
     for pat, w in inperson_patterns:
         if re.search(pat, t_lower):
             score_inperson += w
-            evidence.append(f"hit:{pat}")
+            evidence.append(f"inperson_pattern_match")
 
     # hybrid: presence of both online and in-person cues
     if score_online > 1.3 and score_inperson > 1.3:
         score_hybrid = max(score_hybrid, (score_online + score_inperson) * 0.55)
 
-    # Office-hours disambiguation: if rooms only appear in office hours, downweight in-person
+    # Office-hours disambiguation: if rooms only appear in office hours, reduce in-person scoring
     if office_section and score_inperson > 0:
         room_in_class = bool(re.search(rf"(?i)\b{BUILDING_WORDS}\b.*\b[A-Za-z]?\d{{2,4}}\b", class_section))
         room_in_office = bool(re.search(rf"(?i)\b{BUILDING_WORDS}\b.*\b[A-Za-z]?\d{{2,4}}\b", office_section))
+        
         if room_in_office and not room_in_class:
-            score_inperson = max(0.0, score_inperson - 2.0)
+            # Rooms only in office hours - heavily reduce in-person score
+            score_inperson = max(0.0, score_inperson - 4.0)
+            evidence.append("reduced_inperson_office_hours_only")
+            
+            # If we have ANY online signals (even weak ones), favor online
+            if score_online > 1.0:
+                score_online += 2.0  # Boost online instead of just reducing in-person
+                evidence.append("boosted_online_no_class_location")
 
     scores = {"Online": score_online, "Hybrid": score_hybrid, "In-Person": score_inperson}
     max_score = max(scores.values())
