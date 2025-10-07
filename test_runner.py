@@ -60,6 +60,13 @@ except Exception:
     WORKLOAD_AVAILABLE = False
     print("⚠️ Workload detector not available")
 
+try:
+    from detectors.instructor_detector import InstructorDetector
+    INSTRUCTOR_AVAILABLE = True
+except Exception:
+    INSTRUCTOR_AVAILABLE = False
+    print("⚠️ Instructor detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -146,6 +153,22 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["workload"] = ""
 
+    # Instructor
+    if INSTRUCTOR_AVAILABLE:
+        i = InstructorDetector().detect(text)
+        if i.get("found"):
+            preds["instructor_name"] = i.get("name", "")
+            preds["instructor_title"] = i.get("title", "")
+            preds["instructor_department"] = i.get("department", "")
+        else:
+            preds["instructor_name"] = ""
+            preds["instructor_title"] = ""
+            preds["instructor_department"] = ""
+    else:
+        preds["instructor_name"] = ""
+        preds["instructor_title"] = ""
+        preds["instructor_department"] = ""
+
     return preds
 
 # ======================================================================
@@ -231,12 +254,33 @@ def main():
             field_stats["workload"]["correct"] += int(match)
             result["workload"] = {"gt": record["workload"], "pred": preds.get("workload", ""), "match": match}
 
+        # Instructor Name
+        if "instructor_name" in record:
+            match = loose_compare(record["instructor_name"], preds.get("instructor_name", ""))
+            field_stats["instructor_name"]["total"] += 1
+            field_stats["instructor_name"]["correct"] += int(match)
+            result["instructor_name"] = {"gt": record["instructor_name"], "pred": preds.get("instructor_name", ""), "match": match}
+
+        # Instructor Title
+        if "instructor_title" in record:
+            match = loose_compare(record["instructor_title"], preds.get("instructor_title", ""))
+            field_stats["instructor_title"]["total"] += 1
+            field_stats["instructor_title"]["correct"] += int(match)
+            result["instructor_title"] = {"gt": record["instructor_title"], "pred": preds.get("instructor_title", ""), "match": match}
+
+        # Instructor Department
+        if "instructor_department" in record:
+            match = loose_compare(record["instructor_department"], preds.get("instructor_department", ""))
+            field_stats["instructor_department"]["total"] += 1
+            field_stats["instructor_department"]["correct"] += int(match)
+            result["instructor_department"] = {"gt": record["instructor_department"], "pred": preds.get("instructor_department", ""), "match": match}
+
         details.append(result)
 
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -253,15 +297,15 @@ def main():
     print("\n" + "=" * 70)
     print("RESULTS SUMMARY")
     print("=" * 70)
-    print(f"{'Field':<20} {'Accuracy':<10} {'Correct/Total'}")
-    print("-" * 50)
+    print(f"{'Field':<25} {'Accuracy':<10} {'Correct/Total'}")
+    print("-" * 60)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department"):
         stats = summary[field]
-        print(f"{field:<20} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
+        print(f"{field:<25} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
-    print("-" * 50)
-    print(f"{'OVERALL':<20} {overall:>6.1%}      {total_correct}/{total_tests}")
+    print("-" * 60)
+    print(f"{'OVERALL':<25} {overall:>6.1%}      {total_correct}/{total_tests}")
     print("=" * 70)
 
     # Save results to JSON
