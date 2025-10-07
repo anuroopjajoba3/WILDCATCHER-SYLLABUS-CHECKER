@@ -76,9 +76,6 @@ class WorkloadDetector:
 
             # "expected to spend at least X hours per week on this class"
             r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week\s+on\s+this\s+class',
-
-            # "expected to spend at least X hours per week" (without "on this class")
-            r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week',
         ]
 
     def detect(self, text: str) -> Dict[str, Any]:
