@@ -1,8 +1,8 @@
 {
   "summary": {
     "modality": {
-      "accuracy": 0.8,
-      "correct": 12,
+      "accuracy": 0.9333,
+      "correct": 14,
       "total": 15
     },
     "SLOs": {
@@ -16,13 +16,13 @@
       "total": 15
     },
     "credit_hour": {
-      "accuracy": 0.9333,
-      "correct": 14,
+      "accuracy": 1.0,
+      "correct": 15,
       "total": 15
     },
     "workload": {
-      "accuracy": 0.8,
-      "correct": 12,
+      "accuracy": 1.0,
+      "correct": 15,
       "total": 15
     },
     "instructor_name": {
@@ -31,8 +31,8 @@
       "total": 15
     },
     "instructor_title": {
-      "accuracy": 0.8,
-      "correct": 12,
+      "accuracy": 0.9333,
+      "correct": 14,
       "total": 15
     },
     "instructor_department": {
@@ -41,13 +41,13 @@
       "total": 15
     },
     "office_address": {
-      "accuracy": 0.9333,
-      "correct": 14,
+      "accuracy": 1.0,
+      "correct": 15,
       "total": 15
     },
     "office_hours": {
-      "accuracy": 0.8,
-      "correct": 12,
+      "accuracy": 1.0,
+      "correct": 15,
       "total": 15
     },
     "office_phone": {
@@ -57,8 +57,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.897,
-    "correct": 148,
+    "accuracy": 0.9697,
+    "correct": 160,
     "total": 165
   },
   "details": [
@@ -92,7 +92,7 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Jeremiah W.",
+        "gt": "Jeremiah W. Johnson",
         "pred": "Jeremiah W.",
         "match": true
       },
@@ -113,8 +113,8 @@
       },
       "office_hours": {
         "gt": "TR 9:10 – 10:00 AM",
-        "pred": "TR 9:10 - 10:00 AM, Room 105",
-        "match": false
+        "pred": "TR 9:10 - 10:00 AM",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4127",
@@ -173,7 +173,7 @@
       },
       "office_hours": {
         "gt": "Tuesday - 4:00 – 5:00;Thursday - 3:00 – 5:00;\nFriday - 1:00 – 2:00",
-        "pred": "Tuesday - 4:00 – 5:00",
+        "pred": "Tuesday - 4:00 - 5:00;Thursday - 3:00 - 5:00;\nFriday - 1:00 - 2:00",
         "match": true
       },
       "office_phone": {
@@ -272,14 +272,14 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Mark T.",
+        "gt": "Mark T. Scimone",
         "pred": "Mark T.",
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "Phd",
         "pred": "Phd",
-        "match": false
+        "match": true
       },
       "instructor_department": {
         "gt": "",
@@ -306,8 +306,8 @@
       "filename": "Math 418 Syllabus Fall 2025.pdf",
       "modality": {
         "gt": "In-Person",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -338,8 +338,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Instructor",
-        "pred": null,
-        "match": false
+        "pred": "Adjunct Instructor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Mathematics and Statistics (MATH418)",
@@ -353,7 +353,7 @@
       },
       "office_hours": {
         "gt": "I will be available from 1:30 - 3:00 on M/W. You do not need an appointment to stop by",
-        "pred": "I will be available from 1:30 – 3:00 on M/W, room 115. You do not need an appointment to stop by",
+        "pred": "I will be available from 1:30 - 3:00 on M/W. You do not need an appointment to stop by",
         "match": true
       },
       "office_phone": {
@@ -593,7 +593,7 @@
       },
       "office_hours": {
         "gt": "Wednesday & Thursday, 2:40pm-3:40pm, and by appointment",
-        "pred": "Wednesday & Thursday, 2:40pm-3:40pm, and by appointment. Students are",
+        "pred": "Wednesday & Thursday, 2:40pm-3:40pm, and by appointment.",
         "match": true
       },
       "office_phone": {
@@ -606,8 +606,8 @@
       "filename": "Exploring NH Forests, Drawing to Discover the Tree Community.pdf",
       "modality": {
         "gt": "In-Person (outdoor/field meetings)",
-        "pred": "Unknown",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -713,7 +713,7 @@
       },
       "office_hours": {
         "gt": "Available in person or virtually over Microsoft Teams",
-        "pred": "Available in person or virtually over Microsoft Teams.",
+        "pred": "Available in person or virtually over Microsoft Teams",
         "match": true
       },
       "office_phone": {
@@ -748,8 +748,8 @@
       },
       "workload": {
         "gt": "expected to spend at least 16 hours per week on this class",
-        "pred": "",
-        "match": false
+        "pred": "expected to spend at least 16 hours per week on this class",
+        "match": true
       },
       "instructor_name": {
         "gt": "John Borek",
@@ -773,7 +773,7 @@
       },
       "office_hours": {
         "gt": "By appointment",
-        "pred": "By appointment.",
+        "pred": "By appointment",
         "match": true
       },
       "office_phone": {
@@ -808,8 +808,8 @@
       },
       "workload": {
         "gt": "expected to spend at least 16 hours per week on this class",
-        "pred": "",
-        "match": false
+        "pred": "expected to spend at least 16 hours per week on this class",
+        "match": true
       },
       "instructor_name": {
         "gt": "John Borek",
@@ -833,8 +833,8 @@
       },
       "office_hours": {
         "gt": "By appointment (remote or phone/Zoom)",
-        "pred": "By appointment.",
-        "match": false
+        "pred": "By appointment",
+        "match": true
       },
       "office_phone": {
         "gt": "434-981-2446",
@@ -863,13 +863,13 @@
       },
       "credit_hour": {
         "gt": "Credits: 3",
-        "pred": "",
-        "match": false
+        "pred": "Credits: 3",
+        "match": true
       },
       "workload": {
         "gt": "expected to spend at least 16 hours per week on this class",
-        "pred": "",
-        "match": false
+        "pred": "expected to spend at least 16 hours per week on this class",
+        "match": true
       },
       "instructor_name": {
         "gt": "Bridget Rose Nolan",
@@ -893,8 +893,8 @@
       },
       "office_hours": {
         "gt": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
-        "pred": "Office hours are schedule by appointment. Please request office hours via",
-        "match": false
+        "pred": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
+        "match": true
       },
       "office_phone": {
         "gt": "",
@@ -948,8 +948,8 @@
       },
       "office_address": {
         "gt": "Pandora, Room 569",
-        "pred": "",
-        "match": false
+        "pred": "Pandora Room 569",
+        "match": true
       },
       "office_hours": {
         "gt": "Online",
