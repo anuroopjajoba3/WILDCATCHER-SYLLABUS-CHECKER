@@ -29,7 +29,7 @@ class InstructorDetector:
         Loads common last names for confidence scoring and fallback extraction.
         """
         self.name_keywords = [
-            'Instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name'
+            'Instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr'
         ]
         self.title_keywords = [
             'assistant professor', 'associate professor', 'professor', 'senior lecturer', 'lecturer', 'adjunct', 'phd', 'ph.d', 'Dr', 'Dr.'
@@ -81,30 +81,34 @@ class InstructorDetector:
         name = None
         found_keyword = False
         patterns = [
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First M Last
             r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+)',
             r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)'
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)'
         ]
+        # Search all but the first line
         for i, line in enumerate(lines_for_name):
             for keyword in self.name_keywords:
                 if keyword.lower() in line.lower():
                     found_keyword = True
                     after = re.split(rf'{keyword}[:\-]*', line, flags=re.IGNORECASE)
                     candidate = after[1].strip() if len(after) > 1 else ''
-                    # If candidate is empty, try next line
                     if not candidate:
-                        if i+1 < len(lines_for_name):
-                            candidate = lines_for_name[i+1].strip()
-                    # Extract only the first two or three capitalized words (allow middle initial)
+                        if i+2 < len(lines):
+                            candidate = lines[i+2].strip()
+                    for pat in patterns:
+                        match = re.search(pat, candidate)
+                        if match:
+                            possible_name = match.group(1)
+                            if self.is_valid_name(possible_name):
+                                name = possible_name
+                                break
+                    if name:
+                        break
                     words = candidate.split()
                     name_candidate = []
                     for w in words:
-                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', w):
-                            name_candidate.append(w)
-                            if len(name_candidate) == 3:
-                                break
-                        elif re.match(r'^[A-Z]\.$', w):
+                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', w) or re.match(r'^[A-Z]\.$', w):
                             name_candidate.append(w)
                             if len(name_candidate) == 3:
                                 break
@@ -117,23 +121,49 @@ class InstructorDetector:
                             break
             if name:
                 break
-        # 2. Only if NO instructor/name keyword was found at all, fall back to pattern search
-        if not name and not found_keyword:
-                for pat in [
-                    r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+)',
-                    r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-                    r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-                    r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)'
-                ]:
-                    for line in lines_for_name:
-                        for possible_name in re.findall(pat, line.strip()):
+        # If no name found, check the first line
+        if not name and len(lines) > 0:
+            first_line = lines[0]
+            for keyword in self.name_keywords:
+                if keyword.lower() in first_line.lower():
+                    after = re.split(rf'{keyword}[:\-]*', first_line, flags=re.IGNORECASE)
+                    candidate = after[1].strip() if len(after) > 1 else ''
+                    for pat in patterns:
+                        match = re.search(pat, candidate)
+                        if match:
+                            possible_name = match.group(1)
                             if self.is_valid_name(possible_name):
                                 name = possible_name
                                 break
-                        if name:
+                    if name:
+                        break
+                    words = candidate.split()
+                    name_candidate = []
+                    for w in words:
+                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', w) or re.match(r'^[A-Z]\.$', w):
+                            name_candidate.append(w)
+                            if len(name_candidate) == 3:
+                                break
+                        else:
+                            break
+                    if 2 <= len(name_candidate) <= 3:
+                        possible_name = ' '.join(name_candidate)
+                        if self.is_valid_name(possible_name):
+                            name = possible_name
+                            break
+        """
+        # 2. Only if NO instructor/name keyword was found at all, fall back to pattern search
+        if not name and not found_keyword:
+            for pat in patterns:
+                for line in lines_for_name:
+                    for possible_name in re.findall(pat, line.strip()):
+                        if self.is_valid_name(possible_name):
+                            name = possible_name
                             break
                     if name:
                         break
+                if name:
+                    break
         if not name:
             indices = [i for i, l in enumerate(lines_for_name) if re.search(r'@|office|room|building', l, re.IGNORECASE)]
             checked = set()
@@ -142,12 +172,7 @@ class InstructorDetector:
                     j = idx + offset
                     if 0 <= j < len(lines_for_name) and j not in checked:
                         checked.add(j)
-                        for pat in [
-                            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+)',
-                            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-                            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-                            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)'
-                        ]:
+                        for pat in patterns:
                             for possible_name in re.findall(pat, lines_for_name[j].strip()):
                                 if self.is_valid_name(possible_name):
                                     name = possible_name
@@ -158,7 +183,8 @@ class InstructorDetector:
                         break
                 if name:
                     break
-    # ...existing code...
+        """
+        # return name if found, else None
         return name
 
     def extract_title(self, lines):
