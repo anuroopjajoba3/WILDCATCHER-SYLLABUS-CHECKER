@@ -170,7 +170,7 @@ def detect_all_fields(text: str) -> dict:
     # Instructor
     if INSTRUCTOR_AVAILABLE:
         i = InstructorDetector().detect(text)
-        print(f"[INSTRUCTOR DETECTOR OUTPUT] {i}")
+        # print(f"[INSTRUCTOR DETECTOR OUTPUT] {i}")
         preds["instructor_name"] = i.get("name", "")
         preds["instructor_title"] = i.get("title", "")
         preds["instructor_department"] = i.get("department", "")
