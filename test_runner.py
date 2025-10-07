@@ -68,6 +68,13 @@ except Exception:
     INSTRUCTOR_AVAILABLE = False
     print("⚠️ Instructor detector not available")
 
+try:
+    from detectors.office_information_detection import OfficeInformationDetector
+    OFFICE_INFO_AVAILABLE = True
+except Exception:
+    OFFICE_INFO_AVAILABLE = False
+    print("⚠️ Office information detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -175,6 +182,17 @@ def detect_all_fields(text: str) -> dict:
         preds["instructor_name"] = ""
         preds["instructor_title"] = ""
         preds["instructor_department"] = ""
+
+    # Office Information
+    if OFFICE_INFO_AVAILABLE:
+        o = OfficeInformationDetector().detect(text)
+        preds["office_address"] = o.get("office_location", {}).get("content", "") if o.get("office_location", {}).get("found") else ""
+        preds["office_hours"] = o.get("office_hours", {}).get("content", "") if o.get("office_hours", {}).get("found") else ""
+        preds["office_phone"] = o.get("phone", {}).get("content", "") if o.get("phone", {}).get("found") else ""
+    else:
+        preds["office_address"] = ""
+        preds["office_hours"] = ""
+        preds["office_phone"] = ""
 
     return preds
 
@@ -290,12 +308,33 @@ def main():
             field_stats["instructor_department"]["correct"] += int(match)
             result["instructor_department"] = {"gt": record["instructor_department"], "pred": preds.get("instructor_department", ""), "match": match}
 
+        # Office Address
+        if "office_address" in record:
+            match = loose_compare(record["office_address"], preds.get("office_address", ""))
+            field_stats["office_address"]["total"] += 1
+            field_stats["office_address"]["correct"] += int(match)
+            result["office_address"] = {"gt": record["office_address"], "pred": preds.get("office_address", ""), "match": match}
+
+        # Office Hours
+        if "office_hours" in record:
+            match = loose_compare(record["office_hours"], preds.get("office_hours", ""))
+            field_stats["office_hours"]["total"] += 1
+            field_stats["office_hours"]["correct"] += int(match)
+            result["office_hours"] = {"gt": record["office_hours"], "pred": preds.get("office_hours", ""), "match": match}
+
+        # Office Phone
+        if "office_phone" in record:
+            match = loose_compare(record["office_phone"], preds.get("office_phone", ""))
+            field_stats["office_phone"]["total"] += 1
+            field_stats["office_phone"]["correct"] += int(match)
+            result["office_phone"] = {"gt": record["office_phone"], "pred": preds.get("office_phone", ""), "match": match}
+
         details.append(result)
 
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -315,7 +354,7 @@ def main():
     print(f"{'Field':<25} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 60)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
         stats = summary[field]
         print(f"{field:<25} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
