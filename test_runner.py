@@ -7,6 +7,7 @@ Uses detectors + ground_truth.json
   * Fuzzy text match for near-equal strings
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
+Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
 """
 import os
 import sys
@@ -121,12 +122,18 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["modality"] = "Unknown"
 
-    # SLOs
+    # SLOs (capture flag + text)
     if SLO_AVAILABLE:
         slo = SLODetector().detect(text)
         preds["has_slos"] = bool(slo.get("found"))
+        content = slo.get("content")
+        if isinstance(content, list):
+            preds["slos_text"] = "\n".join(map(str, content))
+        else:
+            preds["slos_text"] = content or ""
     else:
         preds["has_slos"] = False
+        preds["slos_text"] = ""
 
     # Email
     if EMAIL_AVAILABLE:
@@ -223,15 +230,23 @@ def main():
             field_stats["modality"]["total"] += 1
             field_stats["modality"]["correct"] += int(match)
             result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
-
-        # SLOs
+        # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
-            gt_has = bool(norm(record["SLOs"]))
+            gt_text = str(record.get("SLOs", "") or "").strip()
+            gt_has = bool(norm(gt_text))
             pred_has = bool(preds.get("has_slos"))
             match = (gt_has == pred_has)
+
             field_stats["SLOs"]["total"] += 1
             field_stats["SLOs"]["correct"] += int(match)
-            result["slos"] = {"gt_present": gt_has, "pred_present": pred_has, "match": match}
+
+            result["slos"] = {
+                "gt_present": gt_has,
+                "pred_present": pred_has,
+                "match": match,
+                "gt_text": gt_text,
+                "pred_text": preds.get("slos_text", "")
+            }
 
         # Email
         if "email" in record:
