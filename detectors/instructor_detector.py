@@ -199,8 +199,14 @@ class InstructorDetector:
         """
         for line in lines:
             for kw in self.title_keywords:
-                if kw.lower() in line.lower():
-                    return kw.title() if kw.islower() else kw
+                # Only match 'Dr' or 'Dr.' exactly (case sensitive)
+                if kw in ['Dr', 'Dr.']:
+                    if kw in line:
+                        return kw
+                else:
+                    # For other keywords, match case-insensitive
+                    if kw.lower() in line.lower():
+                        return kw.title() if kw.islower() else kw
         return None
 
     def extract_department(self, lines):
