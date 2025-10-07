@@ -132,11 +132,15 @@ class LocationDetector(BaseDetector):
             # Lab rooms (also office locations)
             r'Pand[o]?ra\s+Lab\s*(\d+[A-Z]?)',
 
-            # Pattern 8: Simple "Room 139" in office context
+            # Pattern 8: "P569" - Shorthand for Pandora Room
+            # Matches P followed by room number in office context
+            r'(?:Office|Contact)[^\n]{0,50}P(\d+[A-Z]?)',
+
+            # Pattern 9: Simple "Room 139" in office context
             # Room number within 50 chars of "Office" or "Contact Information"
             r'(?:Office|Contact\s*Information)[^\n]{0,50}Room\s*(\d+[A-Z]?)',
 
-            # Pattern 9: Generic - any Room/Rm in instructor section
+            # Pattern 10: Generic - any Room/Rm in instructor section
             # Fallback: room number within 150 chars of instructor mention
             r'(?:Instructor|Professor|Faculty|Office|OFFICE)[^\n]{0,150}(?:Room|Rm\.?)\s*(\d+[A-Z]?)',
         ]
