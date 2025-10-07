@@ -73,6 +73,12 @@ class WorkloadDetector:
 
             # "12 hours/week (4 credits x 3 hours per credit)" - this should be lower priority
             r'(\d+)\s+hours?/week\s*\([^)]*credits?\s*x\s*\d+\s+hours?\s+per\s+credit[^)]*\)',
+
+            # "expected to spend at least X hours per week on this class"
+            r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week\s+on\s+this\s+class',
+
+            # "expected to spend at least X hours per week" (without "on this class")
+            r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week',
         ]
 
     def detect(self, text: str) -> Dict[str, Any]:
