@@ -26,8 +26,8 @@
       "total": 15
     },
     "instructor_name": {
-      "accuracy": 0.8,
-      "correct": 12,
+      "accuracy": 0.8667,
+      "correct": 13,
       "total": 15
     },
     "instructor_title": {
@@ -57,8 +57,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.7273,
-    "correct": 120,
+    "accuracy": 0.7333,
+    "correct": 121,
     "total": 165
   },
   "details": [
@@ -153,8 +153,8 @@
       },
       "instructor_name": {
         "gt": "John Sparrow",
-        "pred": null,
-        "match": false
+        "pred": "John Sparrow",
+        "match": true
       },
       "instructor_title": {
         "gt": "Associate Professor(Ph.D.)",

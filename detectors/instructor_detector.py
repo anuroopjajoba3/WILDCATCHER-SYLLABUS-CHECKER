@@ -151,7 +151,7 @@ class InstructorDetector:
                         if self.is_valid_name(possible_name):
                             name = possible_name
                             break
-        """
+
         # 2. Only if NO instructor/name keyword was found at all, fall back to pattern search
         if not name and not found_keyword:
             for pat in patterns:
@@ -183,7 +183,7 @@ class InstructorDetector:
                         break
                 if name:
                     break
-        """
+
         # return name if found, else None
         return name
 
