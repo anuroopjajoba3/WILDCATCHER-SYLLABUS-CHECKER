@@ -18,7 +18,8 @@
     "assignment_types_title": "Homework:",
     "grading_procedures_title": "Grading Policy:",
     "deadline_expectations_title": "Late/Make-Up Work:",
-    "": ""
+    "assignment_delivery": "myCourses",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "PSYC 511 Syllabus Fall 2025.pdf",
@@ -39,7 +40,8 @@
     "assignment_types_title": "SUMMARY OF STUDENT EVALUATION",
     "grading_procedures_title": "SUMMARY OF STUDENT EVALUATION",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "Canvas (myCourses)",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "Beverly Hodsdon - CA520 Special Topics in Communications - Publication Design_Syllabus_FALL 2025.pdf",
@@ -60,7 +62,8 @@
     "assignment_types_title": "Assignments & Grades",
     "grading_procedures_title": "Grading",
     "deadline_expectations_title": "Late Work",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": ""
   },
   {
     "filename": "BIOT 780.880 Lecture Fall2025 Syllabus.pdf",
@@ -81,7 +84,8 @@
     "assignment_types_title": "Assignment and Grading Details Lab",
     "grading_procedures_title": "Grading:",
     "deadline_expectations_title": "Policy on Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": ""
   },
   {
     "filename": "Math 418 Syllabus Fall 2025.pdf",
@@ -102,7 +106,8 @@
     "assignment_types_title": "Assignments:",
     "grading_procedures_title": "Grading Procedures:",
     "deadline_expectations_title": "Late Work:",
-    "": ""
+    "assignment_delivery": "MyOpenMath (embedded in Canvas); Written Assignments collected in class",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "Comp855 Syllabus.pdf",
@@ -123,7 +128,8 @@
     "assignment_types_title": "Homework Assignments:",
     "grading_procedures_title": "Grading:",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "": ""
+    "assignment_delivery": "",
+    "final_grade_scale": ""
   },
   {
     "filename": "ENGL401M1-F25Syllabus.pdf",
@@ -144,7 +150,8 @@
     "assignment_types_title": "Assignments",
     "grading_procedures_title": "GRADING",
     "deadline_expectations_title": "Late Work",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "ET625ENGL502-F25Syllabus.pdf",
@@ -165,7 +172,8 @@
     "assignment_types_title": "Major Projects",
     "grading_procedures_title": "GRADING",
     "deadline_expectations_title": "Late Work",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "ET674 Syllabus_FA2025-Rev0.pdf",
@@ -186,7 +194,8 @@
     "assignment_types_title": "ASSIGNMENTS AND COURSE SPECIFIC POLICIES:",
     "grading_procedures_title": "COURSE GRADE:",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "myCourses (Canvas)",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "Exploring NH Forests, Drawing to Discover the Tree Community.pdf",
@@ -207,7 +216,8 @@
     "assignment_types_title": "Course Activities",
     "grading_procedures_title": "Grading",
     "deadline_expectations_title": "Assignment Deadlines:",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "2025-summer-comp690-comp891-jin.pdf",
@@ -228,7 +238,8 @@
     "assignment_types_title": "Required Paperwork and Submissions.",
     "grading_procedures_title": "GRADING AND EVALUATION OF STUDENT WORK",
     "deadline_expectations_title": "Expectations regarding assignment deadlines, late, or missing work",
-    "": ""
+    "assignment_delivery": "MyCourses",
+    "final_grade_scale": ""
   },
   {
     "filename": "NSIA 820 syllabus 05_2025.pdf",
@@ -249,7 +260,8 @@
     "assignment_types_title": "Assessment",
     "grading_procedures_title": "Assessment",
     "deadline_expectations_title": "Late Assignments",
-    "": ""
+    "assignment_delivery": "Canvas (MyCourses)",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "NSIA 850 syllabus_summer 2025.pdf",
@@ -270,7 +282,8 @@
     "assignment_types_title": "Assessment",
     "grading_procedures_title": "Assessment",
     "deadline_expectations_title": "Late Assignments",
-    "": ""
+    "assignment_delivery": "Canvas (MyCourses)",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "NSIA 898 Syllabus-2.docx",
@@ -291,7 +304,8 @@
     "assignment_types_title": "Assessment",
     "grading_procedures_title": "Assessment",
     "deadline_expectations_title": "Late Assignments",
-    "": ""
+    "assignment_delivery": "UNH MyCourses",
+    "final_grade_scale": ""
   },
   {
     "filename": "BMS507 Human A&P syllabus, Sum25.pdf",
@@ -312,7 +326,7 @@
     "assignment_types_title": "Assignments & Grading",
     "grading_procedures_title": "Assignments & Grading",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "MyCourses; Mastering A&P"
   },
   {
     "filename": "UNH BIOT 825 Course Syllabus_Fall 2025.pdf",
@@ -333,7 +347,8 @@
     "assignment_types_title": "GRADING DISTRIBUTION",
     "grading_procedures_title": "GRADING DISTRIBUTION",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "Canvas (MyCourses)",
+    "final_grade_scale": ""
   },
   {
     "filename": "UMST 401 M3 Fall 2025 Syllabus.pdf",
@@ -354,7 +369,8 @@
     "assignment_types_title": "Class Assignments",
     "grading_procedures_title": "",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "myCourses",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "SyllabusCOMP415Fall2025.pdf",
@@ -375,7 +391,8 @@
     "assignment_types_title": "GRADING AND EVALUATION OF STUDENT WORK",
     "grading_procedures_title": "GRADING AND EVALUATION OF STUDENT WORK",
     "deadline_expectations_title": "Late Submissions",
-    "": ""
+    "assignment_delivery": "MyCourses",
+    "final_grade_scale": ""
   },
   {
     "filename": "Syllabus Fall 2025 - CHEM 403 GenChem.pdf",
@@ -396,7 +413,8 @@
     "assignment_types_title": "Grades:",
     "grading_procedures_title": "ASSIGNMENT OF A LETTER GRADE:",
     "deadline_expectations_title": "Late Work:",
-    "": ""
+    "assignment_delivery": "myCourses",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "Syllabus BIOL 413 LM1 Phage Discovery FA25 MacLea.pdf",
@@ -417,7 +435,8 @@
     "assignment_types_title": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
     "grading_procedures_title": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "MyCourses/Canvas",
+    "final_grade_scale": ""
   },
   {
     "filename": "Psyc 710 Syllabus Fall 2025.pdf",
@@ -438,7 +457,8 @@
     "assignment_types_title": "SUMMARY OF STUDENT EVALUATION",
     "grading_procedures_title": "SUMMARY OF STUDENT EVALUATION",
     "deadline_expectations_title": "PENALTY FOR LATE ASSIGNMENTS",
-    "": ""
+    "assignment_delivery": "Canvas (myCourses)",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "PHYS 401 (M1) Syllabus (Fall 2025).pdf",
@@ -459,7 +479,8 @@
     "assignment_types_title": "Assessment",
     "grading_procedures_title": "Grading Policy",
     "deadline_expectations_title": "Late Homework Policy",
-    "": ""
+    "assignment_delivery": "MasteringPhysics; Canvas (grades)",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "Klenotic_CMN455_Syllabus_F25.pdf",
@@ -480,7 +501,8 @@
     "assignment_types_title": "Course Assignments:",
     "grading_procedures_title": "Student grades",
     "deadline_expectations_title": "Policy on Late Work:",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "ANTH 411W.pdf",
@@ -501,7 +523,8 @@
     "assignment_types_title": "Methods of Testing / Evaluation:",
     "grading_procedures_title": "Course Grading System:",
     "deadline_expectations_title": "Assignments:",
-    "": ""
+    "assignment_delivery": "Canvas (myCourses)",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "Archived CPRM 850 syllabus (2025 Term 5).pdf",
@@ -522,7 +545,8 @@
     "assignment_types_title": "Assignments",
     "grading_procedures_title": "Rubric and Evaluation Methods",
     "deadline_expectations_title": "Policy on Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "Archived CPRM 860 syllabus (2025 Term 5).pdf",
@@ -543,7 +567,8 @@
     "assignment_types_title": "Assignments",
     "grading_procedures_title": "Rubric and Evaluation Methods",
     "deadline_expectations_title": "Policy on Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "Archived CPRM 890 syllabus (2025 Term 5).pdf",
@@ -564,7 +589,8 @@
     "assignment_types_title": "Assignments",
     "grading_procedures_title": "Rubric and Evaluation Methods",
     "deadline_expectations_title": "Policy on Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "BIOL413 Principles of Biology Syllabus (summer 5-week).pdf",
@@ -585,7 +611,8 @@
     "assignment_types_title": "Course Activities",
     "grading_procedures_title": "Grading",
     "deadline_expectations_title": "Assignment Deadlines",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "BIOL414 Principles of Biology II Syllabus (summer 5-week).pdf",
@@ -606,7 +633,8 @@
     "assignment_types_title": "Course Activities",
     "grading_procedures_title": "Grading",
     "deadline_expectations_title": "Assignment Deadlines",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "PHYS 401.M1-Summer 2025 Syllabus .pdf",
@@ -627,7 +655,8 @@
     "assignment_types_title": "Methods of Testing & Evaluation:",
     "grading_procedures_title": "Homework Grading Rubric:",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "BMS508 Human A&P syllabus, SP25.pdf",
@@ -648,7 +677,8 @@
     "assignment_types_title": "Evaluation:",
     "grading_procedures_title": "Evaluation:",
     "deadline_expectations_title": "Attendance and Late Work",
-    "": ""
+    "assignment_delivery": "MyCourses; Mastering A&P",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "CPRM 860 Syllabus-Summer 2025.pdf",
@@ -669,7 +699,8 @@
     "assignment_types_title": "Assignments",
     "grading_procedures_title": "Rubric and Evaluation Methods",
     "deadline_expectations_title": "Policy on Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "UNH standard"
   },
   {
     "filename": "PSYC 571 Syllabus Summer 2025.pdf",
@@ -690,7 +721,8 @@
     "assignment_types_title": "STUDENT EVALUATION",
     "grading_procedures_title": "STUDENT EVALUATION",
     "deadline_expectations_title": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "Syllabus for MATH 425.M1_ Calculus I (Summer 2025-OLA).pdf",
@@ -711,7 +743,8 @@
     "assignment_types_title": "Assignments and Grading",
     "grading_procedures_title": "Assignments and Grading",
     "deadline_expectations_title": "Makeups:",
-    "": ""
+    "assignment_delivery": "MyCourses",
+    "final_grade_scale": ""
   },
   {
     "filename": "Syllabus_BIOT-775-875-BioPharm_Su25.pdf",
@@ -732,7 +765,8 @@
     "assignment_types_title": "Assignment Details",
     "grading_procedures_title": "Grades",
     "deadline_expectations_title": "Policy on Attendance, Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": ""
   },
   {
     "filename": "PSYC 401 Syllabus Summer 2024.pdf",
@@ -753,7 +787,8 @@
     "assignment_types_title": "TEXTBOOK CHAPTER QUIZZES, DISCUSSIONS, EXAMS, SUMMARY/CRITIQUE PAPER, EXTRA CREDIT",
     "grading_procedures_title": "STUDENT EVALUATION",
     "deadline_expectations_title": "SUMMARY/CRITIQUE PAPER (late policy)",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Deviation"
   },
   {
     "filename": "biol 414 lab syllabus summer 2025.docx",
@@ -774,7 +809,8 @@
     "assignment_types_title": "Quizzes and Exams",
     "grading_procedures_title": "Grades:",
     "deadline_expectations_title": "",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": ""
   },
   {
     "filename": "HIST 497 Syllabus Summer 2025.docx",
@@ -795,7 +831,8 @@
     "assignment_types_title": "Methods, Grade Components, Academic Integrity and Extra Credit",
     "grading_procedures_title": "Methods, Grade Components, Academic Integrity and Extra Credit",
     "deadline_expectations_title": "Late Submissions",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": ""
   },
   {
     "filename": "HLS 650 SU25 Syllabus.docx",
@@ -816,7 +853,8 @@
     "assignment_types_title": "Assessment, Participation Assignments",
     "grading_procedures_title": "Assessment",
     "deadline_expectations_title": "Late Assignments",
-    "": ""
+    "assignment_delivery": "MyCourses",
+    "final_grade_scale": ""
   },
   {
     "filename": "HLS 770 - Introduction to Homeland Security.docx",
@@ -837,6 +875,7 @@
     "assignment_types_title": "ASSIGNMENTS",
     "grading_procedures_title": "GRADING",
     "deadline_expectations_title": "GRADING (late policy: 10% deduction per day, up to 5 days)",
-    "": ""
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": ""
   }
 ]
