@@ -8,7 +8,8 @@
       "Bash(move \"Beverly Hodsdon - CA520 Special Topics in Communications - Publication Design_Syllabus_FALL 2025.pdf\" \"Beverly_Hodsdon_CA520.pdf\")",
       "Bash(move \"BIOT 780.880 Lecture Fall2025 Syllabus.pdf\" \"BIOT_780_880_Lecture.pdf\")",
       "Bash(move \"Math 418 Syllabus Fall 2025.pdf\" \"Math_418_Syllabus_Fall_2025.pdf\")",
-      "Bash(move \"Comp855 Syllabus.pdf\" \"Comp855_Syllabus.pdf\")"
+      "Bash(move \"Comp855 Syllabus.pdf\" \"Comp855_Syllabus.pdf\")",
+      "Bash(unzip:*)"
     ],
     "deny": [],
     "ask": []
