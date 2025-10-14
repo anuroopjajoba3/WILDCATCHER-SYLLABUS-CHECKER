@@ -157,7 +157,7 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
+        "gt": "Associate Professor",
         "pred": "Associate Professor",
         "match": true
       },
@@ -278,8 +278,8 @@
       },
       "instructor_title": {
         "gt": "Phd",
-        "pred": "Phd",
-        "match": true
+        "pred": null,
+        "match": false
       },
       "instructor_department": {
         "gt": "",
@@ -458,7 +458,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -518,7 +518,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -578,8 +578,8 @@
       },
       "instructor_title": {
         "gt": "Associate Professor(Ph.D.)",
-        "pred": "Phd",
-        "match": false
+        "pred": "Associate Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Engineering Technology (ET 674)",
@@ -757,8 +757,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -817,8 +817,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -877,8 +877,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Assistant Professor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Assistant Professor",
+        "pred": "Assistant Professor",
         "match": true
       },
       "instructor_department": {
