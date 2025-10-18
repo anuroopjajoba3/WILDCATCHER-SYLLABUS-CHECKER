@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+hi
 Automated testing for syllabus field detection
 Uses detectors + ground_truth.json
 - Lenient matching:
@@ -38,6 +39,13 @@ try:
     SLO_AVAILABLE = True
 except Exception:
     SLO_AVAILABLE = False
+    print("⚠️ SLO detector not available")
+
+try:
+    from detectors.late_missing_work_detector import lateDetector
+    LATE_AVAILABLE = True
+except Exception:
+    LATE_AVAILABLE = False
     print("⚠️ SLO detector not available")
 
 try:
@@ -153,6 +161,20 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["email"] = ""
 
+    # Late works (capture flag + text)
+    if Late_AVAILABLE:
+        slo = SLODetector().detect(text)
+        preds["has_slos"] = bool(slo.get("found"))
+        content = slo.get("content")
+        if isinstance(content, list):
+            preds["slos_text"] = "\n".join(map(str, content))
+        else:
+            preds["slos_text"] = content or ""
+    else:
+        preds["has_slos"] = False
+        preds["slos_text"] = ""
+
+
     # Credit Hours
     if CREDIT_HOURS_AVAILABLE:
         c = CreditHoursDetector().detect(text)
@@ -244,6 +266,7 @@ def main():
             field_stats["modality"]["total"] += 1
             field_stats["modality"]["correct"] += int(match)
             result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
+
         # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
             gt_text = str(record.get("SLOs", "") or "").strip()
@@ -330,7 +353,7 @@ def main():
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
+    for field in ("modality", "SLOs", "email", "late_work",  "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -350,7 +373,7 @@ def main():
     print(f"{'Field':<25} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 60)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
+    for field in ("modality", "SLOs", "email", "late_work", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
         stats = summary[field]
         print(f"{field:<25} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
