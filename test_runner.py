@@ -8,6 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
+Includes support for assignment_types_title, grading_procedures_title, and deadline_expectations_title fields.
 """
 import os
 import sys
@@ -75,6 +76,41 @@ except Exception:
     OFFICE_INFO_AVAILABLE = False
     print("⚠️ Office information detector not available")
 
+try:
+    from detectors.assignment_types_detection import AssignmentTypesDetector
+    ASSIGNMENT_TYPES_AVAILABLE = True
+except Exception:
+    ASSIGNMENT_TYPES_AVAILABLE = False
+    print("⚠️ Assignment types detector not available")
+
+try:
+    from detectors.grading_procedures_detection import GradingProceduresDetector
+    GRADING_PROCEDURES_AVAILABLE = True
+except Exception:
+    GRADING_PROCEDURES_AVAILABLE = False
+    print("⚠️ Grading procedures detector not available")
+
+try:
+    from detectors.deadline_expectations_detection import DeadlineExpectationsDetector
+    DEADLINE_EXPECTATIONS_AVAILABLE = True
+except Exception:
+    DEADLINE_EXPECTATIONS_AVAILABLE = False
+    print("⚠️ Deadline expectations detector not available")
+
+try:
+    from detectors.assignment_delivery_detection import AssignmentDeliveryDetector
+    ASSIGNMENT_DELIVERY_AVAILABLE = True
+except Exception:
+    ASSIGNMENT_DELIVERY_AVAILABLE = False
+    print("⚠️ Assignment delivery detector not available")
+
+try:
+    from detectors.final_grade_scale_detection import FinalGradeScaleDetector
+    FINAL_GRADE_SCALE_AVAILABLE = True
+except Exception:
+    FINAL_GRADE_SCALE_AVAILABLE = False
+    print("⚠️ Final grade scale detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -114,6 +150,23 @@ def compare_modality(gt, pred):
             return "in-person"
         return s
     return core(gt) == core(pred)
+
+def compare_boolean_presence(gt, pred):
+    """
+    Compare boolean presence field (GT: true or "") with detector output (string).
+    GT true means field should be found (pred non-empty).
+    GT "" means field should not be found (pred empty).
+    """
+    p = norm(pred)
+    if gt is True or gt == True:
+        # GT says field exists -> pred should be non-empty
+        return bool(p)
+    elif gt == "" or gt is None:
+        # GT says field doesn't exist -> pred should be empty
+        return not bool(p)
+    else:
+        # Fallback for unexpected GT values
+        return False
 
 # ======================================================================
 # DETECTOR WRAPPERS
@@ -189,6 +242,41 @@ def detect_all_fields(text: str) -> dict:
         preds["office_address"] = ""
         preds["office_hours"] = ""
         preds["office_phone"] = ""
+
+    # Assignment Types
+    if ASSIGNMENT_TYPES_AVAILABLE:
+        a = AssignmentTypesDetector().detect(text)
+        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
+    else:
+        preds["assignment_types_title"] = ""
+
+    # Grading Procedures
+    if GRADING_PROCEDURES_AVAILABLE:
+        g = GradingProceduresDetector().detect(text)
+        preds["grading_procedures_title"] = g.get("content", "") if g.get("found") else ""
+    else:
+        preds["grading_procedures_title"] = ""
+
+    # Deadline Expectations
+    if DEADLINE_EXPECTATIONS_AVAILABLE:
+        d = DeadlineExpectationsDetector().detect(text)
+        preds["deadline_expectations_title"] = d.get("content", "") if d.get("found") else ""
+    else:
+        preds["deadline_expectations_title"] = ""
+
+    # Assignment Delivery
+    if ASSIGNMENT_DELIVERY_AVAILABLE:
+        a = AssignmentDeliveryDetector().detect(text)
+        preds["assignment_delivery"] = a.get("content", "") if a.get("found") else ""
+    else:
+        preds["assignment_delivery"] = ""
+
+    # Final Grade Scale
+    if FINAL_GRADE_SCALE_AVAILABLE:
+        f = FinalGradeScaleDetector().detect(text)
+        preds["final_grade_scale"] = f.get("content", "") if f.get("found") else ""
+    else:
+        preds["final_grade_scale"] = ""
 
     return preds
 
@@ -325,12 +413,47 @@ def main():
             field_stats["office_phone"]["correct"] += int(match)
             result["office_phone"] = {"gt": record["office_phone"], "pred": preds.get("office_phone", ""), "match": match}
 
+        # Assignment Types Title
+        if "assignment_types_title" in record:
+            match = loose_compare(record["assignment_types_title"], preds.get("assignment_types_title", ""))
+            field_stats["assignment_types_title"]["total"] += 1
+            field_stats["assignment_types_title"]["correct"] += int(match)
+            result["assignment_types_title"] = {"gt": record["assignment_types_title"], "pred": preds.get("assignment_types_title", ""), "match": match}
+
+        # Grading Procedures Title
+        if "grading_procedures_title" in record:
+            match = loose_compare(record["grading_procedures_title"], preds.get("grading_procedures_title", ""))
+            field_stats["grading_procedures_title"]["total"] += 1
+            field_stats["grading_procedures_title"]["correct"] += int(match)
+            result["grading_procedures_title"] = {"gt": record["grading_procedures_title"], "pred": preds.get("grading_procedures_title", ""), "match": match}
+
+        # Deadline Expectations Title
+        if "deadline_expectations_title" in record:
+            match = loose_compare(record["deadline_expectations_title"], preds.get("deadline_expectations_title", ""))
+            field_stats["deadline_expectations_title"]["total"] += 1
+            field_stats["deadline_expectations_title"]["correct"] += int(match)
+            result["deadline_expectations_title"] = {"gt": record["deadline_expectations_title"], "pred": preds.get("deadline_expectations_title", ""), "match": match}
+
+        # Assignment Delivery
+        if "assignment_delivery" in record:
+            match = loose_compare(record["assignment_delivery"], preds.get("assignment_delivery", ""))
+            field_stats["assignment_delivery"]["total"] += 1
+            field_stats["assignment_delivery"]["correct"] += int(match)
+            result["assignment_delivery"] = {"gt": record["assignment_delivery"], "pred": preds.get("assignment_delivery", ""), "match": match}
+
+        # Final Grade Scale (boolean presence field)
+        if "final_grade_scale" in record:
+            match = compare_boolean_presence(record["final_grade_scale"], preds.get("final_grade_scale", ""))
+            field_stats["final_grade_scale"]["total"] += 1
+            field_stats["final_grade_scale"]["correct"] += int(match)
+            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
         details.append(result)
 
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -347,15 +470,15 @@ def main():
     print("\n" + "=" * 70)
     print("RESULTS SUMMARY")
     print("=" * 70)
-    print(f"{'Field':<25} {'Accuracy':<10} {'Correct/Total'}")
-    print("-" * 60)
+    print(f"{'Field':<30} {'Accuracy':<10} {'Correct/Total'}")
+    print("-" * 70)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
         stats = summary[field]
-        print(f"{field:<25} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
+        print(f"{field:<30} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
-    print("-" * 60)
-    print(f"{'OVERALL':<25} {overall:>6.1%}      {total_correct}/{total_tests}")
+    print("-" * 70)
+    print(f"{'OVERALL':<30} {overall:>6.1%}      {total_correct}/{total_tests}")
     print("=" * 70)
 
     # Save results to JSON
