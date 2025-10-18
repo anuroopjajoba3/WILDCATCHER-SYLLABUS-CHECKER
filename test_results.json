@@ -1,65 +1,85 @@
 {
   "summary": {
     "modality": {
-      "accuracy": 0.9333,
-      "correct": 14,
-      "total": 15
+      "accuracy": 0.775,
+      "correct": 31,
+      "total": 40
     },
     "SLOs": {
-      "accuracy": 1.0,
-      "correct": 15,
-      "total": 15
+      "accuracy": 0.675,
+      "correct": 27,
+      "total": 40
     },
     "email": {
-      "accuracy": 0.8667,
-      "correct": 13,
-      "total": 15
+      "accuracy": 0.625,
+      "correct": 25,
+      "total": 40
     },
     "credit_hour": {
-      "accuracy": 1.0,
-      "correct": 15,
-      "total": 15
+      "accuracy": 0.625,
+      "correct": 25,
+      "total": 40
     },
     "workload": {
-      "accuracy": 1.0,
-      "correct": 15,
-      "total": 15
+      "accuracy": 0.65,
+      "correct": 26,
+      "total": 40
     },
     "instructor_name": {
-      "accuracy": 0.8667,
-      "correct": 13,
-      "total": 15
+      "accuracy": 0.7,
+      "correct": 28,
+      "total": 40
     },
     "instructor_title": {
-      "accuracy": 0.9333,
-      "correct": 14,
-      "total": 15
+      "accuracy": 0.8,
+      "correct": 32,
+      "total": 40
     },
     "instructor_department": {
-      "accuracy": 0.9333,
-      "correct": 14,
-      "total": 15
+      "accuracy": 0.675,
+      "correct": 27,
+      "total": 40
     },
     "office_address": {
-      "accuracy": 1.0,
-      "correct": 15,
-      "total": 15
+      "accuracy": 0.9,
+      "correct": 36,
+      "total": 40
     },
     "office_hours": {
-      "accuracy": 1.0,
-      "correct": 15,
-      "total": 15
+      "accuracy": 0.6,
+      "correct": 24,
+      "total": 40
     },
     "office_phone": {
-      "accuracy": 1.0,
-      "correct": 15,
-      "total": 15
+      "accuracy": 0.85,
+      "correct": 34,
+      "total": 40
+    },
+    "assignment_types_title": {
+      "accuracy": 0.725,
+      "correct": 29,
+      "total": 40
+    },
+    "grading_procedures_title": {
+      "accuracy": 0.825,
+      "correct": 33,
+      "total": 40
+    },
+    "deadline_expectations_title": {
+      "accuracy": 0.725,
+      "correct": 29,
+      "total": 40
+    },
+    "assignment_delivery": {
+      "accuracy": 0.85,
+      "correct": 34,
+      "total": 40
     }
   },
   "overall": {
-    "accuracy": 0.9576,
-    "correct": 158,
-    "total": 165
+    "accuracy": 0.7333,
+    "correct": 440,
+    "total": 600
   },
   "details": [
     {
@@ -92,7 +112,7 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Jeremiah W. Johnson",
+        "gt": "Jeremiah W.",
         "pred": "Jeremiah W.",
         "match": true
       },
@@ -119,6 +139,26 @@
       "office_phone": {
         "gt": "(603) 641-4127",
         "pred": "(603) 641-4127",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Homework:",
+        "pred": "Homework",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Grading Policy:",
+        "pred": "Grading Policy:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late/Make-Up Work:",
+        "pred": "Late/Make-Up Work: Late/make-up work will be considered on a case-by-case basis at the discretion",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "myCourses",
+        "pred": "MyCourses",
         "match": true
       }
     },
@@ -157,7 +197,7 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
+        "gt": "Associate Professor",
         "pred": "Associate Professor",
         "match": true
       },
@@ -179,6 +219,26 @@
       "office_phone": {
         "gt": "641-4151",
         "pred": "641-4151 (",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "SUMMARY OF STUDENT EVALUATION",
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "SUMMARY OF STUDENT EVALUATION",
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "EXPERIMENTS/DEMONSTRATIONS",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (myCourses)",
+        "pred": "Canvas; MyCourses",
         "match": true
       }
     },
@@ -240,6 +300,26 @@
         "gt": "(603) 531-3894",
         "pred": "(603) 531-3894",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignments & Grades",
+        "pred": "HOMEWORK:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Grading",
+        "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work",
+        "pred": "Assignments - Graded as Incomplete/Complete",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -272,13 +352,13 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Mark T. Scimone",
+        "gt": "Mark T.",
         "pred": "Mark T.",
         "match": true
       },
       "instructor_title": {
-        "gt": "Phd",
-        "pred": "Phd",
+        "gt": "",
+        "pred": null,
         "match": true
       },
       "instructor_department": {
@@ -299,6 +379,26 @@
       "office_phone": {
         "gt": "603-641-4389",
         "pred": "603-641-4389",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignment and Grading Details Lab",
+        "pred": "Assignment and Grading Details Lab",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Grading:",
+        "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -360,6 +460,26 @@
         "gt": "",
         "pred": "",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignments:",
+        "pred": "",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Grading Procedures:",
+        "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work:",
+        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyOpenMath (embedded in Canvas); Written Assignments collected in class",
+        "pred": "Canvas; MyCourses",
+        "match": false
       }
     },
     {
@@ -420,6 +540,26 @@
         "gt": "",
         "pred": "",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Homework Assignments:",
+        "pred": "Homework Assignments:",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Grading:",
+        "pred": "Grading:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments and Make-Up Exams:",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
       }
     },
     {
@@ -458,7 +598,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -479,6 +619,26 @@
       "office_phone": {
         "gt": "",
         "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignments",
+        "pred": "Assignments",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "GRADING",
+        "pred": "Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work",
+        "pred": "Assignments",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -518,7 +678,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -540,6 +700,26 @@
         "gt": "",
         "pred": "",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Major Projects",
+        "pred": "Assignments",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "GRADING",
+        "pred": "Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work",
+        "pred": "Assignments",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -558,8 +738,8 @@
       },
       "email": {
         "gt": "Sean.Tavares@unh.edu",
-        "pred": "Sean.Tavares@unh.edu",
-        "match": true
+        "pred": "caroline.young1@unh.edu",
+        "match": false
       },
       "credit_hour": {
         "gt": "4.0 credit",
@@ -577,9 +757,9 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
-        "pred": "Phd",
-        "match": false
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Engineering Technology (ET 674)",
@@ -600,6 +780,26 @@
         "gt": "(603) 641-4322",
         "pred": "(603) 641-4322",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "ASSIGNMENTS AND COURSE SPECIFIC POLICIES:",
+        "pred": "assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "COURSE GRADE:",
+        "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "assignments:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "myCourses (Canvas)",
+        "pred": "Canvas; MyCourses",
+        "match": false
       }
     },
     {
@@ -618,8 +818,8 @@
       },
       "email": {
         "gt": "christine.andrews@unh.edu",
-        "pred": "christine.andrews@unh.edu",
-        "match": true
+        "pred": "unhm.wellness@unh.edu",
+        "match": false
       },
       "credit_hour": {
         "gt": "Credits: 4.0",
@@ -659,6 +859,26 @@
       "office_phone": {
         "gt": "603-641-4338",
         "pred": "603-641-4338",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Course Activities",
+        "pred": "Course Activities",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Grading",
+        "pred": "Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignment Deadlines:",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. Late work will not be",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -720,6 +940,26 @@
         "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Required Paperwork and Submissions.",
+        "pred": "Required Paperwork and Submissions.",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "GRADING AND EVALUATION OF STUDENT WORK",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Expectations regarding assignment deadlines, late, or missing work",
+        "pred": "Expectations regarding assignment deadlines, late, or missing work",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
       }
     },
     {
@@ -757,8 +997,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -779,6 +1019,26 @@
       "office_phone": {
         "gt": "434-981-2446",
         "pred": "434-981-2446",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (MyCourses)",
+        "pred": "Canvas; MyCourses",
         "match": true
       }
     },
@@ -817,8 +1077,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -840,6 +1100,26 @@
         "gt": "434-981-2446",
         "pred": "434-981-2446",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (MyCourses)",
+        "pred": "MyCourses; UNH MyCourses",
+        "match": false
       }
     },
     {
@@ -877,8 +1157,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Assistant Professor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Assistant Professor",
+        "pred": "Assistant Professor",
         "match": true
       },
       "instructor_department": {
@@ -899,6 +1179,26 @@
       "office_phone": {
         "gt": "",
         "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "UNH MyCourses",
+        "pred": "MyCourses; UNH MyCourses",
         "match": true
       }
     },
@@ -959,6 +1259,2026 @@
       "office_phone": {
         "gt": "603-641-4328",
         "pred": "603-641-4328",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignments & Grading",
+        "pred": "Evaluation:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Assignments & Grading",
+        "pred": "Assignments & Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses; Mastering A&P",
+        "pred": "Mastering A&P",
+        "match": true
+      }
+    },
+    {
+      "filename": "UNH BIOT 825 Course Syllabus_Fall 2025.pdf",
+      "modality": {
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "This course will cover this process from discovery to FDA approval and the meetings, submissions, and testing in between. By the end of this course, students will have a basic understanding of how the FDA reviews and regulates human medical products, FDA organizational structure and authority, types and definitions of human medical products, product jurisdiction, and FDA regulatory pathways.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "not specified",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "Not found",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Katrina Wells",
+        "pred": "Katrina Wells",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "RAC",
+        "pred": null,
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": "in a biopharmaceutical setting. This course draws upon field experts to",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "GRADING DISTRIBUTION",
+        "pred": "GRADING DISTRIBUTION",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "GRADING DISTRIBUTION",
+        "pred": "GRADING DISTRIBUTION",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (MyCourses)",
+        "pred": "Canvas; MyCourses; UNH MyCourses",
+        "match": false
+      }
+    },
+    {
+      "filename": "UMST 401 M3 Fall 2025 Syllabus.pdf",
+      "modality": {
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Transition Confidently to College Life; Connect with the UNH Community; Build Academic Skills; Discover Campus Resources; Set Personal and Academic Goals; Enhance Communication Skills; Explore Your Major and Career Options",
+        "pred_text": "Learning Objectives\nDuring the semester, you will:\n1. Transition Confidently to College Life: Learn strategies to adapt successfully to the challenges and\nopportunities of college life at UNH.\n2. Connect with the UNH Community: Engage with the campus community and explore ways to\nparticipate in events, organizations, and other activities.\n3. Build Academic Skills: Develop effective study habits, time management techniques, and active\nlearning strategies to succeed in your classes.\n4. Discover Campus Resources: Identify academic, social, and emotional support systems available to"
+      },
+      "email": {
+        "gt": "stephanie.kirylych@unh.edu",
+        "pred": "stephanie.kirylych@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "2 credits",
+        "pred": "2 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Stephanie Kirylych",
+        "pred": "Stephanie Kirylych",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Student Services Suite, 4th floor",
+        "pred": "",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "Thursdays 12:30-1:30pm (walk-in or schedule in myWildcatSuccess)",
+        "pred": "Thursdays 12:30-1:30pm (walk-in or schedule in myWildcatSuccess “Meet with my faculty”)",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Class Assignments",
+        "pred": "Class Assignments",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "assessments",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "myCourses",
+        "pred": "MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "SyllabusCOMP415Fall2025.pdf",
+      "modality": {
+        "gt": "In-person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Gain exposure to the basics of computing and programming; Develop problem solving skills; Experience a broad range of areas in which we apply computing; Express solutions to problems through programming in Thunkable; Develop mobile applications designed to solve various problems",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "gsh1006@usnh.edu",
+        "pred": "gsh1006@usnh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4",
+        "pred": "Credits: 4",
+        "match": true
+      },
+      "workload": {
+        "gt": "3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "George Harvey",
+        "pred": "George Harvey",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct",
+        "pred": null,
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Computing Technology, Division of Science and Technology",
+        "pred": "Science and Technology, UNH Manchester",
+        "match": false
+      },
+      "office_address": {
+        "gt": "N/A",
+        "pred": "",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "GRADING AND EVALUATION OF STUDENT WORK",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "GRADING AND EVALUATION OF STUDENT WORK",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Submissions",
+        "pred": "Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "Syllabus Fall 2025 - CHEM 403 GenChem.pdf",
+      "modality": {
+        "gt": "In-person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Be competent in basic biology and chemistry laboratory skills and with the use of common laboratory equipment and instrumentation; Demonstrate the ability to function as a member of a team.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Samantha.Reynolds@unh.edu",
+        "pred": "Samantha.Reynolds@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum of 3 hours of engaged time per week per credit over a 15-week semester (180 hours total for the combined lecture and lab)",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Dr. Samantha Reynolds",
+        "pred": "Samantha Reynolds",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Lecturer of Chemistry",
+        "pred": "Lecturer",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Department of Life Sciences",
+        "pred": "of Life Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "Room 580",
+        "pred": "Pandora Room 580",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment – in person or over Zoom",
+        "pred": "Mondays 9:10 am-12:00 pm",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Grades:",
+        "pred": "Grades:",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "ASSIGNMENT OF A LETTER GRADE:",
+        "pred": "Grades:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work:",
+        "pred": "Late Work:",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "myCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "Syllabus BIOL 413 LM1 Phage Discovery FA25 MacLea.pdf",
+      "modality": {
+        "gt": "In-person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Describe the biology and genetics of phage and their lifecycles; Explain the experimental processes associated with isolating and characterizing phage; Develop microbiology lab and research skills to study phage; Evaluate and analyze data generated from experiments and make hypotheses about these results; Develop written and oral presentation skills and distill their results into a final poster presentation",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "kyle.maclea@unh.edu",
+        "pred": "kyle.maclea@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "0-credit",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Dr. Kyle MacLea",
+        "pred": "Dr. Kyle",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": "Dr",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Millyard Scholars Program, Dept. of Life Sciences",
+        "pred": "of Life Sciences,",
+        "match": false
+      },
+      "office_address": {
+        "gt": "Room 559",
+        "pred": "Pandora Room 559",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Fridays 1pm-2 pm and always by appointment",
+        "pred": "Fridays 1pm-2 pm and always by appointment. From time to rses/137363",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "603-641-4129 (office), 603-815-1556 (cell)",
+        "pred": "",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses/Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "Psyc 710 Syllabus Fall 2025.pdf",
+      "modality": {
+        "gt": "In-person",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "4 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "John Sparrow",
+        "pred": "John Sparrow",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Ph.D., Associate Professor of Psychology",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora Rm. 529",
+        "pred": "Pandora Room 529",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Tuesday -- 4:00 – 5:00; Thursday -- 3:00 – 5:00; Friday -- 1:00 – 2:00",
+        "pred": "Tuesday -- 4:00 - 5:00",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "641-4151",
+        "pred": "641-4151 (",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "SUMMARY OF STUDENT EVALUATION",
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "SUMMARY OF STUDENT EVALUATION",
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "PENALTY FOR LATE ASSIGNMENTS",
+        "pred": "PENALTY FOR LATE ASSIGNMENTS",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (myCourses)",
+        "pred": "Handed in",
+        "match": false
+      }
+    },
+    {
+      "filename": "PHYS 401 (M1) Syllabus (Fall 2025).pdf",
+      "modality": {
+        "gt": "In Person/Face-to-Face",
+        "pred": "In-Person",
+        "match": true
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "adam.hopper@unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "4 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Professor Hopper",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Adjunct Faculty",
+        "pred": "Professor",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Department of Applied Engineering & Sciences",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Office hours to be determined",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assessment",
+        "pred": "",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Grading Policy",
+        "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Homework Policy",
+        "pred": "Late Homework Policy",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MasteringPhysics; Canvas (grades)",
+        "pred": "MasteringPhysics",
+        "match": true
+      }
+    },
+    {
+      "filename": "Klenotic_CMN455_Syllabus_F25.pdf",
+      "modality": {
+        "gt": "In person; there is no option for remote attendance",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Understand key theories/concepts for analyzing the nature, development, and effects of media; Acquire historical knowledge about media and the transformations caused by writing, print, photography, telegraph, telephone, movies, radio, TV, Internet, and social media; Develop reading comprehension, critical thinking, and media inquiry skills through quizzes and papers using methods of auto-ethnography, historical analysis, and critical cultural analysis; Apply quantitative and/or qualitative data to investigate the dynamics of mediated interaction and to develop hypotheses for research questions about media impacts on society and culture",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "jeffrey.klenotic@unh.edu",
+        "pred": "jeffrey.klenotic@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "Credit Hours: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "3 hours of work per week per credit over a 15 week semester (12 hours/week)",
+        "pred": "12 hours/week (4 credits x 3 hours per credit)",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Professor Jeffrey Klenotic",
+        "pred": "Jeffrey Klenotic",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Ph.D.",
+        "pred": "Professor",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora Building, Room 481",
+        "pred": "Pandora Room 481",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "T 5:15-6:15pm, W 4:45-5:45pm, & by appt.",
+        "pred": "Pandora Building; T 5:15-6:15pm, W 4:45-5:45pm, & by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "(603) 641-4130",
+        "pred": "(603) 641-4130",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Course Assignments:",
+        "pred": "",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Student grades",
+        "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Work:",
+        "pred": "Policy on Late Work: There are two policies on late work, one for quizzes and one for papers. Quizzes",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "ANTH 411W.pdf",
+      "modality": {
+        "gt": "In-person",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "List and describe principles and processes of cultural anthropology that challenge ethnocentricity; Present the findings from research in a clear and concise manner; Analyze and evaluate various research, theories and theorists from major anthropological schools of thought. Demonstrate critical thinking skills (in reading, writing, and discussion) and communication skills in assimilating and synthesizing the information of the course.",
+        "pred_text": "Learning Objectives: At the completion of the course, the student will be able to:\n1. List and describe principles and processes of cultural anthropology that challenge\nethnocentricity.\n2. Present the findings from research in a clear and concise manner.\n3. Analyze and evaluate various research, theories and theorists from major anthropological\nschools of thought. Demonstrate critical thinking skills (in reading, writing, and\ndiscussion) and communication skills in assimilating and synthesizing the information of"
+      },
+      "email": {
+        "gt": "Kurt.Springs@unh.edu",
+        "pred": "unh.cfar@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Kurt D. Springs",
+        "pred": "Intro Anthropology Credits",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Methods of Testing / Evaluation:",
+        "pred": "",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Course Grading System:",
+        "pred": "Course Grading System:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignments:",
+        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (myCourses)",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "Archived CPRM 850 syllabus (2025 Term 5).pdf",
+      "modality": {
+        "gt": "Asynchronous online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Identify common technological and organizational measures for cybersecurity (focus: detection concepts and organizational relationships); Explain and give examples of the roles of best practices and standards in the design and implementation of such security measures; Explain the functional and organizational advantages and disadvantages of these measures, including impacts from their interaction; Assess the limitations of these security measures in the contexts of organizational change and dynamic threats, flawed technology, and flawed organizational policies and practices; Translate lessons learned from incidents into recommendations for cybersecurity planning and preparedness for better detection.",
+        "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Identify common technological and organizational measures for cybersecurity (focus:\ndetection concepts and organizational relationships).\n• Explain and give examples of the roles of best practices and standards in the design and\nimplementation of such security measures.\n• Explain the functional and organizational advantages and disadvantages of these\nmeasures, including impacts from their interaction.\n• Assess the limitations of these security measures in the contexts of organizational change"
+      },
+      "email": {
+        "gt": "randall.magiera@unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "3 credits",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum of 135 hours of student work effort",
+        "pred": "expected to involve a minimum of 135 hours",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Dr. Randy Magiera",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Adjunct Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "MS CPRM, Department of Security Studies, College of Professional Studies",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment Sunday - Thursday 7pm - 9pm (eastern time)",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "(585) 216-5537",
+        "pred": "",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "Assignments",
+        "pred": "Assignments",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Rubric and Evaluation Methods",
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "Archived CPRM 860 syllabus (2025 Term 5).pdf",
+      "modality": {
+        "gt": "Asynchronous online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Situate cybersecurity incident response and investigation within an organization's overall incident response policies and processes; Identify rules and best practices for reporting or otherwise communicating information about cybersecurity events and incidents; Identify concepts and methods for effective containment and mitigation of cybersecurity incidents; Articulate the roles of common tools and techniques for investigating and analyzing cybersecurity incidents; Explain and give examples of the differing mandates and priorities in the communities of interest for incident response and investigation (e.g., CERTs and CSIRTs, law enforcement agencies, regulators, vendors, intelligence community, etc.).",
+        "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Situate cybersecurity incident response and investigation within an organization’s overall\nincident response policies and processes.\n• Identify rules and best practices for reporting or otherwise communicating information\nabout cybersecurity events and incidents.\n• Identify concepts and methods for effective containment and mitigation of cybersecurity\nincidents.\n• Articulate the roles of common tools and techniques for investigating and analyzing"
+      },
+      "email": {
+        "gt": "raymond.tramposch@unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "3 credits",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum of 135 hours of student work effort",
+        "pred": "expected to involve a minimum of 135 hours",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Ray Tramposch",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Adjunct Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "MS CPRM",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment Monday - Thursday 5:30 - 8:30 PM, or Sundays 4 - 6 PM (EDT)",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "(603) 714-1485",
+        "pred": "",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "Assignments",
+        "pred": "Assignments",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Rubric and Evaluation Methods",
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "Archived CPRM 890 syllabus (2025 Term 5).pdf",
+      "modality": {
+        "gt": "Asynchronous online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Explain the impact of internal structures and cultures on organizational effectiveness; Evaluate organizational impacts of internal and external change; Describe leadership and management techniques for organizational adaptation and learning; Articulate factors contributing to the success or failure of the leader-follower relationship in its pursuit of organizational strategies and objectives.",
+        "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Explain the impact of internal structures and cultures on organizational effectiveness.\n• Evaluate organizational impacts of internal and external change.\n• Describe leadership and management techniques for organizational adaptation and\nlearning.\n• Articulate factors contributing to the success or failure of the leader-follower relationship\nin its pursuit of organizational strategies and objectives.\nCourse Materials\nCourse materials will be provided (for free) in digital form in our course website on"
+      },
+      "email": {
+        "gt": "tnishia.dials@unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "3 credits",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum of 135 hours of student work effort",
+        "pred": "expected to involve a minimum of 135 hours",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Tnishia Dials",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Adjunct Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "MS CPRM",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "By appointment Monday -Tuesday from 7pm - 8pm EDT",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "(404) 641-3607",
+        "pred": "",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "Assignments",
+        "pred": "Assignments",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Rubric and Evaluation Methods",
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "BIOL413 Principles of Biology Syllabus (summer 5-week).pdf",
+      "modality": {
+        "gt": "Online Asynchronous",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Introduction to biological principles; cell structure, function, replication, energetics and transport mechanisms; physiological processes; Mendelian, molecular genetics and gene technology. Required for students majoring in the life sciences.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "christine.andrews@unh.edu",
+        "pred": "unhm.wellness@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "4.0 credits",
+        "pred": "Credits: 4.0",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum, the equivalent of three hours of student academic work and engagement each week",
+        "pred": "three hours of student academic work and engagement each week",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Christine Andrews",
+        "pred": "Christine Andrews",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct Professor",
+        "pred": "Adjunct Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Dept. of Life Sciences, Program in Biological Sciences",
+        "pred": "of Life Sciences, Program in Biological Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "TBD",
+        "pred": "TBD",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Course Activities",
+        "pred": "Course Activities",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Grading",
+        "pred": "Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignment Deadlines",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "BIOL414 Principles of Biology II Syllabus (summer 5-week).pdf",
+      "modality": {
+        "gt": "Online Asynchronous",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Survey of the five kingdoms of life; physiology of cells, tissues, organs, and organ systems; evolution; human impact on the biosphere. Required for students majoring in the life sciences.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "christine.andrews@unh.edu",
+        "pred": "unhm.wellness@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "4.0 credits",
+        "pred": "Credits: 4.0",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum, the equivalent of three hours of student academic work and engagement each week",
+        "pred": "three hours of student academic work and engagement each week",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Christine Andrews",
+        "pred": "Christine Andrews",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct Professor",
+        "pred": "Adjunct Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Dept. of Life Sciences, Program in Biological Sciences",
+        "pred": "of Life Sciences, Program in Biological Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "TBD",
+        "pred": "TBD",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Course Activities",
+        "pred": "Course Activities",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Grading",
+        "pred": "Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignment Deadlines",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "PHYS 401.M1-Summer 2025 Syllabus .pdf",
+      "modality": {
+        "gt": "Online (Synchronous)",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "This course is designed to present you with a broad overview of classical physics. It will introduce you to a variety of phenomena and terminology that will help prepare you for further studies in the sciences, field work, research, etc., or simply provide you with a general understanding of how things work in nature. The topics that we will cover in this course include motion in 1 and 2 dimensions including parabolic motion, forces and Newton's Laws, circular motion, gravitation, work and energy, linear and angular momentum, and other topics as time allows. This course strives to develop your knowledge of how the natural world is constructed and re-establish the idea of scientific truth and absolutes. To develop analytical thinking and problem-solving skills and learn how to analyze and break apart complex problems in terms of simpler physics principles.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "David.Jagodowski@unh.edu",
+        "pred": "David.Jagodowski@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum of 3-4 hours per week for the completion of homework",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "David Jagodowski",
+        "pred": "Exceptional Circumstances",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor (a.k.a Prof. Jag)",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Department of Applied Engineering & Sciences",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "After lecture or private Zoom/Teams sessions (by appointment)",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "603-497-7266",
+        "pred": "",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "Methods of Testing & Evaluation:",
+        "pred": "",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Homework Grading Rubric:",
+        "pred": "Homework Grading Rubric:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "BMS508 Human A&P syllabus, SP25.pdf",
+      "modality": {
+        "gt": "Face-to-face",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Recognize, define and utilize appropriate terminology to refer to the structures and functions of the systems covered; Identify and explain the structures and functions of the systems covered; Demonstrate an understanding of the relationship between structure and function in the systems covered; Express how the normal structure and function of the systems covered contribute to maintaining homeostasis in the body; Relate the symptoms of a disease or disorder to the underlying changes in anatomy and or physiology associated with that condition",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "suzanne.cooke@unh.edu",
+        "pred": "suzanne.cooke@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "12 hours of student academic work per week for a 15 week course. 3 hours per week in lecture and 3 hours per week in lab. approximately 6 hours per week outside of class completing assignments and reviewing materials",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Dr. Sue Cooke",
+        "pred": "Contact Information",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Senior Lecturer",
+        "pred": "Senior Lecturer",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Life Science, Bio/Biotech program",
+        "pred": "Life Science, Bio",
+        "match": true
+      },
+      "office_address": {
+        "gt": "P569",
+        "pred": "Pandora Room 569",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "M/W 10-10:30 and by appt.",
+        "pred": "M/W 10-10:30 and by appointment Pandora 540",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "603-641-4328",
+        "pred": "603-641-4328",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Evaluation:",
+        "pred": "Evaluation:",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Evaluation:",
+        "pred": "Evaluation:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Attendance and Late Work",
+        "pred": "Assignments:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses; Mastering A&P",
+        "pred": "Mastering A&P",
+        "match": true
+      }
+    },
+    {
+      "filename": "CPRM 860 Syllabus-Summer 2025.pdf",
+      "modality": {
+        "gt": "Asynchronous online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Situate cybersecurity incident response and investigation within an organization's overall incident response policies and processes; Identify rules and best practices for reporting or otherwise communicating information about cybersecurity events and incidents; Identify concepts and methods for effective containment and mitigation of cybersecurity incidents; Articulate the roles of common tools and techniques for investigating and analyzing cybersecurity incidents; Explain and give examples of the differing mandates and priorities in the communities of interest for incident response and investigation (e.g., CERTs and CSIRTs, law enforcement agencies, regulators, vendors, intelligence community, etc.)",
+        "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Situate cybersecurity incident response and investigation within an organization’s overall\nincident response policies and processes.\n• Identify rules and best practices for reporting or otherwise communicating information\nabout cybersecurity events and incidents.\n• Identify concepts and methods for effective containment and mitigation of cybersecurity\nincidents.\n• Articulate the roles of common tools and techniques for investigating and analyzing"
+      },
+      "email": {
+        "gt": "See course home page",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "3 credits",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum of 135 hours of student work effort",
+        "pred": "expected to involve a minimum of 135 hours",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Instructor information available on course home page",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "MS CPRM, Department of Security Studies",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "See Instructor office hours from a link on the Home page of course website; may request private Zoom session or telephone",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "See course home page",
+        "pred": "",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "Assignments",
+        "pred": "Assignments",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Rubric and Evaluation Methods",
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "PSYC 571 Syllabus Summer 2025.pdf",
+      "modality": {
+        "gt": "Online",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "This course is designed to give the student an overview of some of the key players in the field of psychology. The course examines several individuals (William James, Sigmund Freud, and Stanley Milgram), studies some of their great works, and tries to put this information into some sort of historical context.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "4 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "equivalent of three hours of student academic work each week assuming a 15-week semester (student workload for shorter length terms must be increased proportionally per week)",
+        "pred": "three hours of student academic work each week",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "John Sparrow",
+        "pred": "John Sparrow",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Ph.D., Associate Professor of Psychology",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora Room 529",
+        "pred": "Pandora Room 529",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Wednesdays 12:00 – 2:00 (via email and/or Zoom); Other times available by appointment",
+        "pred": "(May 19 - June 20): Wednesdays 12:00 - 2:00 (via",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "(603)641-4151",
+        "pred": "(603)641-4151 (",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "STUDENT EVALUATION",
+        "pred": "STUDENT EVALUATION",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "STUDENT EVALUATION",
+        "pred": "STUDENT EVALUATION",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
+        "pred": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "Syllabus for MATH 425.M1_ Calculus I (Summer 2025-OLA).pdf",
+      "modality": {
+        "gt": "100% online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Calculus of one variable covering limits; derivatives of algebraic, trigonometric, exponential, and logarithmic functions; applications include curve sketching, max-min problems, related rates and area problems.",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "not specified",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "not specified",
+        "pred": null,
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Department of Mathematics",
+        "pred": "of Mathematics",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "not specified",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignments and Grading",
+        "pred": "Assignments and Grading",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Assignments and Grading",
+        "pred": "Assignments and Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Makeups:",
+        "pred": "Makeups:",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "Syllabus_BIOT-775-875-BioPharm_Su25.pdf",
+      "modality": {
+        "gt": "In-person (with lab activities)",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Understand bioreactor systems in theoretical and applied concepts; Demonstrate technical aptitude in advanced laboratory cell culture; Strengthen cognitive critical analysis and decision-making in the scientific process",
+        "pred_text": "Learning Objectives\nUpon completion of this course students will:\n• Understand bioreactor systems in theoretical and applied concepts\n• Demonstrate technical aptitude in advanced laboratory cell culture\n• Strengthen cognitive critical analysis and decision-making in the scientific process"
+      },
+      "email": {
+        "gt": "Raymond.Miller@unh.edu",
+        "pred": "Raymond.Miller@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "pred": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Raymond Miller",
+        "pred": "Raymond Miller",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Mondays 1-2, Thursdays 2-4",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "603-641-4337",
+        "pred": "603-641-4337",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assignment Details",
+        "pred": "Grades",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Grades",
+        "pred": "Grades",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Attendance, Late Submissions",
+        "pred": "Policy on Attendance, Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "PSYC 401 Syllabus Summer 2024.pdf",
+      "modality": {
+        "gt": "Online",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "to learn how psychological research is conducted (methodology); to learn the differences between psychology and psychiatry; to learn how psychology relates to 'everyday life'; to learn to read psychological literature and evaluate research studies; to learn to appreciate psychology as a science",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "workload": {
+        "gt": "not explicitly stated",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "John Sparrow",
+        "pred": "John Sparrow",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Ph.D.",
+        "pred": null,
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "Pandora Rm. 529",
+        "pred": "Pandora Room 529",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Wednesdays 12:00pm – 2:00pm (via email and/or Zoom) (June 24 – July 26)",
+        "pred": "(June 24 - July 26): Wednesdays 12:00pm - 2:00pm (via",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "(603)641-4151",
+        "pred": "(603)641-4151 (",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "TEXTBOOK CHAPTER QUIZZES, DISCUSSIONS, EXAMS, SUMMARY/CRITIQUE PAPER, EXTRA CREDIT",
+        "pred": "TEXTBOOK CHAPTER QUIZZES",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "STUDENT EVALUATION",
+        "pred": "STUDENT EVALUATION",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "SUMMARY/CRITIQUE PAPER (late policy)",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "biol 414 lab syllabus summer 2025.docx",
+      "modality": {
+        "gt": "Online",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "keith.legro@unh.edu",
+        "pred": "keith.legro@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "need to keep up with the material weekly",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Keith Legro",
+        "pred": "Keith Legro",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "",
+        "pred": null,
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Quizzes and Exams",
+        "pred": "Grades:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "Grades:",
+        "pred": "Grades:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      }
+    },
+    {
+      "filename": "HIST 497 Syllabus Summer 2025.docx",
+      "modality": {
+        "gt": "Asynchronous online",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": false,
+        "match": false,
+        "gt_text": "Students will explore the American past through examination of 8 outbreaks and epidemics; gain research skills through extensive use of primary sources; explore the ways that past Americans reacted differently to outbreaks of disease",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "sonic.woytonik@unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "4 credits",
+        "pred": "4 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Sonic Woytonik",
+        "pred": "Sonic Woytonik",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Prof.",
+        "pred": null,
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Department of History",
+        "pred": "of History for a list of topics and instructors. Course meets the History major requirements for Group I, II, or III, depending on the topic. May be repeated for a maximum of",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Meetings by Appointment - By Phone, in Person or via Private Teams Session",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
+        "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
+        "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Submissions",
+        "pred": "Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "",
+        "match": false
+      }
+    },
+    {
+      "filename": "HLS 650 SU25 Syllabus.docx",
+      "modality": {
+        "gt": "Online (no scheduled class times; follow Monday to Sunday schedule)",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Analyze the intelligence cycle, recognize sources and methods and explain how intelligence contributes to U.S. national/homeland security; Demonstrate knowledge of contemporary or emergent threats, challenges or issues; Recognize and define terrorism, its origins, ideologies, and goals; Define national and homeland security intelligence; Describe the role and structure of the American intelligence community; Identify and describe the steps in a traditional intelligence cycle model",
+        "pred_text": "Learning Objectives\nDefine national and homeland security intelligence.\nDescribe the role and structure of the American intelligence community.\nIdentify and describe the steps in a traditional intelligence cycle model.\nCritique the intelligence cycle as a model for understanding intelligence activity.\nEvaluate national security threats and place them on a threat continuum.\nDefine, describe, and provide examples of strategic intelligence, warning intelligence, oversight, collection, analysis, covert action, and counterintelligence."
+      },
+      "email": {
+        "gt": "bridget.nolan@unh.edu",
+        "pred": "bridget.nolan@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 Credits",
+        "pred": "4 Credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "at least 12 hours per week",
+        "pred": "expected to spend at least 12 hours per week on this class",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Bridget Rose Nolan",
+        "pred": "Bridget Rose Nolan",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Ph.D., Assistant Professor of Security Studies",
+        "pred": "Assistant Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Security Studies",
+        "pred": "and Student Learning Outcomes",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "Mondays, 4-5pm via Zoom",
+        "pred": "Mondays, 4-5pm via Zoom: https://unh.zoom.us/my/bridgetrosenolan",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Assessment, Participation Assignments",
+        "pred": "Assessment",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "Assessment",
+        "pred": "Assessment",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses; UNH MyCourses",
+        "match": true
+      }
+    },
+    {
+      "filename": "HLS 770 - Introduction to Homeland Security.docx",
+      "modality": {
+        "gt": "Online (no scheduled class times)",
+        "pred": "Online",
+        "match": true
+      },
+      "slos": {
+        "gt_present": true,
+        "pred_present": true,
+        "match": true,
+        "gt_text": "Demonstrate Applied Knowledge: Integrate theoretical knowledge with practical experience in a professional homeland security setting; Reflect Critically: Analyze and evaluate professional growth and contributions through structured reflection assignments; Communicate Professionally: Articulate the value of internship experience in writing; Develop Career Insight: Identify specific skills, knowledge, and experiences gained that align with intended career path",
+        "pred_text": "LEARNING OUTCOMES\nBy the end of the Internship, students will be able to:\n1. Demonstrate Applied Knowledge: Integrate theoretical knowledge with practical experience in a professional homeland security setting.\n2. Reflect Critically: Analyze and evaluate their professional growth and contributions through structured reflection assignments.\n3. Communicate Professionally: Articulate the value of their internship experience in writing, including its relevance to future career opportunities.\n4. Develop Career Insight: Identify specific skills, knowledge, and experiences gained that align with their intended career path."
+      },
+      "email": {
+        "gt": "omero.navarroambriz@unh.edu",
+        "pred": "omero.navarroambriz@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "4 credits (180 hours minimum on site)",
+        "pred": "4 credits",
+        "match": true
+      },
+      "workload": {
+        "gt": "minimum of 180 hours in a professional setting",
+        "pred": "",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Omero Navarro Ambriz",
+        "pred": "Demonstrate Applied Knowledge",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor",
+        "pred": null,
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Homeland Security (HLS)",
+        "pred": null,
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "available to meet by appointment, on Zoom",
+        "pred": "",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "ASSIGNMENTS",
+        "pred": "ASSIGNMENTS",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "GRADING",
+        "pred": "GRADING",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
+        "pred": "ASSIGNMENTS",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
         "match": true
       }
     }
