@@ -91,7 +91,7 @@ except Exception:
     print("WARNING: Grading procedures detector not available")
 
 try:
-    from detectors.deadline_expectations_detection import DeadlineExpectationsDetector
+    from detectors.late_missing_work_detector import lateDetector
     DEADLINE_EXPECTATIONS_AVAILABLE = True
 except Exception:
     DEADLINE_EXPECTATIONS_AVAILABLE = False
@@ -235,8 +235,13 @@ def detect_all_fields(text: str) -> dict:
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
-        d = DeadlineExpectationsDetector().detect(text)
-        preds["deadline_expectations_title"] = d.get("content", "") if d.get("found") else ""
+        d = lateDetector().detect(text)
+        # Extract just the title (first line) from content
+        content = d.get("content", "")
+        if content and d.get("found"):
+            preds["deadline_expectations_title"] = content.split('\n')[0].strip()
+        else:
+            preds["deadline_expectations_title"] = ""
     else:
         preds["deadline_expectations_title"] = ""
 
