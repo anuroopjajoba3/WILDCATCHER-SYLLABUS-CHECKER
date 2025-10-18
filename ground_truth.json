@@ -24,7 +24,7 @@
   {
     "filename": "PSYC 511 Syllabus Fall 2025.pdf",
     "instructor_name": "John Sparrow",
-    "instructor_title": "Associate Professor(Ph.D.)",
+    "instructor_title": "Associate Professor",
     "instructor_department": "",
     "preferred_contact_method": "Email",
     "email": "john.sparrow@unh.edu",
@@ -178,7 +178,7 @@
   {
     "filename": "ET674 Syllabus_FA2025-Rev0.pdf",
     "instructor_name": "Sean Tavares",
-    "instructor_title": "Associate Professor(Ph.D.)",
+    "instructor_title": "Associate Professor",
     "instructor_department": "Engineering Technology (ET 674)",
     "preferred_contact_method": "Email",
     "email": "Sean.Tavares@unh.edu",
@@ -244,7 +244,7 @@
   {
     "filename": "NSIA 820 syllabus 05_2025.pdf",
     "instructor_name": "John Borek",
-    "instructor_title": "Adjunct Instructor(Ph.D.)",
+    "instructor_title": "Adjunct Instructor",
     "instructor_department": "Department of Security Studies",
     "preferred_contact_method": "Email",
     "email": "john.borek@unh.edu",
@@ -266,7 +266,7 @@
   {
     "filename": "NSIA 850 syllabus_summer 2025.pdf",
     "instructor_name": "John Borek",
-    "instructor_title": "Adjunct Instructor(Ph.D.)",
+    "instructor_title": "Adjunct Instructor",
     "instructor_department": "College of Professional Studies",
     "preferred_contact_method": "Email (primary), Phone (secondary), optional Zoom/Teams",
     "email": "john.borek@unh.edu",
@@ -288,7 +288,7 @@
   {
     "filename": "NSIA 898 Syllabus-2.docx",
     "instructor_name": "Bridget Rose Nolan",
-    "instructor_title": "Assistant Professor(Ph.D.)",
+    "instructor_title": "Assistant Professor",
     "instructor_department": "Department of Security Studies - National Security Intelligence Analysis Program",
     "preferred_contact_method": "Email (primary), Phone (secondary)",
     "email": "bridget.nolan@unh.edu",
@@ -326,7 +326,7 @@
     "assignment_types_title": "Assignments & Grading",
     "grading_procedures_title": "Assignments & Grading",
     "deadline_expectations_title": "",
-    "assignment_delivery": "MyCourses; Mastering A&P"
+    "assignment_delivery": "MyCourses; Mastering A&P",
     "final_grade_scale": ""
   },
   {
