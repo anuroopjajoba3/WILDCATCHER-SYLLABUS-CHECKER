@@ -11,8 +11,8 @@
       "total": 40
     },
     "email": {
-      "accuracy": 0.625,
-      "correct": 25,
+      "accuracy": 0.825,
+      "correct": 33,
       "total": 40
     },
     "credit_hour": {
@@ -77,8 +77,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.7333,
-    "correct": 440,
+    "accuracy": 0.7467,
+    "correct": 448,
     "total": 600
   },
   "details": [
@@ -578,8 +578,8 @@
       },
       "email": {
         "gt": "c.c.hendricks@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -658,8 +658,8 @@
       },
       "email": {
         "gt": "c.c.hendricks@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -738,8 +738,8 @@
       },
       "email": {
         "gt": "Sean.Tavares@unh.edu",
-        "pred": "caroline.young1@unh.edu",
-        "match": false
+        "pred": "Sean.Tavares@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4.0 credit",
@@ -818,8 +818,8 @@
       },
       "email": {
         "gt": "christine.andrews@unh.edu",
-        "pred": "unhm.wellness@unh.edu",
-        "match": false
+        "pred": "christine.andrews@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Credits: 4.0",
@@ -1298,7 +1298,7 @@
       },
       "email": {
         "gt": "not specified",
-        "pred": "",
+        "pred": "unhm.library@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -1618,8 +1618,8 @@
       },
       "email": {
         "gt": "kyle.maclea@unh.edu",
-        "pred": "kyle.maclea@unh.edu",
-        "match": true
+        "pred": "sas.office@unh.edu",
+        "match": false
       },
       "credit_hour": {
         "gt": "0-credit",
@@ -1778,8 +1778,8 @@
       },
       "email": {
         "gt": "adam.hopper@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "adam.hopper@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4 credits",
@@ -1938,8 +1938,8 @@
       },
       "email": {
         "gt": "Kurt.Springs@unh.edu",
-        "pred": "unh.cfar@unh.edu",
-        "match": false
+        "pred": "Kurt.Springs@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4 credits",
@@ -2018,7 +2018,7 @@
       },
       "email": {
         "gt": "randall.magiera@unh.edu",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2098,7 +2098,7 @@
       },
       "email": {
         "gt": "raymond.tramposch@unh.edu",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2178,7 +2178,7 @@
       },
       "email": {
         "gt": "tnishia.dials@unh.edu",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2258,8 +2258,8 @@
       },
       "email": {
         "gt": "christine.andrews@unh.edu",
-        "pred": "unhm.wellness@unh.edu",
-        "match": false
+        "pred": "christine.andrews@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4.0 credits",
@@ -2338,8 +2338,8 @@
       },
       "email": {
         "gt": "christine.andrews@unh.edu",
-        "pred": "unhm.wellness@unh.edu",
-        "match": false
+        "pred": "christine.andrews@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4.0 credits",
@@ -2578,7 +2578,7 @@
       },
       "email": {
         "gt": "See course home page",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -3058,8 +3058,8 @@
       },
       "email": {
         "gt": "sonic.woytonik@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "sonic.woytonik@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4 credits",
