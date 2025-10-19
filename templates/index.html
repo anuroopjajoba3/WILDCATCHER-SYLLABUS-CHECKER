@@ -389,11 +389,12 @@ Date: 2025-09-20
               <div><strong>SLOs:</strong> ${getStatus(data.slo_status === 'PASS')}</div>
               <div><strong>Instructor:</strong> ${getStatus(data.instructor && data.instructor.found)}</div>
               <div><strong>Modality:</strong> ${getStatus(data.modality_status === 'PASS')}</div>
+              <div><strong>Grading Scale:</strong> ${getStatus(data.grading_scale && data.grading_scale.found)}</div>
               <div><strong>Office:</strong> ${getStatus(data.office_information && data.office_information.found)}</div>
               <div><strong>Email:</strong> ${getStatus(data.email_information && data.email_information.found)}</div>
               <div><strong>Credit Hours:</strong> ${getStatus(data.credit_hours && data.credit_hours.found)}</div>
               <div><strong>Workload:</strong> ${getStatus(data.workload_information && data.workload_information.found)}</div>
-            </div>
+              </div>
           </div>
         `;
       const status = data.slo_status === 'PASS'
@@ -415,6 +416,21 @@ Date: 2025-09-20
             <div class="status-item"><strong>Student Learning Outcomes:</strong> ${status}</div>
             <div class="message"><strong>${messageLabel}</strong> ${data.message || ''}</div>
             ${sloPreview}
+          </div>
+        </div>
+      `;
+
+      // Grading scale preview + HTML 
+      const grading_scalePreview = (data.grading_scale && data.grading_scale.content)
+        ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Grading Scale Found:</strong><br><pre style="white-space: pre-wrap; font-size:12px;">${data.grading_scale.content}</pre></div>`
+        : '';
+
+      const grading_scaleHTML = `
+        <div class="upload-result">
+          <h3><i class="fas fa-percent"></i> ${data.filename || 'Uploaded Document'}</h3>
+          <div class="analysis-summary">
+            <div class="status-item"><strong>Grading Scale:</strong> ${data.grading_scale && data.grading_scale.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>'}</div>
+            ${grading_scalePreview}
           </div>
         </div>
       `;
@@ -510,7 +526,8 @@ Date: 2025-09-20
           { id: 'office', label: 'Office', icon: 'fa-building', html: officeHTML },
           { id: 'email', label: 'Email', icon: 'fa-envelope', html: emailHTML },
           { id: 'credit', label: 'Credit Hours', icon: 'fa-clock', html: creditHTML },
-          { id: 'workload', label: 'Workload', icon: 'fa-tasks', html: workloadHTML }
+          { id: 'workload', label: 'Workload', icon: 'fa-tasks', html: workloadHTML },
+          {id: 'gradeScale', label: 'Grade Scale', icon: 'fa-percent', html: grading_scaleHTML}
         ];
 
         let tabs = '<div class="detector-tabs"><ul class="nav nav-tabs" role="tablist">';
