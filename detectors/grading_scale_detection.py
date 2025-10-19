@@ -102,40 +102,52 @@ class GradingScaleDetector:
 
             # Helper to detect candidate heading lines above the block
             def is_heading_line(s: str) -> bool:
+                """Return True for short lines that look like section headings.
+
+                Avoid treating long, sentence-like paragraphs as headings.
+                """
                 if not s or not s.strip():
                     return False
                 s_stripped = s.strip()
-                # All-caps short headings are common
-                if len(s_stripped) <= 120 and s_stripped.isupper():
-                    return True
-                # Anchor keywords in the line
-                if any(k in s_stripped.lower() for k in self.anchor_keywords):
-                    return True
-                # Title-Case heuristics (two+ words starting with uppercase)
                 words = [w for w in s_stripped.split() if w]
-                if len(words) >= 2 and sum(1 for w in words if w[0].isupper()) >= 2:
+
+                # All-caps short headings are strong indicator
+                if s_stripped.isupper() and len(words) <= 12:
                     return True
+
+                low = s_stripped.lower()
+                # Anchor keywords are useful, but require the line to be reasonably short
+                if any(k in low for k in self.anchor_keywords) and len(words) <= 15:
+                    return True
+
+                # Title-Case heuristic: short lines with multiple capitalized words and no sentence punctuation
+                cap_count = sum(1 for w in words if w and w[0].isupper())
+                if 2 <= cap_count and len(words) <= 10 and '.' not in s_stripped and ',' not in s_stripped:
+                    return True
+
                 return False
 
-            # Try to extend upwards to include heading/context (scan up to 8 lines)
-            start = max(0, start_idx - 3)
-            for i in range(start_idx - 1, max(-1, start_idx - 9), -1):
+            # Try to extend upwards to include a nearby heading (scan up to 6 lines)
+            start = start_idx
+            for i in range(start_idx - 1, max(-1, start_idx - 7), -1):
                 if i < 0:
                     break
                 if not lines[i].strip():
-                    # stop at blank line unless heading is immediately above
                     break
                 if is_heading_line(lines[i]):
                     start = i
-                else:
-                    # if we already included a heading, allow a couple of descriptive lines
-                    if start < start_idx - 1:
-                        start = min(start, i)
+                    # once we include a heading, stop scanning further up
+                    break
+                # otherwise do not include long paragraph lines as heading
 
-            # Extend down to capture multi-line items (up to 8 lines)
-            end = min(len(lines) - 1, end_idx + 3)
+            # Extend down to capture multi-line items (up to 8 lines), but stop at long sentence paragraphs
+            end = end_idx
             for j in range(end_idx + 1, min(len(lines), end_idx + 9)):
                 if not lines[j].strip():
+                    break
+                nxt = lines[j].strip()
+                # If the line looks like a long sentence (many words and contains a period), stop
+                if '.' in nxt and len(nxt.split()) > 20:
                     break
                 end = j
 
