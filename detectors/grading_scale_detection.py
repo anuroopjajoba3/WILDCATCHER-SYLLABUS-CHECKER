@@ -97,19 +97,78 @@ class GradingScaleDetector:
                 best = (idx, block)
 
         if best:
-            _, block = best
-            content = '\n'.join(block).strip()
+            start_idx, block = best
+            end_idx = start_idx + len(block) - 1
+
+            # Helper to detect candidate heading lines above the block
+            def is_heading_line(s: str) -> bool:
+                if not s or not s.strip():
+                    return False
+                s_stripped = s.strip()
+                # All-caps short headings are common
+                if len(s_stripped) <= 120 and s_stripped.isupper():
+                    return True
+                # Anchor keywords in the line
+                if any(k in s_stripped.lower() for k in self.anchor_keywords):
+                    return True
+                # Title-Case heuristics (two+ words starting with uppercase)
+                words = [w for w in s_stripped.split() if w]
+                if len(words) >= 2 and sum(1 for w in words if w[0].isupper()) >= 2:
+                    return True
+                return False
+
+            # Try to extend upwards to include heading/context (scan up to 8 lines)
+            start = max(0, start_idx - 3)
+            for i in range(start_idx - 1, max(-1, start_idx - 9), -1):
+                if i < 0:
+                    break
+                if not lines[i].strip():
+                    # stop at blank line unless heading is immediately above
+                    break
+                if is_heading_line(lines[i]):
+                    start = i
+                else:
+                    # if we already included a heading, allow a couple of descriptive lines
+                    if start < start_idx - 1:
+                        start = min(start, i)
+
+            # Extend down to capture multi-line items (up to 8 lines)
+            end = min(len(lines) - 1, end_idx + 3)
+            for j in range(end_idx + 1, min(len(lines), end_idx + 9)):
+                if not lines[j].strip():
+                    break
+                end = j
+
+            content_lines = [lines[i].rstrip() for i in range(start, end + 1) if lines[i].strip()]
+            content = '\n'.join(content_lines).strip()
             return {'found': True, 'content': content}
 
         # 3) fallback: look for lines containing a cluster of assignment labels followed shortly by percentages
         # find lines where a percentage exists and gather +/-3 lines around it
         percent_lines_idx = [i for i, ln in enumerate(lines) if self.percent_pattern.search(ln)]
         for idx in percent_lines_idx:
-            start = max(0, idx-3)
-            end = min(len(lines), idx+4)
-            block = [lines[j].strip() for j in range(start, end) if lines[j].strip()]
-            if sum(1 for ln in block if self.percent_pattern.search(ln)) >= 2:
-                return {'found': True, 'content': '\n'.join(block).strip()}
+            # gather a slightly larger window and then try to expand to heading/context
+            start = max(0, idx - 3)
+            end = min(len(lines), idx + 4)
+            block_lines = [lines[j] for j in range(start, end) if lines[j].strip()]
+            if sum(1 for ln in block_lines if self.percent_pattern.search(ln)) >= 2:
+                # expand similarly to the window case
+                # find nearest non-empty start before 'start' that looks like a heading
+                heading_start = start
+                for i in range(start - 1, max(-1, start - 9), -1):
+                    if i < 0 or not lines[i].strip():
+                        break
+                    if any(k in lines[i].lower() for k in self.anchor_keywords) or lines[i].strip().isupper():
+                        heading_start = i
+                        break
+                final_start = heading_start
+                final_end = min(len(lines) - 1, end + 3)
+                for j in range(end, min(len(lines), end + 9)):
+                    if not lines[j].strip():
+                        break
+                    final_end = j
+                content_lines = [lines[k].rstrip() for k in range(final_start, final_end + 1) if lines[k].strip()]
+                return {'found': True, 'content': '\n'.join(content_lines).strip()}
 
         return {'found': False, 'content': ''}
 
