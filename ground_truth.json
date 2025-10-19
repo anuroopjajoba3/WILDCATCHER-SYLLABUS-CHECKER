@@ -40,7 +40,7 @@
     "assignment_types_title": "SUMMARY OF STUDENT EVALUATION",
     "grading_procedures_title": "SUMMARY OF STUDENT EVALUATION",
     "deadline_expectations_title": "",
-    "assignment_delivery": "Canvas (myCourses)",
+    "assignment_delivery": "Canvas; MyCourses",
     "final_grade_scale": "Deviation"
   },
   {
@@ -191,10 +191,10 @@
     "SLOs": "",
     "credit_hour": "4.0 credit",
     "workload": "minimum 3 hours of engaged time per week per credit",
-    "assignment_types_title": "ASSIGNMENTS AND COURSE SPECIFIC POLICIES:",
+    "assignment_types_title": "assignments:",
     "grading_procedures_title": "COURSE GRADE:",
     "deadline_expectations_title": "",
-    "assignment_delivery": "myCourses (Canvas)",
+    "assignment_delivery": "Canvas; MyCourses",
     "final_grade_scale": "Deviation"
   },
   {
@@ -260,7 +260,7 @@
     "assignment_types_title": "Assessment",
     "grading_procedures_title": "Assessment",
     "deadline_expectations_title": "Late Assignments",
-    "assignment_delivery": "Canvas (MyCourses)",
+    "assignment_delivery": "Canvas; MyCourses",
     "final_grade_scale": "UNH standard"
   },
   {
@@ -326,7 +326,7 @@
     "assignment_types_title": "Assignments & Grading",
     "grading_procedures_title": "Assignments & Grading",
     "deadline_expectations_title": "",
-    "assignment_delivery": "MyCourses; Mastering A&P"
+    "assignment_delivery": "MyCourses; Mastering A&P",
     "final_grade_scale": ""
   },
   {
@@ -348,7 +348,7 @@
     "assignment_types_title": "GRADING DISTRIBUTION",
     "grading_procedures_title": "GRADING DISTRIBUTION",
     "deadline_expectations_title": "",
-    "assignment_delivery": "Canvas (MyCourses)",
+    "assignment_delivery": "Canvas; MyCourses",
     "final_grade_scale": ""
   },
   {
@@ -458,7 +458,7 @@
     "assignment_types_title": "SUMMARY OF STUDENT EVALUATION",
     "grading_procedures_title": "SUMMARY OF STUDENT EVALUATION",
     "deadline_expectations_title": "PENALTY FOR LATE ASSIGNMENTS",
-    "assignment_delivery": "Canvas (myCourses)",
+    "assignment_delivery": "Handed in",
     "final_grade_scale": "Deviation"
   },
   {
@@ -675,7 +675,7 @@
     "SLOs": "Recognize, define and utilize appropriate terminology to refer to the structures and functions of the systems covered; Identify and explain the structures and functions of the systems covered; Demonstrate an understanding of the relationship between structure and function in the systems covered; Express how the normal structure and function of the systems covered contribute to maintaining homeostasis in the body; Relate the symptoms of a disease or disorder to the underlying changes in anatomy and or physiology associated with that condition",
     "credit_hour": "4 credits",
     "workload": "12 hours of student academic work per week for a 15 week course. 3 hours per week in lecture and 3 hours per week in lab. approximately 6 hours per week outside of class completing assignments and reviewing materials",
-    "assignment_types_title": "Evaluation:",
+    "assignment_types_title": "Assignments:",
     "grading_procedures_title": "Evaluation:",
     "deadline_expectations_title": "Attendance and Late Work",
     "assignment_delivery": "MyCourses; Mastering A&P",
