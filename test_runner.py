@@ -104,6 +104,13 @@ except Exception:
     ASSIGNMENT_DELIVERY_AVAILABLE = False
     print("WARNING: Assignment delivery detector not available")
 
+try:
+    from detectors.grading_scale_detection import GradingScaleDetector
+    GRADING_SCALE_AVAILABLE = True
+except Exception:
+    GRADING_SCALE_AVAILABLE = False
+    print("WARNING: Grading scale detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -251,6 +258,13 @@ def detect_all_fields(text: str) -> dict:
         preds["assignment_delivery"] = ad.get("content", "") if ad.get("found") else ""
     else:
         preds["assignment_delivery"] = ""
+
+    # Grading Scale
+    if GRADING_SCALE_AVAILABLE:
+        gs = GradingScaleDetector().detect(text)
+        preds["final_grade_scale"] = gs.get("content", "") if gs.get("found") else ""
+    else:
+        preds["final_grade_scale"] = ""
 
     return preds
 
@@ -415,12 +429,19 @@ def main():
             field_stats["assignment_delivery"]["correct"] += int(match)
             result["assignment_delivery"] = {"gt": record["assignment_delivery"], "pred": preds.get("assignment_delivery", ""), "match": match}
 
+        # Final Grade Scale
+        if "final_grade_scale" in record:
+            match = loose_compare(record["final_grade_scale"], preds.get("final_grade_scale", ""))
+            field_stats["final_grade_scale"]["total"] += 1
+            field_stats["final_grade_scale"]["correct"] += int(match)
+            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
         details.append(result)
 
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -440,7 +461,7 @@ def main():
     print(f"{'Field':<30} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 70)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
         stats = summary[field]
         print(f"{field:<30} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
