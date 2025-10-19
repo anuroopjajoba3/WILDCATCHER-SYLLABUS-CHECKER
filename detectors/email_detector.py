@@ -10,7 +10,7 @@ import logging
 from typing import Dict, Any, Tuple, List
 
 EMAIL_RX = re.compile(
-    r"\b[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}\b"
+    r"[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*@(?:unh|usnh)\.edu"
 )
 
 HEADING_CLUES = [

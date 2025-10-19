@@ -32,84 +32,77 @@ try:
     MODALITY_AVAILABLE = True
 except Exception:
     MODALITY_AVAILABLE = False
-    print("⚠️ Modality detector not available")
+    print("WARNING: Modality detector not available")
 
 try:
     from detectors.slo_detector import SLODetector
     SLO_AVAILABLE = True
 except Exception:
     SLO_AVAILABLE = False
-    print("⚠️ SLO detector not available")
+    print("WARNING: SLO detector not available")
 
 try:
     from detectors.email_detector import emailDetector
     EMAIL_AVAILABLE = True
 except Exception:
     EMAIL_AVAILABLE = False
-    print("⚠️ Email detector not available")
+    print("WARNING: Email detector not available")
 
 try:
     from detectors.credit_hours_detection import CreditHoursDetector
     CREDIT_HOURS_AVAILABLE = True
 except Exception:
     CREDIT_HOURS_AVAILABLE = False
-    print("⚠️ Credit hours detector not available")
+    print("WARNING: Credit hours detector not available")
 
 try:
     from detectors.workload_detection import WorkloadDetector
     WORKLOAD_AVAILABLE = True
 except Exception:
     WORKLOAD_AVAILABLE = False
-    print("⚠️ Workload detector not available")
+    print("WARNING: Workload detector not available")
 
 try:
     from detectors.instructor_detector import InstructorDetector
     INSTRUCTOR_AVAILABLE = True
 except Exception:
     INSTRUCTOR_AVAILABLE = False
-    print("⚠️ Instructor detector not available")
+    print("WARNING: Instructor detector not available")
 
 try:
     from detectors.office_information_detection import OfficeInformationDetector
     OFFICE_INFO_AVAILABLE = True
 except Exception:
     OFFICE_INFO_AVAILABLE = False
-    print("⚠️ Office information detector not available")
+    print("WARNING: Office information detector not available")
 
 try:
     from detectors.assignment_types_detection import AssignmentTypesDetector
     ASSIGNMENT_TYPES_AVAILABLE = True
 except Exception:
     ASSIGNMENT_TYPES_AVAILABLE = False
-    print("⚠️ Assignment types detector not available")
+    print("WARNING: Assignment types detector not available")
 
 try:
     from detectors.grading_procedures_detection import GradingProceduresDetector
     GRADING_PROCEDURES_AVAILABLE = True
 except Exception:
     GRADING_PROCEDURES_AVAILABLE = False
-    print("⚠️ Grading procedures detector not available")
+    print("WARNING: Grading procedures detector not available")
 
 try:
-    from detectors.deadline_expectations_detection import DeadlineExpectationsDetector
+    from detectors.late_missing_work_detector import lateDetector
     DEADLINE_EXPECTATIONS_AVAILABLE = True
 except Exception:
     DEADLINE_EXPECTATIONS_AVAILABLE = False
-    print("⚠️ Deadline expectations detector not available")
+    print("WARNING: Deadline expectations detector not available")
 
 try:
     from detectors.assignment_delivery_detection import AssignmentDeliveryDetector
     ASSIGNMENT_DELIVERY_AVAILABLE = True
 except Exception:
     ASSIGNMENT_DELIVERY_AVAILABLE = False
-    print("⚠️ Assignment delivery detector not available")
-
-try:
-    from detectors.final_grade_scale_detection import FinalGradeScaleDetector
-    FINAL_GRADE_SCALE_AVAILABLE = True
-except Exception:
-    FINAL_GRADE_SCALE_AVAILABLE = False
-    print("⚠️ Final grade scale detector not available")
+    print("WARNING: Assignment delivery detector not available")
 
 # ======================================================================
 # COMPARISON HELPERS
@@ -259,24 +252,22 @@ def detect_all_fields(text: str) -> dict:
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
-        d = DeadlineExpectationsDetector().detect(text)
-        preds["deadline_expectations_title"] = d.get("content", "") if d.get("found") else ""
+        d = lateDetector().detect(text)
+        # Extract just the title (first line) from content
+        content = d.get("content", "")
+        if content and d.get("found"):
+            preds["deadline_expectations_title"] = content.split('\n')[0].strip()
+        else:
+            preds["deadline_expectations_title"] = ""
     else:
         preds["deadline_expectations_title"] = ""
 
     # Assignment Delivery
     if ASSIGNMENT_DELIVERY_AVAILABLE:
-        a = AssignmentDeliveryDetector().detect(text)
-        preds["assignment_delivery"] = a.get("content", "") if a.get("found") else ""
+        ad = AssignmentDeliveryDetector().detect(text)
+        preds["assignment_delivery"] = ad.get("content", "") if ad.get("found") else ""
     else:
         preds["assignment_delivery"] = ""
-
-    # Final Grade Scale
-    if FINAL_GRADE_SCALE_AVAILABLE:
-        f = FinalGradeScaleDetector().detect(text)
-        preds["final_grade_scale"] = f.get("content", "") if f.get("found") else ""
-    else:
-        preds["final_grade_scale"] = ""
 
     return preds
 
@@ -291,11 +282,11 @@ def main():
     ap.add_argument("--output", default="test_results.json", help="Output JSON file")
     args = ap.parse_args()
 
-    print(f"\n📂 Folder: {os.path.abspath(args.syllabi)}")
-    print(f"📘 Ground truth: {os.path.abspath(args.ground_truth)}")
+    print(f"\n[INFO] Folder: {os.path.abspath(args.syllabi)}")
+    print(f"[INFO] Ground truth: {os.path.abspath(args.ground_truth)}")
 
     if not os.path.exists(args.syllabi) or not os.path.exists(args.ground_truth):
-        print("❌ Missing folder or JSON.")
+        print("[ERROR] Missing folder or JSON.")
         sys.exit(1)
 
     with open(args.ground_truth, "r", encoding="utf-8") as f:
@@ -310,7 +301,7 @@ def main():
         fname = record.get("filename", "")
         fpath = os.path.join(args.syllabi, fname)
         if not os.path.exists(fpath):
-            print(f"[{i}] ❌ Missing file: {fname}")
+            print(f"[{i}] [ERROR] Missing file: {fname}")
             continue
 
         # Extract text
@@ -441,19 +432,12 @@ def main():
             field_stats["assignment_delivery"]["correct"] += int(match)
             result["assignment_delivery"] = {"gt": record["assignment_delivery"], "pred": preds.get("assignment_delivery", ""), "match": match}
 
-        # Final Grade Scale (boolean presence field)
-        if "final_grade_scale" in record:
-            match = compare_boolean_presence(record["final_grade_scale"], preds.get("final_grade_scale", ""))
-            field_stats["final_grade_scale"]["total"] += 1
-            field_stats["final_grade_scale"]["correct"] += int(match)
-            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
-
         details.append(result)
 
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -473,7 +457,7 @@ def main():
     print(f"{'Field':<30} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 70)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery"):
         stats = summary[field]
         print(f"{field:<30} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
@@ -495,7 +479,7 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✅ Results saved to {args.output}")
+    print(f"\n[SUCCESS] Results saved to {args.output}")
 
 if __name__ == "__main__":
     main()

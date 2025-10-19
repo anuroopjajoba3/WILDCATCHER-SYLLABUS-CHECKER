@@ -197,6 +197,7 @@ Date: 2025-09-20
         <ul style="margin:8px 0 0 18px;">
           <li><strong>SLOs</strong> (regex-based headings & bullets)</li>
           <li><strong>Email</strong> </li>
+          <li><strong>Late work</strong> </li>
           <li><strong>Instructor information</strong> </li>
           <li><strong>Office information</strong> </li>
           <li><strong>Workload information</strong> </li>
@@ -391,6 +392,7 @@ Date: 2025-09-20
               <div><strong>Modality:</strong> ${getStatus(data.modality_status === 'PASS')}</div>
               <div><strong>Office:</strong> ${getStatus(data.office_information && data.office_information.found)}</div>
               <div><strong>Email:</strong> ${getStatus(data.email_information && data.email_information.found)}</div>
+              <div><strong>Late:</strong> ${getStatus(data.late_information && data.late_information.found)}</div>
               <div><strong>Credit Hours:</strong> ${getStatus(data.credit_hours && data.credit_hours.found)}</div>
               <div><strong>Workload:</strong> ${getStatus(data.workload_information && data.workload_information.found)}</div>
             </div>
@@ -470,7 +472,22 @@ Date: 2025-09-20
             </div>
           `;
 
-        // Credit Hours
+        // Late work
+
+          const late = data.late_information || {};
+          const lateStatus = late.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+          const latePreview = late.late ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>late:</strong> <pre style="white-space: pre-wrap; font-size:12px;">${late.late}</pre></div>` : '';
+          const lateHTML = `
+            <div class="upload-result">
+              <h3><i class="fas fa-hourglass-end"></i> ${data.filename || 'Uploaded Document'}</h3>
+              <div class="analysis-summary">
+                <div class="status-item"><strong>late Information:</strong> ${lateStatus}</div>
+                ${latePreview}
+              </div>
+            </div>
+          `;
+   
+          // Credit Hours
 
           const credit = data.credit_hours || {};
           const creditStatus = credit.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
@@ -509,6 +526,7 @@ Date: 2025-09-20
           { id: 'modality', label: 'Modality', icon: 'fa-chalkboard-teacher', html: modalityHTML },
           { id: 'office', label: 'Office', icon: 'fa-building', html: officeHTML },
           { id: 'email', label: 'Email', icon: 'fa-envelope', html: emailHTML },
+          { id: 'late', label: 'late', icon: 'fa-hourglass-end', html: lateHTML },
           { id: 'credit', label: 'Credit Hours', icon: 'fa-clock', html: creditHTML },
           { id: 'workload', label: 'Workload', icon: 'fa-tasks', html: workloadHTML }
         ];

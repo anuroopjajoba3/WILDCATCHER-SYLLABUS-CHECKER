@@ -274,6 +274,27 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": False,
                 "confidence": 0.0
             }
+###
+        # --- Late detection ---
+        try:
+            from detectors.late_missing_work_detector import lateDetector
+        except ImportError:
+            lateDetector = None
+
+        if lateDetector:
+            late_detector = lateDetector()
+            late_info = late_detector.detect(extracted_text)
+            result["late_information"] = {
+                "late": late_info.get("content"),
+                "found": late_info.get("found", False),
+                "confidence": late_info.get("confidence", 0.0)
+            }
+        else:
+            result["late_information"] = {
+                "late": None,
+                "found": False,
+                "confidence": 0.0
+            }
 
         # --- Credit Hours detection ---
         try:

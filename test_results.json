@@ -11,13 +11,13 @@
       "total": 40
     },
     "email": {
-      "accuracy": 0.85,
-      "correct": 34,
+      "accuracy": 0.75,
+      "correct": 30,
       "total": 40
     },
     "credit_hour": {
-      "accuracy": 0.625,
-      "correct": 25,
+      "accuracy": 0.6,
+      "correct": 24,
       "total": 40
     },
     "workload": {
@@ -31,8 +31,8 @@
       "total": 40
     },
     "instructor_title": {
-      "accuracy": 0.675,
-      "correct": 27,
+      "accuracy": 0.8,
+      "correct": 32,
       "total": 40
     },
     "instructor_department": {
@@ -46,8 +46,8 @@
       "total": 40
     },
     "office_hours": {
-      "accuracy": 0.6,
-      "correct": 24,
+      "accuracy": 0.575,
+      "correct": 23,
       "total": 40
     },
     "office_phone": {
@@ -56,50 +56,30 @@
       "total": 40
     },
     "assignment_types_title": {
-      "accuracy": 0.0,
-      "correct": 0,
+      "accuracy": 0.725,
+      "correct": 29,
       "total": 40
     },
     "grading_procedures_title": {
-      "accuracy": 0.025,
-      "correct": 1,
+      "accuracy": 0.825,
+      "correct": 33,
       "total": 40
     },
     "deadline_expectations_title": {
-      "accuracy": 0.2,
-      "correct": 8,
-      "total": 40
-    },
-    "preferred_contact_method": {
-      "accuracy": 0.0,
-      "correct": 0,
-      "total": 40
-    },
-    "response_time": {
-      "accuracy": 0.075,
-      "correct": 3,
-      "total": 40
-    },
-    "class_location": {
-      "accuracy": 0.0,
-      "correct": 0,
+      "accuracy": 0.725,
+      "correct": 29,
       "total": 40
     },
     "assignment_delivery": {
-      "accuracy": 0.025,
-      "correct": 1,
+      "accuracy": 0.825,
+      "correct": 33,
       "total": 40
-    },
-    "final_grade_scale": {
-      "accuracy": 0.359,
-      "correct": 14,
-      "total": 39
     }
   },
   "overall": {
-    "accuracy": 0.4559,
-    "correct": 346,
-    "total": 759
+    "accuracy": 0.7367,
+    "correct": 442,
+    "total": 600
   },
   "details": [
     {
@@ -163,43 +143,23 @@
       },
       "assignment_types_title": {
         "gt": "Homework:",
-        "pred": "",
-        "match": false
+        "pred": "Homework",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading Policy:",
-        "pred": "",
-        "match": false
+        "pred": "Grading Policy:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late/Make-Up Work:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "Within 24 hours on weekdays",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Room 105",
-        "pred": "",
-        "match": false
+        "pred": "Late/Make-Up Work: Late/make-up work will be considered on a case-by-case basis at the discretion",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "myCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "MyCourses",
+        "match": true
       }
     },
     {
@@ -237,7 +197,7 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
+        "gt": "Associate Professor",
         "pred": "Associate Professor",
         "match": true
       },
@@ -263,43 +223,23 @@
       },
       "assignment_types_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "",
-        "match": false
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "",
-        "match": false
-      },
-      "deadline_expectations_title": {
-        "gt": "",
-        "pred": "",
+        "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
       },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not listed",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Pandora Rm. 529",
+      "deadline_expectations_title": {
+        "gt": "EXPERIMENTS/DEMONSTRATIONS",
         "pred": "",
         "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas; MyCourses",
+        "match": true
       }
     },
     {
@@ -363,7 +303,7 @@
       },
       "assignment_types_title": {
         "gt": "Assignments & Grades",
-        "pred": "",
+        "pred": "HOMEWORK:",
         "match": false
       },
       "grading_procedures_title": {
@@ -373,32 +313,12 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email; Zoom appt.; phone/text",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 24 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Zoom or on-campus (scheduled)",
-        "pred": "",
+        "pred": "Assignments - Graded as Incomplete/Complete",
         "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -438,8 +358,8 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": "Phd",
-        "match": false
+        "pred": null,
+        "match": true
       },
       "instructor_department": {
         "gt": "",
@@ -463,8 +383,8 @@
       },
       "assignment_types_title": {
         "gt": "Assignment and Grading Details Lab",
-        "pred": "",
-        "match": false
+        "pred": "Assignment and Grading Details Lab",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading:",
@@ -473,32 +393,12 @@
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email; Canvas forums",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 24 hours on weekdays",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Lecture – P502,  Lab – P540",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -538,8 +438,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Instructor",
-        "pred": null,
-        "match": false
+        "pred": "Adjunct Instructor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Mathematics and Statistics (MATH418)",
@@ -573,32 +473,12 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "response time not specified, but invites scheduling if hours conflict",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Room P102",
-        "pred": "",
+        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded",
         "match": false
       },
       "assignment_delivery": {
         "gt": "MyOpenMath (embedded in Canvas); Written Assignments collected in class",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
+        "pred": "Canvas; MyCourses",
         "match": false
       }
     },
@@ -663,40 +543,20 @@
       },
       "assignment_types_title": {
         "gt": "Homework Assignments:",
-        "pred": "",
-        "match": false
+        "pred": "Homework Assignments:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading:",
-        "pred": "",
-        "match": false
+        "pred": "Grading:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "no response time specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Room 142 (classroom)",
-        "pred": "",
-        "match": false
-      },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "",
+        "pred": "Late Assignments and Make-Up Exams:",
         "match": true
       },
-      "final_grade_scale": {
+      "assignment_delivery": {
         "gt": "",
         "pred": "",
         "match": true
@@ -738,7 +598,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -763,43 +623,23 @@
       },
       "assignment_types_title": {
         "gt": "Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Assignments",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "GRADING",
-        "pred": "",
-        "match": false
+        "pred": "Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (fastest)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "no exact hours, but available by appointment",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Pandra 345",
-        "pred": "",
+        "pred": "Assignments",
         "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -838,7 +678,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -863,43 +703,23 @@
       },
       "assignment_types_title": {
         "gt": "Major Projects",
-        "pred": "",
+        "pred": "Assignments",
         "match": false
       },
       "grading_procedures_title": {
         "gt": "GRADING",
-        "pred": "",
-        "match": false
+        "pred": "Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (fastest)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "no exact hours, but available by appointment",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Remote (Zoom)",
-        "pred": "",
+        "pred": "Assignments",
         "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -937,9 +757,9 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
-        "pred": "Phd",
-        "match": false
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Engineering Technology (ET 674)",
@@ -963,7 +783,7 @@
       },
       "assignment_types_title": {
         "gt": "ASSIGNMENTS AND COURSE SPECIFIC POLICIES:",
-        "pred": "",
+        "pred": "assignments:",
         "match": false
       },
       "grading_procedures_title": {
@@ -973,32 +793,12 @@
       },
       "deadline_expectations_title": {
         "gt": "",
-        "pred": "",
-        "match": true
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 24 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Pandora Rm. 103",
-        "pred": "",
+        "pred": "assignments:",
         "match": false
       },
       "assignment_delivery": {
         "gt": "myCourses (Canvas)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
+        "pred": "Canvas; MyCourses",
         "match": false
       }
     },
@@ -1063,43 +863,23 @@
       },
       "assignment_types_title": {
         "gt": "Course Activities",
-        "pred": "",
-        "match": false
+        "pred": "Course Activities",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading",
-        "pred": "",
-        "match": false
+        "pred": "Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "48 hours response time",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Field sites around/near campus",
-        "pred": "",
-        "match": false
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. Late work will not be",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -1163,42 +943,22 @@
       },
       "assignment_types_title": {
         "gt": "Required Paperwork and Submissions.",
-        "pred": "",
-        "match": false
+        "pred": "Required Paperwork and Submissions.",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK",
-        "pred": "",
-        "match": false
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Expectations regarding assignment deadlines, late, or missing work",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (appointments set via email; can meet in person or via Microsoft Teams)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "Typically within 48 hours (business days)",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Online",
-        "pred": "",
-        "match": false
+        "pred": "Expectations regarding assignment deadlines, late, or missing work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "MyCourses",
         "match": true
       }
     },
@@ -1237,8 +997,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -1263,43 +1023,23 @@
       },
       "assignment_types_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "responds within 24 hours (Mon–Fri)",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Zoom/Teams weekly optional sessions",
-        "pred": "",
-        "match": false
+        "pred": "Late Assignments",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (MyCourses)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas; MyCourses",
+        "match": true
       }
     },
     {
@@ -1337,8 +1077,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -1363,42 +1103,22 @@
       },
       "assignment_types_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (primary), Phone (secondary), optional Zoom/Teams",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "responds within 24 hours, Mon–Fri",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Zoom/Teams weekly optional sessions",
-        "pred": "",
-        "match": false
+        "pred": "Late Assignments",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (MyCourses)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
+        "pred": "MyCourses; UNH MyCourses",
         "match": false
       }
     },
@@ -1423,8 +1143,8 @@
       },
       "credit_hour": {
         "gt": "Credits: 3",
-        "pred": "Credits: 3",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "workload": {
         "gt": "expected to spend at least 16 hours per week on this class",
@@ -1437,8 +1157,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Assistant Professor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Assistant Professor",
+        "pred": "Assistant Professor",
         "match": true
       },
       "instructor_department": {
@@ -1453,8 +1173,8 @@
       },
       "office_hours": {
         "gt": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
-        "pred": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
-        "match": true
+        "pred": "(remote): Mondays, 4-5pm on Zoom: , and by appointment.",
+        "match": false
       },
       "office_phone": {
         "gt": "",
@@ -1463,42 +1183,22 @@
       },
       "assignment_types_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (primary), Phone (secondary)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "responds within 24 hours, Mon–Fri",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Zoom/Teams weekly optional sessions",
-        "pred": "",
-        "match": false
+        "pred": "Late Assignments",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "UNH MyCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "MyCourses; UNH MyCourses",
         "match": true
       }
     },
@@ -1563,38 +1263,23 @@
       },
       "assignment_types_title": {
         "gt": "Assignments & Grading",
-        "pred": "",
+        "pred": "Evaluation:",
         "match": false
       },
       "grading_procedures_title": {
         "gt": "Assignments & Grading",
-        "pred": "",
-        "match": false
+        "pred": "Assignments & Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "",
-        "pred": "",
-        "match": true
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "no response time specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "TBD(remote)",
-        "pred": "",
+        "pred": "Assignments:",
         "match": false
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
-        "pred": "",
-        "match": false
+        "pred": "Mastering A&P",
+        "match": true
       }
     },
     {
@@ -1612,9 +1297,9 @@
         "pred_text": ""
       },
       "email": {
-        "gt": "kwells@armiusa.org",
-        "pred": "kwells@armiusa.org",
-        "match": true
+        "gt": "not specified",
+        "pred": "unhm.library@unh.edu",
+        "match": false
       },
       "credit_hour": {
         "gt": "Not found",
@@ -1658,43 +1343,23 @@
       },
       "assignment_types_title": {
         "gt": "GRADING DISTRIBUTION",
-        "pred": "",
-        "match": false
+        "pred": "GRADING DISTRIBUTION",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "GRADING DISTRIBUTION",
-        "pred": "",
-        "match": false
+        "pred": "GRADING DISTRIBUTION",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
         "match": true
       },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 24 hours when possible",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "UNHM PANDRA P380",
-        "pred": "",
-        "match": false
-      },
       "assignment_delivery": {
         "gt": "Canvas (MyCourses)",
-        "pred": "",
+        "pred": "Canvas; MyCourses; UNH MyCourses",
         "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
-        "match": true
       }
     },
     {
@@ -1758,8 +1423,8 @@
       },
       "assignment_types_title": {
         "gt": "Class Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Class Assignments",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "",
@@ -1768,33 +1433,13 @@
       },
       "deadline_expectations_title": {
         "gt": "",
-        "pred": "",
-        "match": true
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Room 380",
-        "pred": "",
+        "pred": "assessments",
         "match": false
       },
       "assignment_delivery": {
         "gt": "myCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "MyCourses",
+        "match": true
       }
     },
     {
@@ -1858,42 +1503,22 @@
       },
       "assignment_types_title": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK",
-        "pred": "",
-        "match": false
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK",
-        "pred": "",
-        "match": false
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "P132",
-        "pred": "",
-        "match": false
+        "pred": "Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "Canvas; MyCourses",
         "match": true
       }
     },
@@ -1958,43 +1583,23 @@
       },
       "assignment_types_title": {
         "gt": "Grades:",
-        "pred": "",
-        "match": false
+        "pred": "Grades:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "ASSIGNMENT OF A LETTER GRADE:",
-        "pred": "",
+        "pred": "Grades:",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
+        "pred": "Late Work:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "myCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas; MyCourses",
+        "match": true
       }
     },
     {
@@ -2058,42 +1663,22 @@
       },
       "assignment_types_title": {
         "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "pred": "",
-        "match": false
+        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "pred": "",
-        "match": false
+        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
         "match": true
       },
-      "preferred_contact_method": {
-        "gt": "Email is best, text next!",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "Allow some time for response, especially when school is closed!",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Lab (Rm 560)",
-        "pred": "",
-        "match": false
-      },
       "assignment_delivery": {
         "gt": "MyCourses/Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -2158,42 +1743,22 @@
       },
       "assignment_types_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "",
-        "match": false
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "",
-        "match": false
+        "pred": "SUMMARY OF STUDENT EVALUATION",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "PENALTY FOR LATE ASSIGNMENTS",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "I regularly check my email most days",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
+        "pred": "PENALTY FOR LATE ASSIGNMENTS",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
+        "pred": "Handed in",
         "match": false
       }
     },
@@ -2233,7 +1798,7 @@
       },
       "instructor_title": {
         "gt": "Adjunct Faculty",
-        "pred": null,
+        "pred": "Professor",
         "match": false
       },
       "instructor_department": {
@@ -2268,33 +1833,13 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Homework Policy",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (primary method of contact)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "expected response time: 24-48 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "PANDRA 301",
-        "pred": "",
-        "match": false
+        "pred": "Late Homework Policy",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MasteringPhysics; Canvas (grades)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "MasteringPhysics",
+        "match": true
       }
     },
     {
@@ -2333,8 +1878,8 @@
       },
       "instructor_title": {
         "gt": "Ph.D.",
-        "pred": "Ph.D",
-        "match": true
+        "pred": "Professor",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
@@ -2368,33 +1913,13 @@
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Work:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (use your UNH email account only)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 24 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "UNH Manchester, Pandora Building, Room 361",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Late Work: There are two policies on late work, one for quizzes and one for papers. Quizzes",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -2463,38 +1988,18 @@
       },
       "grading_procedures_title": {
         "gt": "Course Grading System:",
-        "pred": "",
-        "match": false
+        "pred": "Course Grading System:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Assignments:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Pandora P380",
-        "pred": "",
-        "match": false
+        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -2533,8 +2038,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "MS CPRM, Department of Security Studies, College of Professional Studies",
@@ -2558,43 +2063,23 @@
       },
       "assignment_types_title": {
         "gt": "Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Assignments",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "",
-        "match": false
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Discussion board 'Course Questions' (for course-related questions); Email (for private matters)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Canvas (online learning management system)",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas; MyCourses",
+        "match": true
       }
     },
     {
@@ -2633,8 +2118,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "MS CPRM",
@@ -2658,43 +2143,23 @@
       },
       "assignment_types_title": {
         "gt": "Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Assignments",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "",
-        "match": false
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Discussion board 'Course Questions' (for course-related questions); Email (for private matters)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Canvas (online learning management system)",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -2733,8 +2198,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "MS CPRM",
@@ -2758,43 +2223,23 @@
       },
       "assignment_types_title": {
         "gt": "Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Assignments",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "",
-        "match": false
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Discussion board 'Course Questions' (for course-related questions); Email (for private matters)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Canvas (online learning management system)",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas; MyCourses",
+        "match": true
       }
     },
     {
@@ -2858,43 +2303,23 @@
       },
       "assignment_types_title": {
         "gt": "Course Activities",
-        "pred": "",
-        "match": false
+        "pred": "Course Activities",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading",
-        "pred": "",
-        "match": false
+        "pred": "Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 48 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Online (Canvas)",
-        "pred": "",
-        "match": false
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -2958,43 +2383,23 @@
       },
       "assignment_types_title": {
         "gt": "Course Activities",
-        "pred": "",
-        "match": false
+        "pred": "Course Activities",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading",
-        "pred": "",
-        "match": false
+        "pred": "Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "within 48 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Online (Canvas)",
-        "pred": "",
-        "match": false
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -3033,8 +2438,8 @@
       },
       "instructor_title": {
         "gt": "Professor (a.k.a Prof. Jag)",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Department of Applied Engineering & Sciences",
@@ -3063,38 +2468,18 @@
       },
       "grading_procedures_title": {
         "gt": "Homework Grading Rubric:",
-        "pred": "",
-        "match": false
+        "pred": "Homework Grading Rubric:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
         "match": true
       },
-      "preferred_contact_method": {
-        "gt": "Email (please try email first)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "generally able to reply promptly; checks email several times per day",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Zoom/Teams (Tues. and Thurs. 6:10 PM – 8:30 PM)",
-        "pred": "",
-        "match": false
-      },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -3158,43 +2543,23 @@
       },
       "assignment_types_title": {
         "gt": "Evaluation:",
-        "pred": "",
-        "match": false
+        "pred": "Evaluation:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Evaluation:",
-        "pred": "",
-        "match": false
+        "pred": "Evaluation:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Attendance and Late Work",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Lecture: M/W, 8:40-10am Pandora 380; Lab: R 9-noon Pandora 540",
-        "pred": "",
+        "pred": "Assignments:",
         "match": false
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Mastering A&P",
+        "match": true
       }
     },
     {
@@ -3258,43 +2623,23 @@
       },
       "assignment_types_title": {
         "gt": "Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Assignments",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "",
-        "match": false
+        "pred": "Rubric and Evaluation Methods",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Discussion board 'Course Questions' (for course-related questions); Email (for private matters)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Canvas (online learning management system)",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -3358,43 +2703,23 @@
       },
       "assignment_types_title": {
         "gt": "STUDENT EVALUATION",
-        "pred": "",
-        "match": false
+        "pred": "STUDENT EVALUATION",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "STUDENT EVALUATION",
-        "pred": "",
-        "match": false
+        "pred": "STUDENT EVALUATION",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (UNH email account only)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Online",
-        "pred": "",
-        "match": false
+        "pred": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas",
+        "match": true
       }
     },
     {
@@ -3458,42 +2783,22 @@
       },
       "assignment_types_title": {
         "gt": "Assignments and Grading",
-        "pred": "",
-        "match": false
+        "pred": "Assignments and Grading",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Assignments and Grading",
-        "pred": "",
-        "match": false
+        "pred": "Assignments and Grading",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Makeups:",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Online (MyCourses)",
-        "pred": "",
-        "match": false
+        "pred": "Makeups:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "MyCourses",
         "match": true
       }
     },
@@ -3558,42 +2863,22 @@
       },
       "assignment_types_title": {
         "gt": "Assignment Details",
-        "pred": "",
+        "pred": "Grades",
         "match": false
       },
       "grading_procedures_title": {
         "gt": "Grades",
-        "pred": "",
-        "match": false
+        "pred": "Grades",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Policy on Attendance, Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email (fastest way to get in touch; replies within a few minutes, whereas Canvas messages may take up to 24 hours)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "usually reply to emails within a few minutes, whereas Canvas messages may take up to 24 hours",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Classes are on M-W-F, lectures are 11a-1p and labs are 9a-12pp",
-        "pred": "",
-        "match": false
+        "pred": "Policy on Attendance, Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -3633,8 +2918,8 @@
       },
       "instructor_title": {
         "gt": "Ph.D.",
-        "pred": "Ph.D",
-        "match": true
+        "pred": null,
+        "match": false
       },
       "instructor_department": {
         "gt": "",
@@ -3658,43 +2943,23 @@
       },
       "assignment_types_title": {
         "gt": "TEXTBOOK CHAPTER QUIZZES, DISCUSSIONS, EXAMS, SUMMARY/CRITIQUE PAPER, EXTRA CREDIT",
-        "pred": "",
-        "match": false
+        "pred": "TEXTBOOK CHAPTER QUIZZES",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "STUDENT EVALUATION",
-        "pred": "",
-        "match": false
+        "pred": "STUDENT EVALUATION",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "SUMMARY/CRITIQUE PAPER (late policy)",
         "pred": "",
         "match": false
       },
-      "preferred_contact_method": {
-        "gt": "UNH e-mail account (not Canvas Inbox)",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "not specified",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "Online (Canvas - https://mycourses.unh.edu/)",
-        "pred": "",
-        "match": false
-      },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": true,
-        "pred": "",
-        "match": false
+        "pred": "Canvas; MyCourses",
+        "match": true
       }
     },
     {
@@ -3713,8 +2978,8 @@
       },
       "email": {
         "gt": "keith.legro@unh.edu",
-        "pred": "keith.legro@unh.edu",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "credit_hour": {
         "gt": "",
@@ -3758,42 +3023,22 @@
       },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
-        "pred": "",
+        "pred": "Grades:",
         "match": false
       },
       "grading_procedures_title": {
         "gt": "Grades:",
-        "pred": "",
-        "match": false
+        "pred": "Grades:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
         "match": true
       },
-      "preferred_contact_method": {
-        "gt": "email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "",
-        "pred": "",
-        "match": true
-      },
-      "class_location": {
-        "gt": "Canvas (My Courses)",
-        "pred": "",
-        "match": false
-      },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "Canvas",
         "match": true
       }
     },
@@ -3813,8 +3058,8 @@
       },
       "email": {
         "gt": "sonic.woytonik@unh.edu",
-        "pred": "sonic.woytonik@unh.edu",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "credit_hour": {
         "gt": "4 credits",
@@ -3858,43 +3103,23 @@
       },
       "assignment_types_title": {
         "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
-        "pred": "",
-        "match": false
+        "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
-        "pred": "",
-        "match": false
+        "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Discussion board 'Course Questions' for course-related questions; Email for individual matters",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "",
-        "pred": "",
+        "pred": "Late Submissions",
         "match": true
-      },
-      "class_location": {
-        "gt": "Online",
-        "pred": "",
-        "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas",
         "pred": "",
         "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
-        "match": true
       }
     },
     {
@@ -3933,7 +3158,7 @@
       },
       "instructor_title": {
         "gt": "Ph.D., Assistant Professor of Security Studies",
-        "pred": "Ph.D",
+        "pred": "Assistant Professor",
         "match": true
       },
       "instructor_department": {
@@ -3948,7 +3173,7 @@
       },
       "office_hours": {
         "gt": "Mondays, 4-5pm via Zoom",
-        "pred": "Mondays, 4-5pm via Zoom: https://unh.zoom.us/my/bridgetrosenolan",
+        "pred": "Mondays, 4-5pm via Zoom:",
         "match": true
       },
       "office_phone": {
@@ -3958,42 +3183,22 @@
       },
       "assignment_types_title": {
         "gt": "Assessment, Participation Assignments",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "",
-        "match": false
+        "pred": "Assessment",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email is the primary communication method; Telephone as secondary",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "respond within 24 hours, Monday-Friday",
-        "pred": "",
-        "match": false
-      },
-      "class_location": {
-        "gt": "UNH MyCourses (online)",
-        "pred": "",
-        "match": false
+        "pred": "Late Assignments",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
-        "pred": "",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
+        "pred": "MyCourses; UNH MyCourses",
         "match": true
       }
     },
@@ -4013,8 +3218,8 @@
       },
       "email": {
         "gt": "omero.navarroambriz@unh.edu",
-        "pred": "omero.navarroambriz@unh.edu",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "credit_hour": {
         "gt": "4 credits (180 hours minimum on site)",
@@ -4058,43 +3263,23 @@
       },
       "assignment_types_title": {
         "gt": "ASSIGNMENTS",
-        "pred": "",
-        "match": false
+        "pred": "ASSIGNMENTS",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "GRADING",
-        "pred": "",
-        "match": false
+        "pred": "GRADING",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
-        "pred": "",
-        "match": false
-      },
-      "preferred_contact_method": {
-        "gt": "Email",
-        "pred": "",
-        "match": false
-      },
-      "response_time": {
-        "gt": "",
-        "pred": "",
-        "match": true
-      },
-      "class_location": {
-        "gt": "UNH MyCourses (online)",
-        "pred": "",
+        "pred": "ASSIGNMENTS",
         "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "",
+        "pred": "MyCourses; UNH MyCourses",
         "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
-        "match": true
       }
     }
   ]
