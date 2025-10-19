@@ -176,9 +176,59 @@ class GradingScaleDetector:
                     break
                 end = j
 
-            content_lines = [lines[i].rstrip() for i in range(start, end + 1) if lines[i].strip()]
-            content = '\n'.join(content_lines).strip()
-            return {'found': True, 'content': content}
+            # Prefer to return only the percent/points lines and very short context
+            percent_idxs = [i for i in range(start, end + 1) if self.percent_pattern.search(lines[i]) or self.points_pattern.search(lines[i])]
+            if percent_idxs:
+                selected = []
+                for idx in percent_idxs:
+                    # include one short preceding line if it looks like a heading/context
+                    if idx - 1 >= start and lines[idx-1].strip():
+                        prev = lines[idx-1].strip()
+                        if len(prev.split()) <= 15 and len(prev) <= 120:
+                            selected.append(idx-1)
+                    selected.append(idx)
+                    # include one short following line if it's short and not a long sentence
+                    if idx + 1 <= end and lines[idx+1].strip():
+                        nxt = lines[idx+1].strip()
+                        if len(nxt.split()) <= 20 and not ('.' in nxt and len(nxt.split()) > 20):
+                            selected.append(idx+1)
+                # dedupe while preserving order
+                seen = set()
+                final_idxs = []
+                for i in selected:
+                    if i not in seen:
+                        seen.add(i)
+                        final_idxs.append(i)
+
+                # If percent lines are separated by short label lines that appear later,
+                # scan forward up to a few lines to capture them (e.g., 'Quizzes:' then later 'Quiz1: 40%')
+                if final_idxs:
+                    start_block = min(final_idxs)
+                    end_block = max(final_idxs)
+                    for j in range(end_block + 1, min(len(lines), end_block + 7)):
+                        if self.percent_pattern.search(lines[j]):
+                            # include intervening short lines
+                            for k in range(end_block + 1, j + 1):
+                                if k not in seen and lines[k].strip():
+                                    # only include short label/context lines
+                                    if k == j or len(lines[k].split()) <= 15:
+                                        seen.add(k)
+                                        final_idxs.append(k)
+                            end_block = j
+                            break
+
+                content_lines = [lines[i].rstrip() for i in final_idxs if lines[i].strip()]
+                # prepend heading if found above original block
+                heading = get_heading_before(start_idx)
+                if heading and (not content_lines or not content_lines[0].startswith(heading)):
+                    content_lines.insert(0, heading)
+                content = '\n'.join(content_lines).strip()
+                return {'found': True, 'content': content}
+            else:
+                # fallback to returning the short block (should be rare)
+                content_lines = [lines[i].rstrip() for i in range(start, end + 1) if lines[i].strip()]
+                content = '\n'.join(content_lines).strip()
+                return {'found': True, 'content': content}
 
         # 3) fallback: look for lines containing a cluster of assignment labels followed shortly by percentages
         # find lines where a percentage exists and gather +/-3 lines around it
@@ -204,6 +254,46 @@ class GradingScaleDetector:
                     if not lines[j].strip():
                         break
                     final_end = j
+                # prefer to return only percent/points lines near the cluster
+                percent_idxs2 = [k for k in range(final_start, final_end + 1) if self.percent_pattern.search(lines[k]) or self.points_pattern.search(lines[k])]
+                if percent_idxs2:
+                    selected = []
+                    for idx in percent_idxs2:
+                        if idx - 1 >= final_start and lines[idx-1].strip():
+                            prev = lines[idx-1].strip()
+                            if len(prev.split()) <= 15 and len(prev) <= 120:
+                                selected.append(idx-1)
+                        selected.append(idx)
+                        if idx + 1 <= final_end and lines[idx+1].strip():
+                            nxt = lines[idx+1].strip()
+                            if len(nxt.split()) <= 20 and not ('.' in nxt and len(nxt.split()) > 20):
+                                selected.append(idx+1)
+                    seen = set()
+                    final_idxs2 = []
+                    for i in selected:
+                        if i not in seen:
+                            seen.add(i)
+                            final_idxs2.append(i)
+
+                    # expand forward to include percent lines that appear after short labels
+                    if final_idxs2:
+                        start_block2 = min(final_idxs2)
+                        end_block2 = max(final_idxs2)
+                        for j in range(end_block2 + 1, min(len(lines), end_block2 + 7)):
+                            if self.percent_pattern.search(lines[j]):
+                                for k in range(end_block2 + 1, j + 1):
+                                    if k not in seen and lines[k].strip():
+                                        if k == j or len(lines[k].split()) <= 15:
+                                            seen.add(k)
+                                            final_idxs2.append(k)
+                                end_block2 = j
+                                break
+
+                    content_lines = [lines[k].rstrip() for k in final_idxs2 if lines[k].strip()]
+                    heading = get_heading_before(final_start)
+                    if heading and (not content_lines or not content_lines[0].startswith(heading)):
+                        content_lines.insert(0, heading)
+                    return {'found': True, 'content': '\n'.join(content_lines).strip()}
                 content_lines = [lines[k].rstrip() for k in range(final_start, final_end + 1) if lines[k].strip()]
                 return {'found': True, 'content': '\n'.join(content_lines).strip()}
 

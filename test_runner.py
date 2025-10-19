@@ -91,6 +91,13 @@ except Exception:
     print("⚠️ Grading procedures detector not available")
 
 try:
+    from detectors.grading_scale_detection import GradingScaleDetector
+    GRADING_SCALE_AVAILABLE = True
+except Exception:
+    GRADING_SCALE_AVAILABLE = False
+    print("⚠️ Grading scale detector not available")
+
+try:
     from detectors.late_missing_work_detector import lateDetector
     DEADLINE_EXPECTATIONS_AVAILABLE = True
 except Exception:
@@ -226,6 +233,16 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["grading_procedures_title"] = ""
 
+    # Grading Scale (title/heading) -> also populate final_grade_scale for GT
+    if GRADING_SCALE_AVAILABLE:
+        gs = GradingScaleDetector().detect(text)
+        preds["grading_scale_title"] = gs.get("content", "") if gs.get("found") else ""
+        # keep legacy key and also map to ground-truth key used in JSON
+        preds["final_grade_scale"] = preds["grading_scale_title"]
+    else:
+        preds["grading_scale_title"] = ""
+        preds["final_grade_scale"] = ""
+
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
         d = lateDetector().detect(text)
@@ -260,6 +277,8 @@ def main():
 
     field_stats = defaultdict(lambda: {"correct": 0, "total": 0})
     details = []
+    # Ensure final_grade_scale key exists in stats (ground-truth uses this key)
+    _ = field_stats["final_grade_scale"]
 
     for i, record in enumerate(gt_data, 1):
         fname = record.get("filename", "")
@@ -382,6 +401,13 @@ def main():
             field_stats["grading_procedures_title"]["correct"] += int(match)
             result["grading_procedures_title"] = {"gt": record["grading_procedures_title"], "pred": preds.get("grading_procedures_title", ""), "match": match}
 
+        # Final grade scale (ground-truth uses 'final_grade_scale')
+        if "final_grade_scale" in record:
+            match = loose_compare(record["final_grade_scale"], preds.get("final_grade_scale", ""))
+            field_stats["final_grade_scale"]["total"] += 1
+            field_stats["final_grade_scale"]["correct"] += int(match)
+            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
         # Deadline Expectations Title
         if "deadline_expectations_title" in record:
             match = loose_compare(record["deadline_expectations_title"], preds.get("deadline_expectations_title", ""))
@@ -394,7 +420,7 @@ def main():
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "grading_scale_title", "deadline_expectations_title"):
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -414,7 +440,7 @@ def main():
     print(f"{'Field':<30} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 70)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title"):
+    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "grading_scale_title", "deadline_expectations_title"):
         stats = summary[field]
         print(f"{field:<30} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
