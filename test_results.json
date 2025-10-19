@@ -56,20 +56,25 @@
       "total": 40
     },
     "assignment_types_title": {
-      "accuracy": 0.725,
-      "correct": 29,
+      "accuracy": 0.9,
+      "correct": 36,
       "total": 40
     },
     "grading_procedures_title": {
       "accuracy": 0.825,
       "correct": 33,
       "total": 40
+    },
+    "deadline_expectations_title": {
+      "accuracy": 0.75,
+      "correct": 30,
+      "total": 40
     }
   },
   "overall": {
-    "accuracy": 0.7288,
-    "correct": 379,
-    "total": 520
+    "accuracy": 0.7429,
+    "correct": 416,
+    "total": 560
   },
   "details": [
     {
@@ -139,6 +144,11 @@
       "grading_procedures_title": {
         "gt": "Grading Policy:",
         "pred": "Grading Policy:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late/Make-Up Work:",
+        "pred": "Late/Make-Up Work: Late/make-up work will be considered on a case-by-case basis at the discretion\nof the instructor. In case of illness or emergency, contact Dr. Johnson as soon as possible (the day of the\nassessment in all but the most extreme cases) to discuss options.",
         "match": true
       }
     },
@@ -210,6 +220,11 @@
         "gt": "SUMMARY OF STUDENT EVALUATION",
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
       }
     },
     {
@@ -273,12 +288,17 @@
       },
       "assignment_types_title": {
         "gt": "Assignments & Grades",
-        "pred": "HOMEWORK:",
+        "pred": "",
         "match": false
       },
       "grading_procedures_title": {
         "gt": "Grading",
         "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work",
+        "pred": "Assignments - Graded as Incomplete/Complete\nStudent Information Sheet\nTable Tent Card\nProject #3 Alumni Magazine Creative Brief\nProject #6 (Outline) for Case Statement\nQuiz & Mid-Term (20%) 20 Points\nQuiz #1 - 10 points\nMid-Term Exam - 10 points\nOTHER (10%) 10 Points",
         "match": false
       }
     },
@@ -350,6 +370,11 @@
         "gt": "Grading:",
         "pred": "",
         "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions\nStudents are expected to submit assignments and take examinations on time. Faculty\nreserves the right to deny a request to accept a late assignment and if written work is\nturned in after any negotiated due date or the due date, the grade will be reduced by 10\npoints for each day past the due date.\n3\nAssignment | Description",
+        "match": true
       }
     },
     {
@@ -413,12 +438,17 @@
       },
       "assignment_types_title": {
         "gt": "Assignments:",
-        "pred": "",
-        "match": false
+        "pred": "Assignments:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grading Procedures:",
         "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work:",
+        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded\nin MyCourses (Canvas). You do not need to go to a different website. You can access the homework assignments for\neach class immediately following the lecture. Although your answers are posted online, you must have a notebook\ncontaining all of your work. This notebook will be checked periodically. All homework assignments have a due date\nwhich is approximately 4 days after the open date. There are two late passes for MyOpenMath assignments which",
         "match": false
       }
     },
@@ -490,6 +520,11 @@
         "gt": "Grading:",
         "pred": "Grading:",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments and Make-Up Exams:",
+        "pred": "Late Assignments and Make-Up Exams:\nPolicies for late assignments and make-up exams are very strict and apply only in exceptional\ncases of student illness, accident, or emergencies that are properly documented. It is your\nresponsibility to make arrangements with instructor before the deadline as soon as you are aware\nyou will miss a deadline, exam or class. Unexcused late assignments are penalized 20% per day.\nUse of Electronic Devices in Classroom:\nNot allowed during examinations. Absolutely no cell phone use during class time.",
+        "match": true
       }
     },
     {
@@ -560,6 +595,11 @@
         "gt": "GRADING",
         "pred": "Grading",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work",
+        "pred": "Assignments\nFocus on a purpose\npp. 2-5\nRespond to the needs of different audiences",
+        "match": false
       }
     },
     {
@@ -623,13 +663,18 @@
       },
       "assignment_types_title": {
         "gt": "Major Projects",
-        "pred": "Assignments",
-        "match": false
+        "pred": "Major Projects",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "GRADING",
         "pred": "Grading",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work",
+        "pred": "Assignments\nDemonstrate an understanding of key concepts in technical communication pp. 2-5",
+        "match": false
       }
     },
     {
@@ -692,13 +737,18 @@
         "match": true
       },
       "assignment_types_title": {
-        "gt": "ASSIGNMENTS AND COURSE SPECIFIC POLICIES:",
+        "gt": "assignments:",
         "pred": "assignments:",
-        "match": false
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "COURSE GRADE:",
         "pred": "",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "assignments:\nHomework 30% Tests (2 planned) 30%\nLab Projects 20% Final Exam 15%\nPractice Problems 5%\nCALCULATION OF LETTER GRADES: Letter grades for the course correspond to the following\npercentage points in the Canvas gradebook:\nASSIGNMENTS AND COURSE SPECIFIC POLICIES: The following is a brief description of the\ngraded assignments for the course along with some course specific policies:\nLectures: Students are responsible for all material covered in class and in reading assignments. Regular",
         "match": false
       }
     },
@@ -770,6 +820,11 @@
         "gt": "Grading",
         "pred": "Grading",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignment Deadlines:",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. Late work will not be\naccepted unless you have made arrangements with me ahead of time and have a valid and\nreasonable reason for your request.\nUse of AI: All assignments must be soley your own work. The use of AI-assisted writing (such as\nChatGPT) is strictly prohibited on any assignment in this course unless otherwise instructed.\nClass Recording & Photographs: Class lectures and activities may be recorded in order to make\nthis course more accessible, and recordings may be made available to students presently enrolled in",
+        "match": true
       }
     },
     {
@@ -839,6 +894,11 @@
       "grading_procedures_title": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Expectations regarding assignment deadlines, late, or missing work",
+        "pred": "Expectations regarding assignment deadlines, late, or missing work\n4\nPolicy for late submissions is very strict and applies only in exceptional cases of student illness,\naccident, or emergencies that are properly documented. A late submission of an homework or\nproject artifact may be granted only if the student:\n• Emails prior to the deadline and\n• Explains and provides evidence for the circumstances that have prevented the student from\nmeeting class requirement.\nFailing to comply with these rules may result in no credit for the assignment.",
         "match": true
       }
     },
@@ -910,6 +970,11 @@
         "gt": "Assessment",
         "pred": "Assessment",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to\nrequest an extension from me via email before the due date. I will determine if the situation\nwarrants an extension based on your email and may request more details or documentation\n(example: a doctor’s note). If you are aware of an upcoming event (e.g. a religious holiday or\ncultural observance) please make your request as early as possible. If you do not meet the\ndeadline for any assignment you have 6 days to submit it except quizzes. MyCourses will",
+        "match": true
       }
     },
     {
@@ -979,6 +1044,11 @@
       "grading_procedures_title": {
         "gt": "Assessment",
         "pred": "Assessment",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to\nrequest an extension from me via email before the due date. I will determine if the situation\nwarrants an extension based on your email and may request more details or documentation\n(example: a doctor’s note). If you do not meet the deadline for any assignment you have 6 days\nto submit it except quizzes. I will subtract 15% of the total grade per day it is late as follows:\nDays Late Points subtracted",
         "match": true
       }
     },
@@ -1050,6 +1120,11 @@
         "gt": "Assessment",
         "pred": "Assessment",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to request an extension from me via email before the due date. I will determine if the situation warrants an extension based on your email and may request more details or documentation (example: a doctor’s note). If you do not meet the deadline for any assignment you have 6 days to submit.  MyCourses will automatically subtract 15% of the total grade per day it is late as follows:\nMissing assignments are automatically graded as zero.",
+        "match": true
       }
     },
     {
@@ -1113,13 +1188,18 @@
       },
       "assignment_types_title": {
         "gt": "Assignments & Grading",
-        "pred": "Evaluation:",
-        "match": false
+        "pred": "Assignments & Grading",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Assignments & Grading",
         "pred": "Assignments & Grading",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments:\n• Complete introduction assignment\n• Mastering A&P: Introduction, Biological Organization, Chemistry, Cell Biology\n• Lab quizzes: Language of anatomy, The microscope & cells (10pts each)\n• Virtual lab: Cell transport & membrane permeability (10pts)\nWeek 2: May 26th - June 1st\n• Lecture:\no Tissues\no Integumentary System\n• Lab:",
+        "match": false
       }
     },
     {
@@ -1189,6 +1269,11 @@
       "grading_procedures_title": {
         "gt": "GRADING DISTRIBUTION",
         "pred": "GRADING DISTRIBUTION",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
         "match": true
       }
     },
@@ -1260,6 +1345,11 @@
         "gt": "",
         "pred": "",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "assessments\n*Note– instructor has the right to change assignments/syllabus based on course needs. Last revised 8/19/2025 6",
+        "match": false
       }
     },
     {
@@ -1329,6 +1419,11 @@
       "grading_procedures_title": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Submissions",
+        "pred": "Late Submissions\nNo assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades.\nIf you are in the situation of missing a deadline because of time constraints, you take the responsibility to\nrequest approval for a time extension. This means that you MUST do the following two steps:\n1. Email me PRIOR to the deadline (using MyCourses email) to do TWO things:\n○ Explain circumstances that have prevented you from meeting the submission deadline.\n○ In your email, outline plans for making up the missed requirements.",
         "match": true
       }
     },
@@ -1400,6 +1495,11 @@
         "gt": "ASSIGNMENT OF A LETTER GRADE:",
         "pred": "Grades:",
         "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Work:",
+        "pred": "Late Work:\nIt is imperative that you keep up with assigned homework each week. Homework will be\navailable in the style of an online “quiz” that will be available to submit up to the time of\nthe next lecture meeting. Class sessions may begin with a homework review where correct\nanswers will be provided. For this reason, no late homework submissions will be accepted,\nand students that have not submitted answers prior to class will receive a zero grade for\nthat assignment.",
+        "match": true
       }
     },
     {
@@ -1469,6 +1569,11 @@
       "grading_procedures_title": {
         "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
         "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
         "match": true
       }
     },
@@ -1540,6 +1645,11 @@
         "gt": "SUMMARY OF STUDENT EVALUATION",
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "PENALTY FOR LATE ASSIGNMENTS",
+        "pred": "PENALTY FOR LATE ASSIGNMENTS\nPlease note that for every day that lab assignments/reports/final project reports are\nhanded in late, grades will be lowered by one level (e.g., a grade of \"B-\" will be dropped to a\n\"C+\" on the first day, a \"C\" on the second day, a \"D\" on the fourth day, etc.).",
+        "match": true
       }
     },
     {
@@ -1610,6 +1720,11 @@
         "gt": "Grading Policy",
         "pred": "",
         "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Homework Policy",
+        "pred": "Late Homework Policy\nLate homework will be assessed a 25% penalty per day, to a maximum penalty of 50%.\n3.2 Reading Quizzes\nReading quizzes will be given online, through the MasteringPhysics website. They will be due an hour before the\nclass meeting in which the material will be covered. Do not begin a reading quiz until you have read the relevant\nchapterofthetext. Readingquizzesshouldtakeabout15minutestocomplete. Studentshave30minutestocomplete",
+        "match": true
       }
     },
     {
@@ -1673,13 +1788,18 @@
       },
       "assignment_types_title": {
         "gt": "Course Assignments:",
-        "pred": "",
-        "match": false
+        "pred": "Course Assignments:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Student grades",
         "pred": "",
         "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Work:",
+        "pred": "Policy on Late Work: There are two policies on late work, one for quizzes and one for papers. Quizzes\nare designed to ensure that you come to class having studied the readings so that you are prepared to\nbetter understand and participate in additional lecture and discussion. Submitting them on time is essential\nto achieving the intended learning outcomes. Moreover, students submitting quizzes late have access to\nlectures and discussions about the readings that were not available to students turning quizzes in on time.",
+        "match": true
       }
     },
     {
@@ -1743,12 +1863,17 @@
       },
       "assignment_types_title": {
         "gt": "Methods of Testing / Evaluation:",
-        "pred": "",
-        "match": false
+        "pred": "Methods of Testing / Evaluation:",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Course Grading System:",
         "pred": "Course Grading System:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignments:",
+        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously\narranged with the instructor, any assignment not turned in by midnight on that date will be\nconsidered late and subject to a 10% grade penalty. After two weeks from the due date, the\nassignment will not be accepted, and the grade will be a zero. Note: Getting assignments to the\ninstructor is the responsibility of the student.\nStudents should make every effort to attend class the day of the midterm or final. Taking the",
         "match": true
       }
     },
@@ -1820,6 +1945,11 @@
         "gt": "Rubric and Evaluation Methods",
         "pred": "Rubric and Evaluation Methods",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
+        "match": true
       }
     },
     {
@@ -1889,6 +2019,11 @@
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
         "pred": "Rubric and Evaluation Methods",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
         "match": true
       }
     },
@@ -1960,6 +2095,11 @@
         "gt": "Rubric and Evaluation Methods",
         "pred": "Rubric and Evaluation Methods",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
+        "match": true
       }
     },
     {
@@ -2029,6 +2169,11 @@
       "grading_procedures_title": {
         "gt": "Grading",
         "pred": "Grading",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignment Deadlines",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric\nis on a 10 point scale -1 point (10%) for each day late. Assessments must be taken during the time\nperiod they are available. Exceptions are only considered in extreme circumstances and on a case-\nby-case basis.\nUse of AI: All assignments must be soley your own work. The use of AI-assisted writing (such as\nChatGPT) is strictly prohibited on any assignment in this course unless otherwise instructed.\nBiology Program Academic Honesty: The Biology Program at UNH Manchester will strictly adhere",
         "match": true
       }
     },
@@ -2100,6 +2245,11 @@
         "gt": "Grading",
         "pred": "Grading",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Assignment Deadlines",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric\nis on a 10 point scale -1 point (10%) for each day late. Assessments must be taken during the time\nperiod they are available. Exceptions are only considered in extreme circumstances and on a case-\nby-case basis.\nUse of AI: All assignments must be soley your own work. The use of AI-assisted writing (such as\nChatGPT) is strictly prohibited on any assignment in this course unless otherwise instructed.\nBiology Program Academic Honesty: The Biology Program at UNH Manchester will strictly adhere",
+        "match": true
       }
     },
     {
@@ -2170,6 +2320,11 @@
         "gt": "Homework Grading Rubric:",
         "pred": "Homework Grading Rubric:",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
       }
     },
     {
@@ -2232,14 +2387,19 @@
         "match": true
       },
       "assignment_types_title": {
-        "gt": "Evaluation:",
-        "pred": "Evaluation:",
+        "gt": "Assignments:",
+        "pred": "Assignments:",
         "match": true
       },
       "grading_procedures_title": {
         "gt": "Evaluation:",
         "pred": "Evaluation:",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Attendance and Late Work",
+        "pred": "Assignments:\n• Complete introduction assignment\n• Endocrine System Physiology Lab PDF (virtual lab)\nWeek 2: Jan. 27th, 29th, 30th\n• Lecture:\no Monday: Finish Endocrine System\no Wednesday: Start Cardiovascular System 1: The Blood\n• Lab:\no Blood activities\nAssignments:",
+        "match": false
       }
     },
     {
@@ -2309,6 +2469,11 @@
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
         "pred": "Rubric and Evaluation Methods",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Late Submissions",
+        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
         "match": true
       }
     },
@@ -2380,6 +2545,11 @@
         "gt": "STUDENT EVALUATION",
         "pred": "STUDENT EVALUATION",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
+        "pred": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS\nAs an ongoing project throughout the course, you will be expected to conduct your own research\non a different \"pioneer of psychology.\" You will be picking your person from a list that I provide within\nCanvas. Your job will be to conduct a historical search of the person's work, contributions to the\ndiscipline, individual personality patterns, and anything else that you find interesting/relevant to the\nperson's role in the field of psychology! Note that I've provided a separate handout within the Course",
+        "match": true
       }
     },
     {
@@ -2450,6 +2620,11 @@
         "gt": "Assignments and Grading",
         "pred": "Assignments and Grading",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Makeups:",
+        "pred": "Makeups:",
+        "match": true
       }
     },
     {
@@ -2513,12 +2688,17 @@
       },
       "assignment_types_title": {
         "gt": "Assignment Details",
-        "pred": "Grades",
-        "match": false
+        "pred": "Assignment Details",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grades",
         "pred": "Grades",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Policy on Attendance, Late Submissions",
+        "pred": "Policy on Attendance, Late Submissions\n- Please arrive on time and expect to attend the entire duration of the class. Missing two or more\nclasses will result in a fail, as well as missing more than 15% of the class combined. You must dress\nappropriately for BSL-2 lab activities. Failure to arrive prepared for lab will result in missing that\nlab.\nIf you are dealing with an unexpected, extenuating circumstance that will keep you out\nof class or affect your performance for more than a day or two, reach out to Lisa",
         "match": true
       }
     },
@@ -2583,13 +2763,18 @@
       },
       "assignment_types_title": {
         "gt": "TEXTBOOK CHAPTER QUIZZES, DISCUSSIONS, EXAMS, SUMMARY/CRITIQUE PAPER, EXTRA CREDIT",
-        "pred": "TEXTBOOK CHAPTER QUIZZES",
-        "match": true
+        "pred": "STUDENT EVALUATION",
+        "match": false
       },
       "grading_procedures_title": {
         "gt": "STUDENT EVALUATION",
         "pred": "STUDENT EVALUATION",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "SUMMARY/CRITIQUE PAPER (late policy)",
+        "pred": "",
+        "match": false
       }
     },
     {
@@ -2653,12 +2838,17 @@
       },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
-        "pred": "Grades:",
-        "match": false
+        "pred": "Quizzes and Exams",
+        "match": true
       },
       "grading_procedures_title": {
         "gt": "Grades:",
         "pred": "Grades:",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
         "match": true
       }
     },
@@ -2730,6 +2920,11 @@
         "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
         "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Submissions",
+        "pred": "Late Submissions\nThe structure of this course is planned so that each week has a rhythm to the assignments due. Late submissions lessen the effectiveness of the collaborative activities and subsequent assignments; you and your peers cannot comment and build on each other’s work if that work is not shared in a timely manner. Discussion threads will close at 11:59 pm on Sundays and late comments cannot be added.\nUnit quizzes can be taken up to 24 hours late, with a 5 point penalty. After 24 hours, access to the quiz will close and correct answers will be available to view.",
+        "match": true
       }
     },
     {
@@ -2799,6 +2994,11 @@
       "grading_procedures_title": {
         "gt": "Assessment",
         "pred": "Assessment",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "Late Assignments",
+        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to request an extension from me via email BEFORE THE DUE DATE. I will determine if the situation warrants an extension based on your email and may request more details or documentation (example: a doctor’s note). If you do not meet the deadline for any assignment you have 6 days to submit it EXCEPT QUIZZES.  I will subtract 15% of the total grade per day it is late as follows:\nMissing assignments are automatically graded as zero.",
         "match": true
       }
     },
@@ -2870,6 +3070,11 @@
         "gt": "GRADING",
         "pred": "GRADING",
         "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
+        "pred": "ASSIGNMENTS\nTo support your learning and ensure meaningful engagement throughout your internship, you will be required to complete several assignments, including structured check-ins and a final reflective analysis.\nMidpoint and Final Check-In Posts (2 Total):\nYou are expected to complete two online check-in posts during the course of your internship:\n1. Midpoint Check-In\n2. Final Check-In\nThese check-ins will be submitted through Canvas and should provide a detailed update on your experience, progress, and reflections. Avoid last-minute submissions—thoughtful, well-developed posts are expected.",
+        "match": false
       }
     }
   ]

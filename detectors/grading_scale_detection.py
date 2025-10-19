@@ -45,6 +45,26 @@ class GradingScaleDetector:
         lines = [ln.rstrip() for ln in text.split('\n')]
         joined = '\n'.join(lines)
 
+        # Helper: find a short heading line a few lines above a given line index
+        def get_heading_before(line_index: int, max_scan: int = 8) -> str:
+            for i in range(line_index - 1, max(-1, line_index - max_scan - 1), -1):
+                if i < 0:
+                    break
+                ln = lines[i].strip()
+                if not ln:
+                    continue
+                # strong heading signals: ALL CAPS short line
+                words = ln.split()
+                if ln.isupper() and len(words) <= 12:
+                    return ln
+                low = ln.lower()
+                if any(k in low for k in self.anchor_keywords) and len(words) <= 15:
+                    return ln
+                cap_count = sum(1 for w in words if w and w[0].isupper())
+                if 2 <= cap_count and len(words) <= 10 and '.' not in ln and ',' not in ln:
+                    return ln
+            return ''
+
         # 1) Try letter-grade block
         m = self.letter_block_pattern.search(joined)
         if m:
@@ -55,6 +75,11 @@ class GradingScaleDetector:
             if end == -1:
                 end = len(joined)
             content = joined[start:end].strip()
+            # prepend a nearby heading if present
+            line_idx = joined[:span[0]].count('\n')
+            heading = get_heading_before(line_idx)
+            if heading and not content.startswith(heading):
+                content = heading + '\n' + content
             return {'found': True, 'content': content}
 
         # 2) Look for contiguous percentage/points lines (window detection)
