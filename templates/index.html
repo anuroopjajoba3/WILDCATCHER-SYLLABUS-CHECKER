@@ -398,8 +398,8 @@ Date: 2025-09-20
               <div><strong>Workload:</strong> ${getStatus(data.workload_information && data.workload_information.found)}</div>
               <div><strong>Grading process & Scale:</strong> ${getStatus(data.grading_scale && data.grading_scale.found)}</div>
               <div><strong>Late Work:</strong> ${getStatus(data.late_information && data.late_information.found)}</div>
-              <div><strong>Assignment Type:</strong></div>
-              <div><strong>Assignment Deliverables:</strong></div>
+              <div><strong>Assignment Type:</strong> ${getStatus(data.assignment_types && data.assignment_types.found)}</div>
+              <div><strong>Assignment Deliverables:</strong> ${getStatus(data.assignment_delivery && data.assignment_delivery.found)}</div>
             </div>
           </div>
         `;
@@ -564,12 +564,35 @@ Date: 2025-09-20
           }
           if (tab.id === 'late_work') {
             const lt = data.late_information || {};
+            const ltFound = Boolean(lt.found);
+            const ltStatus = ltFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
             if (!lt || (!lt.late && !lt.found)) {
-              content = '<div class="upload-result"><div class="analysis-summary"><strong>Not found</strong></div></div>';
+              content = `<div class="upload-result"><h4><i class="fas fa-hourglass"></i> Late Work</h4><div class="analysis-summary"><div class="status-item"><strong>Late Work:</strong> ${ltStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
             } else {
-              content = `<div class="upload-result"><h4><i class="fas fa-hourglass"></i> Late Work</h4><div class="analysis-summary"><div style="white-space: pre-wrap; font-size:12px;">${lt.late || ''}</div><div style="margin-top:8px;"><strong>Detected:</strong> ${lt.found ? 'Yes' : 'No'} - Confidence: ${lt.confidence || 0}</div></div></div>`;
+              content = `<div class="upload-result"><h4><i class="fas fa-hourglass"></i> Late Work</h4><div class="analysis-summary"><div class="status-item"><strong>Late Work:</strong> ${ltStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${lt.late || ''}</div></div></div></div>`;
             }
           }
+          if (tab.id === 'assignment_type') {
+            const at = data.assignment_types || {};
+            const atFound = Boolean(at.found);
+            const atStatus = atFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+            if (!at || (!at.content && !at.found)) {
+              content = `<div class="upload-result"><h4><i class="fas fa-pencil"></i> Assignment Types</h4><div class="analysis-summary"><div class="status-item"><strong>Assignment Type:</strong> ${atStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-pencil"></i> Assignment Types</h4><div class="analysis-summary"><div class="status-item"><strong>Assignment Type:</strong> ${atStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div><strong>Type:</strong> ${at.content || ''}</div></div></div></div>`;
+            }
+          }
+          if (tab.id === 'assignment_deliverable') {
+            const ad = data.assignment_delivery || {};
+            const adFound = Boolean(ad.found);
+            const adStatus = adFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+            if (!ad || (!ad.content && !ad.found)) {
+              content = `<div class="upload-result"><h4><i class="fas fa-paper-plane"></i> Assignment Deliverables</h4><div class="analysis-summary"><div class="status-item"><strong>Deliverables:</strong> ${adStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-paper-plane"></i> Assignment Deliverables</h4><div class="analysis-summary"><div class="status-item"><strong>Deliverables:</strong> ${adStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${ad.content || ''}</div></div></div></div>`;
+            }
+          }
+          // assignment_type and assignment_deliverable rendering handled above (boxed versions). Duplicate legacy blocks removed.
           tabs += `<div class="tab-pane fade${idx === 0 ? ' show active' : ''}" id="${tab.id}-panel" role="tabpanel" aria-labelledby="${tab.id}-tab">${content}</div>`;
         });
         tabs += '</div></div>';

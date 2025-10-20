@@ -20,26 +20,24 @@ from document_processing import extract_text_from_pdf, extract_text_from_docx
 # SLO regex detector (your existing detector)
 from detectors.slo_detector import SLODetector
 from detectors.grading_scale_detection import GradingScaleDetector
-try:
-    from detectors.grading_procedures_detection import GradingProceduresDetector
-except Exception:
-    GradingProceduresDetector = None
+from detectors.grading_procedures_detection import GradingProceduresDetector
 
 # Modality (Online / Hybrid / In-Person) rule-based detector (procedural API)
-try:
-    # expected to expose:
-    #   detect_course_delivery(text) -> {"modality","confidence","evidence":[...]}
-    #   format_modality_card(result_dict, meta) -> dict
-    #   quick_course_metadata(text) -> {"course","instructor","email"}
-    from detectors.online_detection import (
-        detect_course_delivery,
-        format_modality_card,
-        quick_course_metadata,
-    )
-except Exception:
-    detect_course_delivery = None
-    format_modality_card = None
-    quick_course_metadata = None
+from detectors.online_detection import (
+    detect_course_delivery,
+    format_modality_card,
+    quick_course_metadata,
+)
+
+
+# Optional detectors (now required in this repo) imported at module top
+from detectors.office_information_detection import OfficeInformationDetector
+from detectors.email_detector import emailDetector
+from detectors.late_missing_work_detector import lateDetector
+from detectors.credit_hours_detection import CreditHoursDetector
+from detectors.workload_detection import WorkloadDetector
+from detectors.assignment_delivery_detection import AssignmentDeliveryDetector
+from detectors.assignment_types_detection import AssignmentTypesDetector
 
 
 # -----------------------------------------------------------------------------
@@ -205,11 +203,8 @@ def _process_single_file(file, temp_dir: str) -> dict:
         }
 
         # --- Grading scale detection ---
-        try:
-            grading_detector = GradingScaleDetector()
-            grading_info = grading_detector.detect(extracted_text)
-        except Exception:
-            grading_info = {'found': False, 'content': ''}
+        grading_detector = GradingScaleDetector()
+        grading_info = grading_detector.detect(extracted_text)
 
         result['grading_scale'] = {
             'found': bool(grading_info.get('found')),
@@ -217,18 +212,10 @@ def _process_single_file(file, temp_dir: str) -> dict:
         }
 
         # --- Grading procedure (section title) detection ---
-        if GradingProceduresDetector:
-            try:
-                gp_detector = GradingProceduresDetector()
-                gp_info = gp_detector.detect(extracted_text)
-                gp_found = bool(gp_info.get('found'))
-                gp_content = gp_info.get('content') or ''
-            except Exception:
-                gp_found = False
-                gp_content = ''
-        else:
-            gp_found = False
-            gp_content = ''
+        gp_detector = GradingProceduresDetector()
+        gp_info = gp_detector.detect(extracted_text)
+        gp_found = bool(gp_info.get('found'))
+        gp_content = gp_info.get('content') or ''
 
         result['grading_procedure'] = {
             'found': gp_found,
@@ -270,11 +257,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
             result["modality"] = delivery_card
 
         # --- Office Information detection ---
-        try:
-            from detectors.office_information_detection import OfficeInformationDetector
-        except ImportError:
-            OfficeInformationDetector = None
-
         if OfficeInformationDetector:
             office_detector = OfficeInformationDetector()
             office_info = office_detector.detect(extracted_text)
@@ -293,11 +275,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
             }
 
         # --- Email detection ---
-        try:
-            from detectors.email_detector import emailDetector
-        except ImportError:
-            emailDetector = None
-
         if emailDetector:
             email_detector = emailDetector()
             email_info = email_detector.detect(extracted_text)
@@ -312,13 +289,8 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": False,
                 "confidence": 0.0
             }
-###
-        # --- Late detection ---
-        try:
-            from detectors.late_missing_work_detector import lateDetector
-        except ImportError:
-            lateDetector = None
 
+        # --- Late detection ---
         if lateDetector:
             late_detector = lateDetector()
             late_info = late_detector.detect(extracted_text)
@@ -335,11 +307,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
             }
 
         # --- Credit Hours detection ---
-        try:
-            from detectors.credit_hours_detection import CreditHoursDetector
-        except ImportError:
-            CreditHoursDetector = None
-
         if CreditHoursDetector:
             credit_detector = CreditHoursDetector()
             credit_info = credit_detector.detect(extracted_text)
@@ -353,13 +320,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": False
             }
 
-
         # --- Workload detection ---
-        try:
-            from detectors.workload_detection import WorkloadDetector
-        except ImportError:
-            WorkloadDetector = None
-
         if WorkloadDetector:
             workload_detector = WorkloadDetector()
             workload_info = workload_detector.detect(extracted_text)
@@ -372,6 +333,24 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "description": None,
                 "found": False
             }
+
+        # --- Assignment Delivery detection ---
+        # Detect where/how assignments should be submitted (Canvas, MyCourses, Mastering, etc.)
+        assignment_delivery_detector = AssignmentDeliveryDetector()
+        ad_info = assignment_delivery_detector.detect(extracted_text)
+        result["assignment_delivery"] = {
+            "found": bool(ad_info.get("found")),
+            "content": ad_info.get("content"),
+            "confidence": ad_info.get("confidence", 0.0)
+        }
+
+        # --- Assignment Types detection ---
+        assignment_types_detector = AssignmentTypesDetector()
+        at_info = assignment_types_detector.detect(extracted_text)
+        result["assignment_types"] = {
+            "found": bool(at_info.get("found")),
+            "content": at_info.get("content")
+        }
 
         return result
 
