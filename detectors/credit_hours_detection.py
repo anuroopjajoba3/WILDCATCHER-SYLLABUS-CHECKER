@@ -107,9 +107,9 @@ class CreditHoursDetector:
         Returns:
             tuple: (found, credit_text)
         """
-        # Search only in the first 3000 characters (typically first page)
-        # This avoids picking up credit mentions from later sections
-        search_text = text[:3000]
+        # Search in the first 5000 characters to catch credits mentioned in course info
+        # Increased from 3000 to handle syllabi where credit info appears later
+        search_text = text[:5000]
 
         # Collect all potential matches with their positions
         candidates = []
@@ -148,18 +148,18 @@ class CreditHoursDetector:
                 if number_match:
                     credit_number = float(number_match.group(1))
 
-                    # Sanity check: typical course credits are 0.5 to 12
-                    # This filters out obvious false positives (including CRNs captured as credit values)
-                    if not (0.5 <= credit_number <= 12.0):
+                    # Sanity check: typical course credits are 0 to 12
+                    # Allow 0-credit courses (co-requisites, labs, etc.)
+                    # This filters out obvious false positives like CRNs
+                    if not (0.0 <= credit_number <= 12.0):
                         self.logger.debug(f"Skipping unrealistic credit value: {full_match}")
                         continue
 
                 # Clean up the match text
                 credit_text = full_match.strip()
 
-                # Standardize format if we only captured the number
-                if re.match(r'^\d+(?:\.\d+)?$', credit_text):
-                    credit_text = f"{credit_text} credits"
+                # Don't normalize - return exact text as it appears in the PDF
+                # This ensures we match the ground truth exactly
 
                 # Add to candidates with position (earlier is better)
                 candidates.append((position, credit_text))

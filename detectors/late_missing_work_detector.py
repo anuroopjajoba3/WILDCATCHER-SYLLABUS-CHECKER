@@ -1,9 +1,9 @@
 """
-Student Learning Outcomes (SLO) Detector
+late missing work (late) Detector
 =========================================
 
-This detector identifies Student Learning Outcomes in syllabus documents.
-It uses pattern matching and keyword detection to find SLO sections.
+This detector identifies late work policies in syllabus documents.
+It uses pattern matching and keyword detection to find late sections.
 
 Developer Notes:
 ---------------
@@ -16,54 +16,57 @@ import logging
 from typing import Dict, Any
 
 
-class SLODetector:
+class lateDetector:
     """
-    Detector for Student Learning Outcomes.
+    Detector for late work policies.
 
-    This detector looks for common SLO patterns including:
-    - Keywords like "Student Learning Outcomes", "Learning Objectives"
+    This detector looks for common late patterns including:
+    - Keywords like "late homework policy", "late assignments"
     - Action verbs in bulleted lists
-    - Structured learning outcome statements
     """
 
     def __init__(self):
-        """Initialize the SLO detector with strict business rules."""
-        self.field_name = 'slos'
-        self.logger = logging.getLogger('detector.slos')
+        """Initialize the late detector."""
+        self.field_name = 'late'
+        self.logger = logging.getLogger('detector.late')
 
-        # STRICT BUSINESS RULE: Only these specific titles are considered valid SLO sections
-        # Must contain "Student Learning" or just "Learning" (without "Course")
-        # "Course Objectives", "Course Goals", etc. are NOT valid SLO sections
+        # need to get approved titles for late missing work also include colons and without colons
+        #may not need the colons if we are removing them in case 2
+        #line_for_comparison seems to take out the colon so may not need them here
         self.approved_titles = [
-            "student learning outcomes",
-            "student learning outcome",
-            "student learning objectives",
-            "student learning objective",
-            "student/program learning outcomes",  # Program variant
-            "learning outcomes",
-            "learning outcome",
-            "learning objectives",
-            "learning objective"
-        ]
-
-        # Also accept abbreviated forms
-        self.approved_abbreviations = [
-            "slos",
-            "slo"
+            "assessments",
+            "assignment deadlines",
+            "assignments",
+            "attendance and late work",
+            "expectations regarding assignment deadlines, late, or missing work",
+            "grading (late policy: 10% deduction per day, up to 5 days)",
+            "late assignments",
+            "late assignments and make-up exams",
+            "late homework policy",
+            "late submissions",
+            "late work",
+            "late/make-up work",
+            "makeups",
+            "paper assignment / powerpoint presentations",
+            "penalty for late assignments",
+            "policy on attendance, late submissions",
+            "policy on late submissions",
+            "policy on late work",
+            "summary/critique paper (late policy)"
         ]
 
     def detect(self, text: str) -> Dict[str, Any]:
         """
-        Detect Student Learning Outcomes in the text.
+        Detect late work policies in the text.
         Simplified approach: just look for specific approved titles.
 
         Args:
             text (str): Document text to analyze
 
         Returns:
-            Dict[str, Any]: Detection result with SLO content if found
+            Dict[str, Any]: Detection result with late content if found
         """
-        self.logger.info("Starting simplified SLO detection")
+        self.logger.info("Starting simplified late detection")
 
         # Limit text size to prevent hanging on large documents
         original_length = len(text)
@@ -82,7 +85,7 @@ class SLODetector:
                     'content': content
                 }
                 self.logger.info(f"FOUND: {self.field_name}")
-                self.logger.info("SUCCESS: Found approved SLO title")
+                self.logger.info("SUCCESS: Found approved late title")
             else:
                 result = {
                     'field_name': self.field_name,
@@ -90,13 +93,13 @@ class SLODetector:
                     'content': None
                 }
                 self.logger.info(f"NOT_FOUND: {self.field_name}")
-                self.logger.info("No approved SLO titles found")
+                self.logger.info("No approved late titles found")
 
             self.logger.info(f"Detection complete for {self.field_name}: {'SUCCESS' if found else 'NO_MATCH'}")
             return result
 
         except Exception as e:
-            self.logger.error(f"Error in SLO detection: {e}")
+            self.logger.error(f"Error in late detection: {e}")
             return {
                 'field_name': self.field_name,
                 'found': False,
@@ -105,7 +108,7 @@ class SLODetector:
 
     def _simple_title_detection(self, text: str) -> tuple[bool, str]:
         """
-        Simple title-based SLO detection.
+        Simple title-based late detection.
         Just looks for exact approved titles and extracts following content.
 
         Args:
@@ -122,10 +125,14 @@ class SLODetector:
         for i, line in enumerate(lines):
             line_clean = line.strip().lower()
             line_for_comparison = line_clean.replace(':', '').replace('.', '').strip()
+#            clean_line = line.lower().rstrip(':').strip()
+
+#            self.logger.info(f"line being compared {line_for_comparison} ")
 
             # Check if any approved title appears properly (not just as part of a sentence)
             contains_approved_title = False
             for title in self.approved_titles:
+#                self.logger.info("line being compared")
                 if title in line_for_comparison:
                     # Additional check: line should be relatively short and not part of a long sentence
                     # or the title should be at the start/end of the line
@@ -159,12 +166,15 @@ class SLODetector:
                             is_valid_header = True
 
                     if is_valid_header:
+#                        self.logger.info("contains approved title {line_for_comparison}")
                         contains_approved_title = True
                         break
 
             if contains_approved_title:
                 # Score this match based on how likely it is to be a section header
                 score = 0
+#                self.logger.info("contains approved title {line_for_comparison}")
+#            self.logger.info(f"line being compared {line_for_comparison} ")
 
                 # Higher score for lines that start with approved titles
                 starts_with_approved = False
@@ -197,6 +207,7 @@ class SLODetector:
         if potential_matches:
             potential_matches.sort(key=lambda x: x[0], reverse=True)
             best_score, best_i, best_line = potential_matches[0]
+#            self.logger.info(f"potential match has been entered ")
 
             # Only accept matches with a reasonable score (likely section headers)
             if best_score < 5:  # Minimum threshold to avoid false positives
@@ -215,10 +226,13 @@ class SLODetector:
                 if not next_line:
                     continue
 
+
+
+# check this part to see if it makes sense for late missing work or if it needs to be adjusted
                 # Stop if we hit another section title
                 if any(section in next_line.lower() for section in
                        ['course description', 'course objectives', 'course goals',
-                        'prerequisites', 'textbook', 'grading', 'schedule']):
+                        'prerequisites', 'textbook', 'grading', 'schedule', 'extra credit', 'attendance']):
                     break
 
                 content_lines.append(next_line)
