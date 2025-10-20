@@ -196,6 +196,13 @@ Date: 2025-09-20
         This tool now checks:
         <ul style="margin:8px 0 0 18px;">
           <li><strong>SLOs</strong> (regex-based headings & bullets)</li>
+          <li><strong>Email</strong> </li>
+          <li><strong>Late work</strong> </li>
+          <li><strong>Instructor information</strong> </li>
+          <li><strong>Office information</strong> </li>
+          <li><strong>Workload information</strong> </li>
+          <li><strong>Grading process and scale</strong></li>
+          <li><strong>assignment information</strong></li>
           <li><strong>Course Delivery</strong> — Online / Hybrid / In-Person (rule-based detector)</li>
         </ul>
         Upload a PDF or DOCX (or a ZIP/folder) to get results.
@@ -219,8 +226,25 @@ Date: 2025-09-20
 
       if (isUser) addEditIcon(msg);
 
+
       chatHistory.appendChild(msg);
       chatHistory.scrollTop = chatHistory.scrollHeight;
+
+      // Re-initialize Bootstrap tab logic for new tabs
+      if (msg.querySelector('.detector-tabs')) {
+        const tabTriggers = msg.querySelectorAll('[data-bs-toggle="tab"]');
+        tabTriggers.forEach(trigger => {
+          trigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            const tabId = trigger.getAttribute('data-bs-target');
+            const parent = trigger.closest('.detector-tabs');
+            parent.querySelectorAll('.nav-link').forEach(t => t.classList.remove('active'));
+            trigger.classList.add('active');
+            parent.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('show', 'active'));
+            parent.querySelector(tabId).classList.add('show', 'active');
+          });
+        });
+      }
     }
 
     function addMessage(text, isUser) {
@@ -301,26 +325,6 @@ Date: 2025-09-20
       return null;
     }
 
-      // Office Information Renderer
-      function renderOfficeInfoCardFromData(data) {
-        // Accepts either a top-level office_information object or flat fields
-        const office = data.office_information || data;
-        if (!office || (!office.location && !office.hours && !office.phone)) return '';
-        let details = '';
-        if (office.location) details += `<div><strong>Location:</strong> ${office.location}</div>`;
-        if (office.hours) details += `<div><strong>Office Hours:</strong> ${office.hours}</div>`;
-        if (office.phone) details += `<div><strong>Phone:</strong> ${office.phone}</div>`;
-        if (!details) return '';
-        return `
-          <div class="upload-result" style="margin-top: 12px;">
-            <h4><i class="fas fa-door-open"></i> Office Information</h4>
-            <div class="analysis-summary">
-              ${details}
-            </div>
-          </div>
-        `;
-      }
-
     function renderModalityCardFromData(data) {
       const m = normalizeModality(data);
       if (!m) return '';
@@ -353,114 +357,224 @@ Date: 2025-09-20
       `;
     }
 
-    // Existing SLO block (kept) + Modality block (new)
-      function displayDetections(data) {
-        // Generate a unique suffix for this upload
-        const uniqueId = 'result_' + Math.random().toString(36).substr(2, 8);
+    function renderInstructorCard(data) {
+      const name = data.name;
+      const title = data.title;
+      const department = data.department;
+      const confidence = typeof data.confidence === 'number' ? data.confidence : null;
+      let html = '<div class="upload-result" style="margin-top: 12px;">';
+      html += '<h4><i class="fas fa-user"></i> Instructor Information</h4>';
+      if (!name && !title && !department || name === 'N/A' || title === 'N/A' || department === 'N/A') {
+        html += '<div class="analysis-summary"><strong>Not found</strong></div>';
+      } else {
+        html += '<div class="analysis-summary">';
+        if (name) html += `<div><strong>Name:</strong> ${name}</div>`;
+        if (title) html += `<div><strong>Title:</strong> ${title}</div>`;
+        if (department) html += `<div><strong>Department:</strong> ${department}</div>`;
+        if (confidence !== null) html += `<div><strong>Confidence:</strong> ${confidence}</div>`;
+        html += '</div>';
+      }
+      html += '</div>';
+      return html;
+    }
 
-        // Update all tab and table IDs to be unique
-        const tabs = `
+    // Existing SLO block (kept) + Modality block (new)
+    function displayDetections(data) {
+        // Overview tab: summarize pass/fail for each detector
+        function getStatus(val, passText = 'PASS', failText = 'FAIL') {
+          return val ? `<span class="status-pass"><i class="fas fa-check-circle"></i> ${passText}</span>` : `<span class="status-fail"><i class="fas fa-times-circle"></i> ${failText}</span>`;
+        }
+
+        const overviewHTML = `
+          <div class="upload-result" style="margin-top: 12px;">
+            <h3><i class="fas fa-list"></i> Overview</h3>
+            <div class="analysis-summary">
+              <div><strong>SLOs:</strong> ${getStatus(data.slo_status === 'PASS')}</div>
+              <div><strong>Instructor:</strong> ${getStatus(data.instructor && data.instructor.found)}</div>
+              <div><strong>Modality:</strong> ${getStatus(data.modality_status === 'PASS')}</div>
+              <div><strong>Office:</strong> ${getStatus(data.office_information && data.office_information.found)}</div>
+              <div><strong>Email:</strong> ${getStatus(data.email_information && data.email_information.found)}</div>
+              <div><strong>Credit Hours:</strong> ${getStatus(data.credit_hours && data.credit_hours.found)}</div>
+              <div><strong>Workload:</strong> ${getStatus(data.workload_information && data.workload_information.found)}</div>
+              <div><strong>Grading process & Scale:</strong> ${getStatus(data.grading_scale && data.grading_scale.found)}</div>
+              <div><strong>Late Work:</strong> ${getStatus(data.late_information && data.late_information.found)}</div>
+              <div><strong>Assignment Type:</strong></div>
+              <div><strong>Assignment Deliverables:</strong></div>
+            </div>
+          </div>
+        `;
+      const status = data.slo_status === 'PASS'
+        ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>'
+        : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+
+      const sloPreview = data.slo_content
+        ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;">
+             <strong>SLO Content Found:</strong><br>
+             <pre style="white-space: pre-wrap; font-size:12px;">${data.slo_content}</pre>
+           </div>` : '';
+
+      const messageLabel = data.slo_status === 'PASS' ? 'Result:' : 'Missing Fields:';
+
+      const sloHTML = `
+        <div class="upload-result">
+          <h3><i class="fas fa-file-pdf"></i> ${data.filename || 'Uploaded Document'}</h3>
+          <div class="analysis-summary">
+            <div class="status-item"><strong>Student Learning Outcomes:</strong> ${status}</div>
+            <div class="message"><strong>${messageLabel}</strong> ${data.message || ''}</div>
+            ${sloPreview}
+          </div>
+        </div>
+      `;
+
+
+        // Instructor info box
+        const instructor = data.instructor || {};
+        const instructorFound = instructor.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+        const instructorHTML = `
           <div class="upload-result">
-            <h3><i class="fas fa-file-pdf"></i> ${data.filename || 'Uploaded Document'}</h3>
-            <ul class="nav nav-tabs" id="resultTabs_${uniqueId}" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="overview-tab_${uniqueId}" data-bs-toggle="tab" data-bs-target="#overview_${uniqueId}" type="button" role="tab">Overview</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="slo-tab_${uniqueId}" data-bs-toggle="tab" data-bs-target="#slo_${uniqueId}" type="button" role="tab" aria-controls="slo_${uniqueId}" aria-selected="true">SLOs</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="modality-tab_${uniqueId}" data-bs-toggle="tab" data-bs-target="#modality_${uniqueId}" type="button" role="tab" aria-controls="modality_${uniqueId}" aria-selected="false">Modality</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="instructor-info-tab_${uniqueId}" data-bs-toggle="tab" data-bs-target="#instructor-info_${uniqueId}" type="button" role="tab" aria-controls="instructor-info_${uniqueId}" aria-selected="false">Instructor Info</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="email-tab_${uniqueId}" data-bs-toggle="tab" data-bs-target="#email_${uniqueId}" type="button" role="tab" aria-controls="email_${uniqueId}" aria-selected="false">Email</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="office-info-tab_${uniqueId}" data-bs-toggle="tab" data-bs-target="#office-info_${uniqueId}" type="button" role="tab" aria-controls="office-info_${uniqueId}" aria-selected="false">Office Information</button>
-              </li>
-            </ul>
-            <div class="tab-content" id="resultTabsContent_${uniqueId}" style="margin-top:16px;">
-              <div class="tab-pane fade show active" id="overview_${uniqueId}" role="tabpanel">
-                <div id="overview-content_${uniqueId}">
-                  <table class="table table-bordered">
-                    <tr><th>Overall</th><td id="overview-overall_${uniqueId}"></td></tr>
-                    <tr><th>Instructor Information</th><td id="overview-instructor_${uniqueId}"></td></tr>
-                    <tr><th>Email</th><td id="overview-email_${uniqueId}"></td></tr>
-                    <tr><th>Office Hours</th><td id="overview-office_${uniqueId}"></td></tr>
-                    <tr><th>SLO's</th><td id="overview-slos_${uniqueId}"></td></tr>
-                    <tr><th>Modality Detection</th><td id="overview-online_${uniqueId}"></td></tr>
-                    <tr><th>Credit Workload</th><td id="overview-credit_${uniqueId}"></td></tr>
-                  </table>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="slo_${uniqueId}" role="tabpanel" aria-labelledby="slo-tab_${uniqueId}">
-                ${sloHTML}
-              </div>
-              <div class="tab-pane fade" id="modality_${uniqueId}" role="tabpanel" aria-labelledby="modality-tab_${uniqueId}">
-                ${modalityHTML}
-              </div>
-              <div class="tab-pane fade" id="instructor-info_${uniqueId}" role="tabpanel" aria-labelledby="instructor-info-tab_${uniqueId}">
-                <div id="instructor-info-content_${uniqueId}">
-                  <table class="table table-bordered">
-                    <tr><th>Name</th><td id="instructor-name_${uniqueId}"></td></tr>
-                    <tr><th>Title</th><td id="instructor-title_${uniqueId}"></td></tr>
-                    <tr><th>Department</th><td id="instructor-department_${uniqueId}"></td></tr>
-                  </table>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="email_${uniqueId}" role="tabpanel" aria-labelledby="email-tab_${uniqueId}">
-                ${emailHTML}
-              </div>
-              <div class="tab-pane fade" id="office-info_${uniqueId}" role="tabpanel" aria-labelledby="office-info-tab_${uniqueId}">
-                ${officeDetails}
+            <h3><i class="fas fa-user-tie"></i> ${data.filename || 'Uploaded Document'}</h3>
+            <div class="analysis-summary">
+              <div class="status-item"><strong>Instructor Info:</strong> ${instructorFound}</div>
+              <div class="message">
+                <strong>Name:</strong> ${instructor.name || 'N/A'}<br>
+                <strong>Title:</strong> ${instructor.title || 'N/A'}<br>
+                <strong>Department:</strong> ${instructor.department || 'N/A'}
               </div>
             </div>
           </div>
         `;
-        addHTMLMessage(tabs, false);
 
-        // --- Pass/Fail for SLO, Modality, Instructor Info, Email, and Office Info in Overview tab ---
-        setTimeout(() => {
-          // SLO
-          const sloStatus = data.slo_status === 'PASS' ? 'Pass' : 'Fail';
-          // Modality
-          const modalityStatus = (data.modality && data.modality.status === 'PASS') || data.modality_status === 'PASS' ? 'Pass' : 'Fail';
-          // Instructor overall: all fields present and not 'N/A'
-          let instructorPass = false;
-          if (data.instructor) {
-            instructorPass = data.instructor.name && data.instructor.name !== 'N/A' &&
-                            data.instructor.title && data.instructor.title !== 'N/A' &&
-                            data.instructor.department && data.instructor.department !== 'N/A';
+      const modalityHTML = renderModalityCardFromData(data);
+
+        // Office Information
+
+          const office = data.office_information || {};
+          const officeFound = office.location || office.hours || office.phone;
+          const officeStatus = officeFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+          const officePreview = officeFound ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Office Details:</strong><br><pre style="white-space: pre-wrap; font-size:12px;">Location: ${office.location || 'N/A'}\nHours: ${office.hours || 'N/A'}\nPhone: ${office.phone || 'N/A'}</pre></div>` : '';
+          const officeHTML = `
+            <div class="upload-result">
+              <h3><i class="fas fa-building"></i> ${data.filename || 'Uploaded Document'}</h3>
+              <div class="analysis-summary">
+                <div class="status-item"><strong>Office Information:</strong> ${officeStatus}</div>
+                ${officePreview}
+              </div>
+            </div>
+          `;
+
+        // Email
+
+          const email = data.email_information || {};
+          const emailStatus = email.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+          const emailPreview = email.email ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Email:</strong> <pre style="white-space: pre-wrap; font-size:12px;">${email.email}</pre></div>` : '';
+          const emailHTML = `
+            <div class="upload-result">
+              <h3><i class="fas fa-envelope"></i> ${data.filename || 'Uploaded Document'}</h3>
+              <div class="analysis-summary">
+                <div class="status-item"><strong>Email Information:</strong> ${emailStatus}</div>
+                ${emailPreview}
+              </div>
+            </div>
+          `;
+
+        // Late work
+
+          const late = data.late_information || {};
+          const lateStatus = late.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+          const latePreview = late.late ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>late:</strong> <pre style="white-space: pre-wrap; font-size:12px;">${late.late}</pre></div>` : '';
+          const lateHTML = `
+            <div class="upload-result">
+              <h3><i class="fas fa-hourglass-end"></i> ${data.filename || 'Uploaded Document'}</h3>
+              <div class="analysis-summary">
+                <div class="status-item"><strong>late Information:</strong> ${lateStatus}</div>
+                ${latePreview}
+              </div>
+            </div>
+          `;
+   
+          // Credit Hours
+
+          const credit = data.credit_hours || {};
+          const creditStatus = credit.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+          const creditPreview = credit.hours ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Credit Hours:</strong> <pre style="white-space: pre-wrap; font-size:12px;">${credit.hours}</pre></div>` : '';
+          const creditHTML = `
+            <div class="upload-result">
+              <h3><i class="fas fa-clock"></i> ${data.filename || 'Uploaded Document'}</h3>
+              <div class="analysis-summary">
+                <div class="status-item"><strong>Credit Hours:</strong> ${creditStatus}</div>
+                ${creditPreview}
+              </div>
+            </div>
+          `;
+
+        // Workload
+
+          const workload = data.workload_information || {};
+          const workloadStatus = workload.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
+          const workloadPreview = workload.description ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Workload Description:</strong> <pre style="white-space: pre-wrap; font-size:12px;">${workload.description}</pre></div>` : '';
+          const workloadHTML = `
+            <div class="upload-result">
+              <h3><i class="fas fa-tasks"></i> ${data.filename || 'Uploaded Document'}</h3>
+              <div class="analysis-summary">
+                <div class="status-item"><strong>Workload Information:</strong> ${workloadStatus}</div>
+                ${workloadPreview}
+              </div>
+            </div>
+          `;
+
+
+        // Tab system for detector outputs
+        const tabNames = [
+          { id: 'overview', label: 'Overview', icon: 'fa-list', html: overviewHTML },
+          { id: 'slo', label: 'SLOs', icon: 'fa-file-pdf', html: sloHTML },
+          { id: 'instructor', label: 'Instructor', icon: 'fa-user-tie', html: instructorHTML },
+          { id: 'modality', label: 'Modality', icon: 'fa-chalkboard-teacher', html: modalityHTML },
+          { id: 'office', label: 'Office', icon: 'fa-building', html: officeHTML },
+          { id: 'email', label: 'Email', icon: 'fa-envelope', html: emailHTML },
+          { id: 'credit', label: 'Credit Hours', icon: 'fa-clock', html: creditHTML },
+          { id: 'workload', label: 'Workload', icon: 'fa-tasks', html: workloadHTML },
+          { id: 'grade_scale', label: 'Grading Process & Scale', icon: 'fa-percent', html: ''},
+          { id: 'late_work', label: 'Late Work', icon: 'fa-hourglass'},
+          { id: 'assignment_type', label: 'Assignment Type', icon: 'fa-pencil'},
+          { id: 'assignment_deliverable', label: 'Assignment Deliverables', icon: 'fa-paper-plane'}
+        ];
+
+        let tabs = '<div class="detector-tabs"><ul class="nav nav-tabs" role="tablist">';
+        tabNames.forEach((tab, idx) => {
+          tabs += `<li class="nav-item" role="presentation">
+            <button class="nav-link${idx === 0 ? ' active' : ''}" id="${tab.id}-tab" data-bs-toggle="tab" data-bs-target="#${tab.id}-panel" type="button" role="tab" aria-controls="${tab.id}-panel" aria-selected="${idx === 0 ? 'true' : 'false'}">
+              <i class="fas ${tab.icon}"></i> ${tab.label}
+            </button>
+          </li>`;
+        });
+        tabs += '</ul>';
+
+        tabs += '<div class="tab-content" style="margin-top:10px;">';
+        tabNames.forEach((tab, idx) => {
+          let content = tab.html || '';
+          // populate grading tabs with backend data if available
+          
+          if (tab.id === 'grade_scale') {
+            const gs = data.grading_scale || {};
+            if (!gs || (!gs.content && !gs.found)) {
+              content = '<div class="upload-result"><div class="analysis-summary"><strong>Not found</strong></div></div>';
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-percent"></i> Grade Scale</h4><div class="analysis-summary"><pre style="white-space: pre-wrap; font-size:12px;">${gs.content || ''}</pre></div></div>`;
+            }
           }
-          const instructorStatus = instructorPass ? 'Pass' : 'Fail';
-          // Email
-          const emailPass = (data.email && typeof data.email === 'string' && data.email.toLowerCase().endsWith('@unh.edu'));
-          const emailStatusText = emailPass ? 'Pass' : 'Fail';
-          // Office Info
-          const officePass = officeStatus === 'PASS';
-          const officeStatusText = officePass ? 'Pass' : 'Fail';
-          // Set Overview tab cells (use unique IDs)
-          document.getElementById('overview-slos_' + uniqueId).textContent = sloStatus;
-          document.getElementById('overview-online_' + uniqueId).textContent = modalityStatus;
-          document.getElementById('overview-instructor_' + uniqueId).textContent = instructorStatus;
-          document.getElementById('overview-email_' + uniqueId).textContent = emailStatusText;
-          document.getElementById('overview-office_' + uniqueId).textContent = officeStatusText;
-        }, 0);
+          if (tab.id === 'late_work') {
+            const lt = data.late_information || {};
+            if (!lt || (!lt.late && !lt.found)) {
+              content = '<div class="upload-result"><div class="analysis-summary"><strong>Not found</strong></div></div>';
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-hourglass"></i> Late Work</h4><div class="analysis-summary"><div style="white-space: pre-wrap; font-size:12px;">${lt.late || ''}</div><div style="margin-top:8px;"><strong>Detected:</strong> ${lt.found ? 'Yes' : 'No'} - Confidence: ${lt.confidence || 0}</div></div></div>`;
+            }
+          }
+          tabs += `<div class="tab-pane fade${idx === 0 ? ' show active' : ''}" id="${tab.id}-panel" role="tabpanel" aria-labelledby="${tab.id}-tab">${content}</div>`;
+        });
+        tabs += '</div></div>';
 
-        // Ensure Instructor Info tab is populated (use unique ID)
-        if (data.instructor) {
-          setTimeout(() => {
-            const nameCell = document.getElementById('instructor-name_' + uniqueId);
-            const titleCell = document.getElementById('instructor-title_' + uniqueId);
-            const deptCell = document.getElementById('instructor-department_' + uniqueId);
-            if (nameCell) nameCell.textContent = data.instructor.name || 'Not found';
-            if (titleCell) titleCell.textContent = data.instructor.title || 'Not found';
-            if (deptCell) deptCell.textContent = data.instructor.department || 'Not found';
-          }, 0);
-        }
+        addHTMLMessage(tabs, false);
       }
 
     // ---------- Upload handlers ----------
@@ -665,44 +779,6 @@ Date: 2025-09-20
 
     function downloadReportFromModal() {
       alert('Download PDF: hook html2pdf to the DOM you want to export.');
-    }
-
-    function statusIcon(found) {
-      return found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> Passed</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> Failed</span>';
-    }
-    function showInstructorInfo(instructorResult) {
-      const nameFound = instructorResult.name && instructorResult.name !== 'N/A';
-      const titleFound = instructorResult.title && instructorResult.title !== 'N/A';
-      const deptFound = instructorResult.department && instructorResult.department !== 'N/A';
-      document.getElementById('instructor-info-content').innerHTML = `
-        <table class="table table-bordered">
-          <tr><th>Name</th><td>${instructorResult.name || 'Not found'}</td><td>${statusIcon(nameFound)}</td></tr>
-          <tr><th>Title</th><td>${instructorResult.title || 'Not found'}</td><td>${statusIcon(titleFound)}</td></tr>
-          <tr><th>Department</th><td>${instructorResult.department || 'Not found'}</td><td>${statusIcon(deptFound)}</td></tr>
-        </table>
-      `;
-    }
-
-    // After file upload and receiving response, call showInstructorInfo with API result
-    async function uploadFileAndShowResults(file) {
-      const formData = new FormData();
-      formData.append('file', file);
-      const response = await fetch('/upload', { method: 'POST', body: formData });
-      const data = await response.json();
-      if (data.instructor) {
-        showInstructorInfo(data.instructor);
-      }
-      // ...handle other detector results as needed...
-    }
-
-    // Example: wire up file input to use this logic
-    const fileInput = document.getElementById('file-input');
-    if (fileInput) {
-      fileInput.addEventListener('change', function(e) {
-        if (e.target.files.length) {
-          uploadFileAndShowResults(e.target.files[0]);
-        }
-      });
     }
   </script>
 

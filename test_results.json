@@ -2737,7 +2737,7 @@
         "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Situate cybersecurity incident response and investigation within an organization’s overall\nincident response policies and processes.\n• Identify rules and best practices for reporting or otherwise communicating information\nabout cybersecurity events and incidents.\n• Identify concepts and methods for effective containment and mitigation of cybersecurity\nincidents.\n• Articulate the roles of common tools and techniques for investigating and analyzing"
       },
       "email": {
-        "gt": "See course home page",
+        "gt": "",
         "pred": "sas.office@unh.edu",
         "match": false
       },
