@@ -37,13 +37,6 @@ except Exception:
     quick_course_metadata = None
 
 
-# Grading scale detector (optional)
-try:
-    from detectors.grading_scale_detection import GradingScaleDetector
-except Exception:
-    GradingScaleDetector = None
-
-
 # -----------------------------------------------------------------------------
 # Helpers
 # -----------------------------------------------------------------------------
@@ -281,6 +274,27 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": False,
                 "confidence": 0.0
             }
+###
+        # --- Late detection ---
+        try:
+            from detectors.late_missing_work_detector import lateDetector
+        except ImportError:
+            lateDetector = None
+
+        if lateDetector:
+            late_detector = lateDetector()
+            late_info = late_detector.detect(extracted_text)
+            result["late_information"] = {
+                "late": late_info.get("content"),
+                "found": late_info.get("found", False),
+                "confidence": late_info.get("confidence", 0.0)
+            }
+        else:
+            result["late_information"] = {
+                "late": None,
+                "found": False,
+                "confidence": 0.0
+            }
 
         # --- Credit Hours detection ---
         try:
@@ -320,23 +334,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "description": None,
                 "found": False
             }
-
-        # --- Grading Scale detection (optional) ---
-        if GradingScaleDetector:
-            try:
-                grading_detector = GradingScaleDetector()
-                grading_info = grading_detector.detect(extracted_text)
-                result["grading_scale"] = {
-                    "found": bool(grading_info.get("found")),
-                    "content": grading_info.get("content")
-                }
-            except Exception as e:
-                logging.exception(f"Error running GradingScaleDetector: {e}")
-                result["grading_scale"] = {"found": False, "content": None}
-        else:
-            # Ensure grading_scale key always present so the frontend won't show 'undefined'
-            if "grading_scale" not in result:
-                result["grading_scale"] = {"found": False, "content": None}
 
         return result
 

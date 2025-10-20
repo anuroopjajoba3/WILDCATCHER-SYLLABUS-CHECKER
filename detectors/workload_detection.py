@@ -41,8 +41,20 @@ class WorkloadDetector:
         # Patterns for workload declarations
         # Note: Order matters - more specific patterns should come first
         self.workload_patterns = [
+            # "minimum of 3 hours of engaged time per week per credit over a 15-week semester"
+            r'minimum\s+of\s+(\d+(?:-\d+)?)\s+hours?\s+of\s+engaged\s+time\s+per\s+week\s+per\s+credit\s+over\s+(?:a\s+)?(\d+)[-\s]+week\s+semester',
+
             # "minimum 3 hours of engaged time per week per credit over a 15-week semester"
             r'minimum\s+(\d+)\s+hours?\s+of\s+engaged\s+time\s+per\s+week\s+per\s+credit\s+over\s+(?:a\s+)?(\d+)[-\s]+week\s+semester',
+
+            # "3 hours of engaged time per week per credit over a 15-week semester" (without "minimum")
+            r'(\d+)\s+hours?\s+of\s+engaged\s+time\s+per\s+week\s+per\s+credit\s+over\s+(?:a\s+)?(\d+)[-\s]+week\s+semester',
+
+            # "minimum of 3-4 hours per week for the completion of homework"
+            r'minimum\s+of\s+(\d+(?:-\d+)?)\s+hours?\s+per\s+week\s+for\s+the\s+completion\s+of',
+
+            # "12 hours of student academic work per week for a 15 week course"
+            r'(\d+)\s+hours?\s+of\s+student\s+academic\s+work\s+per\s+week\s+for\s+(?:a\s+)?(\d+)[-\s]+week\s+course',
 
             # "minimum of 4 hours engaged time per week per credit"
             r'minimum\s+of\s+(\d+)\s+hours?\s+engaged\s+time\s+per\s+week\s+per\s+credit',
@@ -73,6 +85,9 @@ class WorkloadDetector:
 
             # "expected to spend at least X hours per week on this class"
             r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week\s+on\s+this\s+class',
+
+            # "minimum of 180 hours in a professional setting"
+            r'minimum\s+of\s+(\d+)\s+hours?\s+in\s+a\s+professional\s+setting',
 
             # "12 hours/week (4 credits x 3 hours per credit)" - this should be lower priority
             r'(\d+)\s+hours?/week\s*\([^)]*credits?\s*x\s*\d+\s+hours?\s+per\s+credit[^)]*\)',

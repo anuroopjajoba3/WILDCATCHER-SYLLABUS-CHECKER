@@ -6,23 +6,23 @@
       "total": 40
     },
     "SLOs": {
-      "accuracy": 0.675,
-      "correct": 27,
+      "accuracy": 1.0,
+      "correct": 40,
       "total": 40
     },
     "email": {
-      "accuracy": 0.75,
-      "correct": 30,
+      "accuracy": 0.825,
+      "correct": 33,
       "total": 40
     },
     "credit_hour": {
-      "accuracy": 0.625,
-      "correct": 25,
+      "accuracy": 0.85,
+      "correct": 34,
       "total": 40
     },
     "workload": {
-      "accuracy": 0.65,
-      "correct": 26,
+      "accuracy": 0.975,
+      "correct": 39,
       "total": 40
     },
     "instructor_name": {
@@ -31,8 +31,8 @@
       "total": 40
     },
     "instructor_title": {
-      "accuracy": 0.725,
-      "correct": 29,
+      "accuracy": 0.8,
+      "correct": 32,
       "total": 40
     },
     "instructor_department": {
@@ -66,13 +66,13 @@
       "total": 40
     },
     "deadline_expectations_title": {
-      "accuracy": 0.75,
-      "correct": 30,
+      "accuracy": 0.725,
+      "correct": 29,
       "total": 40
     },
     "assignment_delivery": {
-      "accuracy": 0.925,
-      "correct": 37,
+      "accuracy": 0.85,
+      "correct": 34,
       "total": 40
     },
     "final_grade_scale": {
@@ -82,8 +82,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.7578,
-    "correct": 485,
+    "accuracy": 0.8156,
+    "correct": 522,
     "total": 640
   },
   "details": [
@@ -117,7 +117,7 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Jeremiah W. Johnson",
+        "gt": "Jeremiah W.",
         "pred": "Jeremiah W.",
         "match": true
       },
@@ -207,7 +207,7 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
+        "gt": "Associate Professor",
         "pred": "Associate Professor",
         "match": true
       },
@@ -242,12 +242,12 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "EXPERIMENTS/DEMONSTRATIONS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
-        "gt": "Canvas; MyCourses",
+        "gt": "Canvas (myCourses)",
         "pred": "Canvas; MyCourses",
         "match": true
       },
@@ -367,18 +367,18 @@
         "match": true
       },
       "workload": {
-        "gt": "Not found",
+        "gt": "",
         "pred": "",
         "match": true
       },
       "instructor_name": {
-        "gt": "Mark T. Scimone",
+        "gt": "Mark T.",
         "pred": "Mark T.",
         "match": true
       },
       "instructor_title": {
-        "gt": "Phd",
-        "pred": "Phd",
+        "gt": "",
+        "pred": null,
         "match": true
       },
       "instructor_department": {
@@ -608,13 +608,13 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Focus on a purpose;Respond to the needs of different audiences;Respond & revise appropriately to different kinds of rhetorical situations;Use conventions (format & structure) appropriate to the rhetorical situation;Adopt appropriate voice, tone, and level of formality;Understand how genres shape reading and writing (particularly as they;move into various disciplines and eventually the workplace);Write in several genres;Acknowledge diverse perspectives, communicate with diverse audiences,;think critically about issues of equity and inclusion, and develop other skills essential to engaging a complex world",
+        "gt_text": "Learning Objectives\nFocus on a purpose;Respond to the needs of different audiences;Respond & revise appropriately to different kinds of rhetorical situations;Use conventions (format & structure) appropriate to the rhetorical situation;Adopt appropriate voice, tone, and level of formality;Understand how genres shape reading and writing (particularly as they;move into various disciplines and eventually the workplace);Write in several genres;Acknowledge diverse perspectives, communicate with diverse audiences,;think critically about issues of equity and inclusion, and develop other skills essential to engaging a complex world",
         "pred_text": "Learning Objectives\nMaterials\nBy the end of this course, you will be able to: p. 2\nAssignments\nFocus on a purpose\npp. 2-5\nRespond to the needs of different audiences"
       },
       "email": {
         "gt": "c.c.hendricks@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -633,7 +633,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -693,13 +693,13 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Demonstrate an understanding of key concepts in technical communication;Write accurate, precise technical prose for different audiences;Develop texts that use accessible grammatical, stylistic, and genre conventions;Use discourse and technology to develop, design, and deliver document",
+        "gt_text": "Learning Objectives\nDemonstrate an understanding of key concepts in technical communication;Write accurate, precise technical prose for different audiences;Develop texts that use accessible grammatical, stylistic, and genre conventions;Use discourse and technology to develop, design, and deliver document",
         "pred_text": "Learning Objectives\nMaterials\nBy the end of this course, you will be able to: p. 2\nAssignments\nDemonstrate an understanding of key concepts in technical communication pp. 2-5"
       },
       "email": {
         "gt": "c.c.hendricks@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "Not found",
@@ -718,7 +718,7 @@
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
-        "pred": "Phd",
+        "pred": "Professor",
         "match": true
       },
       "instructor_department": {
@@ -802,9 +802,9 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Associate Professor(Ph.D.)",
-        "pred": "Phd",
-        "match": false
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Engineering Technology (ET 674)",
@@ -842,9 +842,9 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "Canvas; MyCourses",
+        "gt": "myCourses (Canvas)",
         "pred": "Canvas; MyCourses",
-        "match": true
+        "match": false
       },
       "final_grade_scale": {
         "gt": "Homework 30% Tests (2 planned) 30% Lab Projects 20% Final Exam 15% Practice Problems 5%",
@@ -948,7 +948,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Apply protocols for an effective job search;Gain insight into a possible career path of interest while learning about the industry in;which the organization resides, organizational structure, and roles and responsibilities within that structure;Understand of how coursework ties to professional careers of interest;Develop professional connections and identify a strategy for maintaining those connections;Reflection on the internship experiences;Ability to articulate what was learned and how it will be applied to your professional career goals;Identification of professions that may be of interest as a result of this experience;Identification of additional skills that will need to be developed to ensure career readiness;This might include learning a new technology, developing a broader network, additional coursework, etc.",
+        "gt_text": "Learning Objectives\nApply protocols for an effective job search;Gain insight into a possible career path of interest while learning about the industry in;which the organization resides, organizational structure, and roles and responsibilities within that structure;Understand of how coursework ties to professional careers of interest;Develop professional connections and identify a strategy for maintaining those connections;Reflection on the internship experiences;Ability to articulate what was learned and how it will be applied to your professional career goals;Identification of professions that may be of interest as a result of this experience;Identification of additional skills that will need to be developed to ensure career readiness;This might include learning a new technology, developing a broader network, additional coursework, etc.",
         "pred_text": "STUDENT LEARNING OUTCOME\nUpon completion of this course, students should be able to:\n▪ Apply protocols for an effective job search.\n▪ Gain insight into a possible career path of interest while learning about the industry in\nwhich the organization resides, organizational structure, and roles and responsibilities\nwithin that structure.\n▪ Understand of how coursework ties to professional careers of interest.\n▪ Develop professional connections and identify a strategy for maintaining those connections\n▪ Reflection on the internship experiences, including:"
       },
       "email": {
@@ -1033,7 +1033,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Analyze security intelligence frameworks; Evaluate policy implications; Apply analytic tools to case studies",
+        "gt_text": "Learning Objectives\nAnalyze security intelligence frameworks; Evaluate policy implications; Apply analytic tools to case studies",
         "pred_text": "Learning Objectives\nStudents that successfully complete this course will be able to:\n• Understand the role of the analyst in the intelligence cycle.\n• Understand the relationship between analysis and synthesis; and relate logic and\ncritical thinking to intelligence analysis.\nNSIA 820 / NSIA 720\nIntelligence Analysis\nUPDATED 05/07/2025\nInstructor\nJohn Borek, Ph.D."
       },
       "email": {
@@ -1057,8 +1057,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -1097,7 +1097,7 @@
         "match": true
       },
       "assignment_delivery": {
-        "gt": "Canvas; MyCourses",
+        "gt": "Canvas (MyCourses)",
         "pred": "Canvas; MyCourses",
         "match": true
       },
@@ -1118,7 +1118,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Develop strategic analysis skills; Communicate intelligence findings; Apply quantitative methods in national security",
+        "gt_text": "Learning Objectives\nDevelop strategic analysis skills; Communicate intelligence findings; Apply quantitative methods in national security",
         "pred_text": "Learning Objectives\nStudents that successfully complete this course will be able to:\n• Distinguish among the core elements of the intelligence enterprise (collection, analysis,\noperations) as they relate to national security.\n• Assess the applicability of intelligence assets in support of national security objectives.\n• Understand the role of intelligence as a component of whole of government efforts in\nsupport of national security objectives.\n• Evaluate the conduct of intelligence activities.\n• Design a plan for intelligence in support of national security policies."
       },
       "email": {
@@ -1142,8 +1142,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Adjunct Instructor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Adjunct Instructor",
+        "pred": "Adjunct Instructor",
         "match": true
       },
       "instructor_department": {
@@ -1203,7 +1203,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Analyze contemporary issues in national security; Apply intelligence methods to real-world problems; Communicate findings effectively to policymakers",
+        "gt_text": "Learning Objectives\nAnalyze contemporary issues in national security; Apply intelligence methods to real-world problems; Communicate findings effectively to policymakers",
         "pred_text": "Learning Objectives\nStudents that successfully complete this course will be able to:\nApply critical thinking concepts to qualitative and quantitative problems.\nConduct qualitative and quantitative analysis.\nCritique analytical products.\nDemonstrate appropriate writing, editing, presentation, and organizational skills.\nAttendance, Class Format, and Instructor Contact\nAttendance and Class Format"
       },
       "email": {
@@ -1227,8 +1227,8 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Assistant Professor(Ph.D.)",
-        "pred": "Ph.D",
+        "gt": "Assistant Professor",
+        "pred": "Assistant Professor",
         "match": true
       },
       "instructor_department": {
@@ -1370,15 +1370,15 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "This course will cover this process from discovery to FDA approval and the meetings, submissions, and testing in between. By the end of this course, students will have a basic understanding of how the FDA reviews and regulates human medical products, FDA organizational structure and authority, types and definitions of human medical products, product jurisdiction, and FDA regulatory pathways.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
         "gt": "not specified",
-        "pred": "unhm.cae@unh.edu",
+        "pred": "unhm.library@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -1387,7 +1387,7 @@
         "match": true
       },
       "workload": {
-        "gt": "Not found",
+        "gt": "",
         "pred": "",
         "match": true
       },
@@ -1437,9 +1437,9 @@
         "match": true
       },
       "assignment_delivery": {
-        "gt": "Canvas; MyCourses",
+        "gt": "Canvas (MyCourses)",
         "pred": "Canvas; MyCourses; UNH MyCourses",
-        "match": true
+        "match": false
       },
       "final_grade_scale": {
         "gt": "GRADING DISTRIBUTION In-class Participation and Projects – 10% Weekly Quizzes – 10% First Hour Exam – 20% Second Hour Exam – 20% Third Hour Exam- 20% Final Exam – 20%",
@@ -1458,7 +1458,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Transition Confidently to College Life; Connect with the UNH Community; Build Academic Skills; Discover Campus Resources; Set Personal and Academic Goals; Enhance Communication Skills; Explore Your Major and Career Options",
+        "gt_text": "Learning Objectives\nTransition Confidently to College Life; Connect with the UNH Community; Build Academic Skills; Discover Campus Resources; Set Personal and Academic Goals; Enhance Communication Skills; Explore Your Major and Career Options",
         "pred_text": "Learning Objectives\nDuring the semester, you will:\n1. Transition Confidently to College Life: Learn strategies to adapt successfully to the challenges and\nopportunities of college life at UNH.\n2. Connect with the UNH Community: Engage with the campus community and explore ways to\nparticipate in events, organizations, and other activities.\n3. Build Academic Skills: Develop effective study habits, time management techniques, and active\nlearning strategies to succeed in your classes.\n4. Discover Campus Resources: Identify academic, social, and emotional support systems available to"
       },
       "email": {
@@ -1540,10 +1540,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Gain exposure to the basics of computing and programming; Develop problem solving skills; Experience a broad range of areas in which we apply computing; Express solutions to problems through programming in Thunkable; Develop mobile applications designed to solve various problems",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -1558,8 +1558,8 @@
       },
       "workload": {
         "gt": "3 hours of engaged time per week per credit over a 15-week semester",
-        "pred": "",
-        "match": false
+        "pred": "3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
       },
       "instructor_name": {
         "gt": "George Harvey",
@@ -1625,10 +1625,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Be competent in basic biology and chemistry laboratory skills and with the use of common laboratory equipment and instrumentation; Demonstrate the ability to function as a member of a team.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -1637,14 +1637,14 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "workload": {
         "gt": "minimum of 3 hours of engaged time per week per credit over a 15-week semester (180 hours total for the combined lecture and lab)",
-        "pred": "",
-        "match": false
+        "pred": "minimum of 3 hours of engaged time per week per credit over a 15-week semester",
+        "match": true
       },
       "instructor_name": {
         "gt": "Dr. Samantha Reynolds",
@@ -1710,16 +1710,16 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Describe the biology and genetics of phage and their lifecycles; Explain the experimental processes associated with isolating and characterizing phage; Develop microbiology lab and research skills to study phage; Evaluate and analyze data generated from experiments and make hypotheses about these results; Develop written and oral presentation skills and distill their results into a final poster presentation",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
         "gt": "kyle.maclea@unh.edu",
-        "pred": "kyle.maclea@unh.edu",
-        "match": true
+        "pred": "sas.office@unh.edu",
+        "match": false
       },
       "credit_hour": {
         "gt": "0-credit",
@@ -1862,9 +1862,9 @@
         "match": true
       },
       "assignment_delivery": {
-        "gt": "Handed in",
+        "gt": "Canvas (myCourses)",
         "pred": "Handed in",
-        "match": true
+        "match": false
       },
       "final_grade_scale": {
         "gt": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 00 - 59%",
@@ -1888,8 +1888,8 @@
       },
       "email": {
         "gt": "adam.hopper@unh.edu",
-        "pred": "",
-        "match": false
+        "pred": "adam.hopper@unh.edu",
+        "match": true
       },
       "credit_hour": {
         "gt": "4 credits",
@@ -1897,9 +1897,9 @@
         "match": true
       },
       "workload": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "Professor Hopper",
@@ -1908,7 +1908,7 @@
       },
       "instructor_title": {
         "gt": "Adjunct Faculty",
-        "pred": null,
+        "pred": "Professor",
         "match": false
       },
       "instructor_department": {
@@ -1965,10 +1965,10 @@
         "match": false
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Understand key theories/concepts for analyzing the nature, development, and effects of media; Acquire historical knowledge about media and the transformations caused by writing, print, photography, telegraph, telephone, movies, radio, TV, Internet, and social media; Develop reading comprehension, critical thinking, and media inquiry skills through quizzes and papers using methods of auto-ethnography, historical analysis, and critical cultural analysis; Apply quantitative and/or qualitative data to investigate the dynamics of mediated interaction and to develop hypotheses for research questions about media impacts on society and culture",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -1977,14 +1977,14 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "4 credits",
+        "gt": "Credit Hours: 4",
         "pred": "Credit Hours: 4",
-        "match": false
+        "match": true
       },
       "workload": {
-        "gt": "3 hours of work per week per credit over a 15 week semester (12 hours/week)",
+        "gt": "12 hours/week (4 credits x 3 hours per credit)",
         "pred": "12 hours/week (4 credits x 3 hours per credit)",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "Professor Jeffrey Klenotic",
@@ -1993,8 +1993,8 @@
       },
       "instructor_title": {
         "gt": "Ph.D.",
-        "pred": "Ph.D",
-        "match": true
+        "pred": "Professor",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
@@ -2053,7 +2053,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "List and describe principles and processes of cultural anthropology that challenge ethnocentricity; Present the findings from research in a clear and concise manner; Analyze and evaluate various research, theories and theorists from major anthropological schools of thought. Demonstrate critical thinking skills (in reading, writing, and discussion) and communication skills in assimilating and synthesizing the information of the course.",
+        "gt_text": "Learning Objectives\nList and describe principles and processes of cultural anthropology that challenge ethnocentricity; Present the findings from research in a clear and concise manner; Analyze and evaluate various research, theories and theorists from major anthropological schools of thought. Demonstrate critical thinking skills (in reading, writing, and discussion) and communication skills in assimilating and synthesizing the information of the course.",
         "pred_text": "Learning Objectives: At the completion of the course, the student will be able to:\n1. List and describe principles and processes of cultural anthropology that challenge\nethnocentricity.\n2. Present the findings from research in a clear and concise manner.\n3. Analyze and evaluate various research, theories and theorists from major anthropological\nschools of thought. Demonstrate critical thinking skills (in reading, writing, and\ndiscussion) and communication skills in assimilating and synthesizing the information of"
       },
       "email": {
@@ -2062,9 +2062,9 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "4 credits",
+        "gt": "Credits: 4",
         "pred": "Credits: 4",
-        "match": false
+        "match": true
       },
       "workload": {
         "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
@@ -2138,12 +2138,12 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Identify common technological and organizational measures for cybersecurity (focus: detection concepts and organizational relationships); Explain and give examples of the roles of best practices and standards in the design and implementation of such security measures; Explain the functional and organizational advantages and disadvantages of these measures, including impacts from their interaction; Assess the limitations of these security measures in the contexts of organizational change and dynamic threats, flawed technology, and flawed organizational policies and practices; Translate lessons learned from incidents into recommendations for cybersecurity planning and preparedness for better detection.",
+        "gt_text": "Learning Objectives\nIdentify common technological and organizational measures for cybersecurity (focus: detection concepts and organizational relationships); Explain and give examples of the roles of best practices and standards in the design and implementation of such security measures; Explain the functional and organizational advantages and disadvantages of these measures, including impacts from their interaction; Assess the limitations of these security measures in the contexts of organizational change and dynamic threats, flawed technology, and flawed organizational policies and practices; Translate lessons learned from incidents into recommendations for cybersecurity planning and preparedness for better detection.",
         "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Identify common technological and organizational measures for cybersecurity (focus:\ndetection concepts and organizational relationships).\n• Explain and give examples of the roles of best practices and standards in the design and\nimplementation of such security measures.\n• Explain the functional and organizational advantages and disadvantages of these\nmeasures, including impacts from their interaction.\n• Assess the limitations of these security measures in the contexts of organizational change"
       },
       "email": {
         "gt": "randall.magiera@unh.edu",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2152,9 +2152,9 @@
         "match": false
       },
       "workload": {
-        "gt": "minimum of 135 hours of student work effort",
+        "gt": "expected to involve a minimum of 135 hours",
         "pred": "expected to involve a minimum of 135 hours",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "Dr. Randy Magiera",
@@ -2163,8 +2163,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "MS CPRM, Department of Security Studies, College of Professional Studies",
@@ -2223,12 +2223,12 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Situate cybersecurity incident response and investigation within an organization's overall incident response policies and processes; Identify rules and best practices for reporting or otherwise communicating information about cybersecurity events and incidents; Identify concepts and methods for effective containment and mitigation of cybersecurity incidents; Articulate the roles of common tools and techniques for investigating and analyzing cybersecurity incidents; Explain and give examples of the differing mandates and priorities in the communities of interest for incident response and investigation (e.g., CERTs and CSIRTs, law enforcement agencies, regulators, vendors, intelligence community, etc.).",
+        "gt_text": "Learning Objectives\nSituate cybersecurity incident response and investigation within an organization's overall incident response policies and processes; Identify rules and best practices for reporting or otherwise communicating information about cybersecurity events and incidents; Identify concepts and methods for effective containment and mitigation of cybersecurity incidents; Articulate the roles of common tools and techniques for investigating and analyzing cybersecurity incidents; Explain and give examples of the differing mandates and priorities in the communities of interest for incident response and investigation (e.g., CERTs and CSIRTs, law enforcement agencies, regulators, vendors, intelligence community, etc.).",
         "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Situate cybersecurity incident response and investigation within an organization’s overall\nincident response policies and processes.\n• Identify rules and best practices for reporting or otherwise communicating information\nabout cybersecurity events and incidents.\n• Identify concepts and methods for effective containment and mitigation of cybersecurity\nincidents.\n• Articulate the roles of common tools and techniques for investigating and analyzing"
       },
       "email": {
         "gt": "raymond.tramposch@unh.edu",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2237,9 +2237,9 @@
         "match": false
       },
       "workload": {
-        "gt": "minimum of 135 hours of student work effort",
+        "gt": "expected to involve a minimum of 135 hours",
         "pred": "expected to involve a minimum of 135 hours",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "Ray Tramposch",
@@ -2248,8 +2248,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "MS CPRM",
@@ -2308,12 +2308,12 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Explain the impact of internal structures and cultures on organizational effectiveness; Evaluate organizational impacts of internal and external change; Describe leadership and management techniques for organizational adaptation and learning; Articulate factors contributing to the success or failure of the leader-follower relationship in its pursuit of organizational strategies and objectives.",
+        "gt_text": "Learning Objectives\nExplain the impact of internal structures and cultures on organizational effectiveness; Evaluate organizational impacts of internal and external change; Describe leadership and management techniques for organizational adaptation and learning; Articulate factors contributing to the success or failure of the leader-follower relationship in its pursuit of organizational strategies and objectives.",
         "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Explain the impact of internal structures and cultures on organizational effectiveness.\n• Evaluate organizational impacts of internal and external change.\n• Describe leadership and management techniques for organizational adaptation and\nlearning.\n• Articulate factors contributing to the success or failure of the leader-follower relationship\nin its pursuit of organizational strategies and objectives.\nCourse Materials\nCourse materials will be provided (for free) in digital form in our course website on"
       },
       "email": {
         "gt": "tnishia.dials@unh.edu",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2322,9 +2322,9 @@
         "match": false
       },
       "workload": {
-        "gt": "minimum of 135 hours of student work effort",
+        "gt": "expected to involve a minimum of 135 hours",
         "pred": "expected to involve a minimum of 135 hours",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "Tnishia Dials",
@@ -2333,8 +2333,8 @@
       },
       "instructor_title": {
         "gt": "Adjunct Professor",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "MS CPRM",
@@ -2390,10 +2390,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Introduction to biological principles; cell structure, function, replication, energetics and transport mechanisms; physiological processes; Mendelian, molecular genetics and gene technology. Required for students majoring in the life sciences.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -2402,9 +2402,9 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "4.0 credits",
+        "gt": "Credits: 4.0",
         "pred": "Credits: 4.0",
-        "match": false
+        "match": true
       },
       "workload": {
         "gt": "minimum, the equivalent of three hours of student academic work and engagement each week",
@@ -2475,10 +2475,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Survey of the five kingdoms of life; physiology of cells, tissues, organs, and organ systems; evolution; human impact on the biosphere. Required for students majoring in the life sciences.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -2487,9 +2487,9 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "4.0 credits",
+        "gt": "Credits: 4.0",
         "pred": "Credits: 4.0",
-        "match": false
+        "match": true
       },
       "workload": {
         "gt": "minimum, the equivalent of three hours of student academic work and engagement each week",
@@ -2560,10 +2560,10 @@
         "match": false
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "This course is designed to present you with a broad overview of classical physics. It will introduce you to a variety of phenomena and terminology that will help prepare you for further studies in the sciences, field work, research, etc., or simply provide you with a general understanding of how things work in nature. The topics that we will cover in this course include motion in 1 and 2 dimensions including parabolic motion, forces and Newton's Laws, circular motion, gravitation, work and energy, linear and angular momentum, and other topics as time allows. This course strives to develop your knowledge of how the natural world is constructed and re-establish the idea of scientific truth and absolutes. To develop analytical thinking and problem-solving skills and learn how to analyze and break apart complex problems in terms of simpler physics principles.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -2578,8 +2578,8 @@
       },
       "workload": {
         "gt": "minimum of 3-4 hours per week for the completion of homework",
-        "pred": "",
-        "match": false
+        "pred": "minimum of 3-4 hours per week for the completion of",
+        "match": true
       },
       "instructor_name": {
         "gt": "David Jagodowski",
@@ -2588,8 +2588,8 @@
       },
       "instructor_title": {
         "gt": "Professor (a.k.a Prof. Jag)",
-        "pred": null,
-        "match": false
+        "pred": "Professor",
+        "match": true
       },
       "instructor_department": {
         "gt": "Department of Applied Engineering & Sciences",
@@ -2645,10 +2645,10 @@
         "match": false
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Recognize, define and utilize appropriate terminology to refer to the structures and functions of the systems covered; Identify and explain the structures and functions of the systems covered; Demonstrate an understanding of the relationship between structure and function in the systems covered; Express how the normal structure and function of the systems covered contribute to maintaining homeostasis in the body; Relate the symptoms of a disease or disorder to the underlying changes in anatomy and or physiology associated with that condition",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -2657,14 +2657,14 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "4 credits",
-        "pred": "",
-        "match": false
+        "gt": "a 4 credit course",
+        "pred": "a 4 credit course",
+        "match": true
       },
       "workload": {
         "gt": "12 hours of student academic work per week for a 15 week course. 3 hours per week in lecture and 3 hours per week in lab. approximately 6 hours per week outside of class completing assignments and reviewing materials",
-        "pred": "",
-        "match": false
+        "pred": "12 hours of student academic work per week for a 15 week course",
+        "match": true
       },
       "instructor_name": {
         "gt": "Dr. Sue Cooke",
@@ -2733,12 +2733,12 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Situate cybersecurity incident response and investigation within an organization's overall incident response policies and processes; Identify rules and best practices for reporting or otherwise communicating information about cybersecurity events and incidents; Identify concepts and methods for effective containment and mitigation of cybersecurity incidents; Articulate the roles of common tools and techniques for investigating and analyzing cybersecurity incidents; Explain and give examples of the differing mandates and priorities in the communities of interest for incident response and investigation (e.g., CERTs and CSIRTs, law enforcement agencies, regulators, vendors, intelligence community, etc.)",
+        "gt_text": "Learning Objectives\nSituate cybersecurity incident response and investigation within an organization's overall incident response policies and processes; Identify rules and best practices for reporting or otherwise communicating information about cybersecurity events and incidents; Identify concepts and methods for effective containment and mitigation of cybersecurity incidents; Articulate the roles of common tools and techniques for investigating and analyzing cybersecurity incidents; Explain and give examples of the differing mandates and priorities in the communities of interest for incident response and investigation (e.g., CERTs and CSIRTs, law enforcement agencies, regulators, vendors, intelligence community, etc.)",
         "pred_text": "Learning Outcomes\nWith successful completion of this course, students are able to:\n• Situate cybersecurity incident response and investigation within an organization’s overall\nincident response policies and processes.\n• Identify rules and best practices for reporting or otherwise communicating information\nabout cybersecurity events and incidents.\n• Identify concepts and methods for effective containment and mitigation of cybersecurity\nincidents.\n• Articulate the roles of common tools and techniques for investigating and analyzing"
       },
       "email": {
         "gt": "See course home page",
-        "pred": "",
+        "pred": "sas.office@unh.edu",
         "match": false
       },
       "credit_hour": {
@@ -2747,9 +2747,9 @@
         "match": false
       },
       "workload": {
-        "gt": "minimum of 135 hours of student work effort",
+        "gt": "expected to involve a minimum of 135 hours",
         "pred": "expected to involve a minimum of 135 hours",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "Instructor information available on course home page",
@@ -2815,10 +2815,10 @@
         "match": false
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "This course is designed to give the student an overview of some of the key players in the field of psychology. The course examines several individuals (William James, Sigmund Freud, and Stanley Milgram), studies some of their great works, and tries to put this information into some sort of historical context.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -2900,10 +2900,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Calculus of one variable covering limits; derivatives of algebraic, trigonometric, exponential, and logarithmic functions; applications include curve sketching, max-min problems, related rates and area problems.",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -2912,14 +2912,14 @@
         "match": false
       },
       "credit_hour": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "workload": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "not specified",
@@ -2988,18 +2988,18 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Understand bioreactor systems in theoretical and applied concepts; Demonstrate technical aptitude in advanced laboratory cell culture; Strengthen cognitive critical analysis and decision-making in the scientific process",
+        "gt_text": "Learning Objectives\nUnderstand bioreactor systems in theoretical and applied concepts; Demonstrate technical aptitude in advanced laboratory cell culture; Strengthen cognitive critical analysis and decision-making in the scientific process",
         "pred_text": "Learning Objectives\nUpon completion of this course students will:\n• Understand bioreactor systems in theoretical and applied concepts\n• Demonstrate technical aptitude in advanced laboratory cell culture\n• Strengthen cognitive critical analysis and decision-making in the scientific process"
       },
       "email": {
         "gt": "Raymond.Miller@unh.edu",
-        "pred": "unhm.wellness@unh.edu",
-        "match": false
+        "pred": "Raymond.Miller@unh.edu",
+        "match": true
       },
       "credit_hour": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "workload": {
         "gt": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
@@ -3070,10 +3070,10 @@
         "match": false
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "to learn how psychological research is conducted (methodology); to learn the differences between psychology and psychiatry; to learn how psychology relates to 'everyday life'; to learn to read psychological literature and evaluate research studies; to learn to appreciate psychology as a science",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -3082,14 +3082,14 @@
         "match": true
       },
       "credit_hour": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "workload": {
-        "gt": "not explicitly stated",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "instructor_name": {
         "gt": "John Sparrow",
@@ -3098,8 +3098,8 @@
       },
       "instructor_title": {
         "gt": "Ph.D.",
-        "pred": "Ph.D",
-        "match": true
+        "pred": null,
+        "match": false
       },
       "instructor_department": {
         "gt": "",
@@ -3240,10 +3240,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": true,
+        "gt_present": false,
         "pred_present": false,
-        "match": false,
-        "gt_text": "Students will explore the American past through examination of 8 outbreaks and epidemics; gain research skills through extensive use of primary sources; explore the ways that past Americans reacted differently to outbreaks of disease",
+        "match": true,
+        "gt_text": "",
         "pred_text": ""
       },
       "email": {
@@ -3328,7 +3328,7 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Analyze the intelligence cycle, recognize sources and methods and explain how intelligence contributes to U.S. national/homeland security; Demonstrate knowledge of contemporary or emergent threats, challenges or issues; Recognize and define terrorism, its origins, ideologies, and goals; Define national and homeland security intelligence; Describe the role and structure of the American intelligence community; Identify and describe the steps in a traditional intelligence cycle model",
+        "gt_text": "Learning Objectives\nAnalyze the intelligence cycle, recognize sources and methods and explain how intelligence contributes to U.S. national/homeland security; Demonstrate knowledge of contemporary or emergent threats, challenges or issues; Recognize and define terrorism, its origins, ideologies, and goals; Define national and homeland security intelligence; Describe the role and structure of the American intelligence community; Identify and describe the steps in a traditional intelligence cycle model",
         "pred_text": "Learning Objectives\nDefine national and homeland security intelligence.\nDescribe the role and structure of the American intelligence community.\nIdentify and describe the steps in a traditional intelligence cycle model.\nCritique the intelligence cycle as a model for understanding intelligence activity.\nEvaluate national security threats and place them on a threat continuum.\nDefine, describe, and provide examples of strategic intelligence, warning intelligence, oversight, collection, analysis, covert action, and counterintelligence."
       },
       "email": {
@@ -3353,7 +3353,7 @@
       },
       "instructor_title": {
         "gt": "Ph.D., Assistant Professor of Security Studies",
-        "pred": "Ph.D",
+        "pred": "Assistant Professor",
         "match": true
       },
       "instructor_department": {
@@ -3413,12 +3413,12 @@
         "gt_present": true,
         "pred_present": true,
         "match": true,
-        "gt_text": "Demonstrate Applied Knowledge: Integrate theoretical knowledge with practical experience in a professional homeland security setting; Reflect Critically: Analyze and evaluate professional growth and contributions through structured reflection assignments; Communicate Professionally: Articulate the value of internship experience in writing; Develop Career Insight: Identify specific skills, knowledge, and experiences gained that align with intended career path",
+        "gt_text": "Learning Objectives\nDemonstrate Applied Knowledge: Integrate theoretical knowledge with practical experience in a professional homeland security setting; Reflect Critically: Analyze and evaluate professional growth and contributions through structured reflection assignments; Communicate Professionally: Articulate the value of internship experience in writing; Develop Career Insight: Identify specific skills, knowledge, and experiences gained that align with intended career path",
         "pred_text": "LEARNING OUTCOMES\nBy the end of the Internship, students will be able to:\n1. Demonstrate Applied Knowledge: Integrate theoretical knowledge with practical experience in a professional homeland security setting.\n2. Reflect Critically: Analyze and evaluate their professional growth and contributions through structured reflection assignments.\n3. Communicate Professionally: Articulate the value of their internship experience in writing, including its relevance to future career opportunities.\n4. Develop Career Insight: Identify specific skills, knowledge, and experiences gained that align with their intended career path."
       },
       "email": {
         "gt": "omero.navarroambriz@unh.edu",
-        "pred": "Omero.NavarroAmbriz@unh.edu",
+        "pred": "omero.navarroambriz@unh.edu",
         "match": true
       },
       "credit_hour": {
@@ -3428,8 +3428,8 @@
       },
       "workload": {
         "gt": "minimum of 180 hours in a professional setting",
-        "pred": "",
-        "match": false
+        "pred": "minimum of 180 hours in a professional setting",
+        "match": true
       },
       "instructor_name": {
         "gt": "Omero Navarro Ambriz",

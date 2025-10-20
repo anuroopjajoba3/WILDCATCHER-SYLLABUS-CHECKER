@@ -32,7 +32,7 @@ class InstructorDetector:
             'Instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr'
         ]
         self.title_keywords = [
-            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'adjunct instructor (ph.d)', 'phd', 'ph.d', 'Dr', 'Dr.'
+            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor'
         ]
         self.dept_keywords = [
             'Department', 'Dept.', 'School of', 'Division of', 'Program', 'College of', 'Department/Program', 'Department and Program'
