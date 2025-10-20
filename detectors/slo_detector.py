@@ -27,20 +27,29 @@ class SLODetector:
     """
 
     def __init__(self):
-        """Initialize the SLO detector."""
+        """Initialize the SLO detector with strict business rules."""
         self.field_name = 'slos'
         self.logger = logging.getLogger('detector.slos')
 
-        # The approved SLO titles we accept (both singular and plural)
+        # STRICT BUSINESS RULE: Only these specific titles are considered valid SLO sections
+        # Must contain "Student Learning" or just "Learning" (without "Course")
+        # "Course Objectives", "Course Goals", etc. are NOT valid SLO sections
         self.approved_titles = [
             "student learning outcomes",
             "student learning outcome",
             "student learning objectives",
             "student learning objective",
+            "student/program learning outcomes",  # Program variant
             "learning outcomes",
             "learning outcome",
             "learning objectives",
             "learning objective"
+        ]
+
+        # Also accept abbreviated forms
+        self.approved_abbreviations = [
+            "slos",
+            "slo"
         ]
 
     def detect(self, text: str) -> Dict[str, Any]:
