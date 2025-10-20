@@ -26,8 +26,8 @@
       "total": 40
     },
     "instructor_name": {
-      "accuracy": 0.75,
-      "correct": 30,
+      "accuracy": 0.8,
+      "correct": 32,
       "total": 40
     },
     "instructor_title": {
@@ -36,8 +36,8 @@
       "total": 40
     },
     "instructor_department": {
-      "accuracy": 0.8,
-      "correct": 32,
+      "accuracy": 0.85,
+      "correct": 34,
       "total": 40
     },
     "office_address": {
@@ -82,8 +82,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.8391,
-    "correct": 537,
+    "accuracy": 0.8453,
+    "correct": 541,
     "total": 640
   },
   "details": [
@@ -628,8 +628,8 @@
       },
       "instructor_name": {
         "gt": "C.C. Hendricks",
-        "pred": null,
-        "match": false
+        "pred": "Dr. Hendricks",
+        "match": true
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
@@ -713,8 +713,8 @@
       },
       "instructor_name": {
         "gt": "C.C. Hendricks",
-        "pred": null,
-        "match": false
+        "pred": "Dr. Hendricks",
+        "match": true
       },
       "instructor_title": {
         "gt": "Professor (PhD)",
@@ -892,7 +892,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "Dept. of Life Sciences",
         "pred": "of Life Sciences, Program in",
         "match": false
       },
@@ -1572,9 +1572,9 @@
         "match": false
       },
       "instructor_department": {
-        "gt": "Division of Science and Technology",
+        "gt": "Science and Technology, UNH Manchester",
         "pred": "Science and Technology, UNH Manchester",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "N/A",
@@ -3272,9 +3272,9 @@
         "match": false
       },
       "instructor_department": {
-        "gt": "Department of History",
+        "gt": "of History for",
         "pred": "of History for a list",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",

@@ -288,5 +288,26 @@ class InstructorDetector:
         name = self.extract_name(lines)
         title = self.extract_title(lines)
         department = self.extract_department(lines)
+
+        # Fallback: if no name was found by the normal logic, scan every
+        # 30-line "page" for a simple "Dr. Lastname" pattern and return
+        # the first match. This bypasses the stricter is_valid_name checks
+        # because syllabus text often uses the short form 'Dr. Smith'.
+        if not name:
+            all_lines = text.split('\n')
+            page_size = 30
+            dr_pattern = re.compile(r"\bDr\.?\s+([A-Z][a-zA-Z\-]+)\b")
+            for i in range(0, len(all_lines), page_size):
+                page = all_lines[i:i+page_size]
+                for pline in page:
+                    m = dr_pattern.search(pline)
+                    if m:
+                        lastname = m.group(1)
+                        # Standardize to 'Dr. Lastname'
+                        name = f"Dr. {lastname}"
+                        break
+                if name:
+                    break
+
         found = bool(name and title and department and name != 'N/A' and title != 'N/A' and department != 'N/A')
         return {'found': found, 'name': name, 'title': title, 'department': department}
