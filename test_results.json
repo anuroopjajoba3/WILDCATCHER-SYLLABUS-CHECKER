@@ -36,8 +36,8 @@
       "total": 40
     },
     "instructor_department": {
-      "accuracy": 0.85,
-      "correct": 34,
+      "accuracy": 0.875,
+      "correct": 35,
       "total": 40
     },
     "office_address": {
@@ -71,8 +71,8 @@
       "total": 40
     },
     "assignment_delivery": {
-      "accuracy": 0.85,
-      "correct": 34,
+      "accuracy": 0.9,
+      "correct": 36,
       "total": 40
     },
     "final_grade_scale": {
@@ -82,8 +82,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.8453,
-    "correct": 541,
+    "accuracy": 0.85,
+    "correct": 544,
     "total": 640
   },
   "details": [
@@ -842,9 +842,9 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "myCourses (Canvas)",
+        "gt": "Canvas; MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Homework 30% Tests (2 planned) 30% Lab Projects 20% Final Exam 15% Practice Problems 5%",
@@ -892,9 +892,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Dept. of Life Sciences",
+        "gt": "of Life Sciences Program",
         "pred": "of Life Sciences, Program in",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandra, Room 244",
@@ -1182,9 +1182,9 @@
         "match": true
       },
       "assignment_delivery": {
-        "gt": "Canvas (MyCourses)",
+        "gt": "MyCourses; UNH MyCourses",
         "pred": "MyCourses; UNH MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Final Grade Scale Letter Grade Range A 100% - 94% A- <94% - 90% B+ <90% - 87% B <87% - 84% B- <84% - 80% C+ <80% - 77% C <77% - 74% C- <74% - 70% D+ <70% - 67% D <67% - 64% D- <64% - 60% F <60%",

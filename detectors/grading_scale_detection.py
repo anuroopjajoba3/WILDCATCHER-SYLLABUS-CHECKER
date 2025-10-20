@@ -38,12 +38,15 @@ class GradingScaleDetector:
         ]
 
     def detect(self, text: str) -> Dict[str, Any]:
-        """Detect grading scale. Returns dict with found and content.
+        """Detect grading scale and return a result dict with keys:
+        - 'found': bool
+        - 'content': str
 
-        Strategy:
-        - Search for explicit letter-grade block via regex.
-        - Otherwise, scan lines for windows that contain several percentage/points lines.
-        - Or find grouped lines where an assignment label is followed by a percentage within a short window.
+        The detector tries (in order):
+        1) canonical letter->range mappings (A..F),
+        2) explicit letter-grade block (A:, B:, C:, D:, F:),
+        3) contiguous percent/points windows, and
+        4) local percentage clusters near labels.
         """
         if not text:
             return {'found': False, 'content': ''}
@@ -54,22 +57,19 @@ class GradingScaleDetector:
 
         # Helper: find a short heading line a few lines above a given line index
         def get_heading_before(line_index: int, max_scan: int = 8) -> str:
-            # Defensive: ensure starting index is within bounds
+            """Return a nearby short heading above line_index or empty string.
+
+            Scans up to ``max_scan`` non-empty lines looking for short ALL-CAPS
+            headings, anchor keywords, or short Title-Case phrases.
+            """
             if not lines:
                 return ''
-            # start from the line immediately before line_index, but cap to last index
-            start_i = min(line_index - 1, len(lines) - 1)
-            end_i = max(-1, start_i - max_scan)
             for i in range(line_index - 1, max(-1, line_index - max_scan - 1), -1):
-                # guard against indexes that may be out of range
-                if i < 0:
+                if i < 0 or i >= len(lines):
                     break
-                if i >= len(lines):
-                    continue
                 ln = lines[i].strip()
                 if not ln:
                     continue
-                # strong heading signals: ALL CAPS short line
                 words = ln.split()
                 if ln.isupper() and len(words) <= 12:
                     return ln
@@ -81,8 +81,8 @@ class GradingScaleDetector:
                     return ln
             return ''
 
-        # 1) Try letter-grade block
-        # 1a) Try to detect canonical letter->range mappings and return a normalized
+        # Testing for grade block scale
+        # Try to detect canonical letter->range mappings and return a normalized
         # canonical scale (A..F) if enough mappings found. This prioritizes returning
         # a compact canonical scale string that matches the preferred output format.
         # We require the presence of both A and F and at least 8 mappings to be
@@ -116,13 +116,6 @@ class GradingScaleDetector:
                     lines.append(f"{letter} = {found_ranges[letter]}")
             content = '\n'.join(lines)
             # Per request: return only the canonical scale lines (no heading/context)
-            return {'found': True, 'content': content}
-            for letter in canonical_order:
-                if letter in found_ranges:
-                    lines.append(f"{letter} = {found_ranges[letter]}")
-            content = '\n'.join(lines)
-            if heading:
-                content = heading + '\n' + content
             return {'found': True, 'content': content}
 
         m = self.letter_block_pattern.search(joined)
@@ -186,9 +179,10 @@ class GradingScaleDetector:
 
             # Helper to detect candidate heading lines above the block
             def is_heading_line(s: str) -> bool:
-                """Return True for short lines that look like section headings.
+                """Return True if ``s`` looks like a short section heading.
 
-                Avoid treating long, sentence-like paragraphs as headings.
+                This is a lightweight heuristic used when extending blocks to
+                include nearby headings.
                 """
                 if not s or not s.strip():
                     return False
