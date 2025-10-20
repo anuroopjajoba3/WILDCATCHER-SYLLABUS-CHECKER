@@ -65,21 +65,26 @@
       "correct": 33,
       "total": 40
     },
-    "grading_scale_title": {
-      "accuracy": 0.0,
-      "correct": 0,
-      "total": 0
-    },
     "deadline_expectations_title": {
       "accuracy": 0.75,
       "correct": 30,
       "total": 40
+    },
+    "assignment_delivery": {
+      "accuracy": 0.925,
+      "correct": 37,
+      "total": 40
+    },
+    "final_grade_scale": {
+      "accuracy": 0.8,
+      "correct": 32,
+      "total": 40
     }
   },
   "overall": {
-    "accuracy": 0.7429,
-    "correct": 416,
-    "total": 560
+    "accuracy": 0.7578,
+    "correct": 485,
+    "total": 640
   },
   "details": [
     {
@@ -151,14 +156,19 @@
         "pred": "Grading Policy:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "Course grades will be assigned based on your final total percentage as follows:\nA: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9\nC+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9\nD-: 60 - 62.9 F: 59.9 or below",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late/Make-Up Work:",
-        "pred": "Late/Make-Up Work: Late/make-up work will be considered on a case-by-case basis at the discretion\nof the instructor. In case of illness or emergency, contact Dr. Johnson as soon as possible (the day of the\nassessment in all but the most extreme cases) to discuss options.",
+        "pred": "Late/Make-Up Work: Late/make-up work will be considered on a case-by-case basis at the discretion",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "myCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
+        "pred": "Course grades will be assigned based on your final total percentage as follows:\nA: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9\nC+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9\nD-: 60 - 62.9 F: 59.9 or below",
         "match": true
       }
     },
@@ -231,14 +241,19 @@
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A = 93 - 100% A- = 90 - 92 B+ = 87 - 89 B = 83 - 86 B- = 80 - 82 C+ = 77 - 79 C = 73 - 76 C- = 70 – 72 D+ = 67 - 69 D = 63 – 66 D- = 60 – 62 F = 0 - 59",
+        "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": true
       }
     },
@@ -311,15 +326,20 @@
         "pred": "",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Successful completion of this course requires completion of all assignments below.\nPROJECTS (70%) 70 Points\nProject #1 – Brochure - 10 points\nProject #2 - Menu Design - 10 points\nProject #3 - Alumni Magazine - 10 points\nProject #4 - Children’s Story Zine - 5 points\nProject #5 - Poster for Sporting Event - 10 points\nProject #6 - Case Statement - 15 points\nProject #7 - Childrens’ Story - ZINE Executed - 10 points\nAssignments - Graded as Incomplete/Complete\nStudent Information Sheet\nTable Tent Card\nProject #3 Alumni Magazine Creative Brief\nProject #6 (Outline) for Case Statement\nQuiz & Mid-Term (20%) 20 Points\nQuiz #1 - 10 points\nMid-Term Exam - 10 points",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments - Graded as Incomplete/Complete\nStudent Information Sheet\nTable Tent Card\nProject #3 Alumni Magazine Creative Brief\nProject #6 (Outline) for Case Statement\nQuiz & Mid-Term (20%) 20 Points\nQuiz #1 - 10 points\nMid-Term Exam - 10 points\nOTHER (10%) 10 Points",
+        "pred": "Assignments - Graded as Incomplete/Complete",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "PROJECTS (70%) 70 Points Project #1 – Brochure - 10 points Project #2 - Menu Design - 10 points Project #3 - Alumni Magazine - 10 points Project #4 - Children’s Story Zine - 5 points Project #5 - Poster for Sporting Event - 10 points Project #6 - Case Statement - 15 points Project #7 - Childrens’ Story - ZINE Executed - 10 points",
+        "pred": "Successful completion of this course requires completion of all assignments below.\nPROJECTS (70%) 70 Points\nProject #1 – Brochure - 10 points\nProject #2 - Menu Design - 10 points\nProject #3 - Alumni Magazine - 10 points\nProject #4 - Children’s Story Zine - 5 points\nProject #5 - Poster for Sporting Event - 10 points\nProject #6 - Case Statement - 15 points\nProject #7 - Childrens’ Story - ZINE Executed - 10 points\nAssignments - Graded as Incomplete/Complete\nProject #6 (Outline) for Case Statement\nQuiz & Mid-Term (20%) 20 Points\nQuiz #1 - 10 points\nMid-Term Exam - 10 points\nOTHER (10%) 10 Points",
+        "match": true
       }
     },
     {
@@ -391,14 +411,19 @@
         "pred": "",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Participation/Attendance Attendance and participation in the lab activities are\n10% of total grade critical to learning the techniques introduced in the\ncourse.\nLab reports Five lab reports covering broadly 1) Ball lens lab; 2)\n90% of total grade transmitted light techniques; 3) Widefield\nepifluorescent microscopy; 4) Confocal microscopy;\nand 5) Image analysis\n* See lab report rubric on canvas.\n** Lowest lab report grade will contribute half as\nmuch as the others. (20% per 4-highest reports, 10%",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "Policy on Late Submissions\nStudents are expected to submit assignments and take examinations on time. Faculty\nreserves the right to deny a request to accept a late assignment and if written work is\nturned in after any negotiated due date or the due date, the grade will be reduced by 10\npoints for each day past the due date.\n3\nAssignment | Description",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Participation/Attendance Attendance and participation in the lab activities are\n10% of total grade critical to learning the techniques introduced in the\ncourse.\nLab reports Five lab reports covering broadly 1) Ball lens lab; 2)\n90% of total grade transmitted light techniques; 3) Widefield\nepifluorescent microscopy; 4) Confocal microscopy;\n** Lowest lab report grade will contribute half as\nmuch as the others. (20% per 4-highest reports, 10%",
+        "pred": "Participation/Attendance Attendance and participation in the lab activities are\n10% of total grade critical to learning the techniques introduced in the\ncourse.\nLab reports Five lab reports covering broadly 1) Ball lens lab; 2)\n90% of total grade transmitted light techniques; 3) Widefield\nepifluorescent microscopy; 4) Confocal microscopy;\n** Lowest lab report grade will contribute half as\nmuch as the others. (20% per 4-highest reports, 10%",
         "match": true
       }
     },
@@ -471,15 +496,20 @@
         "pred": "",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "exams can be scheduled during the last five days of the semester.\nGrading Procedures: Grades will be posted in MyCourses (Canvas). Your grade will be determined as follows:\nAttendance/Participation 5%\nQuizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken.\nMyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a\nhomework assignment, that grade will be counted as 100%.\nWritten Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score.\nExam 1, 2 20% *for each exam\nFinal Exam 20% *12/10/25\nLetter grade equivalences are given below.\nA 92.5-100 B- 80-82.4 D+ 67.5-69.9\nA- 90 -92.4 C+ 77.5-79.9 D 62.5-67.4\nB+ 87.5-89.9 C 72.5-77.4 D- 60 -62.4\nB 82.5-87.4 C- 70 -72.4 F below 60\nThe Tentative Course Schedule is continued on the next page.\n3\nA | 92.5-100",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded\nin MyCourses (Canvas). You do not need to go to a different website. You can access the homework assignments for\neach class immediately following the lecture. Although your answers are posted online, you must have a notebook\ncontaining all of your work. This notebook will be checked periodically. All homework assignments have a due date\nwhich is approximately 4 days after the open date. There are two late passes for MyOpenMath assignments which",
+        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyOpenMath (embedded in Canvas); Written Assignments collected in class",
+        "pred": "Canvas; MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "Attendance/Participation 5% Quizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken. MyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a homework assignment, that grade will be counted as 100%. Written Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score. Exam 1, 2 20% *for each exam Final Exam 20% *12/10/25",
+        "pred": "exams can be scheduled during the last five days of the semester.\nAttendance/Participation 5%\nQuizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken.\nMyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a\nhomework assignment, that grade will be counted as 100%.\nWritten Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score.\nExam 1, 2 20% *for each exam\nFinal Exam 20% *12/10/25\nLetter grade equivalences are given below.",
+        "match": true
       }
     },
     {
@@ -551,14 +581,19 @@
         "pred": "Grading:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies\nAcademic Honesty and Collaboration:\nCollaboration is supported in the classroom through lab activities. No collaboration outside the\nclassroom is permitted. Note that homework assignments and tests you submit must be entirely\nyour own work. Deviation from this policy will result in dismissal from the course.\nSee the University policy on Academic Honesty for more information.\nAttendance:\nIs mandatory and you will lose on class participation grade for absences. Since work is based off",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Late Assignments and Make-Up Exams:\nPolicies for late assignments and make-up exams are very strict and apply only in exceptional\ncases of student illness, accident, or emergencies that are properly documented. It is your\nresponsibility to make arrangements with instructor before the deadline as soon as you are aware\nyou will miss a deadline, exam or class. Unexcused late assignments are penalized 20% per day.\nUse of Electronic Devices in Classroom:\nNot allowed during examinations. Absolutely no cell phone use during class time.",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Grading: 10% Participation This includes attendance, timeliness, and preparedness 24% Lab work Work done on 8 labs at 3 points each 66% Projects There will be 3 projects worth 22 points each Proposal worth 2 points Project Summary worth 4 points Presentation worth 16 points (5 points quality of talk, 11 points technical content)",
+        "pred": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies",
         "match": true
       }
     },
@@ -631,15 +666,20 @@
         "pred": "Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "least 80% of the time |\nA = 6 points; B = 5 points; C = 4 points; D = 3 points; F = <3 points\nWriter's Blog Entries\nYou will complete informal free writes, writing and annotation exercises, and reading\nresponses regularly. You will submit these writer's blog assignments on the Canvas course\nsite. I will not assess these for quality, but for effort and completion. Writer’s Blog prompts\nand due dates will be listed on the course site and calendar. In addition to your participation\nduring class, your Writer's Blog grades will determine your final class participation grade.\nReading\nWriters are readers. The readings in this course will introduce genres, arguments, examples,",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments\nFocus on a purpose\npp. 2-5\nRespond to the needs of different audiences",
+        "pred": "Assignments",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A = 6 points; B = 5 points; C = 4 points; D = 3 points; F = <3 points",
+        "pred": "least 80% of the time |\nA = 6 points; B = 5 points; C = 4 points; D = 3 points; F = <3 points\nWriter's Blog Entries",
+        "match": true
       }
     },
     {
@@ -711,15 +751,20 @@
         "pred": "Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "In the Professional Development Project (Assignment Sheet), you will explore technical\nwriting genres in your field, outline writing conventions based on the genre, audience, and\n3\nExcels = 2 Points Baseline = 1 Point Below = 0 Point\nAttendance & Punctuality Attend @ least 94% of Attend @ least 86% Attend fewer\nmeetings on time of meetings on time than 86% of class\nmeetings on time\nParticipation Verbally participate Verbally participate Do not verbally\nwith meaningful with meaningful participate or add\ncomments and/or comments and/or to discussion\ncontribute to the contribute to the google doc\ndiscussion google doc discussion google\nat least 90% of the time doc at least 80% of\nthe time",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments\nDemonstrate an understanding of key concepts in technical communication pp. 2-5",
+        "pred": "Assignments",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Excels = 2 Points Baseline = 1 Point Below = 0 Point Attendance & Punctuality Attend @ least 94% of Attend @ least 86% Attend fewer meetings on time of meetings on time than 86% of class meetings on time discussion google doc discussion google at least 90% of the time doc at least 80% of the time",
+        "pred": "In the Professional Development Project (Assignment Sheet), you will explore technical\n3\nExcels = 2 Points Baseline = 1 Point Below = 0 Point\nAttendance & Punctuality Attend @ least 94% of Attend @ least 86% Attend fewer\nmeetings on time of meetings on time than 86% of class\nmeetings on time\ndiscussion google doc discussion google\nat least 90% of the time doc at least 80% of\nthe time",
+        "match": true
       }
     },
     {
@@ -791,15 +836,20 @@
         "pred": "",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "assignments:\nHomework 30% Tests (2 planned) 30%\nLab Projects 20% Final Exam 15%\nPractice Problems 5%\nCALCULATION OF LETTER GRADES: Letter grades for the course correspond to the following\npercentage points in the Canvas gradebook:\nASSIGNMENTS AND COURSE SPECIFIC POLICIES: The following is a brief description of the\ngraded assignments for the course along with some course specific policies:\nLectures: Students are responsible for all material covered in class and in reading assignments. Regular\nattendance at lectures and participation in discussions is strongly encouraged.\nHomework: Homework assignments make up a substantial component of the course grade.\nSubmissions will be files uploaded to myCourses (unless instructed otherwise). There will be an",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
-        "pred": "assignments:\nHomework 30% Tests (2 planned) 30%\nLab Projects 20% Final Exam 15%\nPractice Problems 5%\nCALCULATION OF LETTER GRADES: Letter grades for the course correspond to the following\npercentage points in the Canvas gradebook:\nASSIGNMENTS AND COURSE SPECIFIC POLICIES: The following is a brief description of the\ngraded assignments for the course along with some course specific policies:\nLectures: Students are responsible for all material covered in class and in reading assignments. Regular",
+        "pred": "assignments:",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Homework 30% Tests (2 planned) 30% Lab Projects 20% Final Exam 15% Practice Problems 5%",
+        "pred": "assignments:\nHomework 30% Tests (2 planned) 30%\nLab Projects 20% Final Exam 15%\nPractice Problems 5%\nCALCULATION OF LETTER GRADES: Letter grades for the course correspond to the following",
+        "match": true
       }
     },
     {
@@ -871,14 +921,19 @@
         "pred": "Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\n67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F\n• Distribution\nGrades will be available at any time through our Canvas course. The final grade will be calculated as\nfollows (expanded descriptions of each category can be found further in the syllabus):\n30% Weekly assignments\n20% Mid-term assessment\n20% Final assessment\n30% Illustrated Report/Research Project\nCourse Activities\nWeekly Assignments take two forms:\n● Relevant videos and readings that require thoughtful response. These activities will provide you\nwith relevant ecological concepts that you will use to investigate and analyze tree species’ roles\nand interactions in our forest communities. This work will inform, and you are expected to utilize\nthe resources for, your final illustrated research project.\n● Drawing assignments that include process reflection. These activities are designed to provide\npractice for and demonstrate your application of foundational drawing concepts. This work will",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines:",
-        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. Late work will not be\naccepted unless you have made arrangements with me ahead of time and have a valid and\nreasonable reason for your request.\nUse of AI: All assignments must be soley your own work. The use of AI-assisted writing (such as\nChatGPT) is strictly prohibited on any assignment in this course unless otherwise instructed.\nClass Recording & Photographs: Class lectures and activities may be recorded in order to make\nthis course more accessible, and recordings may be made available to students presently enrolled in",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. Late work will not be",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n30% Weekly assignments\n20% Mid-term assessment\n20% Final assessment\n30% Illustrated Report/Research Project\nCourse Activities",
+        "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n30% Weekly assignments\n20% Mid-term assessment\n20% Final assessment\n30% Illustrated Report/Research Project\nCourse Activities",
         "match": true
       }
     },
@@ -951,14 +1006,19 @@
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "order to receive a grade.\n1. Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n2. Final project report (25%)\n3. In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n4. Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\n• To earn a B- grade in the course, you need to complete the required number of hours as",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Expectations regarding assignment deadlines, late, or missing work",
-        "pred": "Expectations regarding assignment deadlines, late, or missing work\n4\nPolicy for late submissions is very strict and applies only in exceptional cases of student illness,\naccident, or emergencies that are properly documented. A late submission of an homework or\nproject artifact may be granted only if the student:\n• Emails prior to the deadline and\n• Explains and provides evidence for the circumstances that have prevented the student from\nmeeting class requirement.\nFailing to comply with these rules may result in no credit for the assignment.",
+        "pred": "Expectations regarding assignment deadlines, late, or missing work",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "1. Completion of weekly work log for the minimal required work hours. Logs must be submitted weekly (of each work week) during your internship (20%) 2. Final project report (25%) 3. In-class progress presentations and submission of slide decks and summary for the presentation. (20%) 4. Class Participation. (35%). a. Attendance at scheduled class meetings b. Request to join in UNHM COMPTECH online LinkedIn group https://www.linkedin.com/groups/4485737/ c. Participation of all class discussions, peer meetups and group activities recorded in weekly work logs AND earn at least 75% for your final report grade.",
+        "pred": "order to receive a grade.\n1. Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n2. Final project report (25%)\n3. In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n4. Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs AND earn at least 75% for your final report grade.",
         "match": true
       }
     },
@@ -1031,14 +1091,19 @@
         "pred": "Assessment",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Letter Grade Range\nA 100% - 94%\nA- <94% - 90%\nB+ <90% - 87%\nB <87% - 84%\nB- <84% - 80%\nC+ <80% - 77%\nC <77% - 74%\nC- <74% - 70%\nD+ <70% - 67%\nD <67% - 64%\nD- <64% - 60%\nF <60%\nParticipation Assignments\nThe participation assignments are weekly discussion board inputs and student-instructor dialogue\nquestions. For each of these assignments, you must complete the tasks asked of you to receive\nthe full grades. For written materials, you must ensure that you have submitted relevant material.\nCitations in Coursework\nYou should reference all resources that you use in your writing. Please use the American\nPsychological Association (APA) seventh edition citation style in this course. Examples and\nadditional guidance will be provided as part of class with your class materials.",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to\nrequest an extension from me via email before the due date. I will determine if the situation\nwarrants an extension based on your email and may request more details or documentation\n(example: a doctor’s note). If you are aware of an upcoming event (e.g. a religious holiday or\ncultural observance) please make your request as early as possible. If you do not meet the\ndeadline for any assignment you have 6 days to submit it except quizzes. MyCourses will",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Final Grade Scale Letter Grade Range A 100% - 94% A- <94% - 90% B+ <90% - 87% B <87% - 84% B- <84% - 80% C+ <80% - 77% C <77% - 74% C- <74% - 70% D+ <70% - 67% D <67% - 64% D- <64% - 60% F <60%",
+        "pred": "Letter Grade Range\nA 100% - 94%\nA- <94% - 90%\nB+ <90% - 87%\nB <87% - 84%\nB- <84% - 80%\nC+ <80% - 77%\nC <77% - 74%\nC- <74% - 70%\nD+ <70% - 67%\nD <67% - 64%\nD- <64% - 60%\nF <60%\nParticipation Assignments",
         "match": true
       }
     },
@@ -1111,14 +1176,19 @@
         "pred": "Assessment",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Letter Grade Range\nA 100% - 94%\nA- <94% - 90%\nB+ <90% - 87%\nB <87% - 84%\nB- <84% - 80%\nC+ <80% - 77%\nC <77% - 74%\nC- <74% - 70%\nD+ <70% - 67%\nD <67% - 64%\nD- <64% - 60%\nF <60%\nParticipation Assignments\nThe participation assignments are weekly discussion board inputs and student-instructor dialogue\nquestions. For each of these assignments, you must complete the tasks asked of you to receive\nthe full grades. For written materials, you must ensure that you have submitted relevant material.\nGrading rubrics are provided for each week’s discussion question.\nCitations in Coursework\nYou should reference all resources that you use in your writing and discussions. Please use the\nAmerican Psychological Association (APA) seventh edition citation style in this course.",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to\nrequest an extension from me via email before the due date. I will determine if the situation\nwarrants an extension based on your email and may request more details or documentation\n(example: a doctor’s note). If you do not meet the deadline for any assignment you have 6 days\nto submit it except quizzes. I will subtract 15% of the total grade per day it is late as follows:\nDays Late Points subtracted",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (MyCourses)",
+        "pred": "MyCourses; UNH MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "Final Grade Scale Letter Grade Range A 100% - 94% A- <94% - 90% B+ <90% - 87% B <87% - 84% B- <84% - 80% C+ <80% - 77% C <77% - 74% C- <74% - 70% D+ <70% - 67% D <67% - 64% D- <64% - 60% F <60%",
+        "pred": "Letter Grade Range\nA 100% - 94%\nA- <94% - 90%\nB+ <90% - 87%\nB <87% - 84%\nB- <84% - 80%\nC+ <80% - 77%\nC <77% - 74%\nC- <74% - 70%\nD+ <70% - 67%\nD <67% - 64%\nD- <64% - 60%\nF <60%\nParticipation Assignments",
         "match": true
       }
     },
@@ -1191,14 +1261,19 @@
         "pred": "Assessment",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Letter Grade | Range | Range\nA | 100%to94% |\nA- | < 94%to90% |\nB+ | < 90%to87% |\nB | < 87%to84% |\nB- | < 84%to80% |\nC+ | < 80%to77% |\nC | < 77%to74% |\nC- | < 74%to70% |\nD+ | < 70%to67% |\nD | < 67%to64% |\nD- | < 64%to60% |\nF | < 60%to0% |\nModule 1 | Topic\nWeek 1 | Welcome to the Caucasus Desk\nModule 2 | Caucasus Desk Week 2\nModule 3 | Caucasus Desk Week 3\nModule 4 | Caucasus Desk Week 4\nModule 5 | Caucasus Desk Week 5\nModule 6 | Caucasus Desk Week 6\nModule 7 | Caucasus Desk Week 7",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to request an extension from me via email before the due date. I will determine if the situation warrants an extension based on your email and may request more details or documentation (example: a doctor’s note). If you do not meet the deadline for any assignment you have 6 days to submit.  MyCourses will automatically subtract 15% of the total grade per day it is late as follows:\nMissing assignments are automatically graded as zero.",
+        "pred": "Late Assignments",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "UNH MyCourses",
+        "pred": "MyCourses; UNH MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Letter Grade | Range | Range\nA | 100%to94% |\nA- | < 94%to90% |\nB+ | < 90%to87% |\nB | < 87%to84% |\nB- | < 84%to80% |\nC+ | < 80%to77% |\nC | < 77%to74% |\nC- | < 74%to70% |\nD+ | < 70%to67% |\nD | < 67%to64% |\nD- | < 64%to60% |\nF | < 60%to0% |\nModule 1 | Topic",
+        "pred": "Letter Grade | Range | Range\nA | 100%to94% |\nA- | < 94%to90% |\nB+ | < 90%to87% |\nB | < 87%to84% |\nB- | < 84%to80% |\nC+ | < 80%to77% |\nC | < 77%to74% |\nC- | < 74%to70% |\nD+ | < 70%to67% |\nD | < 67%to64% |\nD- | < 64%to60% |\nF | < 60%to0% |\nModule 1 | Topic",
         "match": true
       }
     },
@@ -1271,15 +1346,20 @@
         "pred": "Assignments & Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Assignments & Grading\nEvaluation:\n- 4 lecture exams (100pts each), 400 points total (67% of final grade)\n- Mastering A&P assignments (12 assignments, 8% of final grade)\n- Laboratory grade (150 points total, 25% of final grade)\nExams:\nDuring the course you will take 4 non-cumulative exams. Exams will have two components: an online\ncomponent that will consist of primarily true/false, matching, and multiple-choice style questions and a\nwritten component that will consist of open response questions. Both components should be completed\nwithin the week assigned unless prior arrangements have been made for an extension.\nExtra credit policy: There will be extra credit points available on the written component of each exam. I will\nnot give extra credit assignments to individual students who are unhappy with their grades because that is\nnot fair to the rest of the class!",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
-        "pred": "Assignments:\n• Complete introduction assignment\n• Mastering A&P: Introduction, Biological Organization, Chemistry, Cell Biology\n• Lab quizzes: Language of anatomy, The microscope & cells (10pts each)\n• Virtual lab: Cell transport & membrane permeability (10pts)\nWeek 2: May 26th - June 1st\n• Lecture:\no Tissues\no Integumentary System\n• Lab:",
+        "pred": "Assignments:",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses; Mastering A&P",
+        "pred": "Mastering A&P",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "4 lecture exams (100pts each), 400 points total (67% of final grade) - Mastering A&P assignments (12 assignments, 8% of final grade) - Laboratory grade (150 points total, 25% of final grade)",
+        "pred": "Assignments & Grading\nEvaluation:\n- 4 lecture exams (100pts each), 400 points total (67% of final grade)\n- Mastering A&P assignments (12 assignments, 8% of final grade)\n- Laboratory grade (150 points total, 25% of final grade)\nExams:",
+        "match": true
       }
     },
     {
@@ -1351,14 +1431,19 @@
         "pred": "GRADING DISTRIBUTION",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "GRADING DISTRIBUTION\nIn-class Participation and Projects – 10%\nWeekly Quizzes – 10%\nFirst Hour Exam – 20%\nSecond Hour Exam – 20%\nThird Hour Exam- 20%\nFinal Exam – 20%\nCOURSE FORMAT\nThis course will be in-person with a mix of lectures and projects. Additional online\nassignments and activities to be completed outside of class are curated through\nCanvas (UNH MyCourses). You will be responsible for reviewing any pre-lecture\ncontent before class and come prepared for discussion.\nWeekly Learning Plans. Each week you will be presented with a learning plan\nwithin the Module for the week (published prior to class in Canvas [UNH\nMyCourses]). Each module will include the relevant slides, learning objectives,",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses; UNH MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "GRADING DISTRIBUTION In-class Participation and Projects – 10% Weekly Quizzes – 10% First Hour Exam – 20% Second Hour Exam – 20% Third Hour Exam- 20% Final Exam – 20%",
+        "pred": "GRADING DISTRIBUTION\nIn-class Participation and Projects – 10%\nWeekly Quizzes – 10%\nFirst Hour Exam – 20%\nSecond Hour Exam – 20%\nThird Hour Exam- 20%\nFinal Exam – 20%\nCOURSE FORMAT",
         "match": true
       }
     },
@@ -1431,15 +1516,20 @@
         "pred": "",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "Students will earn up to 7.5 points for submitting their final poster on time and\nup to 7.5 points for presenting at the Winter Symposium.\nParticipation and Attendance\nStudents are expected to adhere to the attendance policies specific to this course as outlined in the syllabus.\nParticipation and attendance are worth 10 points toward your final grade and more than one absence",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
-        "pred": "assessments\n*Note– instructor has the right to change assignments/syllabus based on course needs. Last revised 8/19/2025 6",
+        "pred": "assessments",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "myCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Final grades will be calculated based on the following guidelines: A = 94-100 A- = 90-93 B+ = 87-89 B = 84-86 B- = 80-83 C+ = 77-79 C = 74-76 C- = 70-73 D+ = 67-69 D = 64-66 D- = 60-63 F = 0-59",
+        "pred": "A = 94-100\nA- = 90-93\nB+ = 87-89\nB = 84-86\nB- = 80-83\nC+ = 77-79\nC = 74-76\nC- = 70-73\nD+ = 67-69\nD = 64-66\nD- = 60-63\nF = 0-59",
+        "match": true
       }
     },
     {
@@ -1511,14 +1601,19 @@
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Final grade is calculated as follows (Subject to minor changes):\n- Lab and Lecture participation: 20 points (10 @ 2 points each)\n- Homework assignments: 20 points (2 @ 10 points each)\n- Quizzes: 20 points (2 @ 10 points each)\n- Team Project: 25 points\n- Final Exam: 15 points\nHomework Assignments\nThere will be two outside class homework assignments, each worth 10 points, for a total of 20 points.\nHomework assignments must be completed and submitted by the assigned due date for full credit.\nHomework assignments will be due at 5:40pm the day it is due so we can go over it in class.\n4\nCOMP 415 Mobile Computing 1st and 4most\nFall 2025\nCollaboration and Lab Practice",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "Late Submissions\nNo assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades.\nIf you are in the situation of missing a deadline because of time constraints, you take the responsibility to\nrequest approval for a time extension. This means that you MUST do the following two steps:\n1. Email me PRIOR to the deadline (using MyCourses email) to do TWO things:\n○ Explain circumstances that have prevented you from meeting the submission deadline.\n○ In your email, outline plans for making up the missed requirements.",
+        "pred": "Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Final grade is calculated as follows (Subject to minor changes):\n- Lab and Lecture participation: 20 points (10 @ 2 points each)\n- Homework assignments: 20 points (2 @ 10 points each)\n- Quizzes: 20 points (2 @ 10 points each)\n- Team Project: 25 points\n- Final Exam: 15 points\nHomework Assignments\nThere will be two outside class homework assignments, each worth 10 points, for a total of 20 points.\nHomework assignments must be completed and submitted by the assigned due date for full credit.",
+        "pred": "Final grade is calculated as follows (Subject to minor changes):\n- Lab and Lecture participation: 20 points (10 @ 2 points each)\n- Homework assignments: 20 points (2 @ 10 points each)\n- Quizzes: 20 points (2 @ 10 points each)\n- Team Project: 25 points\n- Final Exam: 15 points\nHomework Assignments\nThere will be two outside class homework assignments, each worth 10 points, for a total of 20 points.\nHomework assignments must be completed and submitted by the assigned due date for full credit.",
         "match": true
       }
     },
@@ -1591,14 +1686,19 @@
         "pred": "Grades:",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "Team Tests\n4 x 50 points 200 points\nMidterm 200 points\nFinal Exam 200 points\nTOTAL 800 points\nThis syllabus reflects the federal definition of a credit hour, which entails a minimum of 3\nhours of engaged time per week per credit over a 15-week semester (180 hours total for the\ncombined lecture and lab). Engaged time includes class time, but the best way to\nunderstand the concepts in this course is to practice them. Non-graded tasks for the lecture\ninclude reading assigned chapters and supplemental notes linked in the modules ahead of\nthe lecture, along with taking preliminary notes and/or working through practice problems.\nHomework sets will be assigned most weeks to be completed online before the next lecture\nmeeting. You are welcome to freely collaborate on these homework sets with your peers,",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "Late Work:\nIt is imperative that you keep up with assigned homework each week. Homework will be\navailable in the style of an online “quiz” that will be available to submit up to the time of\nthe next lecture meeting. Class sessions may begin with a homework review where correct\nanswers will be provided. For this reason, no late homework submissions will be accepted,\nand students that have not submitted answers prior to class will receive a zero grade for\nthat assignment.",
+        "pred": "Late Work:",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "myCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Team Tests\n4 x 50 points 200 points\nMidterm 200 points\nFinal Exam 200 points\nTOTAL 800 points",
+        "pred": "Team Tests\n4 x 50 points 200 points\nMidterm 200 points\nFinal Exam 200 points\nTOTAL 800 points\nThis syllabus reflects the federal definition of a credit hour, which entails a minimum of 3",
         "match": true
       }
     },
@@ -1671,15 +1771,20 @@
         "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Method of Evaluation Point Value\nThe lab grade is a total of 135 points Homework: Math Packet 10\nmade up of the categories shown at\nLab Citizenship and Demonstration of Benchmarks\nthe right. 25\nThe lab grade is incorporated into Quizzes (5 pts ea)\n15\nyour overall BIOL 413 grade by the\ninstructor of that course, Dr. Halpin. Lab Notebook Upkeep\n25",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses/Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "5% Course Preparatory Skill Building 25% Weekly Assignments & Activities 50% Average of Mid-term and Final Assessment 20% Laboratory Grade",
+        "pred": "Method of Evaluation Point Value\nThe lab grade is a total of 135 points Homework: Math Packet 10\nmade up of the categories shown at\nthe right. 25\nThe lab grade is incorporated into Quizzes (5 pts ea)\n15",
+        "match": false
       }
     },
     {
@@ -1751,14 +1856,19 @@
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "Final grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92%\nB+ = 87 - 89% B = 83 - 86% B- = 80 - 82%\nC+ = 77 - 79% C = 73 - 76% C- = 70 - 72%\nD+ = 67 - 69% D = 63 - 66% D- = 60 - 62%\nF = 00 - 59%\nACADEMIC DISHONESTY\nStudents caught cheating on examinations, group projects, or the paper assignment will\nbe subject to the penalties outlined by the University. Penalties include the assignment of a\nfailing grade on the specific assignment and/or final course grade. Academic dismissal is also\npossible. Please be aware that plagiarism in writing is a serious problem -- be careful! Make\nsure that you give credit where credit is due. The paper guidelines will specify additional details\nregarding plagiarism.\nPlease keep in mind that \"cheating\" takes on many different meanings including the",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "PENALTY FOR LATE ASSIGNMENTS",
-        "pred": "PENALTY FOR LATE ASSIGNMENTS\nPlease note that for every day that lab assignments/reports/final project reports are\nhanded in late, grades will be lowered by one level (e.g., a grade of \"B-\" will be dropped to a\n\"C+\" on the first day, a \"C\" on the second day, a \"D\" on the fourth day, etc.).",
+        "pred": "PENALTY FOR LATE ASSIGNMENTS",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Handed in",
+        "pred": "Handed in",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 00 - 59%",
+        "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": true
       }
     },
@@ -1831,14 +1941,19 @@
         "pred": "",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Component Weight\nHomework 10%\nReading Quizzes 2%\nLabs 20%\nRegular Exams 2×24%=48%\nFinal Exam 20%\n8\nMid-term and (cid:28)nal grades are determined according to the following chart.\n6Student Policies and Regulations on Academic Integrity, https://catalog.unh.edu/srrr/student-policies-regulations/academic-\nintegrity/\n7Canvas,https://unh.instructure.com/\n8Note: 90 − < 94 is shorthand to indicate that to earn the corresponding letter grade of A−, the numerical course grade x must\nsatisfy90≤x<94.\n4",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Homework Policy",
-        "pred": "Late Homework Policy\nLate homework will be assessed a 25% penalty per day, to a maximum penalty of 50%.\n3.2 Reading Quizzes\nReading quizzes will be given online, through the MasteringPhysics website. They will be due an hour before the\nclass meeting in which the material will be covered. Do not begin a reading quiz until you have read the relevant\nchapterofthetext. Readingquizzesshouldtakeabout15minutestocomplete. Studentshave30minutestocomplete",
+        "pred": "Late Homework Policy",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MasteringPhysics; Canvas (grades)",
+        "pred": "MasteringPhysics",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Component Weight\nHomework 10%\nReading Quizzes 2%\nLabs 20%\nRegular Exams 2×24%=48%\nFinal Exam 20%",
+        "pred": "Component Weight\nHomework 10%\nReading Quizzes 2%\nLabs 20%\nRegular Exams 2×24%=48%\nFinal Exam 20%\n8",
         "match": true
       }
     },
@@ -1911,15 +2026,20 @@
         "pred": "",
         "match": false
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "prior to each class and turn in writing assignments the following weekend.\n1. Quizzes (40%) – Due by 2:10 PM on Sep. 2, 9, 16, 23, 30; Oct. 7, 14, 21; Nov. 4, 18, 25\nTo develop reading comprehension and critical thinking skills, students will take eleven quizzes that",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Late Work:",
-        "pred": "Policy on Late Work: There are two policies on late work, one for quizzes and one for papers. Quizzes\nare designed to ensure that you come to class having studied the readings so that you are prepared to\nbetter understand and participate in additional lecture and discussion. Submitting them on time is essential\nto achieving the intended learning outcomes. Moreover, students submitting quizzes late have access to\nlectures and discussions about the readings that were not available to students turning quizzes in on time.",
+        "pred": "Policy on Late Work: There are two policies on late work, one for quizzes and one for papers. Quizzes",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Course Assignments:",
+        "pred": "prior to each class and turn in writing assignments the following weekend.\n1. Quizzes (40%) – Due by 2:10 PM on Sep. 2, 9, 16, 23, 30; Oct. 7, 14, 21; Nov. 4, 18, 25\nTo develop reading comprehension and critical thinking skills, students will take eleven quizzes that\nten scores will count as 40% of the final grade. Quizzes must be submitted before the start of class on the",
+        "match": false
       }
     },
     {
@@ -1991,14 +2111,19 @@
         "pred": "Course Grading System:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Course Grading System:\nReflective Papers (4) 15%\nProposal 15%\nResearch Paper 30%\nMidterm Exam 20%\nFinal Exam 20%\nTotal 100%\nPercent Grade Grade Points Level of Achievement\n94-100 A 4.0 Excellent\n90-93 A- 3.67\n87-89 B+ 3.33\n84-86 B 3.0 Superior\n80-83 B- 2.67\n77-79 C+ 2.33\n74-76 C 2.0 Satisfactory, Competent",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Assignments:",
-        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously\narranged with the instructor, any assignment not turned in by midnight on that date will be\nconsidered late and subject to a 10% grade penalty. After two weeks from the due date, the\nassignment will not be accepted, and the grade will be a zero. Note: Getting assignments to the\ninstructor is the responsibility of the student.\nStudents should make every effort to attend class the day of the midterm or final. Taking the",
+        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas (myCourses)",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Grading Scale Found:  Course Grading System: Reflective Papers (4) 15% Proposal 15% Research Paper 30% Midterm Exam 20% Final Exam 20% Total 100% Percent Grade Grade Points Level of Achievement",
+        "pred": "Course Grading System:\nReflective Papers (4) 15%\nProposal 15%\nResearch Paper 30%\nMidterm Exam 20%\nFinal Exam 20%\nTotal 100%\nPercent Grade Grade Points Level of Achievement",
         "match": true
       }
     },
@@ -2071,14 +2196,19 @@
         "pred": "Rubric and Evaluation Methods",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are\noptional. (These EC opportunities help you with the subsequent assignments.) You are always\nfree to submit assignments early. More information is found below and in each module, and\nassignments are accessible via the “Assignments” and “Syllabus” navigation buttons.\nItem Points Timeframe\nIntroductions (video) 10",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
+        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
         "match": true
       }
     },
@@ -2151,14 +2281,19 @@
         "pred": "Rubric and Evaluation Methods",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are\noptional. (These EC opportunities help you with the subsequent assignments.) You are always\nfree to submit assignments early. More information is found below and in each module, and\nassignments are accessible via the “Assignments” and “Syllabus” navigation buttons.\nItem Points Timeframe\nIntroductions (video) 10 Week one",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
+        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
         "match": true
       }
     },
@@ -2231,14 +2366,19 @@
         "pred": "Rubric and Evaluation Methods",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are\noptional. (These EC opportunities help you with the subsequent assignments.) You are always\nfree to submit assignments early. More information is found below and in each module, and\nassignments are accessible via the “Assignments” and “Syllabus” navigation buttons.\nItem Points Timeframe\nIntroductions (video) 15 Week one",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
+        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
         "match": true
       }
     },
@@ -2311,15 +2451,20 @@
         "pred": "Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\n67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F\n• Distribution\nGrades will be available at any time through our Canvas course. The final grade will be calculated as\nfollows (expanded descriptions of each category can be found further in the syllabus):\n5% Course Preparatory Skill Building\n25% Weekly Assignments & Activities\n50% Average of Mid-term and Final Assessment\n20% Laboratory Grade\nCourse Activities\nWeekly Assignments take two forms:\nBSCI 441 Syllabus Last Reviewed: 19 January 2025\nMeeting Times/Locations\nThis is an online asynchronous course with no scheduled meeting times. Students can arrange\nindividual online appointments with the instructor for support.\n● Reading Responses require a discussion post that addresses one of the week’s learning\nobjectives as well as a follow-up to a peer’s post. This activity is designed to engage you with your",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines",
-        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric\nis on a 10 point scale -1 point (10%) for each day late. Assessments must be taken during the time\nperiod they are available. Exceptions are only considered in extreme circumstances and on a case-\nby-case basis.\nUse of AI: All assignments must be soley your own work. The use of AI-assisted writing (such as\nChatGPT) is strictly prohibited on any assignment in this course unless otherwise instructed.\nBiology Program Academic Honesty: The Biology Program at UNH Manchester will strictly adhere",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Final grades in this course will be based on the following scale: 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
+        "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n5% Course Preparatory Skill Building\n25% Weekly Assignments & Activities\n50% Average of Mid-term and Final Assessment\n20% Laboratory Grade\nCourse Activities",
+        "match": false
       }
     },
     {
@@ -2391,15 +2536,20 @@
         "pred": "Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\n67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F\n• Distribution: Grades will be available at any time through our Canvas course. The final grade will\nbe calculated as follows (expanded descriptions of each category can be found further in the\nsyllabus):\n45% Average of Mid-term and Final Assessment\n20% Weekly Assignments & Activities\n15% Research Project\n20% Laboratory Grade\nCourse Activities\nWeekly Assignments take two forms:\n● Reading Responses require a discussion post that addresses one of the week’s learning\nobjectives as well as a follow-up to a peer’s post. This activity is designed to engage you with your\npeer’s for collaborative learning\nMeeting Times/Locations\nThis is an online asynchronous course with no scheduled meeting times. Students can arrange\nindividual online appointments with the instructor for support.",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines",
-        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric\nis on a 10 point scale -1 point (10%) for each day late. Assessments must be taken during the time\nperiod they are available. Exceptions are only considered in extreme circumstances and on a case-\nby-case basis.\nUse of AI: All assignments must be soley your own work. The use of AI-assisted writing (such as\nChatGPT) is strictly prohibited on any assignment in this course unless otherwise instructed.\nBiology Program Academic Honesty: The Biology Program at UNH Manchester will strictly adhere",
+        "pred": "Assignment Deadlines: Assignment due dates are provided in Canvas. The weekly activities rubric",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Final grades in this course will be based on the following scale: 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
+        "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nsyllabus):\n45% Average of Mid-term and Final Assessment\n20% Weekly Assignments & Activities\n15% Research Project\n20% Laboratory Grade\nCourse Activities",
+        "match": false
       }
     },
     {
@@ -2471,15 +2621,20 @@
         "pred": "Homework Grading Rubric:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "session. The above 4 components are weighted to determine a student’s final grade as so:\n45% Homework & Labs | 45% Exams | 10% Attitude\nNote: Homework is extremely important. Skipping homework and “making up the points” on the exams is NOT a viable\nstrategy if you want to do well in the course!\nHomework Grading Rubric:\nThis rubric provides a foundation for how your performance will be evaluated on homework assignments. Your actual\ngrade will be numeric, but this shows the expectations.\n100\nPerfection. You completed the entire assignment correctly, neatly, and used proper notation throughout. You began with a valid\nphysics equation and calculations/derivations were easy to follow, and you accounted for significant figures.",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "45% Homework & Labs | 45% Exams | 10% Attitude",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 3-4",
+        "match": false
       }
     },
     {
@@ -2551,15 +2706,20 @@
         "pred": "Evaluation:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "week outside of class completing assignments and reviewing materials to prepare for assessments.\nEvaluation:\n- 4 lecture exams (100pts each), 400 points total (67% of final grade)\n- Mastering A&P assignments (12 assignments, 8% of final grade)\n- Laboratory grade (150 points total, 25% of final grade)\nFinal grades will be calculated in accordance with the standard UNH grading scale.\nExams:",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Attendance and Late Work",
-        "pred": "Assignments:\n• Complete introduction assignment\n• Endocrine System Physiology Lab PDF (virtual lab)\nWeek 2: Jan. 27th, 29th, 30th\n• Lecture:\no Monday: Finish Endocrine System\no Wednesday: Start Cardiovascular System 1: The Blood\n• Lab:\no Blood activities\nAssignments:",
+        "pred": "Assignments:",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses; Mastering A&P",
+        "pred": "Mastering A&P",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Evaluation: - 4 lecture exams (100pts each), 400 points total (67% of final grade) - Mastering A&P assignments (12 assignments, 8% of final grade) - Laboratory grade (150 points total, 25% of final grade) Final grades will be calculated in accordance with the standard UNH grading scale",
+        "pred": "week outside of class completing assignments and reviewing materials to prepare for assessments.\nEvaluation:\n- 4 lecture exams (100pts each), 400 points total (67% of final grade)\n- Mastering A&P assignments (12 assignments, 8% of final grade)\n- Laboratory grade (150 points total, 25% of final grade)\nFinal grades will be calculated in accordance with the standard UNH grading scale.",
+        "match": true
       }
     },
     {
@@ -2631,14 +2791,19 @@
         "pred": "Rubric and Evaluation Methods",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "UNH standard",
-        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are\noptional. (These EC opportunities help you with the subsequent assignments.) You are always\nfree to submit assignments early. More information is found below and in each module, and\nassignments are accessible via the “Assignments” and “Syllabus” navigation buttons.\nItem Points Timeframe\nIntroductions (video) 10 Week one",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
-        "pred": "Policy on Late Submissions\nLate submissions will receive a zero unless there are exigent circumstances. If an unexpected\nlife event or work event arises and has the potential to impact your timely completion of any\nassignment for this course, please be sure to communicate this to your instructor as soon as\npossible, so that you may work together to develop a plan that suits your situation. It is the\nresponsibility of each student to request an extension in advance, or in case of an emergency/\nexigency, to contact the instructor as soon as possible so you can work out a plan together.",
+        "pred": "Policy on Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
+        "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
         "match": true
       }
     },
@@ -2711,14 +2876,19 @@
         "pred": "STUDENT EVALUATION",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "Final grades will consist of all of the elements outlined above. Specifically:\nReading Questions: 18%\nOnline Discussions: 7%\nExam 1: 15%\nExam 2: 15%\nExam 3: 15%\nPaper Assignment / PowerPoint Presentation: 20%\nClass Participation: 10%\n-----------------\nTotal 100%\nGrades will be calculated based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92%\nB+ = 87 - 89% B = 83 - 86% B- = 80 - 82%\nC+ = 77 - 79% C = 73 - 76% C- = 70 - 72%\nD+ = 67 - 69% D = 63 - 66% D- = 60 - 62%\nF = 0 - 59%",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
-        "pred": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS\nAs an ongoing project throughout the course, you will be expected to conduct your own research\non a different \"pioneer of psychology.\" You will be picking your person from a list that I provide within\nCanvas. Your job will be to conduct a historical search of the person's work, contributions to the\ndiscipline, individual personality patterns, and anything else that you find interesting/relevant to the\nperson's role in the field of psychology! Note that I've provided a separate handout within the Course",
+        "pred": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 0 - 59%",
+        "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": true
       }
     },
@@ -2791,14 +2961,19 @@
         "pred": "Assignments and Grading",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Your final grade will be computed as follows:\n• Homework Average: 25%\n• Skill Checks: 25%\n• Midterm Exam: 25%\n• Final Exam: 25%\nImportant Note: Grades are determined only by the points earned from the assignments listed above that are\ngiven during the semester. There is no opportunity other than what is explicitly stated in this syllabus to earn\nextra points. That is, no special assignments, nor additional work can be assigned to help improve your grade.\nHomework\n• Assignment Frequency: Homework will be assigned for each section we cover.\n• Scoring and Credit: To receive credit for a homework assignment, you must achieve a score of 50% or\nhigher. Achieving this minimum score will result in your grade being manually adjusted to 100%. It may take",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Makeups:",
         "pred": "Makeups:",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Your final grade will be computed as follows: • Homework Average: 25% • Skill Checks: 25% • Midterm Exam: 25% • Final Exam: 25%",
+        "pred": "Your final grade will be computed as follows:\n• Homework Average: 25%\n• Skill Checks: 25%\n• Midterm Exam: 25%\n• Final Exam: 25%\nImportant Note: Grades are determined only by the points earned from the assignments listed above that are\n• Assignment Frequency: Homework will be assigned for each section we cover.\n• Scoring and Credit: To receive credit for a homework assignment, you must achieve a score of 50% or\nhigher. Achieving this minimum score will result in your grade being manually adjusted to 100%. It may take\nup to a week for this adjustment to be reflected in your grade. While it's not necessary to score 100% on",
         "match": true
       }
     },
@@ -2871,15 +3046,20 @@
         "pred": "Grades",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "Policy on Attendance, Late Submissions",
-        "pred": "Policy on Attendance, Late Submissions\n- Please arrive on time and expect to attend the entire duration of the class. Missing two or more\nclasses will result in a fail, as well as missing more than 15% of the class combined. You must dress\nappropriately for BSL-2 lab activities. Failure to arrive prepared for lab will result in missing that\nlab.\nIf you are dealing with an unexpected, extenuating circumstance that will keep you out\nof class or affect your performance for more than a day or two, reach out to Lisa",
+        "pred": "Policy on Attendance, Late Submissions",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Grades See below for an outline of assignments and points",
+        "pred": "",
+        "match": false
       }
     },
     {
@@ -2951,15 +3131,20 @@
         "pred": "STUDENT EVALUATION",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "Deviation",
-        "pred": "Grades will be calculated based on the following percentage cutoff points:\nA = 93 - 100% C = 73 - 76%\nA- = 90 - 92% C- = 70 - 72%\nB+ = 87 - 89% D+ = 67 - 69%\nB = 83 - 86% D = 63 - 66%\nB- = 80 - 82% D- = 60 - 62%\nC+ = 77 - 79% F = 00 - 59%\nEXTRA CREDIT\nThere is one way to earn extra credit in this class: Find a web article relevant to the\nmaterial covered in class and write a 2-page, double-spaced summary. Make sure you include\nthe article’s web link in the paper when you submit the assignment. Extra credit papers must be\nat least 2 complete pages in length to receive credit. Papers can be longer than 2 pages, if you so\ndesire, but not less than 2 pages.\nYou may do only 2 of these extra credit assignments. Please speak to me if there are\nquestions concerning the extra credit option. The extra credit options are to be word-processed,",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "SUMMARY/CRITIQUE PAPER (late policy)",
         "pred": "",
         "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
+        "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
+        "match": true
       }
     },
     {
@@ -3031,14 +3216,19 @@
         "pred": "Grades:",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Quizzes and Exams\nBacteria quiz                                      5pts                                       Jun 27\nProtista Fungi quiz                             5pts                                       Jun 30\nPlant Anatomy quiz                           5pts                                       July 5\nPlant Diversity Quiz                           5pts                                       July 10\nExam 1                                               30 pts                                    July 11\nAnimal Diversity quiz                        10pts                                     July 17\nAnimal anatomy quiz                        10pts                                     July 21\nExam 2                                               30pts                                     July 22",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "",
         "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Bacteria quiz 5pts Protista Fungi quiz 5pts Plant Anatomy quiz  5pts Plant Diversity Quiz 5pts Exam 1 30 pts Animal Diversity quiz  10pts Animal anatomy quiz  10pts Exam 2 30pts",
+        "pred": "Quizzes and Exams\nBacteria quiz                                      5pts                                       Jun 27\nProtista Fungi quiz                             5pts                                       Jun 30\nPlant Anatomy quiz                           5pts                                       July 5\nPlant Diversity Quiz                           5pts                                       July 10\nExam 1                                               30 pts                                    July 11\nAnimal Diversity quiz                        10pts                                     July 17\nAnimal anatomy quiz                        10pts                                     July 21\nExam 2                                               30pts                                     July 22",
         "match": true
       }
     },
@@ -3111,14 +3301,19 @@
         "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Letter | Range | Range | Range\nA | 100 % | to | 94 %\nA- | < 94 % | to | 90 %\nB+ | < 90 % | to | 87 %\nB | < 87 % | to | 84 %\nB- | < 84 % | to | 80 %\nC+ | < 80 % | to | 77 %\nC | < 77 % | to | 74 %\nC- | < 74 % | to | 70 %\nD+ | < 70 % | to | 67 %\nD | < 67 % | to | 64 %\nD- | < 64 % | to | 60 %\nF | < 60 % | to | 0 %",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "Late Submissions\nThe structure of this course is planned so that each week has a rhythm to the assignments due. Late submissions lessen the effectiveness of the collaborative activities and subsequent assignments; you and your peers cannot comment and build on each other’s work if that work is not shared in a timely manner. Discussion threads will close at 11:59 pm on Sundays and late comments cannot be added.\nUnit quizzes can be taken up to 24 hours late, with a 5 point penalty. After 24 hours, access to the quiz will close and correct answers will be available to view.",
+        "pred": "Late Submissions",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "Letter | Range | Range | Range\nA | 100 % | to | 94 %\nA- | < 94 % | to | 90 %\nB+ | < 90 % | to | 87 %\nB | < 87 % | to | 84 %\nB- | < 84 % | to | 80 %\nC+ | < 80 % | to | 77 %\nC | < 77 % | to | 74 %\nC- | < 74 % | to | 70 %\nD+ | < 70 % | to | 67 %\nD | < 67 % | to | 64 %\nD- | < 64 % | to | 60 %\nF | < 60 % | to | 0 %",
+        "pred": "Letter | Range | Range | Range\nA | 100 % | to | 94 %\nA- | < 94 % | to | 90 %\nB+ | < 90 % | to | 87 %\nB | < 87 % | to | 84 %\nB- | < 84 % | to | 80 %\nC+ | < 80 % | to | 77 %\nC | < 77 % | to | 74 %\nC- | < 74 % | to | 70 %\nD+ | < 70 % | to | 67 %\nD | < 67 % | to | 64 %\nD- | < 64 % | to | 60 %\nF | < 60 % | to | 0 %",
         "match": true
       }
     },
@@ -3191,15 +3386,20 @@
         "pred": "Assessment",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
-        "pred": "Days Late | Points subtracted\n1 | 15%\n2 | 30%\n3 | 45%\n4 | 60%\n5 | 75%\n6 | 90%\n7 or more | Will not be graded\nModule | Dates | Topic\nWeek 1 | 5/19-5/25 | Introductions; What is Intelligence?\nWeek 2 | 5/26-6/1 | Intelligence Organizations and Processes\nWeek 3 | 6/2-6/10 | Intelligence Operations\nWeek 4 | 6/9-6/15 | Counterintelligence\nWeek 5 | 6/16-6/22 | Covert Action\nWeek 6 | 6/23-6/29 | Interagency Communications",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
-        "pred": "Late Assignments\nYour assignments are due on or before the deadlines listed in the class materials. You are free to request an extension from me via email BEFORE THE DUE DATE. I will determine if the situation warrants an extension based on your email and may request more details or documentation (example: a doctor’s note). If you do not meet the deadline for any assignment you have 6 days to submit it EXCEPT QUIZZES.  I will subtract 15% of the total grade per day it is late as follows:\nMissing assignments are automatically graded as zero.",
+        "pred": "Late Assignments",
         "match": true
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses; UNH MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Assignment Description Total Points Participation Weekly class discussion/quizzes/assignments/student-instructor dialogue 40 Exam 1 Midterm 30 Exam 2 Final 30 Total 100",
+        "pred": "Days Late | Points subtracted\n1 | 15%\n2 | 30%\n3 | 45%\n4 | 60%\n5 | 75%\n6 | 90%\n7 or more | Will not be graded",
+        "match": false
       }
     },
     {
@@ -3271,14 +3471,19 @@
         "pred": "GRADING",
         "match": true
       },
+      "deadline_expectations_title": {
+        "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
+        "pred": "ASSIGNMENTS",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas",
+        "pred": "Canvas",
+        "match": true
+      },
       "final_grade_scale": {
         "gt": "",
         "pred": "Days Late | Grade Deduction\n1 | 10%\n2 | 20%\n3 | 30%\n4 | 40%\n5 | 50%\n6 or more | Not accepted; will receive a grade of zero",
-        "match": false
-      },
-      "deadline_expectations_title": {
-        "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
-        "pred": "ASSIGNMENTS\nTo support your learning and ensure meaningful engagement throughout your internship, you will be required to complete several assignments, including structured check-ins and a final reflective analysis.\nMidpoint and Final Check-In Posts (2 Total):\nYou are expected to complete two online check-in posts during the course of your internship:\n1. Midpoint Check-In\n2. Final Check-In\nThese check-ins will be submitted through Canvas and should provide a detailed update on your experience, progress, and reflections. Avoid last-minute submissions—thoughtful, well-developed posts are expected.",
         "match": false
       }
     }

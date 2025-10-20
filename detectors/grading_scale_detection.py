@@ -23,6 +23,13 @@ class GradingScaleDetector:
             re.I | re.S,
         )
 
+        # compact letter->range patterns: "A = 94-100", "94-100 = A", or "A 94-100"
+        # captures letter and numeric range pairs
+        self.letter_range_pattern = re.compile(
+            r"([A-F][+-]?)[\s:=]*?(\d{1,3}(?:\.\d+)?)[\s*\-\u2013\u2014to]{1,4}(\d{1,3}(?:\.\d+)?)%?",
+            re.I,
+        )
+
         # small list of common labels to help anchor sections
         self.anchor_keywords = [
             'grade', 'grading', 'grades', 'grade breakdown', 'grade scale', 'grading scale', 'course grades',
@@ -47,9 +54,18 @@ class GradingScaleDetector:
 
         # Helper: find a short heading line a few lines above a given line index
         def get_heading_before(line_index: int, max_scan: int = 8) -> str:
+            # Defensive: ensure starting index is within bounds
+            if not lines:
+                return ''
+            # start from the line immediately before line_index, but cap to last index
+            start_i = min(line_index - 1, len(lines) - 1)
+            end_i = max(-1, start_i - max_scan)
             for i in range(line_index - 1, max(-1, line_index - max_scan - 1), -1):
+                # guard against indexes that may be out of range
                 if i < 0:
                     break
+                if i >= len(lines):
+                    continue
                 ln = lines[i].strip()
                 if not ln:
                     continue
@@ -66,6 +82,49 @@ class GradingScaleDetector:
             return ''
 
         # 1) Try letter-grade block
+        # 1a) Try to detect canonical letter->range mappings and return a normalized
+        # canonical scale (A..F) if enough mappings found. This prioritizes returning
+        # a compact canonical scale string that matches the preferred output format.
+        # We require the presence of both A and F and at least 8 mappings to be
+        # conservative.
+        found_ranges = {}
+        for m in self.letter_range_pattern.finditer(joined):
+            letter = m.group(1).upper().replace('\u2212', '-')
+            low = m.group(2)
+            high = m.group(3)
+            # normalize numbers (strip trailing .0, remove percent)
+            def _norm_num(s: str) -> str:
+                try:
+                    f = float(s)
+                    i = int(f) if f.is_integer() else int(round(f))
+                    return str(i)
+                except Exception:
+                    return s.strip()
+            low_n = _norm_num(low)
+            high_n = _norm_num(high)
+            found_ranges[letter] = f"{low_n}-{high_n}"
+
+        # canonical order
+        canonical_order = [
+            'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'
+        ]
+        if 'A' in found_ranges and 'F' in found_ranges and len(found_ranges) >= 8:
+            # build normalized canonical string
+            lines = []
+            for letter in canonical_order:
+                if letter in found_ranges:
+                    lines.append(f"{letter} = {found_ranges[letter]}")
+            content = '\n'.join(lines)
+            # Per request: return only the canonical scale lines (no heading/context)
+            return {'found': True, 'content': content}
+            for letter in canonical_order:
+                if letter in found_ranges:
+                    lines.append(f"{letter} = {found_ranges[letter]}")
+            content = '\n'.join(lines)
+            if heading:
+                content = heading + '\n' + content
+            return {'found': True, 'content': content}
+
         m = self.letter_block_pattern.search(joined)
         if m:
             # expand to nearest line boundaries
