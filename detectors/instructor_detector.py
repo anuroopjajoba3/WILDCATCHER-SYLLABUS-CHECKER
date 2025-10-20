@@ -223,17 +223,55 @@ class InstructorDetector:
         Returns:
             str: The extracted department, or None if not found.
         """
-        dept_pattern = re.compile(r"(Department and Program|Department/Program|Department|Dept\.|School of|Division of|Program|College of)[\s:,-]*([A-Za-z &\-.,]+)", re.IGNORECASE)
+        # First, require a capital D when matching 'Department' or 'Dept.' to avoid
+        # lower-case false positives (e.g., 'department' inside sentences).
+        dept_pattern_cs = re.compile(r"\b(Department|Dept\.)[\s:,-]*([A-Za-z &\-.,]+)")
+        # Fallback patterns (case-insensitive) for School/Division/Program/College
+        other_pattern = re.compile(r"\b(School of|Division of|Program|College of|Department and Program|Department/Program)[\s:,-]*([A-Za-z &\-.,]+)", re.IGNORECASE)
+
         for line in lines:
-            match = dept_pattern.search(line)
-            if match:
-                value = match.group(2).strip()
-                value = re.sub(r'^[\s:,-]+', '', value)
-                value = re.sub(r'^(Department|Dept\.|Program|School of|Division of|College of)[\s:,-]*', '', value, flags=re.IGNORECASE)
-                if value.lower() in ['dept.', 'department', 'department and program', 'school of', 'division of', 'program', 'college of', 'department/program']:
+            # try case-sensitive Department/Dept. first
+            m = dept_pattern_cs.search(line)
+            if m:
+                    # Only treat 'program' as a separate label when it's actually used as a label
+                    # (e.g., 'Program: X' or 'Department and Program: X'). If 'program' appears
+                    # as a trailing word in the department name (e.g., 'Bio/Biotech program'),
+                    # leave it in the captured value.
+                    dept_and_prog = re.search(r'Department\s*(?:and|/)\s*Program\s*[:\-]', line, re.IGNORECASE)
+                    prog_label = re.search(r'\bprogram\b\s*[:\-]', line, re.IGNORECASE)
+                    if dept_and_prog:
+                        value = line[dept_and_prog.end():].strip()
+                    elif prog_label:
+                        value = line[prog_label.end():].strip()
+                    else:
+                        value = m.group(2).strip()
+            else:
+                m2 = other_pattern.search(line)
+                if m2:
+                    value = m2.group(2).strip()
+                else:
                     continue
-                if value.lower() not in self.name_non_personal and value.lower() not in self.name_stopwords:
-                    return value.strip()
+
+            # cleanup leading punctuation/labels
+            value = re.sub(r'^[\s:,-]+', '', value)
+            value = re.sub(r'^(Department|Dept\.|Program|School of|Division of|College of)[\s:,-]*', '', value, flags=re.IGNORECASE)
+
+            # normalize whitespace and strip trailing punctuation
+            value = re.sub(r'\s+', ' ', value).strip().strip('.,;-')
+
+            # Skip very generic or empty values
+            low = value.lower()
+            if not value or low in ['dept.', 'department', 'department and program', 'school of', 'division of', 'program', 'college of', 'department/program']:
+                continue
+            if low in self.name_non_personal or low in self.name_stopwords:
+                continue
+
+            # limit returned department to up to 5 words
+            words = [w for w in re.split(r'\s+', value) if w]
+            if len(words) > 5:
+                words = words[:5]
+            return ' '.join(words).strip()
+
         return None
 
     def detect(self, text: str) -> Dict[str, Any]:

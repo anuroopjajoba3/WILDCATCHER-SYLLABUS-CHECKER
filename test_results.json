@@ -11,8 +11,8 @@
       "total": 40
     },
     "email": {
-      "accuracy": 0.825,
-      "correct": 33,
+      "accuracy": 0.85,
+      "correct": 34,
       "total": 40
     },
     "credit_hour": {
@@ -26,8 +26,8 @@
       "total": 40
     },
     "instructor_name": {
-      "accuracy": 0.7,
-      "correct": 28,
+      "accuracy": 0.75,
+      "correct": 30,
       "total": 40
     },
     "instructor_title": {
@@ -36,8 +36,8 @@
       "total": 40
     },
     "instructor_department": {
-      "accuracy": 0.675,
-      "correct": 27,
+      "accuracy": 0.8,
+      "correct": 32,
       "total": 40
     },
     "office_address": {
@@ -46,8 +46,8 @@
       "total": 40
     },
     "office_hours": {
-      "accuracy": 0.6,
-      "correct": 24,
+      "accuracy": 0.775,
+      "correct": 31,
       "total": 40
     },
     "office_phone": {
@@ -82,8 +82,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.8156,
-    "correct": 522,
+    "accuracy": 0.8391,
+    "correct": 537,
     "total": 640
   },
   "details": [
@@ -128,7 +128,7 @@
       },
       "instructor_department": {
         "gt": "Dept. of Applied Engineering & Sciences",
-        "pred": "of Applied Engineering & Sci-",
+        "pred": "of Applied Engineering & Sci",
         "match": true
       },
       "office_address": {
@@ -892,9 +892,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Program in Biological Sciences",
-        "pred": "of Life Sciences, Program in Biological Sciences",
-        "match": true
+        "gt": "",
+        "pred": "of Life Sciences, Program in",
+        "match": false
       },
       "office_address": {
         "gt": "Pandra, Room 244",
@@ -1233,7 +1233,7 @@
       },
       "instructor_department": {
         "gt": "Department of Security Studies - National Security Intelligence Analysis Program",
-        "pred": "of Security Studies - National Security Intelligence Analysis Program",
+        "pred": "of Security Studies - National",
         "match": true
       },
       "office_address": {
@@ -1377,7 +1377,7 @@
         "pred_text": ""
       },
       "email": {
-        "gt": "not specified",
+        "gt": "",
         "pred": "unhm.library@unh.edu",
         "match": false
       },
@@ -1403,8 +1403,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": "in a biopharmaceutical setting. This course draws upon field experts to",
-        "match": false
+        "pred": null,
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -1572,7 +1572,7 @@
         "match": false
       },
       "instructor_department": {
-        "gt": "Computing Technology, Division of Science and Technology",
+        "gt": "Division of Science and Technology",
         "pred": "Science and Technology, UNH Manchester",
         "match": false
       },
@@ -1743,8 +1743,8 @@
       },
       "instructor_department": {
         "gt": "Millyard Scholars Program, Dept. of Life Sciences",
-        "pred": "of Life Sciences,",
-        "match": false
+        "pred": "of Life Sciences",
+        "match": true
       },
       "office_address": {
         "gt": "Room 559",
@@ -1837,9 +1837,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Tuesday -- 4:00 – 5:00; Thursday -- 3:00 – 5:00; Friday -- 1:00 – 2:00",
+        "gt": "Tuesday -- 4:00 – 5:00;",
         "pred": "Tuesday -- 4:00 - 5:00",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "641-4151",
@@ -1922,9 +1922,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Office hours to be determined",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "",
@@ -2007,9 +2007,9 @@
         "match": false
       },
       "office_hours": {
-        "gt": "T 5:15-6:15pm, W 4:45-5:45pm, & by appt.",
+        "gt": "T 5:15-6:15pm, W 4:45-5:45pm, & by appointment",
         "pred": "Pandora Building; T 5:15-6:15pm, W 4:45-5:45pm, & by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4130",
@@ -2167,9 +2167,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "MS CPRM, Department of Security Studies, College of Professional Studies",
+        "gt": "",
         "pred": null,
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2252,9 +2252,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "MS CPRM",
+        "gt": "",
         "pred": null,
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2337,9 +2337,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "MS CPRM",
+        "gt": "",
         "pred": null,
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2423,7 +2423,7 @@
       },
       "instructor_department": {
         "gt": "Dept. of Life Sciences, Program in Biological Sciences",
-        "pred": "of Life Sciences, Program in Biological Sciences",
+        "pred": "of Life Sciences, Program in",
         "match": true
       },
       "office_address": {
@@ -2508,7 +2508,7 @@
       },
       "instructor_department": {
         "gt": "Dept. of Life Sciences, Program in Biological Sciences",
-        "pred": "of Life Sciences, Program in Biological Sciences",
+        "pred": "of Life Sciences, Program in",
         "match": true
       },
       "office_address": {
@@ -2687,9 +2687,9 @@
         "match": false
       },
       "office_hours": {
-        "gt": "M/W 10-10:30 and by appt.",
+        "gt": "M/W 10-10:30 and by appointment ",
         "pred": "M/W 10-10:30 and by appointment Pandora 540",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "603-641-4328",
@@ -2752,9 +2752,9 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Instructor information available on course home page",
+        "gt": "",
         "pred": null,
-        "match": false
+        "match": true
       },
       "instructor_title": {
         "gt": "",
@@ -2762,9 +2762,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "MS CPRM, Department of Security Studies",
+        "gt": "",
         "pred": null,
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2857,9 +2857,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Wednesdays 12:00 – 2:00 (via email and/or Zoom); Other times available by appointment",
+        "gt": "(May 19 - June 20): Wednesdays 12:00 - 2:00 ",
         "pred": "(May 19 - June 20): Wednesdays 12:00 - 2:00 (via",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "(603)641-4151",
@@ -2907,9 +2907,9 @@
         "pred_text": ""
       },
       "email": {
-        "gt": "not specified",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "credit_hour": {
         "gt": "",
@@ -2922,9 +2922,9 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "not specified",
+        "gt": "",
         "pred": null,
-        "match": false
+        "match": true
       },
       "instructor_title": {
         "gt": "",
@@ -2942,9 +2942,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "not specified",
+        "gt": "",
         "pred": "",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "",
@@ -3112,9 +3112,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Wednesdays 12:00pm – 2:00pm (via email and/or Zoom) (June 24 – July 26)",
+        "gt": "(June 24 - July 26): Wednesdays 12:00pm - 2:00pm (via",
         "pred": "(June 24 - July 26): Wednesdays 12:00pm - 2:00pm (via",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "(603)641-4151",
@@ -3273,7 +3273,7 @@
       },
       "instructor_department": {
         "gt": "Department of History",
-        "pred": "of History for a list of topics and instructors. Course meets the History major requirements for Group I, II, or III, depending on the topic. May be repeated for a maximum of",
+        "pred": "of History for a list",
         "match": false
       },
       "office_address": {
