@@ -11,6 +11,18 @@ Typical usage example:
 
 from typing import Dict, Any
 import re
+import logging
+
+# Detection Configuration Constants
+MIN_NAME_PARTS = 2
+MAX_NAME_PARTS = 4
+MIN_NAME_CANDIDATE_LENGTH = 2
+MAX_NAME_CANDIDATE_LENGTH = 3
+MAX_DEPARTMENT_WORDS = 5
+LINES_TO_SCAN = 30
+PAGE_SIZE = 30
+CONTEXT_OFFSET_RANGE = 2
+NEXT_LINE_OFFSET = 2
 
 class InstructorDetector:
     """
@@ -28,6 +40,9 @@ class InstructorDetector:
         Initializes the InstructorDetector with keyword lists and stopword sets.
         Loads common last names for confidence scoring and fallback extraction.
         """
+        self.field_name = 'instructor'
+        self.logger = logging.getLogger('detector.instructor')
+
         self.name_keywords = [
             'Instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr'
         ]
@@ -55,7 +70,7 @@ class InstructorDetector:
             bool: True if valid, False otherwise.
         """
         parts = candidate.split()
-        if not 2 <= len(parts) <= 4:
+        if not MIN_NAME_PARTS <= len(parts) <= MAX_NAME_PARTS:
             return False
         for part in parts:
             # Allow middle initial with period (e.g., W.)
@@ -94,12 +109,12 @@ class InstructorDetector:
                     after = re.split(rf'{keyword}[:\-]*', line, flags=re.IGNORECASE)
                     candidate = after[1].strip() if len(after) > 1 else ''
                     if not candidate:
-                        if i+2 < len(lines):
-                            candidate = lines[i+2].strip()
-                    for pat in patterns:
-                        match = re.search(pat, candidate)
-                        if match:
-                            possible_name = match.group(1)
+                        if i + NEXT_LINE_OFFSET < len(lines):
+                            candidate = lines[i + NEXT_LINE_OFFSET].strip()
+                    for pattern in patterns:
+                        pattern_match = re.search(pattern, candidate)
+                        if pattern_match:
+                            possible_name = pattern_match.group(1)
                             if self.is_valid_name(possible_name):
                                 name = possible_name
                                 break
@@ -107,14 +122,14 @@ class InstructorDetector:
                         break
                     words = candidate.split()
                     name_candidate = []
-                    for w in words:
-                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', w) or re.match(r'^[A-Z]\.$', w):
-                            name_candidate.append(w)
-                            if len(name_candidate) == 3:
+                    for word in words:
+                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', word) or re.match(r'^[A-Z]\.$', word):
+                            name_candidate.append(word)
+                            if len(name_candidate) == MAX_NAME_CANDIDATE_LENGTH:
                                 break
                         else:
                             break
-                    if 2 <= len(name_candidate) <= 3:
+                    if MIN_NAME_CANDIDATE_LENGTH <= len(name_candidate) <= MAX_NAME_CANDIDATE_LENGTH:
                         possible_name = ' '.join(name_candidate)
                         if self.is_valid_name(possible_name):
                             name = possible_name
@@ -128,10 +143,10 @@ class InstructorDetector:
                 if keyword.lower() in first_line.lower():
                     after = re.split(rf'{keyword}[:\-]*', first_line, flags=re.IGNORECASE)
                     candidate = after[1].strip() if len(after) > 1 else ''
-                    for pat in patterns:
-                        match = re.search(pat, candidate)
-                        if match:
-                            possible_name = match.group(1)
+                    for pattern in patterns:
+                        pattern_match = re.search(pattern, candidate)
+                        if pattern_match:
+                            possible_name = pattern_match.group(1)
                             if self.is_valid_name(possible_name):
                                 name = possible_name
                                 break
@@ -139,14 +154,14 @@ class InstructorDetector:
                         break
                     words = candidate.split()
                     name_candidate = []
-                    for w in words:
-                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', w) or re.match(r'^[A-Z]\.$', w):
-                            name_candidate.append(w)
-                            if len(name_candidate) == 3:
+                    for word in words:
+                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', word) or re.match(r'^[A-Z]\.$', word):
+                            name_candidate.append(word)
+                            if len(name_candidate) == MAX_NAME_CANDIDATE_LENGTH:
                                 break
                         else:
                             break
-                    if 2 <= len(name_candidate) <= 3:
+                    if MIN_NAME_CANDIDATE_LENGTH <= len(name_candidate) <= MAX_NAME_CANDIDATE_LENGTH:
                         possible_name = ' '.join(name_candidate)
                         if self.is_valid_name(possible_name):
                             name = possible_name
@@ -154,9 +169,9 @@ class InstructorDetector:
 
         # 2. Only if NO instructor/name keyword was found at all, fall back to pattern search
         if not name and not found_keyword:
-            for pat in patterns:
+            for pattern in patterns:
                 for line in lines_for_name:
-                    for possible_name in re.findall(pat, line.strip()):
+                    for possible_name in re.findall(pattern, line.strip()):
                         if self.is_valid_name(possible_name):
                             name = possible_name
                             break
@@ -165,15 +180,15 @@ class InstructorDetector:
                 if name:
                     break
         if not name:
-            indices = [i for i, l in enumerate(lines_for_name) if re.search(r'@|office|room|building', l, re.IGNORECASE)]
+            indices = [i for i, line in enumerate(lines_for_name) if re.search(r'@|office|room|building', line, re.IGNORECASE)]
             checked = set()
             for idx in indices:
-                for offset in range(-2, 3):
+                for offset in range(-CONTEXT_OFFSET_RANGE, CONTEXT_OFFSET_RANGE + 1):
                     j = idx + offset
                     if 0 <= j < len(lines_for_name) and j not in checked:
                         checked.add(j)
-                        for pat in patterns:
-                            for possible_name in re.findall(pat, lines_for_name[j].strip()):
+                        for pattern in patterns:
+                            for possible_name in re.findall(pattern, lines_for_name[j].strip()):
                                 if self.is_valid_name(possible_name):
                                     name = possible_name
                                     break
@@ -200,18 +215,18 @@ class InstructorDetector:
         # First, look for any title except 'Dr'/'Dr.' and 'Phd'/'Ph.D'
         found_title = None
         for line in lines:
-            for kw in self.title_keywords:
-                if kw not in ['Dr', 'Dr.']:
-                    if kw.lower() in line.lower():
-                        return kw.title() if kw.islower() else kw
-                elif kw.lower() in ['phd', 'ph.d']:
-                    if kw.lower() in line.lower():
-                        found_title = kw.title() if kw.islower() else kw
+            for keyword in self.title_keywords:
+                if keyword not in ['Dr', 'Dr.']:
+                    if keyword.lower() in line.lower():
+                        return keyword.title() if keyword.islower() else keyword
+                elif keyword.lower() in ['phd', 'ph.d']:
+                    if keyword.lower() in line.lower():
+                        found_title = keyword.title() if keyword.islower() else keyword
         # If no other title found, use 'Dr'/'Dr.' if present
         for line in lines:
-            for kw in ['Dr', 'Dr.']:
-                if kw in line:
-                    return kw
+            for keyword in ['Dr', 'Dr.']:
+                if keyword in line:
+                    return keyword
 
     def extract_department(self, lines):
         """
@@ -231,8 +246,8 @@ class InstructorDetector:
 
         for line in lines:
             # try case-sensitive Department/Dept. first
-            m = dept_pattern_cs.search(line)
-            if m:
+            dept_match = dept_pattern_cs.search(line)
+            if dept_match:
                     # Only treat 'program' as a separate label when it's actually used as a label
                     # (e.g., 'Program: X' or 'Department and Program: X'). If 'program' appears
                     # as a trailing word in the department name (e.g., 'Bio/Biotech program'),
@@ -244,11 +259,11 @@ class InstructorDetector:
                     elif prog_label:
                         value = line[prog_label.end():].strip()
                     else:
-                        value = m.group(2).strip()
+                        value = dept_match.group(2).strip()
             else:
-                m2 = other_pattern.search(line)
-                if m2:
-                    value = m2.group(2).strip()
+                other_match = other_pattern.search(line)
+                if other_match:
+                    value = other_match.group(2).strip()
                 else:
                     continue
 
@@ -266,10 +281,10 @@ class InstructorDetector:
             if low in self.name_non_personal or low in self.name_stopwords:
                 continue
 
-            # limit returned department to up to 5 words
-            words = [w for w in re.split(r'\s+', value) if w]
-            if len(words) > 5:
-                words = words[:5]
+            # limit returned department to up to MAX_DEPARTMENT_WORDS words
+            words = [word for word in re.split(r'\s+', value) if word]
+            if len(words) > MAX_DEPARTMENT_WORDS:
+                words = words[:MAX_DEPARTMENT_WORDS]
             return ' '.join(words).strip()
 
         return None
@@ -284,25 +299,26 @@ class InstructorDetector:
         Returns:
             Dict[str, Any]: Dictionary with keys 'found', 'name', 'title', 'department'.
         """
-        lines = text.split('\n')[:30]
+        self.logger.info(f"Starting detection for field: {self.field_name}")
+
+        lines = text.split('\n')[:LINES_TO_SCAN]
         name = self.extract_name(lines)
         title = self.extract_title(lines)
         department = self.extract_department(lines)
 
         # Fallback: if no name was found by the normal logic, scan every
-        # 30-line "page" for a simple "Dr. Lastname" pattern and return
+        # PAGE_SIZE-line "page" for a simple "Dr. Lastname" pattern and return
         # the first match. This bypasses the stricter is_valid_name checks
         # because syllabus text often uses the short form 'Dr. Smith'.
         if not name:
             all_lines = text.split('\n')
-            page_size = 30
             dr_pattern = re.compile(r"\bDr\.?\s+([A-Z][a-zA-Z\-]+)\b")
-            for i in range(0, len(all_lines), page_size):
-                page = all_lines[i:i+page_size]
-                for pline in page:
-                    m = dr_pattern.search(pline)
-                    if m:
-                        lastname = m.group(1)
+            for i in range(0, len(all_lines), PAGE_SIZE):
+                page = all_lines[i:i+PAGE_SIZE]
+                for page_line in page:
+                    dr_match = dr_pattern.search(page_line)
+                    if dr_match:
+                        lastname = dr_match.group(1)
                         # Standardize to 'Dr. Lastname'
                         name = f"Dr. {lastname}"
                         break
@@ -310,4 +326,10 @@ class InstructorDetector:
                     break
 
         found = bool(name and title and department and name != 'N/A' and title != 'N/A' and department != 'N/A')
+
+        if found:
+            self.logger.info(f"FOUND: {self.field_name} - Name: {name}, Title: {title}, Dept: {department}")
+        else:
+            self.logger.info(f"NOT_FOUND: {self.field_name} - Name: {name}, Title: {title}, Dept: {department}")
+
         return {'found': found, 'name': name, 'title': title, 'department': department}
