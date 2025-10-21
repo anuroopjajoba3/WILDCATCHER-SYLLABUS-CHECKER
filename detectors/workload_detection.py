@@ -17,7 +17,10 @@ Detects workload expectations and time commitments for courses.
 
 import re
 import logging
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Tuple
+
+# Detection Configuration Constants
+MAX_DOCUMENT_LENGTH = 30000
 
 
 class WorkloadDetector:
@@ -106,8 +109,8 @@ class WorkloadDetector:
         self.logger.info("Starting Workload detection")
 
         # Limit text size
-        if len(text) > 30000:
-            text = text[:30000]
+        if len(text) > MAX_DOCUMENT_LENGTH:
+            text = text[:MAX_DOCUMENT_LENGTH]
 
         try:
             # Look for workload mentions
@@ -138,7 +141,7 @@ class WorkloadDetector:
                 'content': None
             }
 
-    def _find_workload(self, text: str) -> tuple[bool, Optional[str]]:
+    def _find_workload(self, text: str) -> Tuple[bool, Optional[str]]:
         """
         Find workload declarations in text.
 
@@ -146,7 +149,7 @@ class WorkloadDetector:
             text (str): Text to search
 
         Returns:
-            tuple: (found, workload_text)
+            Tuple[bool, Optional[str]]: (found, workload_text)
         """
         # Clean up text: normalize whitespace and remove special characters
         # Replace newlines with spaces
@@ -169,7 +172,7 @@ class WorkloadDetector:
         # If we found candidates, return the earliest one
         if candidates:
             candidates.sort(key=lambda x: x[0])  # Sort by position
-            _, best_match = candidates[0]
+            position, best_match = candidates[0]
             self.logger.info(f"Found workload declaration: {best_match}")
             return True, best_match
 
