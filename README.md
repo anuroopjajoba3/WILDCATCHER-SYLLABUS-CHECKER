@@ -44,7 +44,27 @@ The detectors use lightweight pattern matching to find specific sections and key
 ## Testing & Accuracy
 We maintain a ground truth dataset of 40 verified syllabi to test detector accuracy. The automated testing system (`test_runner.py`) compares detector predictions against known-correct values and tracks per-field accuracy.
 
-Current overall accuracy: **~81%**
+### Current Test Results
+
+| Field                          | Accuracy | Correct/Total |
+|--------------------------------|----------|---------------|
+| modality                       | 77.5%    | 31/40         |
+| SLOs                          | 100.0%   | 40/40         |
+| email                          | 85.0%    | 34/40         |
+| credit_hour                    | 85.0%    | 34/40         |
+| workload                       | 97.5%    | 39/40         |
+| instructor_name                | 80.0%    | 32/40         |
+| instructor_title               | 80.0%    | 32/40         |
+| instructor_department          | 87.5%    | 35/40         |
+| office_address                 | 90.0%    | 36/40         |
+| office_hours                   | 77.5%    | 31/40         |
+| office_phone                   | 85.0%    | 34/40         |
+| assignment_types_title         | 90.0%    | 36/40         |
+| grading_procedures_title       | 82.5%    | 33/40         |
+| deadline_expectations_title    | 72.5%    | 29/40         |
+| assignment_delivery            | 90.0%    | 36/40         |
+| final_grade_scale              | 80.0%    | 32/40         |
+| **OVERALL**                    | **85.0%** | **544/640**   |
 
 Run tests yourself:
 ```bash
