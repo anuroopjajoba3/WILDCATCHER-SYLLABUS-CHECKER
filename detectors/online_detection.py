@@ -3,7 +3,7 @@
 from __future__ import annotations
 import re
 import unicodedata
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Optional
 
 __all__ = [
     "detect_course_delivery",
@@ -11,6 +11,29 @@ __all__ = [
     "format_modality_card",
     "quick_course_metadata",
 ]
+
+# Detection Configuration Constants
+MAX_LINES_LOCATION_SEARCH = 300
+MAX_LINES_OFFICE_SEARCH = 400
+HEADER_SEARCH_LIMIT_800 = 800
+HEADER_SEARCH_LIMIT_1000 = 1000
+HEADER_SEARCH_LIMIT_500 = 500
+HEADER_SEARCH_LIMIT_600 = 600
+HEADER_SEARCH_LIMIT_1500 = 1500
+HEADER_SEARCH_LIMIT_400 = 400
+CONTEXT_WINDOW_BEFORE = 1
+CONTEXT_WINDOW_AFTER = 6
+CONTEXT_OFFSET_50 = 50
+CONTEXT_OFFSET_60 = 60
+CONTEXT_OFFSET_150 = 150
+CONTEXT_OFFSET_220 = 220
+MIN_CONFIDENCE_THRESHOLD = 0.60
+HYBRID_SCORE_MULTIPLIER = 0.55
+INPERSON_PENALTY = 4.0
+ONLINE_BOOST = 2.0
+MIN_SCORE_THRESHOLD_ONLINE = 1.3
+MIN_SCORE_THRESHOLD_INPERSON = 1.3
+MIN_SCORE_THRESHOLD_ONLINE_BOOST = 1.0
 
 # ----------------------------
 # Normalize & helpers
@@ -58,11 +81,11 @@ def _find_class_location_section(text: str) -> str:
         r"(?i)schedule",
     ]
 
-    for i, line in enumerate(lines[:300]):
+    for i, line in enumerate(lines[:MAX_LINES_LOCATION_SEARCH]):
         for pat in location_patterns:
             if re.search(pat, line):
-                start = max(0, i - 1)
-                end = min(i + 6, len(lines))
+                start = max(0, i - CONTEXT_WINDOW_BEFORE)
+                end = min(i + CONTEXT_WINDOW_AFTER, len(lines))
                 return "\n".join(lines[start:end]).lower()
     return ""
 
@@ -70,10 +93,10 @@ def _find_class_location_section(text: str) -> str:
 def _find_office_hours_section(text: str) -> str:
     """Extract office hours section for disambiguation."""
     lines = text.split("\n")
-    for i, line in enumerate(lines[:400]):
+    for i, line in enumerate(lines[:MAX_LINES_OFFICE_SEARCH]):
         if re.search(r"(?i)\boffice\s+hours?\b", line):
-            start = max(0, i - 1)
-            end = min(i + 6, len(lines))
+            start = max(0, i - CONTEXT_WINDOW_BEFORE)
+            end = min(i + CONTEXT_WINDOW_AFTER, len(lines))
             return "\n".join(lines[start:end]).lower()
     return ""
 
@@ -143,11 +166,11 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
             return {"modality": "Online", "confidence": 0.95, "evidence": [phrase]}
 
     # "Time/Location: ... Online" in header
-    if re.search(r"(?i)(?:time\s+and\s+)?location[:\s]+.*\bonline\b", t_lower[:800]):
+    if re.search(r"(?i)(?:time\s+and\s+)?location[:\s]+.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800]):
         return {"modality": "Online", "confidence": 0.93, "evidence": ["location states online"]}
 
     # Day/time followed by online in header
-    if re.search(r"(?i)(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*[,\s]+\d{1,2}:\d{2}.*\bonline\b", t_lower[:800]):
+    if re.search(r"(?i)(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*[,\s]+\d{1,2}:\d{2}.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800]):
         return {"modality": "Online", "confidence": 0.93, "evidence": ["class time shows online"]}
 
     hybrid_definitive = [
@@ -175,20 +198,20 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
             return {"modality": "In-Person", "confidence": 0.90, "evidence": ["class meets in physical room"]}
 
     # Explicit delivery method lines near top
-    header_1000 = t_lower[:1000]
+    header_1000 = t_lower[:HEADER_SEARCH_LIMIT_1000]
     if re.search(r"(?i)(?:delivery|modality|format|mode)\s*[:\-]?\s*(?:online|asynchronous|synchronous online)", header_1000):
         return {"modality": "Online", "confidence": 0.92, "evidence": ["delivery method states online"]}
 
     # Header "meets in Room/Lab/Pandora …" is strong in-person
-    header_500 = t_lower[:600]
-    m = re.search(rf"(?i)\b(meets?|meeting)\b.*\b({BUILDING_WORDS})\b.*\b[A-Za-z]?\d{{2,4}}\b", header_500)
-    if m:
-        office_in_header = "office" in header_500[max(0, m.start() - 50) : m.end() + 150]
+    header_600 = t_lower[:HEADER_SEARCH_LIMIT_600]
+    meeting_match = re.search(rf"(?i)\b(meets?|meeting)\b.*\b({BUILDING_WORDS})\b.*\b[A-Za-z]?\d{{2,4}}\b", header_600)
+    if meeting_match:
+        office_in_header = "office" in header_600[max(0, meeting_match.start() - CONTEXT_OFFSET_50) : meeting_match.end() + CONTEXT_OFFSET_150]
         if not office_in_header:
             return {"modality": "In-Person", "confidence": 0.92, "evidence": ["header shows physical meeting room"]}
 
     # NEW early in-person catches
-    if re.search(r"(?i)\bin[ -]?person\b", header_500) and "office" not in header_500:
+    if re.search(r"(?i)\bin[ -]?person\b", header_600) and "office" not in header_600:
         return {"modality": "In-Person", "confidence": 0.90, "evidence": ["header says in person"]}
 
     non_office = t_lower.replace(office_section, "") if office_section else t_lower
@@ -204,8 +227,8 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
 
     # === PHASE 3: Asynchronous (guard against office hours / tutoring) ===
     if "asynchronous" in t_lower:
-        i = t_lower.find("asynchronous")
-        snippet = t_lower[max(0, i - 220) : i + 220]
+        async_position = t_lower.find("asynchronous")
+        snippet = t_lower[max(0, async_position - CONTEXT_OFFSET_220) : async_position + CONTEXT_OFFSET_220]
         bad_context = [
             "tutoring",
             "writing lab",
@@ -250,10 +273,10 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
             score_online += w
             evidence.append("online_pattern_match")
 
-    first_1500 = t_lower[:1500]
-    zpos = first_1500.find("zoom")
-    if zpos != -1:
-        near = first_1500[max(0, zpos - 60) : zpos + 60]
+    first_1500 = t_lower[:HEADER_SEARCH_LIMIT_1500]
+    zoom_position = first_1500.find("zoom")
+    if zoom_position != -1:
+        near = first_1500[max(0, zoom_position - CONTEXT_OFFSET_60) : zoom_position + CONTEXT_OFFSET_60]
         if "office" not in near:
             score_online += 2.0
 
@@ -279,17 +302,17 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
             score_inperson += w
             evidence.append("inperson_pattern_match")
 
-    if score_online > 1.3 and score_inperson > 1.3:
-        score_hybrid = max(score_hybrid, (score_online + score_inperson) * 0.55)
+    if score_online > MIN_SCORE_THRESHOLD_ONLINE and score_inperson > MIN_SCORE_THRESHOLD_INPERSON:
+        score_hybrid = max(score_hybrid, (score_online + score_inperson) * HYBRID_SCORE_MULTIPLIER)
 
     if office_section and score_inperson > 0:
         room_in_class = bool(re.search(rf"(?i)\b{BUILDING_WORDS}\b.*\b[A-Za-z]?\d{{2,4}}\b", class_section))
         room_in_office = bool(re.search(rf"(?i)\b{BUILDING_WORDS}\b.*\b[A-Za-z]?\d{{2,4}}\b", office_section))
         if room_in_office and not room_in_class:
-            score_inperson = max(0.0, score_inperson - 4.0)
+            score_inperson = max(0.0, score_inperson - INPERSON_PENALTY)
             evidence.append("reduced_inperson_office_hours_only")
-            if score_online > 1.0:
-                score_online += 2.0
+            if score_online > MIN_SCORE_THRESHOLD_ONLINE_BOOST:
+                score_online += ONLINE_BOOST
                 evidence.append("boosted_online_no_class_location")
 
     scores = {"Online": score_online, "Hybrid": score_hybrid, "In-Person": score_inperson}
@@ -299,8 +322,8 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
 
     modality = max(scores, key=scores.get)
     total = sum(scores.values())
-    confidence = round(max_score / total, 2) if total > 0 else 0.6
-    confidence = max(confidence, 0.60)
+    confidence = round(max_score / total, 2) if total > 0 else MIN_CONFIDENCE_THRESHOLD
+    confidence = max(confidence, MIN_CONFIDENCE_THRESHOLD)
 
     return {
         "modality": modality,
@@ -320,27 +343,27 @@ def quick_course_metadata(text: str) -> Dict[str, str]:
     t_lower = t.lower()
 
     # Email
-    m_email = re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", t)
-    email = m_email.group(0) if m_email else ""
+    email_match = re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", t)
+    email = email_match.group(0) if email_match else ""
 
     # Instructor: take the line after an Instructor/Professor label; else first "By <Name>"; else empty
-    m_instr = re.search(r"(?im)^(?:instructor|professor|lecturer)[:\s-]+(.{3,80})$", t)
-    instructor = (m_instr.group(1).strip() if m_instr else "")
+    instructor_match = re.search(r"(?im)^(?:instructor|professor|lecturer)[:\s-]+(.{3,80})$", t)
+    instructor = (instructor_match.group(1).strip() if instructor_match else "")
     if not instructor:
-        m_by = re.search(r"(?im)^(?:by)[:\s-]+(.{3,80})$", t)
-        instructor = m_by.group(1).strip() if m_by else ""
+        by_match = re.search(r"(?im)^(?:by)[:\s-]+(.{3,80})$", t)
+        instructor = by_match.group(1).strip() if by_match else ""
 
     # Course line: try Course Title/Name/Code labels; else first code-like token in header
-    m_course = re.search(r"(?im)^(?:course|class)\s*(?:title|name|code)?[:\s-]+(.{3,80})$", t)
-    course = (m_course.group(1).strip() if m_course else "")
+    course_match = re.search(r"(?im)^(?:course|class)\s*(?:title|name|code)?[:\s-]+(.{3,80})$", t)
+    course = (course_match.group(1).strip() if course_match else "")
     if not course:
-        m_code = re.search(r"\b[A-Z]{2,}\s?\d{3,}[A-Z-]*\b", t[:400])
-        course = m_code.group(0) if m_code else ""
+        code_match = re.search(r"\b[A-Z]{2,}\s?\d{3,}[A-Z-]*\b", t[:HEADER_SEARCH_LIMIT_400])
+        course = code_match.group(0) if code_match else ""
 
     return {"course": course, "instructor": instructor, "email": email}
 
 
-def format_modality_card(result: Dict[str, object], meta: Dict[str, str] | None = None) -> Dict[str, object]:
+def format_modality_card(result: Dict[str, object], meta: Optional[Dict[str, str]] = None) -> Dict[str, object]:
     """Shape detect_course_delivery() output into a card for the API/UI layer.
     Keeps keys that the API expects.
     """
