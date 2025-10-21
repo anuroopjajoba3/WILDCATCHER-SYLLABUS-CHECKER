@@ -17,6 +17,16 @@ import argparse
 from collections import defaultdict
 from difflib import SequenceMatcher
 
+# Constants
+FUZZY_MATCH_THRESHOLD = 0.80
+SUPPORTED_FIELDS = (
+    "modality", "SLOs", "email", "credit_hour", "workload",
+    "instructor_name", "instructor_title", "instructor_department",
+    "office_address", "office_hours", "office_phone",
+    "assignment_types_title", "grading_procedures_title",
+    "deadline_expectations_title", "assignment_delivery", "final_grade_scale"
+)
+
 # Add repo root to path
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
 PARENT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -120,7 +130,7 @@ def norm(s):
         return ""
     return " ".join(str(s).strip().lower().split())
 
-def fuzzy_match(a, b, threshold=0.80):
+def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     a, b = norm(a), norm(b)
     if not a and not b:
         return True
@@ -205,11 +215,10 @@ def detect_all_fields(text: str) -> dict:
 
     # Instructor
     if INSTRUCTOR_AVAILABLE:
-        i = InstructorDetector().detect(text)
-        print(f"[INSTRUCTOR DETECTOR OUTPUT] {i}")
-        preds["instructor_name"] = i.get("name", "")
-        preds["instructor_title"] = i.get("title", "")
-        preds["instructor_department"] = i.get("department", "")
+        instructor_result = InstructorDetector().detect(text)
+        preds["instructor_name"] = instructor_result.get("name", "")
+        preds["instructor_title"] = instructor_result.get("title", "")
+        preds["instructor_department"] = instructor_result.get("department", "")
     else:
         preds["instructor_name"] = ""
         preds["instructor_title"] = ""
@@ -441,7 +450,7 @@ def main():
     # Calculate summary statistics
     summary = {}
     total_correct = total_tests = 0
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
+    for field in SUPPORTED_FIELDS:
         stats = field_stats[field]
         acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
         summary[field] = {
@@ -461,7 +470,7 @@ def main():
     print(f"{'Field':<30} {'Accuracy':<10} {'Correct/Total'}")
     print("-" * 70)
 
-    for field in ("modality", "SLOs", "email", "credit_hour", "workload", "instructor_name", "instructor_title", "instructor_department", "office_address", "office_hours", "office_phone", "assignment_types_title", "grading_procedures_title", "deadline_expectations_title", "assignment_delivery", "final_grade_scale"):
+    for field in SUPPORTED_FIELDS:
         stats = summary[field]
         print(f"{field:<30} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
 
