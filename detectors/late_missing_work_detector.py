@@ -1,5 +1,5 @@
 """
-late missing work (late) Detector
+Late Missing Work Detector
 =========================================
 
 This detector identifies late work policies in syllabus documents.
@@ -13,10 +13,35 @@ use this as a template for structure and patterns.
 
 import re
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, Tuple
+
+# Detection Configuration Constants
+MAX_DOCUMENT_LENGTH = 20000
+MAX_CONTENT_LINES = 10
+MAX_CONTENT_LENGTH = 500
+MAX_EXTRA_WORDS_HEADER = 2
+MAX_EXTRA_WORDS_START = 4
+MAX_EXTRA_WORDS_END = 3
+
+# Scoring thresholds for header detection
+SCORE_STARTS_WITH_TITLE = 10
+SCORE_SHORT_LINE = 5
+SCORE_LONG_LINE_PENALTY = -5
+SCORE_HAS_COLON = 3
+SCORE_ALL_CAPS = 2
+MIN_SCORE_THRESHOLD = 5
+SHORT_LINE_THRESHOLD = 50
+LONG_LINE_THRESHOLD = 100
+
+# Section headers that indicate end of late work content
+SECTION_HEADERS = [
+    'course description', 'course objectives', 'course goals',
+    'prerequisites', 'textbook', 'grading', 'schedule',
+    'extra credit', 'attendance'
+]
 
 
-class lateDetector:
+class LateDetector:
     """
     Detector for late work policies.
 
@@ -30,9 +55,7 @@ class lateDetector:
         self.field_name = 'late'
         self.logger = logging.getLogger('detector.late')
 
-        # need to get approved titles for late missing work also include colons and without colons
-        #may not need the colons if we are removing them in case 2
-        #line_for_comparison seems to take out the colon so may not need them here
+        # Approved titles for late missing work detection
         self.approved_titles = [
             "assessments",
             "assignment deadlines",
@@ -55,6 +78,33 @@ class lateDetector:
             "summary/critique paper (late policy)"
         ]
 
+    @staticmethod
+    def _normalize_text(text: str) -> str:
+        """
+        Normalize text for consistent matching.
+        Handles:
+        - Lowercasing
+        - Unicode punctuation (full-width colon, em-dash, etc.)
+        - Extra whitespace
+        """
+        if not text:
+            return ""
+
+        # Lowercase first
+        normalized = text.lower()
+
+        # Replace Unicode punctuation with ASCII equivalents
+        normalized = normalized.replace('：', ':')  # Full-width colon
+        normalized = normalized.replace('—', '-')  # Em-dash
+        normalized = normalized.replace('–', '-')  # En-dash
+        normalized = normalized.replace('\u2014', '-')  # Em-dash (unicode)
+        normalized = normalized.replace('\u2013', '-')  # En-dash (unicode)
+
+        # Normalize whitespace (multiple spaces -> single space)
+        normalized = ' '.join(normalized.split())
+
+        return normalized
+
     def detect(self, text: str) -> Dict[str, Any]:
         """
         Detect late work policies in the text.
@@ -70,9 +120,9 @@ class lateDetector:
 
         # Limit text size to prevent hanging on large documents
         original_length = len(text)
-        if len(text) > 20000:
-            text = text[:20000]
-            self.logger.info(f"Truncated large document from {original_length} to 20,000 characters")
+        if len(text) > MAX_DOCUMENT_LENGTH:
+            text = text[:MAX_DOCUMENT_LENGTH]
+            self.logger.info(f"Truncated large document from {original_length} to {MAX_DOCUMENT_LENGTH} characters")
 
         try:
             # Simple title-based detection
@@ -106,7 +156,7 @@ class lateDetector:
                 'content': None
             }
 
-    def _simple_title_detection(self, text: str) -> tuple[bool, str]:
+    def _simple_title_detection(self, text: str) -> Tuple[bool, str]:
         """
         Simple title-based late detection.
         Just looks for exact approved titles and extracts following content.
@@ -123,83 +173,78 @@ class lateDetector:
         potential_matches = []
 
         for i, line in enumerate(lines):
-            line_clean = line.strip().lower()
-            line_for_comparison = line_clean.replace(':', '').replace('.', '').strip()
-#            clean_line = line.lower().rstrip(':').strip()
-
-#            self.logger.info(f"line being compared {line_for_comparison} ")
+            line_normalized = self._normalize_text(line.strip())
+            line_without_punctuation = line_normalized.replace(':', '').replace('.', '').strip()
 
             # Check if any approved title appears properly (not just as part of a sentence)
             contains_approved_title = False
             for title in self.approved_titles:
-#                self.logger.info("line being compared")
-                if title in line_for_comparison:
+                normalized_title = self._normalize_text(title)
+                if normalized_title in line_without_punctuation:
                     # Additional check: line should be relatively short and not part of a long sentence
                     # or the title should be at the start/end of the line
-                    line_words = line_for_comparison.split()
-                    title_words = title.split()
+                    line_words = line_without_punctuation.split()
+                    title_words = normalized_title.split()
 
                     # Much stricter check: title must appear in header-like format
                     is_valid_header = False
 
                     # Case 1: Very short line (title + max 2 extra words) with proper formatting
-                    if len(line_words) <= len(title_words) + 2:
+                    if len(line_words) <= len(title_words) + MAX_EXTRA_WORDS_HEADER:
                         has_proper_formatting = (
                             ':' in line or                           # Has colon (section header)
                             line.strip().isupper() or              # All caps
                             (len(line_words) == len(title_words) and  # Exact title match
-                             not line_clean.endswith((',', ';', '.', '!', '?')))
+                             not line_normalized.endswith((',', ';', '.', '!', '?')))
                         )
                         if has_proper_formatting:
                             is_valid_header = True
 
                     # Case 2: Title at the very beginning of line (starts with title)
-                    elif line_for_comparison.startswith(title):
+                    elif line_without_punctuation.startswith(normalized_title):
                         # But only if it looks like a header (has colon or is short)
-                        if ':' in line or len(line_words) <= len(title_words) + 4:
+                        if ':' in line or len(line_words) <= len(title_words) + MAX_EXTRA_WORDS_START:
                             is_valid_header = True
 
                     # Case 3: Title at the very end of line (ends with title)
-                    elif line_for_comparison.endswith(title):
+                    elif line_without_punctuation.endswith(normalized_title):
                         # Only if it's a short line
-                        if len(line_words) <= len(title_words) + 3:
+                        if len(line_words) <= len(title_words) + MAX_EXTRA_WORDS_END:
                             is_valid_header = True
 
                     if is_valid_header:
-#                        self.logger.info("contains approved title {line_for_comparison}")
                         contains_approved_title = True
                         break
 
             if contains_approved_title:
                 # Score this match based on how likely it is to be a section header
                 score = 0
-#                self.logger.info("contains approved title {line_for_comparison}")
-#            self.logger.info(f"line being compared {line_for_comparison} ")
 
                 # Higher score for lines that start with approved titles
                 starts_with_approved = False
                 for title in self.approved_titles:
-                    if line_for_comparison.startswith(title):
+                    normalized_title = self._normalize_text(title)
+                    if line_without_punctuation.startswith(normalized_title):
                         starts_with_approved = True
                         break
                 if starts_with_approved:
-                    score += 10
+                    score += SCORE_STARTS_WITH_TITLE
 
                 # Higher score for shorter lines (more likely to be headers)
-                if len(line_for_comparison) < 50:
-                    score += 5
+                if len(line_without_punctuation) < SHORT_LINE_THRESHOLD:
+                    score += SCORE_SHORT_LINE
 
                 # Lower score for very long lines (likely mentions in text)
-                if len(line_for_comparison) > 100:
-                    score -= 5
+                if len(line_without_punctuation) > LONG_LINE_THRESHOLD:
+                    score += SCORE_LONG_LINE_PENALTY
 
                 # Higher score for lines with colons (section headers often have colons)
                 if ':' in line:
-                    score += 3
+                    score += SCORE_HAS_COLON
 
                 # Higher score for lines in ALL CAPS
                 if line.strip().isupper():
-                    score += 2
+                    score += SCORE_ALL_CAPS
 
                 potential_matches.append((score, i, line))
 
@@ -207,10 +252,9 @@ class lateDetector:
         if potential_matches:
             potential_matches.sort(key=lambda x: x[0], reverse=True)
             best_score, best_i, best_line = potential_matches[0]
-#            self.logger.info(f"potential match has been entered ")
 
             # Only accept matches with a reasonable score (likely section headers)
-            if best_score < 5:  # Minimum threshold to avoid false positives
+            if best_score < MIN_SCORE_THRESHOLD:
                 return False, ""
 
             # Extract content from the best match
@@ -218,7 +262,7 @@ class lateDetector:
             content_lines = [title]
             content_length = len(title)
 
-            for j in range(best_i + 1, min(best_i + 10, len(lines))):
+            for j in range(best_i + 1, min(best_i + MAX_CONTENT_LINES, len(lines))):
                 if j >= len(lines):
                     break
 
@@ -226,20 +270,15 @@ class lateDetector:
                 if not next_line:
                     continue
 
-
-
-# check this part to see if it makes sense for late missing work or if it needs to be adjusted
                 # Stop if we hit another section title
-                if any(section in next_line.lower() for section in
-                       ['course description', 'course objectives', 'course goals',
-                        'prerequisites', 'textbook', 'grading', 'schedule', 'extra credit', 'attendance']):
+                if any(section in next_line.lower() for section in SECTION_HEADERS):
                     break
 
                 content_lines.append(next_line)
                 content_length += len(next_line)
 
                 # Stop after reasonable amount of content
-                if content_length > 500:
+                if content_length > MAX_CONTENT_LENGTH:
                     break
 
             content = '\n'.join(content_lines)
