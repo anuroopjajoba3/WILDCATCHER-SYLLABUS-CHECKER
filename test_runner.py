@@ -52,7 +52,7 @@ except Exception:
     print("WARNING: SLO detector not available")
 
 try:
-    from detectors.email_detector import emailDetector
+    from detectors.email_detector import EmailDetector
     EMAIL_AVAILABLE = True
 except Exception:
     EMAIL_AVAILABLE = False
@@ -190,8 +190,9 @@ def detect_all_fields(text: str) -> dict:
 
     # Email
     if EMAIL_AVAILABLE:
-        e = emailDetector().detect(text)
-        content = e.get("content")
+        email_result = EmailDetector().detect(text)
+        content = email_result.get("content")
+        # Now returns string directly, but handle legacy list format for safety
         if isinstance(content, list) and content:
             preds["email"] = content[0]
         else:
