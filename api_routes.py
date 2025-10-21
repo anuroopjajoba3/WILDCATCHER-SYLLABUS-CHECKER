@@ -32,8 +32,8 @@ from detectors.online_detection import (
 
 # Optional detectors (now required in this repo) imported at module top
 from detectors.office_information_detection import OfficeInformationDetector
-from detectors.email_detector import emailDetector
-from detectors.late_missing_work_detector import lateDetector
+from detectors.email_detector import EmailDetector
+from detectors.late_missing_work_detector import LateDetector
 from detectors.credit_hours_detection import CreditHoursDetector
 from detectors.workload_detection import WorkloadDetector
 from detectors.assignment_delivery_detection import AssignmentDeliveryDetector
@@ -275,8 +275,8 @@ def _process_single_file(file, temp_dir: str) -> dict:
             }
 
         # --- Email detection ---
-        if emailDetector:
-            email_detector = emailDetector()
+        if EmailDetector:
+            email_detector = EmailDetector()
             email_info = email_detector.detect(extracted_text)
             result["email_information"] = {
                 "email": email_info.get("content"),
@@ -291,8 +291,8 @@ def _process_single_file(file, temp_dir: str) -> dict:
             }
 
         # --- Late detection ---
-        if lateDetector:
-            late_detector = lateDetector()
+        if LateDetector:
+            late_detector = LateDetector()
             late_info = late_detector.detect(extracted_text)
             result["late_information"] = {
                 "late": late_info.get("content"),
