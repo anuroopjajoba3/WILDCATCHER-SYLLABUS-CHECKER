@@ -7,6 +7,12 @@ import logging
 from typing import Dict, Any, List, Optional, Tuple
 from dataclasses import dataclass
 
+# Detection Configuration Constants
+DEFAULT_LOCATION_SEARCH_LIMIT = 5000
+DEFAULT_HOURS_SEARCH_LIMIT = 2000
+DEFAULT_PHONE_SEARCH_LIMIT = 2000
+OFFICE_CONTEXT_SEARCH_LIMIT = 2000
+
 
 @dataclass
 class DetectionResult:
@@ -64,9 +70,10 @@ class BaseDetector:
 
         return DetectionResult()  # No matches found
 
-    def _find_all_matches(self, text: str) -> List[str]:
+    def _find_all_matches(self, text: str) -> List[Any]:
         """
         Apply all regex patterns to find matches.
+        Returns list that may contain strings or tuples depending on regex capture groups.
         """
         all_matches = []
         for i, pattern in enumerate(self.patterns):
@@ -89,8 +96,8 @@ class LocationDetector(BaseDetector):
     """
 
     def __init__(self):
-        """Initialize location detector with 5000 char search limit."""
-        super().__init__('location', 5000)
+        """Initialize location detector with DEFAULT_LOCATION_SEARCH_LIMIT char search limit."""
+        super().__init__('location', DEFAULT_LOCATION_SEARCH_LIMIT)
 
         # Patterns that indicate a room is a classroom, not an office
         self.classroom_indicators = [
@@ -165,7 +172,7 @@ class LocationDetector(BaseDetector):
             if room and re.match(r'^\d+[A-Z]?$', room) and room not in seen:
                 # Check if this is actually an office (not a classroom)
                 if self._is_office_context(room, text):
-                    formatted = f"Pandora Room {room}"
+                    formatted = f"Room {room}"
                     unique_rooms.append(formatted)
                     seen.add(room)
 
@@ -193,8 +200,8 @@ class LocationDetector(BaseDetector):
         ]
 
         for pattern in office_patterns:
-            # Check first 2000 chars for performance
-            if re.search(pattern, text[:2000], re.IGNORECASE | re.DOTALL):
+            # Check first OFFICE_CONTEXT_SEARCH_LIMIT chars for performance
+            if re.search(pattern, text[:OFFICE_CONTEXT_SEARCH_LIMIT], re.IGNORECASE | re.DOTALL):
                 return True
 
         return True  # Default to office if context unclear
@@ -229,8 +236,8 @@ class HoursDetector(BaseDetector):
     ]
 
     def __init__(self):
-        """Initialize hours detector with 2000 char search limit."""
-        super().__init__('hours', 2000)
+        """Initialize hours detector with DEFAULT_HOURS_SEARCH_LIMIT char search limit."""
+        super().__init__('hours', DEFAULT_HOURS_SEARCH_LIMIT)
     
     def _init_patterns(self) -> List[re.Pattern]:
         """Initialize all hours detection patterns."""
@@ -449,7 +456,7 @@ class HoursDetector(BaseDetector):
         
         # Priority 1: Multi-line/multi-day patterns with semicolons (most complete)
         for hours in hours_list:
-            if ';' in hours and any(day in hours.lower() for day in ['tuesday', 'thursday', 'friday']):
+            if ';' in hours and any(day in hours.lower() for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']):
                 # This looks like a complete weekly schedule
                 return hours
         
@@ -489,9 +496,9 @@ class HoursDetector(BaseDetector):
 
 class PhoneDetector(BaseDetector):
     """Detector for phone number information."""
-    
+
     def __init__(self):
-        super().__init__('phone', 2000)
+        super().__init__('phone', DEFAULT_PHONE_SEARCH_LIMIT)
     
     def _init_patterns(self) -> List[re.Pattern]:
         """Initialize all phone detection patterns."""
