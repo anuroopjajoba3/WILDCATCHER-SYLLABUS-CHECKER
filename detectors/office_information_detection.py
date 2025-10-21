@@ -172,11 +172,35 @@ class LocationDetector(BaseDetector):
             if room and re.match(r'^\d+[A-Z]?$', room) and room not in seen:
                 # Check if this is actually an office (not a classroom)
                 if self._is_office_context(room, text):
-                    formatted = f"Room {room}"
+                    # Extract building name from text if present (not hardcoded)
+                    building_name = self._extract_building_name(room, text)
+                    if building_name:
+                        formatted = f"{building_name} Room {room}"
+                    else:
+                        formatted = f"Room {room}"
                     unique_rooms.append(formatted)
                     seen.add(room)
 
         return unique_rooms
+
+    def _extract_building_name(self, room: str, text: str) -> str:
+        """
+        Extract building name from text near the room number.
+        Returns building name if found, empty string otherwise.
+        """
+        # Search for "Pandora" (or "Pandra" typo) near this room number
+        # Look in first 5000 chars for performance
+        search_text = text[:DEFAULT_LOCATION_SEARCH_LIMIT]
+
+        # Pattern: Pandora/Pandra followed by optional "Building", then Room/Rm and the room number
+        building_pattern = rf'(Pand[o]?ra)\s*(?:Building)?\s*,?\s*(?:Rm\.?|Room|Lab)\s*{re.escape(room)}\b'
+        building_match = re.search(building_pattern, search_text, re.IGNORECASE)
+
+        if building_match:
+            # Return the building name (e.g., "Pandora")
+            return building_match.group(1).capitalize()
+
+        return ""
 
     def _is_office_context(self, room: str, text: str) -> bool:
         """
