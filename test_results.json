@@ -1,90 +1,90 @@
 {
   "summary": {
     "modality": {
-      "accuracy": 0.775,
+      "accuracy": 0.3298,
       "correct": 31,
-      "total": 40
+      "total": 94
     },
     "SLOs": {
-      "accuracy": 1.0,
-      "correct": 40,
-      "total": 40
+      "accuracy": 0.8404,
+      "correct": 79,
+      "total": 94
     },
     "email": {
-      "accuracy": 0.85,
-      "correct": 34,
-      "total": 40
+      "accuracy": 0.8191,
+      "correct": 77,
+      "total": 94
     },
     "credit_hour": {
-      "accuracy": 0.85,
-      "correct": 34,
-      "total": 40
+      "accuracy": 0.5638,
+      "correct": 53,
+      "total": 94
     },
     "workload": {
-      "accuracy": 0.975,
-      "correct": 39,
-      "total": 40
+      "accuracy": 0.8617,
+      "correct": 81,
+      "total": 94
     },
     "instructor_name": {
-      "accuracy": 0.8,
-      "correct": 32,
-      "total": 40
+      "accuracy": 0.6809,
+      "correct": 64,
+      "total": 94
     },
     "instructor_title": {
-      "accuracy": 0.8,
-      "correct": 32,
-      "total": 40
+      "accuracy": 0.7553,
+      "correct": 71,
+      "total": 94
     },
     "instructor_department": {
-      "accuracy": 0.875,
-      "correct": 35,
-      "total": 40
+      "accuracy": 0.6383,
+      "correct": 60,
+      "total": 94
     },
     "office_address": {
-      "accuracy": 0.9,
-      "correct": 36,
-      "total": 40
+      "accuracy": 0.6596,
+      "correct": 62,
+      "total": 94
     },
     "office_hours": {
-      "accuracy": 0.775,
-      "correct": 31,
-      "total": 40
+      "accuracy": 0.6064,
+      "correct": 57,
+      "total": 94
     },
     "office_phone": {
-      "accuracy": 0.85,
-      "correct": 34,
-      "total": 40
+      "accuracy": 0.7553,
+      "correct": 71,
+      "total": 94
     },
     "assignment_types_title": {
-      "accuracy": 0.9,
-      "correct": 36,
-      "total": 40
+      "accuracy": 0.6915,
+      "correct": 65,
+      "total": 94
     },
     "grading_procedures_title": {
-      "accuracy": 0.825,
-      "correct": 33,
-      "total": 40
+      "accuracy": 0.5957,
+      "correct": 56,
+      "total": 94
     },
     "deadline_expectations_title": {
-      "accuracy": 0.725,
-      "correct": 29,
-      "total": 40
+      "accuracy": 0.5638,
+      "correct": 53,
+      "total": 94
     },
     "assignment_delivery": {
-      "accuracy": 0.9,
-      "correct": 36,
-      "total": 40
+      "accuracy": 0.5,
+      "correct": 47,
+      "total": 94
     },
     "final_grade_scale": {
-      "accuracy": 0.8,
+      "accuracy": 0.3404,
       "correct": 32,
-      "total": 40
+      "total": 94
     }
   },
   "overall": {
-    "accuracy": 0.85,
-    "correct": 544,
-    "total": 640
+    "accuracy": 0.6376,
+    "correct": 959,
+    "total": 1504
   },
   "details": [
     {
@@ -133,7 +133,7 @@
       },
       "office_address": {
         "gt": "Room 105",
-        "pred": "Pandora Room 105",
+        "pred": "Room 105",
         "match": true
       },
       "office_hours": {
@@ -213,8 +213,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Pandra Rm. 529",
@@ -293,17 +293,17 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Room 443",
-        "pred": "Pandora Room 443",
+        "pred": "Pandra Room 443",
         "match": true
       },
       "office_hours": {
@@ -378,17 +378,17 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Room 628",
-        "pred": "Pandora Room 628",
+        "pred": "Room 628",
         "match": true
       },
       "office_hours": {
@@ -473,7 +473,7 @@
       },
       "office_address": {
         "gt": "Room 115",
-        "pred": "Pandora Room 115",
+        "pred": "Room 115",
         "match": true
       },
       "office_hours": {
@@ -548,17 +548,17 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Room 141",
-        "pred": "Pandora Room 141",
+        "pred": "Room 141",
         "match": true
       },
       "office_hours": {
@@ -638,8 +638,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -723,8 +723,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -808,7 +808,7 @@
       },
       "instructor_department": {
         "gt": "Engineering Technology (ET 674)",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "office_address": {
@@ -983,7 +983,7 @@
       },
       "office_address": {
         "gt": "Pandora Room 139",
-        "pred": "Pandora Room 139",
+        "pred": "Room 139",
         "match": true
       },
       "office_hours": {
@@ -1213,8 +1213,8 @@
       },
       "credit_hour": {
         "gt": "Credits: 3",
-        "pred": "Credits: 3",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "workload": {
         "gt": "expected to spend at least 16 hours per week on this class",
@@ -1243,8 +1243,8 @@
       },
       "office_hours": {
         "gt": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
-        "pred": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
-        "match": true
+        "pred": "(remote): Mondays, 4-5pm on Zoom: , and by appointment.",
+        "match": false
       },
       "office_phone": {
         "gt": "",
@@ -1323,7 +1323,7 @@
       },
       "office_address": {
         "gt": "Pandora, Room 569",
-        "pred": "Pandora Room 569",
+        "pred": "Room 569",
         "match": true
       },
       "office_hours": {
@@ -1398,13 +1398,13 @@
       },
       "instructor_title": {
         "gt": "RAC",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -1483,13 +1483,13 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Student Services Suite, 4th floor",
@@ -1568,7 +1568,7 @@
       },
       "instructor_title": {
         "gt": "Adjunct",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_department": {
@@ -1663,7 +1663,7 @@
       },
       "office_address": {
         "gt": "Room 580",
-        "pred": "Pandora Room 580",
+        "pred": "Room 580",
         "match": true
       },
       "office_hours": {
@@ -1748,7 +1748,7 @@
       },
       "office_address": {
         "gt": "Room 559",
-        "pred": "Pandora Room 559",
+        "pred": "Room 559",
         "match": true
       },
       "office_hours": {
@@ -1828,8 +1828,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Rm. 529",
@@ -1903,7 +1903,7 @@
       },
       "instructor_name": {
         "gt": "Professor Hopper",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_title": {
@@ -1913,7 +1913,7 @@
       },
       "instructor_department": {
         "gt": "Department of Applied Engineering & Sciences",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "office_address": {
@@ -1998,8 +1998,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Building, Room 481",
@@ -2078,13 +2078,13 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -2158,7 +2158,7 @@
       },
       "instructor_name": {
         "gt": "Dr. Randy Magiera",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_title": {
@@ -2168,8 +2168,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -2243,7 +2243,7 @@
       },
       "instructor_name": {
         "gt": "Ray Tramposch",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_title": {
@@ -2253,8 +2253,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -2328,7 +2328,7 @@
       },
       "instructor_name": {
         "gt": "Tnishia Dials",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_title": {
@@ -2338,8 +2338,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -2593,7 +2593,7 @@
       },
       "instructor_department": {
         "gt": "Department of Applied Engineering & Sciences",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "office_address": {
@@ -2683,7 +2683,7 @@
       },
       "office_address": {
         "gt": "P569",
-        "pred": "Pandora Room 569",
+        "pred": "Room 569",
         "match": false
       },
       "office_hours": {
@@ -2753,18 +2753,18 @@
       },
       "instructor_name": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -2848,8 +2848,8 @@
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Room 529",
@@ -2923,13 +2923,13 @@
       },
       "instructor_name": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "Department of Mathematics",
@@ -3013,13 +3013,13 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -3098,13 +3098,13 @@
       },
       "instructor_title": {
         "gt": "Ph.D.",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Rm. 529",
@@ -3163,8 +3163,8 @@
       },
       "email": {
         "gt": "keith.legro@unh.edu",
-        "pred": "keith.legro@unh.edu",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "credit_hour": {
         "gt": "",
@@ -3183,13 +3183,13 @@
       },
       "instructor_title": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "instructor_department": {
         "gt": "",
-        "pred": null,
-        "match": true
+        "pred": "not specified",
+        "match": false
       },
       "office_address": {
         "gt": "",
@@ -3248,8 +3248,8 @@
       },
       "email": {
         "gt": "sonic.woytonik@unh.edu",
-        "pred": "sonic.woytonik@unh.edu",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "credit_hour": {
         "gt": "4 credits",
@@ -3268,7 +3268,7 @@
       },
       "instructor_title": {
         "gt": "Prof.",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_department": {
@@ -3368,7 +3368,7 @@
       },
       "office_hours": {
         "gt": "Mondays, 4-5pm via Zoom",
-        "pred": "Mondays, 4-5pm via Zoom: https://unh.zoom.us/my/bridgetrosenolan",
+        "pred": "Mondays, 4-5pm via Zoom:",
         "match": true
       },
       "office_phone": {
@@ -3418,8 +3418,8 @@
       },
       "email": {
         "gt": "omero.navarroambriz@unh.edu",
-        "pred": "omero.navarroambriz@unh.edu",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "credit_hour": {
         "gt": "4 credits (180 hours minimum on site)",
@@ -3438,12 +3438,12 @@
       },
       "instructor_title": {
         "gt": "Professor",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "instructor_department": {
         "gt": "Homeland Security (HLS)",
-        "pred": null,
+        "pred": "not specified",
         "match": false
       },
       "office_address": {
@@ -3478,12 +3478,4602 @@
       },
       "assignment_delivery": {
         "gt": "Canvas",
-        "pred": "Canvas",
-        "match": true
+        "pred": "MyCourses; UNH MyCourses",
+        "match": false
       },
       "final_grade_scale": {
         "gt": "",
         "pred": "Days Late | Grade Deduction\n1 | 10%\n2 | 20%\n3 | 30%\n4 | 40%\n5 | 50%\n6 or more | Not accepted; will receive a grade of zero",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_898_&_899 - Finan_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 3",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Tim Finan",
+        "pred": "Tim Finan",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Lecturer",
+        "pred": "Lecturer",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 143",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4340",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Evaluation",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Evaluation",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "○ Outline (4%); First draft (8%); Almost final draft (8%)\n4\nreceive advising and feedback from your advisor.\n● Work progress (10%)\n● Presentation (10%)\n● Computing artifacts (20%)\n● Final Paper (30%)\nLEARNING RESOURCES",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_893 - Jin_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Student Learning Outcome\n• Analyze complex computing problems and identify solutions by applying principles of computing.\n• Design, implement, and evaluate computing solutions that meet IT computing requirements.\n• Communicate effectively in a variety of professional contexts.\n• Function effectively as a member or leader of a team engaged in IT activities.\n• Identify and analyze user needs in the process of developing and operating computing systems.\nModality"
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 1",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "grade consists of the following three components.\n10% Class Attendance: Attendance of all class meetings.\n70% Sprint Grade:\nThis is an individual grade calculated as: Teamwork Multiplier * Team Sprint Grade, for each sprint.\nproduct and team project management process.\n10% Homework: additional homework in project management and development tools.\n10% Project Report: a report to reflect on your team project experience and provide self-assessment.\nTextbooks: There is no required textbook. Course materials and resources will be posted in Canvas.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_891 - Jin_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 1",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "45 hours of course work per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Required Paperwork and Submissions.",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_880 - Greene_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Rich.Greene@usnh.edu",
+        "pred": "Rich.Greene@usnh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "R J Greene, PhD",
+        "pred": "Data Mining",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming. If you do not",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading\nMidterm 50%\nFinal 50%\nPrimary Text: Witten, Frank, Hall. Data Mining: Practical Machine\nTools: Weka (primary), Python/Scikit-learn (secondary)\nAssessment: Midterm 50%, Final 50%\nWeek 1 — Introduction to Data Mining & Machine Learning",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_790 - Jonas_Spring - Spring 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nThe purpose of this course is to provide students with a significant team project experience that\ninvolves a complex design and implementation task. This project will involve an on-campus\nclient, specifically the instructor, and require students to use a range of practices and techniques\nin solving a substantial problem. This includes setting up a batch queue of 10 machines,\ninstalling speech recognition software, organizing large quantities of data to generate a baseline\nsystem to be used for future work, recording that work in an experiment database and"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "20% Final Report\nA : Exceptional team member – went above and beyond what was required\nB : Average team member – met requirements consistently\nC : Below Average team member - tasks were consistently late, bad at communication\nD : Troublesome team member - lack of communication, missed many status reports\nF : Failed as team member - no significant contribution or team participation",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_785.885_Applied_Cryptography - Jonas_Spring - Spring 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nStudents should develop understanding of main goals of cryptography and illustrate this with a\nnumber of examples of how cryptographic services are integrated into modern systems. Students\nshould be able to describe goals and design principles for and common structures of secret key\nprimitives such as block and stream ciphers and be able to explain how basic public key\nprimitives can be defined based on the difficulty of mathematical problems such as the discrete\nlogarithm problem or factoring and analyze variants of these systems. Students should also"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming required. Prerequisite",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_780.880 - Jonas_Spring - Spring 2021.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nStudents should develop understanding of main goals of cryptography and illustrate this with a\nnumber of examples of how cryptographic services are integrated into modern systems. Students\nshould be able to describe goals and design principles for and common structures of secret key\nprimitives such as block and stream ciphers and be able to explain how basic public key\nprimitives can be defined based on the difficulty of mathematical problems such as the discrete\nlogarithm problem or factoring and analyze variants of these systems. Students should also"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming required. Prerequisite",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_780.851 - Finan_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 3",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Tim Finan",
+        "pred": "Tim Finan",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Lecturer",
+        "pred": "Lecturer",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 143",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4340",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final grades will be based on Quizzes, Homework, Project and Final Exam.\nParticipation/Attendance: 20%\nHomework/Projects : 40%\nQuizzes and Final Exam: 40%\nQuizzes will be announced but you should always keep up with the material from week to week.\nHomework assignments that are submitted late will only be able to achieve grades as follows:\nup to 1 weeks late: Deduct 5%\n1 - 3 weeks late: Deduct 10%\n3+ weeks late: Deduct 20%\nGrade Mode: UNH Letter Grading",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_780.840 - Jin_Fall - Fall 2018.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n• Homework: 20%\n- Bi-weekly (approximately)\n- Full Credit or No Credit (if incomplete or late)\n• In-class Quizzes: 10%\n- Beginning of every class\n- From past week’s content including assigned reading\n- One A4-size page of handwritten note allowed\n- Lowest quiz thrown out\n• Individual Project: 30%",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_780.835 - Finan_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 3",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Tim Finan",
+        "pred": "Tim Finan",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 143",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "● As needed, by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603-641-4340",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading\n• 20% Participation/Attendance\n• 30% Quizzes and Exams\n• 50% Homework/Assessments* and Labs\n* Homework may include a short written assessment given in the class following the date\nHomework assignments that are submitted late will only be able to achieve grades as follows:\n● up to 1 weeks late: Deduct 5%\n● 1 - 3 weeks late: Deduct 10%\n● 3+ weeks late: Deduct 20%\nSubmissions",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_755.855 - Jonas_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nStudents should develop understanding of main goals of digital forensics, which include\nidentifying and preserving digital evidence, conducting in-depth data analysis using forensic\ntools, documenting findings, and presenting them in a detailed comprehensive manner. It also\ninvolves understanding the principles of computer and network systems, data storage, and\ndeveloping critical thinking and communication skills to build a narrative of events from digital\nartifacts."
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "3 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 4 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_741.841 - Sabin_Fall - Fall 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mihaela Sabin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department",
+        "pred": "Applied Engineering and Sciences Department",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_740.840 - Jin_Fall - Fall 2020.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n• Homework: 25%\n− Weekly assigned (approximately)\npersonal) that may arise. Late work is anything submitted after the announced due date\nand time. You will lose 10% per day for work submitted late for up to 48 hours after the\ndue day. Submissions must be completed through MyCourses in order to receive credits.\n• Class Participation: 15%",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_725.825 - Jonas_Spring - Spring 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nUpon completion of this course, students should be able to:\n• Understand the different types of programming languages.\n• Determine what type of programming language best fits a problem.\n• How programming languages are designed and implemented."
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming Languages",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n10% Participation\nUndergrad: 10 points general participation\nGrad: Wiki textbook work 10 points\n48% Homework\nThere will be 4 assignments at 8, 8, 12 and 12+8 points respectively\n20% Projects\nLanguage Project: develop programming language, 6% grammar/14% implement\n22% Exam\nA final exam",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_720.820 - Finan_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 3",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Tim Finan",
+        "pred": "Tim Finan",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 143",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Monday 9:10 am - 12:00 pm P128",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Homework assignments that are submitted late will be besubject to the following deductions:\n• up to 1 weeks late: Deduct 5%\n• 1 - 3 weeks late: Deduct 10%\n• 3+ weeks late: Deduct 20%\nSTATEMENT ON ACADEMIC INTEGRITY",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_715.815 - Jonas_Fall - Fall 2024.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nStudents should develop skills and understanding in policies and technologies used in the field of\ninformation security. By not only using existing encryption technologies but also developing\nsimple forms of them, students will learn how they work and gain insight into the challenges of\nprotecting information from outside threat."
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming required. Prerequisite",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 5 problem sets worth 8 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_705.805 - Gitlitz_Fall - Fall 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "ken.gitlitz@unh.edu",
+        "pred": "ken.gitlitz@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Ken Gitlitz",
+        "pred": "Ken Gitlitz",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 145",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Midterm and Final\nProject 30%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_690 - Jin_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "45 hours of course work per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Required Paperwork and Submissions.",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_650 - Cochrane_Fall - Fall 2017.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Donald.Cochrane@unh.edu",
+        "pred": "Donald.Cochrane@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Don Cochrane",
+        "pred": "Lecture Topic Administration",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments (10; 5 pts each): 50%",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Handed in",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\nSemester Take Home Exam: 20%\nSemester Final Project: 20%\nClass Participation: 10%\nAssignments (10; 5 pts each): 50%\nGrade Policy\nAssignments must be submitted as email attachments where appropriate. Assignments are\ngraded as binary. Best effort will be awarded 100%. Otherwise 0% will be awarded. The\nsemester exam will be in take-home format. It may be emailed or handed in by the due",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_640 - Poirier_COMP - Spring 2016.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Suzanne.Poirier@unh.edu",
+        "pred": "Suzanne.Poirier@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Suzanne Poirier",
+        "pred": "Mihaela Sabin",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "Dr",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Mondays, 5:00PM - 5:30PM and by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603-566-7013",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions and make-up exam",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Blackboard",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading\nClass Participation 15%\nHomework and Quiz 20%\nMidterm 20%\nGroup Project 20%\nFinal Paper 25%\nClass Participation",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_630 - Gitlitz_Fall - Fall 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "ken.gitlitz@unh.edu",
+        "pred": "ken.gitlitz@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Ken Gitlitz",
+        "pred": "Ken Gitlitz",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 145",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted.\nFinal Exam 20%\nProject 35%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_625 - Jonas_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nStudents should develop skills in programming complex data structures and designing and\nimplementing application code using Object-Oriented programming practices with Java.\nReading Material:\nMaterial will be derived from lectures and from time to time there will be online resources"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming, including data structures",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n15% Participation\nThis includes attendance and participation\n15% Lab work\nLab assignments done during lab: 5 out of 6 at 3 points each\n25% Homework\nYou will have 5 homework assignments at 5 points each\n20% Programming Project\nDesign worth 5 points and implementation worth 15 points\n25% Exam\nPolicies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_574 - Jin_Fall - Fall 2021.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_570 - Pacha-Sucharzewski_Spring - Spring 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Mateusz.Pacha-Sucharzewski@unh.edu",
+        "pred": "Sucharzewski@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4.0",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mateusz (Matt) Pacha-Sucharzewski",
+        "pred": "not specified",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Right after class or by appointment via MyCourses Zoom",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Quizzes and Exams",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading Policy",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100%+ A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_530 - Jonas_Fall - Fall 2024.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nUpon completion of this course, students should be able to:\n• Thorough understanding of modern operating system, their structure, and their use\n• Install, configure and maintain a Linux distribution\n• Communicate timely and work in teams effectively\n• Argue for the use of open-source software tools and adoption of open source\ncollaboration practices\nReading Material:\nMaterial will be derived from lectures and from time to time there will be online resources"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "and data representation",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Class Assignments",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas; MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness\n20% Lab work2\nLab assignments done during lab: 10 out of 12 at 2 points each\n35% Homework3\nYou will have 7 homework assignments at 5 points each\n30% Exams4\nYou will have 2 exams worth 15 points each\nPolicies:",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_525 - Jin_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Associate Professor",
+        "pred": "Associate Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Monday 9:10am-noon in PANDRA 380",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nProgramming Homework (40%)\nThere are two types of homework:\ntopic unit.\nTests (40%)\nThere will be a test for each topic unit. The test format is closed-book in-person written test. No cheat\nsheets are allowed.\nWeekly Learning Journals (20%)",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_520.880 - Blumberg_COMP - Spring 2018.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "not specified",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "John Blumburg",
+        "pred": "not specified",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions and Make-Up Exams",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Blackboard",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading\n Homework assignments: 28 points\n Examinations: 44 points\n Team Project: 24 points\n Class Participation. 4 points.\nSchedule",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_500 - Pacha-Sucharzewski_Fall - Fall 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Mateusz.Pacha-Sucharzewski@unh.edu",
+        "pred": "Sucharzewski@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4.0",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mateusz (Matt) Pacha-Sucharzewski",
+        "pred": "Discrete Mathematics",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Mondays 5:40 PM - 8:30 PM",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Quizzes and Exams",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading Policy",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_490 - Pacha-Sucharzewski_Spring - Spring 2019.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "mp11@wildcats.unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4.0",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mateusz (Matt) Pacha-Sucharzewski",
+        "pred": "not specified",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Mondays 5:31 PM - 8:30 PM",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Quizzes and Exams",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading Policy",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_425 - Jonas_Spring - Spring 2017.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nUpon completion of this course, students should be able to:\n• Apply object-oriented programming concepts and techniques\n• Create and experiment with interactive applications\n• Write, review, document, share, and demonstrate programming applications\n• Communicate timely and work in teams effectively\n• Argue for the use of open source software tools and adoption of open source\ncollaboration practices"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "ming",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Tuesday, 4 - 5pm or by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading:\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_415 - Harvey_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "gsh1006@usnh.edu",
+        "pred": "gsh1006@usnh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "3 hours of engaged time per week per credit over a 15-week semester",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "George Harvey",
+        "pred": "George Harvey",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "Adjunct",
+        "pred": "not specified",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Computing Technology, Division of Science and Technology, UNH Manchester",
+        "pred": "Science and Technology, UNH Manchester",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas; MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final grade is calculated as follows (Subject to minor changes):\n- Lab and Lecture participation: 20 points (10 @ 2 points each)\n- Homework assignments: 20 points (2 @ 10 points each)\n- Quizzes: 20 points (2 @ 10 points each)\n- Team Project: 25 points\n- Final Exam: 15 points\nHomework Assignments\nThere will be two outside class homework assignments, each worth 10 points, for a total of 20 points.\nHomework assignments must be completed and submitted by the assigned due date for full credit.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Nickerson_Fall - Fall 2017.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "laura.nickerson@unh.edu",
+        "pred": "laura.nickerson@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Laura Nickerson",
+        "pred": "Laura Nickerson",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Wednesdays, 4-6 pm, UNH-M",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jonas_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives:\nStudents develop understanding of modern internet, the world wide web, and how a web browser\nbridges that divide. Students will develop skills in building web pages using HTML that can both\ndisplay information and gather input from users. Students will also learn to control and modify\nweb pages with JavaScript\nSoftware Tools:\nWe will use a text editor and a web browser which most modern operating systems provide or\nare easily downloadable free of charge..\nStudent Work and Class Pedagogies:"
+      },
+      "email": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "4 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "minimum of 3 hours engaged time per week per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "Michael Jonas",
+        "pred": "Michael Jonas",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "mer. A",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 141",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "by appointment",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework Assignments:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Includes showing up to class on time, submitting assignments on their due dates\n30% Labs\nLab work is done during classroom time\nPoint total is 10 out of 11 at 3 points each\n30% Assignments\nThere will be 2 assignments at 15 points, with each assignment divided into:\nA design document worth 4 points\nPresenting your work in class worth 1 point\nCore elements of your assignments worth 10 points\n30% Exams\nTwo exams worth 15 points each\nPolicies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Spring - Spring 2021.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Spring - Spring 2019.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Here is the link to make an appointment with me in my office: https://calendly.com/karenajin You can",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Spring - Spring 2018.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "are by appointment or during announced walk-in office hours. You are",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Spring - Spring 2017.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "are by appointment. You may book a face to face appointment, or an online",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Fall - Fall 2023.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas; MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Fall - Fall 2021.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 139",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "(603) 641-4398",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Fall - Fall 2020.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Here is the link to make an appointment with me in my virtual Zoom office: https://",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\n- Labs: (weekly assigned; 25% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Fall - Fall 2019.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Here is the link to make an appointment with me in my",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Fall - Fall 2018.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Office hours are by appointment or during announced walk-in office hours",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Jin_Fall - Fall 2016.pdf",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "are by appointment. You may book a face to face appointment, or an online",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Homework:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_801 - Sabin_Fall - Fall 2025.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 3",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mihaela Sabin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "Applied Engineering and Sciences",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 121",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603 641 4144",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assessments",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nIn-class participation (5%)\nActive Reading (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nTeam Project (25%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_780.860 - Sulpizio_Fall - Fall 2024.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Outcomes:\nUnderstand the principles of effective data visualization.\nCreate visually appealing and informative charts, graphs, and dashboards.\nUse data visualization tools and software to present data in an engaging way.\nApply storytelling techniques to communicate data insights effectively.\nCritically evaluate the effectiveness of different visualizations and provide constructive feedback.\nCourse Resources:\nOther Class Materials:\nYouTube, LinkedIn, and other search engines will be helpful in this course."
+      },
+      "email": {
+        "gt": "arsulpizio@unh.edu",
+        "pred": "unhm.library@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Tony Sulpizio",
+        "pred": "Tony Sulpizio",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "Dr",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date. No extensions to the DB beyond Day 7 @ 11:59pm local time will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nAll assignments are due Sunday by 11:59 pm.\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.  After 7 days the assignment will not be accepted and a zero will be recorded.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_760.860 - Sulpizio - Fall 2025.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Outcomes:\nBy the end of this course, students will be able to:\nSelect appropriate visualization techniques for different data and business contexts.\nApply design principles (preattentive attributes, Gestalt, data-ink ratio, color theory).\nPerform basic data mining tasks (classification, clustering, association, prediction).\nUse MS Excel, and MS Power BI for data preparation, visualization, and dashboards.\nExplore and explain data with visual storytelling.\nEvaluate visualizations and models for ethical and accurate insights."
+      },
+      "email": {
+        "gt": "arsulpizio@unh.edu",
+        "pred": "unhm.library@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Tony Sulpizio",
+        "pred": "Tony Sulpizio",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "Dr",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_730.830 - Sabin_Fall - Fall 2025.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "3 credits",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mihaela Sabin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department",
+        "pred": "Applied Engineering and Sciences Department",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 121",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603 641 4144",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "ASSESSMENT",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "ASSESSMENT",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final grade will be calculated based on the following weights:\nParticipation 5%\nLab reports 15%\nAssessments 30%\nIndividual project 15%\nTeam project 35%\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_560 - Kilcrease_Fall - Fall 2025.docx",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Outcomes:\n(1) To enhance your capacity to evaluate, ethically and legally, problematic IT\nscenarios and to develop rational responses to such scenarios.\n(2) To enhance your critical thinking and writing skills, especially regarding exercising ethical leadership in an IT environment.\n(3) To apply specific ethical theory to business and societal scenarios to solve ethical situations.\n(4) To learn how to manage IT operations in an organization with integrity.\nCanvas Application: students should access the modules portion of Canvas to find materials for the specific class sessions (which should be consumed “before” the class). Further, you will submit all written assignments via the upload icon for the applicable week’s module on Canvas (DO NOT send the assignment to the professor’s email). Assignments will be returned via your Canvas account once they are graded (within 42 hours)."
+      },
+      "email": {
+        "gt": "kelly.kilcrease@unh.edu",
+        "pred": "kelly.kilcrease@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits:\t3",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "45 hours of student academic work per credit",
+        "match": false
+      },
+      "instructor_name": {
+        "gt": "K.M. Kilcrease",
+        "pred": "Cybersecurity Ethics",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "Professor",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Science",
+        "pred": "Applied Engineering and Science",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 512",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Wednesdays, 10:30 am - 12:00 pm;alternatively, Zoom and",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603-400-0123",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Grades",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grades",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Percent of Grade\nCase Studies (3)\t\t\t\t24% (8% each)\nExams (3) \t\t\t\t30% (10% each)\nEthics Position Papers (3)\t\t21% (7% each)\nEthics Audit Group Project\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_550.880 - Cochrane_Fall - Fall 2023.docx",
+      "modality": {
+        "gt": "",
+        "pred": "Online",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "donald.cochrane@usnh.edu",
+        "pred": "unhm.library@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits:         4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Don Cochrane",
+        "pred": "Network Concepts",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "Applied Engineering and Sciences Department,",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603-781-6972",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "Grading and Evaluation of Student Work:",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "Grading and Evaluation of Student Work:",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late Submissions",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "COMP550.M1\nClass Participation: 10%\nMid-Term: 20%\nHome Work/Lab Assignments: 10 3% Each = 30%\nNote there are 11 HW assignments.\nFinal Exam: 20%",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_430 - Eglowstein_Fall - Fall 2025.docx",
+      "modality": {
+        "gt": "",
+        "pred": "Hybrid",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": true,
+        "match": false,
+        "gt_text": "",
+        "pred_text": "Learning Objectives\nComputers are embedded in everything these days. By the end of the class you should feel confident taking a powerful single board computer and connecting/programming it to perform specific tasks. Programs in this class are written in Python. If you haven't seen it before it's pretty easy to learn. If you have seen it, you will hopefully get better with it. Just about every computer system has some sort of way to input data and see results. You will become more comfortable attaching these kinds of devices."
+      },
+      "email": {
+        "gt": "Howard.Eglowstein@unh.edu",
+        "pred": "Howard.Eglowstein@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Howard Eglowstein",
+        "pred": "Systems Fundamentals",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Adjunct Faculty",
+        "pred": "not specified",
+        "match": false
+      },
+      "instructor_department": {
+        "gt": "Computing Technology, Division of Science and Technology, UNH Manchester",
+        "pred": "Computing Technology, Division of Science",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "Late submissions and make-up exams",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Lab Assignments\nThere will be 6 lab exercises done during the normal class period. One class period should be sufficient to complete each of these, however you may take them home to complete them by the next week if necessary. These labs total of 35 points of the final grade. Labs must be completed and submitted before the class when they are due (no later than midnight, 11:59 PM, the day before the class).\nMidterm",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_424 - Sabin_Fall - Fall 2025.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "Credits: 4",
+        "match": false
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Mihaela Sabin",
+        "pred": "Computer Science",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "Professor",
+        "pred": "Professor",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences",
+        "pred": "ming",
+        "match": false
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "Room 121",
+        "match": false
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "603 641 4144",
+        "match": false
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "ASSESSMENT",
+        "match": false
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "ASSESSMENT",
+        "match": false
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nParticipation (5%)\nActive Reading (5%)\nReflections (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nPersonal Project (20%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Murphy_Spring - Spring 2021.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "Andrea.Murphy@unh.edu",
+        "pred": "",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Andrea Murphy",
+        "pred": "Andrea Murphy",
+        "match": true
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "Open office hours on Monday’s and Friday’s.",
+        "match": false
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Grading Rubric\nLabs- (Assigned weekly: 25% of total grade)\nHomework- (Assigned weekly: 25% of total grade)",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Capuz_Spring - Spring 2023.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "cmc1197@usnh.edu | carlo.capuz@unh.edu",
+        "pred": "unhm.cae@unh.edu",
+        "match": false
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Carlo Capuz",
+        "pred": "Tech Consultancy Workroom",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "UNH Manchester",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas; MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams, and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
+        "match": false
+      }
+    },
+    {
+      "filename": "COMP_405 - Capuz_Fall - Fall 2022.docx",
+      "modality": {
+        "gt": "",
+        "pred": "In-Person",
+        "match": false
+      },
+      "slos": {
+        "gt_present": false,
+        "pred_present": false,
+        "match": true,
+        "gt_text": "",
+        "pred_text": ""
+      },
+      "email": {
+        "gt": "carlo.capuz@unh.edu",
+        "pred": "carlo.capuz@unh.edu",
+        "match": true
+      },
+      "credit_hour": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "workload": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "instructor_name": {
+        "gt": "Carlo Capuz",
+        "pred": "Applied Engineering",
+        "match": false
+      },
+      "instructor_title": {
+        "gt": "not specified",
+        "pred": "not specified",
+        "match": true
+      },
+      "instructor_department": {
+        "gt": "Applied Engineering and Sciences Department, UNH Manchester",
+        "pred": "UNH Manchester",
+        "match": true
+      },
+      "office_address": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_hours": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "office_phone": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_types_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_procedures_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "deadline_expectations_title": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "assignment_delivery": {
+        "gt": "",
+        "pred": "Canvas; MyCourses",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "",
+        "pred": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
         "match": false
       }
     }
