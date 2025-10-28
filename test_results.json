@@ -26,18 +26,18 @@
       "total": 94
     },
     "instructor_name": {
-      "accuracy": 0.6809,
-      "correct": 64,
+      "accuracy": 0.7021,
+      "correct": 66,
       "total": 94
     },
     "instructor_title": {
-      "accuracy": 0.7553,
-      "correct": 71,
+      "accuracy": 0.8723,
+      "correct": 82,
       "total": 94
     },
     "instructor_department": {
-      "accuracy": 0.6383,
-      "correct": 60,
+      "accuracy": 0.8404,
+      "correct": 79,
       "total": 94
     },
     "office_address": {
@@ -82,8 +82,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.6376,
-    "correct": 959,
+    "accuracy": 0.6589,
+    "correct": 991,
     "total": 1504
   },
   "details": [
@@ -127,7 +127,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Dept. of Applied Engineering & Sciences",
+        "gt": "of Applied Engineering & Sciences",
         "pred": "of Applied Engineering & Sci",
         "match": true
       },
@@ -212,9 +212,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandra Rm. 529",
@@ -292,14 +292,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandora Room 443",
@@ -377,14 +377,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Room 628",
@@ -467,7 +467,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Mathematics and Statistics (MATH418)",
+        "gt": "Mathematics and Statistics",
         "pred": "Mathematics and Statistics Email",
         "match": true
       },
@@ -547,14 +547,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Room 141",
@@ -632,14 +632,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Professor (PhD)",
+        "gt": "Professor",
         "pred": "Professor",
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -717,14 +717,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Professor (PhD)",
+        "gt": "Professor",
         "pred": "Professor",
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -807,7 +807,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Engineering Technology (ET 674)",
+        "gt": "Engineering Technology",
         "pred": "not specified",
         "match": false
       },
@@ -1062,7 +1062,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Department of Security Studies",
+        "gt": "of Security Studies",
         "pred": "of Security Studies",
         "match": true
       },
@@ -1147,7 +1147,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "College of Professional Studies",
+        "gt": "Professional Studies",
         "pred": "Professional Studies",
         "match": true
       },
@@ -1232,7 +1232,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Department of Security Studies - National Security Intelligence Analysis Program",
+        "gt": "of Security Studies - National Security Intelligence Analysis Program",
         "pred": "of Security Studies - National",
         "match": true
       },
@@ -1397,14 +1397,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "RAC",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -1482,14 +1482,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Student Services Suite, 4th floor",
@@ -1647,17 +1647,17 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Dr. Samantha Reynolds",
+        "gt": "Samantha Reynolds",
         "pred": "Samantha Reynolds",
         "match": true
       },
       "instructor_title": {
-        "gt": "Lecturer of Chemistry",
+        "gt": "Lecturer",
         "pred": "Lecturer",
         "match": true
       },
       "instructor_department": {
-        "gt": "Department of Life Sciences",
+        "gt": "of Life Sciences",
         "pred": "of Life Sciences",
         "match": true
       },
@@ -1737,12 +1737,12 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "Dr",
         "match": false
       },
       "instructor_department": {
-        "gt": "Millyard Scholars Program, Dept. of Life Sciences",
+        "gt": "of Life Sciences",
         "pred": "of Life Sciences",
         "match": true
       },
@@ -1822,14 +1822,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Ph.D., Associate Professor of Psychology",
+        "gt": "Associate Professor",
         "pred": "Associate Professor",
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandora Rm. 529",
@@ -1912,7 +1912,7 @@
         "match": false
       },
       "instructor_department": {
-        "gt": "Department of Applied Engineering & Sciences",
+        "gt": "of Applied Engineering & Sciences",
         "pred": "not specified",
         "match": false
       },
@@ -1987,19 +1987,19 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Professor Jeffrey Klenotic",
+        "gt": "Jeffrey Klenotic",
         "pred": "Jeffrey Klenotic",
         "match": true
       },
       "instructor_title": {
-        "gt": "Ph.D.",
+        "gt": "not specified",
         "pred": "Professor",
         "match": false
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandora Building, Room 481",
@@ -2077,14 +2077,14 @@
         "match": false
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2157,7 +2157,7 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Dr. Randy Magiera",
+        "gt": "Randy Magiera",
         "pred": "not specified",
         "match": false
       },
@@ -2167,9 +2167,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2252,9 +2252,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2337,9 +2337,9 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2422,7 +2422,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Dept. of Life Sciences, Program in Biological Sciences",
+        "gt": "of Life Sciences",
         "pred": "of Life Sciences, Program in",
         "match": true
       },
@@ -2507,7 +2507,7 @@
         "match": true
       },
       "instructor_department": {
-        "gt": "Dept. of Life Sciences, Program in Biological Sciences",
+        "gt": "of Life Sciences",
         "pred": "of Life Sciences, Program in",
         "match": true
       },
@@ -2587,12 +2587,12 @@
         "match": false
       },
       "instructor_title": {
-        "gt": "Professor (a.k.a Prof. Jag)",
+        "gt": "Professor",
         "pred": "Professor",
         "match": true
       },
       "instructor_department": {
-        "gt": "Department of Applied Engineering & Sciences",
+        "gt": "of Applied Engineering & Sciences",
         "pred": "not specified",
         "match": false
       },
@@ -2667,7 +2667,7 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "Dr. Sue Cooke",
+        "gt": "Sue Cooke",
         "pred": "Contact Information",
         "match": false
       },
@@ -2752,19 +2752,19 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -2842,14 +2842,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Ph.D., Associate Professor of Psychology",
+        "gt": "Associate Professor",
         "pred": "Associate Professor",
         "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandora Room 529",
@@ -2922,17 +2922,17 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "Department of Mathematics",
+        "gt": "of Mathematics",
         "pred": "of Mathematics",
         "match": true
       },
@@ -3012,14 +3012,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -3097,14 +3097,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Ph.D.",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "Pandora Rm. 529",
@@ -3182,14 +3182,14 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "instructor_department": {
-        "gt": "",
+        "gt": "not specified",
         "pred": "not specified",
-        "match": false
+        "match": true
       },
       "office_address": {
         "gt": "",
@@ -3352,7 +3352,7 @@
         "match": true
       },
       "instructor_title": {
-        "gt": "Ph.D., Assistant Professor of Security Studies",
+        "gt": "Assistant Professor",
         "pred": "Assistant Professor",
         "match": true
       },
@@ -3772,7 +3772,7 @@
         "match": true
       },
       "instructor_name": {
-        "gt": "R J Greene, PhD",
+        "gt": "R J Greene",
         "pred": "Data Mining",
         "match": false
       },
