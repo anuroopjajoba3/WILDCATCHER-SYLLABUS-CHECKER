@@ -1,13 +1,13 @@
 {
   "summary": {
     "modality": {
-      "accuracy": 0.2417,
-      "correct": 29,
+      "accuracy": 0.3167,
+      "correct": 38,
       "total": 120
     },
     "SLOs": {
-      "accuracy": 0.7833,
-      "correct": 94,
+      "accuracy": 0.7583,
+      "correct": 91,
       "total": 120
     },
     "email": {
@@ -41,18 +41,18 @@
       "total": 120
     },
     "office_address": {
-      "accuracy": 0.6333,
-      "correct": 76,
+      "accuracy": 0.2083,
+      "correct": 25,
       "total": 120
     },
     "office_hours": {
-      "accuracy": 0.5667,
-      "correct": 68,
+      "accuracy": 0.2417,
+      "correct": 29,
       "total": 120
     },
     "office_phone": {
-      "accuracy": 0.7083,
-      "correct": 85,
+      "accuracy": 0.3417,
+      "correct": 41,
       "total": 120
     },
     "assignment_types_title": {
@@ -82,8 +82,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.6031,
-    "correct": 1158,
+    "accuracy": 0.5365,
+    "correct": 1030,
     "total": 1920
   },
   "details": [
@@ -180,10 +180,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": false,
+        "gt_present": true,
         "pred_present": false,
-        "match": true,
-        "gt_text": "",
+        "match": false,
+        "gt_text": "missing",
         "pred_text": ""
       },
       "email": {
@@ -302,19 +302,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4173",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Methods of Testing / Evaluation:",
@@ -387,9 +387,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "By appointment Sunday - Thursday 7pm - 9pm (eastern time)",
@@ -472,9 +472,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "By appointment Monday - Thursday 5:30 - 8:30 PM, or Sundays 4 - 6 PM (EDT)",
@@ -557,9 +557,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "By appointment Monday -Tuesday from 7pm - 8pm EDT",
@@ -605,10 +605,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": false,
+        "gt_present": true,
         "pred_present": false,
-        "match": true,
-        "gt_text": "",
+        "match": false,
+        "gt_text": "missing",
         "pred_text": ""
       },
       "email": {
@@ -642,9 +642,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "TBD",
@@ -652,9 +652,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4173",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Course Activities",
@@ -690,10 +690,10 @@
         "match": true
       },
       "slos": {
-        "gt_present": false,
+        "gt_present": true,
         "pred_present": false,
-        "match": true,
-        "gt_text": "",
+        "match": false,
+        "gt_text": "missing",
         "pred_text": ""
       },
       "email": {
@@ -727,9 +727,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "TBD",
@@ -737,9 +737,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4173",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Course Activities",
@@ -1110,9 +1110,9 @@
     {
       "filename": "COMP_405 - Capuz_Fall - Fall 2022.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-person delivery - SCHEDULED MEETING TIME - CAMPUS VISITS",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -1152,19 +1152,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1195,9 +1195,9 @@
     {
       "filename": "COMP_405 - Capuz_Spring - Spring 2023.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-Person - SCHEDULED MEETING TIME",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -1237,19 +1237,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1280,7 +1280,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -1322,19 +1322,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "are by appointment. You may book a face to face appointment, or an online",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1365,7 +1365,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2018.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -1407,19 +1407,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Office hours are by appointment or during announced walk-in office hours",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1450,7 +1450,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2019.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -1492,19 +1492,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Here is the link to make an appointment with me in my",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1535,7 +1535,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2020.pdf",
       "modality": {
-        "gt": "",
+        "gt": "online",
         "pred": "In-Person",
         "match": false
       },
@@ -1577,19 +1577,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Here is the link to make an appointment with me in my virtual Zoom office: https://",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1620,7 +1620,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2021.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Hybrid Delivery - SCHEDULED MEETING TIME, ONLINE WITH SOME CAMPUS VISITS",
         "pred": "In-Person",
         "match": false
       },
@@ -1662,19 +1662,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P139",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -1705,7 +1705,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -1747,19 +1747,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P139",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -1790,7 +1790,7 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -1832,19 +1832,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "are by appointment. You may book a face to face appointment, or an online",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1875,7 +1875,7 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2018.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -1917,19 +1917,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "are by appointment or during announced walk-in office hours. You are",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -1960,7 +1960,7 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2019.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -2002,19 +2002,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Here is the link to make an appointment with me in my office: https://calendly.com/karenajin You can",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2045,9 +2045,9 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2021.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Online",
         "pred": "Online",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -2087,19 +2087,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P139",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -2130,7 +2130,7 @@
     {
       "filename": "COMP_405 - Jonas_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -2172,19 +2172,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2215,7 +2215,7 @@
     {
       "filename": "COMP_405 - Murphy_Spring - Spring 2021.docx",
       "modality": {
-        "gt": "",
+        "gt": "ONLINE",
         "pred": "In-Person",
         "match": false
       },
@@ -2257,19 +2257,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Open office hours on Monday’s and Friday’s.",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2300,7 +2300,7 @@
     {
       "filename": "COMP_405 - Nickerson_Fall - Fall 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -2342,19 +2342,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Wednesdays, 4-6 pm, UNH-M",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2385,7 +2385,7 @@
     {
       "filename": "COMP_415 - Blumberg Spring 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -2427,19 +2427,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603 296 7880",
         "pred": "603 296 7880",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -2470,7 +2470,7 @@
     {
       "filename": "COMP_415 - Blumberg Spring 2018.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -2512,19 +2512,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603 296 7880",
         "pred": "603 296 7880",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -2555,7 +2555,7 @@
     {
       "filename": "COMP_415 - Harvey_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -2597,19 +2597,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2640,7 +2640,7 @@
     {
       "filename": "COMP_415 - Jin Fall 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -2682,19 +2682,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P139",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2725,7 +2725,7 @@
     {
       "filename": "COMP_415 - Jin Fall 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -2767,19 +2767,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P139",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -2810,7 +2810,7 @@
     {
       "filename": "COMP_415 - Sabin Fall 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -2852,19 +2852,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P137",
         "pred": "Room 137",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Wednesday 4:00 - 5:00 PM, or by appointment.",
         "pred": "Wednesday 4:00 - 5:00 PM, or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603 641 4144",
         "pred": "603 6414144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -2895,7 +2895,7 @@
     {
       "filename": "COMP_415 - Sabin Spring 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -2937,19 +2937,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P137",
         "pred": "Room 137",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Wednesday 4:00 - 5:00 PM, or by appointment.",
         "pred": "Wednesday 4:00 ‐ 5:00 PM, or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4144",
         "pred": "603 6414144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -2980,7 +2980,7 @@
     {
       "filename": "COMP_415 - Shallow Spring 2018.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -3022,19 +3022,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "One hour before and after class, or by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3065,7 +3065,7 @@
     {
       "filename": "COMP_424 - Eglowstein Fall 2023 M2.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -3107,19 +3107,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 145",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3150,7 +3150,7 @@
     {
       "filename": "COMP_424 - Gitlitz Fall 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -3192,19 +3192,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "P145",
         "pred": "Room 145",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3235,7 +3235,7 @@
     {
       "filename": "COMP_424 - Murphy Spring 2021.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -3277,19 +3277,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3320,7 +3320,7 @@
     {
       "filename": "COMP_424 - Sabin & Gitlitz Fall 2024.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -3362,17 +3362,17 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "P145 and P121",
         "pred": "Room 145",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Section M2: After class; By appointment (make appointment using MyCourses Canvas Inbox tool)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4317 and (603) 641-4144",
         "pred": "603 641 4317",
         "match": false
       },
@@ -3405,9 +3405,9 @@
     {
       "filename": "COMP_424 - Sabin Fall 2022_M1_M2.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -3447,19 +3447,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "P121",
         "pred": "Room 121",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "By appointment",
         "pred": "By appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603 641 4144",
         "pred": "603 641 4144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -3490,9 +3490,9 @@
     {
       "filename": "COMP_424 - Sabin Spring 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -3532,19 +3532,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "P121",
         "pred": "Room 121",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "By appointment",
         "pred": "By appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4144",
         "pred": "603 641 4144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -3575,9 +3575,9 @@
     {
       "filename": "COMP_424 - Sabin_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -3617,19 +3617,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "P121",
         "pred": "Room 121",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Tuesday 1-3 pm (after-class help session)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4144",
         "pred": "603 641 4144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -3660,7 +3660,7 @@
     {
       "filename": "COMP_424 - Shallow Fall 2021.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -3702,19 +3702,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "By appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3745,7 +3745,7 @@
     {
       "filename": "COMP_425 - Jonas Fall 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -3787,19 +3787,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room P141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Tuesday, 8:30pm or by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3830,7 +3830,7 @@
     {
       "filename": "COMP_425 - Jonas_Spring - Spring 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -3872,19 +3872,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Tuesday, 4 - 5pm or by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -3915,7 +3915,7 @@
     {
       "filename": "COMP_430 - Eglowstein_Fall - Fall 2020.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -3957,19 +3957,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4000,7 +4000,7 @@
     {
       "filename": "COMP_430 - Eglowstein_Fall - Fall 2021.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -4042,19 +4042,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4085,7 +4085,7 @@
     {
       "filename": "COMP_430 - Eglowstein_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -4127,19 +4127,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4170,7 +4170,7 @@
     {
       "filename": "COMP_430 - Wallace_Fall - Fall 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -4212,19 +4212,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4255,7 +4255,7 @@
     {
       "filename": "COMP_490 - Pacha-Sucharzewski_Spring - Spring 2019.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -4297,19 +4297,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Mondays 5:31 PM - 8:30 PM",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4340,7 +4340,7 @@
     {
       "filename": "COMP_500 - Couture_Fall - Fall 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -4382,19 +4382,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "M 4:30 PM - 5:30 PM or by appointment",
         "pred": "M 4:30 PM - 5:30 PM or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 817-4356",
         "pred": "(603) 817-4356",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -4425,7 +4425,7 @@
     {
       "filename": "COMP_500 - Pacha-Sucharzewski_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -4467,19 +4467,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Mondays 5:40 PM - 8:30 PM",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4510,7 +4510,7 @@
     {
       "filename": "COMP_520.880 - Blumberg_COMP - Spring 2018.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -4552,19 +4552,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4595,7 +4595,7 @@
     {
       "filename": "COMP_520.880 - Blumberg_Fall - Fall 2018.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -4637,19 +4637,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4680,7 +4680,7 @@
     {
       "filename": "COMP_525 - Jin_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -4722,19 +4722,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "See schedule on Canvas; By appointment",
         "pred": "Monday 9:10am-noon in PANDRA 380",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -4765,7 +4765,7 @@
     {
       "filename": "COMP_525 - Shallow_Fall - Fall 2021.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -4807,19 +4807,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4850,7 +4850,7 @@
     {
       "filename": "COMP_530 - Eglowstein_Spring - Spring 2021.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -4892,19 +4892,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment, Thursdays, or a possible Wednesday afternoon",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -4935,7 +4935,7 @@
     {
       "filename": "COMP_530 - Jonas_Fall - Fall 2024.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -4977,19 +4977,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -5020,7 +5020,7 @@
     {
       "filename": "COMP_550.880 - Cochrane_Fall - Fall 2022.docx",
       "modality": {
-        "gt": "",
+        "gt": "Hybrid",
         "pred": "Online",
         "match": false
       },
@@ -5062,17 +5062,17 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "603-781-6972",
         "match": false
       },
@@ -5105,7 +5105,7 @@
     {
       "filename": "COMP_550.880 - Cochrane_Fall - Fall 2023.docx",
       "modality": {
-        "gt": "",
+        "gt": "Hybrid",
         "pred": "Online",
         "match": false
       },
@@ -5147,17 +5147,17 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "603-781-6972",
         "match": false
       },
@@ -5190,7 +5190,7 @@
     {
       "filename": "COMP_560 - Kilcrease_Fall - Fall 2023.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -5232,19 +5232,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Room 512",
         "pred": "Room 512",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Wednesdays 10:30 am - 12:00 pm; alternatively, Zoom and phone appointments can be created outside of office hours",
         "pred": "Wednesdays 10:30 am - 12:00 pm;alternatively, Zoom and",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 400-0123",
         "pred": "603-400-0123",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -5275,7 +5275,7 @@
     {
       "filename": "COMP_560 - Kilcrease_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -5317,19 +5317,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Room 512",
         "pred": "Room 512",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Wednesdays, 10:30 am - 12:00 pm; alternatively, Zoom and phone appointments can be created outside of office hours",
         "pred": "Wednesdays, 10:30 am - 12:00 pm;alternatively, Zoom and",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 400-0123",
         "pred": "603-400-0123",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -5360,7 +5360,7 @@
     {
       "filename": "COMP_570 - Pacha-Sucharzewski_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Hybrid",
         "match": false
       },
@@ -5402,19 +5402,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Right after class or by appointment via MyCourses Zoom",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -5445,7 +5445,7 @@
     {
       "filename": "COMP_574 - Jin_Fall - Fall 2021.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -5487,19 +5487,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P139",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "https://calendly.com/karenajin",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -5530,7 +5530,7 @@
     {
       "filename": "COMP_625 - Jonas_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -5572,19 +5572,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -5615,7 +5615,7 @@
     {
       "filename": "COMP_630 - Gitlitz_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -5657,19 +5657,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P145",
         "pred": "Room 145",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -5700,7 +5700,7 @@
     {
       "filename": "COMP_640 - Poirier_COMP - Spring 2016.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -5742,19 +5742,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Mondays, 5:00PM - 5:30PM and by appointment",
         "pred": "Mondays, 5:00PM - 5:30PM and by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603-566-7013",
         "pred": "603-566-7013",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -5785,7 +5785,7 @@
     {
       "filename": "COMP_650 - Cochrane_Fall - Fall 2017.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -5827,19 +5827,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603-781-6972",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -5870,7 +5870,7 @@
     {
       "filename": "COMP_690 - Jin_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -5912,19 +5912,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "See schedule on Canvas; By appointment",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -5955,7 +5955,7 @@
     {
       "filename": "COMP_690 - Kokolis_Fall - Fall 2022.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -5997,19 +5997,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6040,7 +6040,7 @@
     {
       "filename": "COMP_705.805 - Gitlitz_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -6082,19 +6082,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P145",
         "pred": "Room 145",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6125,7 +6125,7 @@
     {
       "filename": "COMP_715.815 - Jonas_Fall - Fall 2024.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -6167,19 +6167,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6210,7 +6210,7 @@
     {
       "filename": "COMP_720.820 - Finan_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -6252,19 +6252,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 143",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Monday 9:10 am - 12:00 pm P128",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6295,7 +6295,7 @@
     {
       "filename": "COMP_725.825 - Jonas_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -6337,19 +6337,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6380,7 +6380,7 @@
     {
       "filename": "COMP_730.830 - Ohkami_Spring - Spring 2023.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -6422,19 +6422,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 119",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "By appointment -",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6465,9 +6465,9 @@
     {
       "filename": "COMP_730.830 - Sabin_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -6507,19 +6507,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P121",
         "pred": "Room 121",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Monday, 4 - 6 pm (after-class help session)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4144",
         "pred": "603 641 4144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -6550,7 +6550,7 @@
     {
       "filename": "COMP_740.840 - Jin_Fall - Fall 2020.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Remote through Zoom",
         "pred": "In-Person",
         "match": false
       },
@@ -6592,19 +6592,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Rm 139, Pandora Mill building",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6635,7 +6635,7 @@
     {
       "filename": "COMP_741.841 - Sabin_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -6677,19 +6677,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6720,7 +6720,7 @@
     {
       "filename": "COMP_755.855 - Jonas_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -6762,19 +6762,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6805,7 +6805,7 @@
     {
       "filename": "COMP_760.860 - Sulpizio - Fall 2025.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -6847,19 +6847,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -6890,7 +6890,7 @@
     {
       "filename": "COMP_780.835 - Cochrane_Spring - Spring 2023.docx",
       "modality": {
-        "gt": "",
+        "gt": "Hybrid",
         "pred": "Online",
         "match": false
       },
@@ -6932,17 +6932,17 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Evenings, besides Wednesdays",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "603-781-6972",
         "match": false
       },
@@ -6975,7 +6975,7 @@
     {
       "filename": "COMP_780.835 - Finan_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7017,19 +7017,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 143",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "As needed, by appointment; Please call or email if you need to meet",
         "pred": "● As needed, by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603-641-4340",
         "pred": "603-641-4340",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -7060,7 +7060,7 @@
     {
       "filename": "COMP_780.840 - Jin_Fall - Fall 2018.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7102,19 +7102,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Rm 139, Pandora Mill building",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -7145,9 +7145,9 @@
     {
       "filename": "COMP_780.851 - Finan_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "in-person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -7187,19 +7187,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P143",
         "pred": "Room 143",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "603-641-4340",
         "pred": "(603) 641-4340",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -7230,7 +7230,7 @@
     {
       "filename": "COMP_780.860 - Sulpizio_Fall - Fall 2024.docx",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7272,19 +7272,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -7315,7 +7315,7 @@
     {
       "filename": "COMP_780.880 - Jonas_Spring - Spring 2021.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Online",
         "match": false
       },
@@ -7357,19 +7357,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -7400,7 +7400,7 @@
     {
       "filename": "COMP_785.885_Applied_Cryptography - Jonas_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7442,19 +7442,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -7485,7 +7485,7 @@
     {
       "filename": "COMP_790 - Jonas_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7527,19 +7527,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "room 141",
         "pred": "Room 141",
-        "match": false
+        "match": true
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "by appointment",
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -7570,9 +7570,9 @@
     {
       "filename": "COMP_801 - Sabin_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "",
+        "gt": "In-person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": false,
@@ -7612,19 +7612,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P121",
         "pred": "Room 121",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Thursday, 4 - 6 pm (after-class help session)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4144",
         "pred": "603 641 4144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -7655,7 +7655,7 @@
     {
       "filename": "COMP_880 - Greene_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7697,19 +7697,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "",
@@ -7740,7 +7740,7 @@
     {
       "filename": "COMP_891 - Jin_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "In-Person",
         "match": false
       },
@@ -7782,19 +7782,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "See schedule on Canvas; By appointment",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -7825,7 +7825,7 @@
     {
       "filename": "COMP_893 - Jin_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "In-person, scheduled weekly class meetings",
         "pred": "Hybrid",
         "match": false
       },
@@ -7867,19 +7867,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "Room 139",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "See schedule on Canvas; By appointment",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4398",
         "pred": "(603) 641-4398",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -7910,7 +7910,7 @@
     {
       "filename": "COMP_898&899 - Sabin_Fall - Fall 2024.docx",
       "modality": {
-        "gt": "",
+        "gt": "Hybrid",
         "pred": "In-Person",
         "match": false
       },
@@ -7952,19 +7952,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P121",
         "pred": "Room 121",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "By appointment, for one-on-one communication, in-person or via Zoom; Make an appointment using MyCourses Canvas Inbox tool",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4144",
         "pred": "603 641 4144",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -7995,7 +7995,7 @@
     {
       "filename": "COMP_898_&_899 - Finan_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "",
+        "gt": "Hybrid",
         "pred": "In-Person",
         "match": false
       },
@@ -8037,19 +8037,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "P143",
         "pred": "Room 143",
         "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "(603) 641-4340",
         "pred": "(603) 641-4340",
-        "match": false
+        "match": true
       },
       "assignment_types_title": {
         "gt": "",
@@ -8122,9 +8122,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "See Instructor office hours from a link on the Home page of course website; may request private Zoom session or telephone",
@@ -8207,9 +8207,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "Tuesdays, 11:00-1:00 PM",
@@ -8217,9 +8217,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Assignments",
@@ -8292,9 +8292,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "Tuesdays, 11:00-1:00 PM",
@@ -8302,9 +8302,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Major Projects",
@@ -8547,9 +8547,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "Meetings by Appointment - By Phone, in Person or via Private Teams Session",
@@ -8557,9 +8557,9 @@
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
@@ -8632,9 +8632,9 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "Mondays, 4-5pm via Zoom",
@@ -8642,9 +8642,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Assessment, Participation Assignments",
@@ -8717,9 +8717,9 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "available to meet by appointment, on Zoom",
@@ -8727,9 +8727,9 @@
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "ASSIGNMENTS",
@@ -8897,9 +8897,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Assignments:",
@@ -8972,9 +8972,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "By appointment",
@@ -9057,9 +9057,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "By appointment (remote or phone/Zoom)",
@@ -9142,9 +9142,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "(remote): Mondays, 4-5pm on Zoom: https://unh.zoom.us/my/bridgetrosenolanLinks to an external site., and by appointment.",
@@ -9152,9 +9152,9 @@
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Assessment",
@@ -9227,19 +9227,19 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Office hours to be determined; Other meeting times may be arranged by appointment",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Assessment",
@@ -9312,9 +9312,9 @@
         "match": false
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "After lecture or private Zoom/Teams sessions (by appointment)",
@@ -9832,9 +9832,9 @@
         "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Grades:",
@@ -9907,19 +9907,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Assignments and Grading",
@@ -9992,9 +9992,9 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
         "gt": "Mondays 1-2, Thursdays 2-4",
@@ -10087,9 +10087,9 @@
         "match": true
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Class Assignments",
@@ -10162,19 +10162,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "GRADING DISTRIBUTION",
@@ -10247,19 +10247,19 @@
         "match": true
       },
       "office_address": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_hours": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "office_phone": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
