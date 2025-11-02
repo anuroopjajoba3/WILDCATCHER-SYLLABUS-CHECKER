@@ -331,11 +331,11 @@ class InstructorDetector:
             self.logger.info(f"FOUND: {self.field_name} - Name: {name}, Title: {title}, Dept: {department}")
         else:
             if not name:
-                name = 'not specified'
+                name = 'missing'
             if not title:
-                title = 'not specified'
+                title = 'missing'
             if not department:
-                department = 'not specified'
+                department = 'missing'
             self.logger.info(f"NOT_FOUND: {self.field_name} - Name: {name}, Title: {title}, Dept: {department}")
 
         return {'found': found, 'name': name, 'title': title, 'department': department}
