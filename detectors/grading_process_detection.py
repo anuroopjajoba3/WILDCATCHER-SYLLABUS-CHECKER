@@ -1,15 +1,15 @@
-"""Grading process detector
-
-Detects broader grading procedure text such as letter-blocks (A: B: C: ...),
-contiguous percent/points windows, and short inline percent lists.
+"""
+Grading Process Detector
+Detects grading processes in syllabi: percentage breakdowns (Exam 1 - 22%),
+grouped assignment->percentage lists, and letter-grade blocks (A:, B:, C:, D:, F:).
 This detector handles everything that is NOT canonical A..F letter-range mappings.
 """
 
-from typing import Dict, Any
 import re
+import logging
+from typing import Dict, Any
 
-
-# Detection Configuration Constants (shared with grading scale detector)
+# Detection Configuration Constants
 MAX_HEADING_SCAN_LINES = 8
 MAX_HEADING_WORDS_CAPS = 12
 MAX_HEADING_WORDS_ANCHOR = 15
@@ -26,9 +26,13 @@ PERCENT_CLUSTER_WINDOW = 3
 
 
 class GradingProcessDetector:
-    """Detect broader grading procedure content (not canonical A..F letter-range mappings)."""
+    """Detector for grading processes in syllabi (not canonical A..F letter-range mappings)."""
 
     def __init__(self):
+        self.field_name = 'grading_process'
+        self.logger = logging.getLogger('detector.grading_process')
+
+        # Keywords that suggest a grading scale block
         self.percent_pattern = re.compile(r"\d+\s*%")
         self.points_pattern = re.compile(r"\b\d+\s*(points|pts)\b", re.I)
         # Letter-grade block pattern (A:, B:, C:, D:, F: in same area)
@@ -44,7 +48,7 @@ class GradingProcessDetector:
             'total = 100', 'total=100', 'total 100', 'total: 100', 'total - 100'
         ]
 
-    def _get_heading_before(self, lines, line_index: int, max_scan: int = 8) -> str:
+    def _get_heading_before(self, lines, line_index: int, max_scan: int = MAX_HEADING_SCAN_LINES) -> str:
         """Return a nearby short heading above line_index or empty string.
 
         Scans up to ``max_scan`` non-empty lines looking for short ALL-CAPS
@@ -97,14 +101,19 @@ class GradingProcessDetector:
         return False
 
     def detect(self, text: str) -> Dict[str, Any]:
-        """Return {'found': bool, 'content': str} for broader grading process content.
-        
-        Detects everything EXCEPT canonical A..F letter-range mappings:
+        """Detect grading process and return a result dict with keys:
+        - 'found': bool
+        - 'content': str
+
+        The detector tries (in order):
         1) explicit letter-grade block (A:, B:, C:, D:, F:),
         2) contiguous percent/points windows, and
         3) local percentage clusters near labels.
         """
+        self.logger.info(f"Starting detection for field: {self.field_name}")
+
         if not text:
+            self.logger.info(f"NOT_FOUND: {self.field_name} (empty text)")
             return {'found': False, 'content': ''}
 
         # Normalize line endings
@@ -126,6 +135,7 @@ class GradingProcessDetector:
             heading = self._get_heading_before(lines, line_idx)
             if heading and not content.startswith(heading):
                 content = heading + '\n' + content
+            self.logger.info(f"FOUND: {self.field_name} (letter block pattern)")
             return {'found': True, 'content': content}
 
         # 2) Look for contiguous percentage/points lines (window detection)
@@ -242,11 +252,13 @@ class GradingProcessDetector:
                 if heading and (not content_lines or not content_lines[0].startswith(heading)):
                     content_lines.insert(0, heading)
                 content = '\n'.join(content_lines).strip()
+                self.logger.info(f"FOUND: {self.field_name} (percent/points window)")
                 return {'found': True, 'content': content}
             else:
                 # fallback to returning the short block (should be rare)
                 content_lines = [lines[i].rstrip() for i in range(start, end + 1) if lines[i].strip()]
                 content = '\n'.join(content_lines).strip()
+                self.logger.info(f"FOUND: {self.field_name} (short block fallback)")
                 return {'found': True, 'content': content}
 
         # 3) fallback: look for lines containing a cluster of assignment labels followed shortly by percentages
@@ -312,34 +324,33 @@ class GradingProcessDetector:
                     heading = self._get_heading_before(lines, final_start)
                     if heading and (not content_lines or not content_lines[0].startswith(heading)):
                         content_lines.insert(0, heading)
+                    self.logger.info(f"FOUND: {self.field_name} (percent cluster)")
                     return {'found': True, 'content': '\n'.join(content_lines).strip()}
                 content_lines = [lines[k].rstrip() for k in range(final_start, final_end + 1) if lines[k].strip()]
+                self.logger.info(f"FOUND: {self.field_name} (cluster fallback)")
                 return {'found': True, 'content': '\n'.join(content_lines).strip()}
 
+        self.logger.info(f"NOT_FOUND: {self.field_name}")
         return {'found': False, 'content': ''}
 
 
 # Backwards compatibility
 def detect_grading_process(text: str) -> str:
-    """Simple API returning content string or empty string."""
     d = GradingProcessDetector()
     res = d.detect(text)
     return res.get('content', '') if res.get('found') else ''
 
 
 if __name__ == '__main__':
-    # Test the grading process detector
-    d = GradingProcessDetector()
     tests = [
         ("Exam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments - 20%\nAttendance - 4%\nTotal = 100%", True),
         ("PROJECTS (70%) 70 Points\nProject #1 - 10 points\nProject #2 - 10 points\nQuiz & Mid-Term (20%) 20 Points\nOTHER (10%) 10 Points\nTOTAL 100%", True),
         ("A: Excellent work B: Good work C: Satisfactory D: Needs improvement F: Failing", True),
-        ("This syllabus has no grading breakdown info", False),
+        ("This syllabus has no grading info", False),
     ]
-    
+
+    d = GradingProcessDetector()
     for text, expect in tests:
         r = d.detect(text)
-        print('FOUND' if r['found'] else 'NO_MATCH')
-        if r['found']:
-            print(r['content'])
+        print('FOUND' if r['found'] else 'NO_MATCH', '\n', r['content'])
         print('-' * 40)

@@ -135,7 +135,7 @@ if __name__ == '__main__':
     # Test with your specific format
     d = GradingScaleDetector()
     tests = [
-        # Your example format
+        # example format
         ("A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below", True),
         # Original format  
         ("A = 94-100 A- = 90-93 B+ = 87-89 B = 83-86 B- = 80-82 C+ = 77-79 C = 73-76 C- = 70-72 D+ = 67-69 D = 63-66 D- = 60-62 F = 0-59", True),

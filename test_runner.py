@@ -24,7 +24,8 @@ SUPPORTED_FIELDS = (
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
-    "deadline_expectations_title", "assignment_delivery", "final_grade_scale"
+    "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
+    "grading_process"
 )
 
 # Add repo root to path
@@ -120,6 +121,13 @@ try:
 except Exception:
     GRADING_SCALE_AVAILABLE = False
     print("WARNING: Grading scale detector not available")
+
+try:
+    from detectors.grading_process_detection import GradingProcessDetector
+    GRADING_PROCESS_AVAILABLE = True
+except Exception:
+    GRADING_PROCESS_AVAILABLE = False
+    print("WARNING: Grading process detector not available")
 
 # ======================================================================
 # COMPARISON HELPERS
@@ -275,6 +283,13 @@ def detect_all_fields(text: str) -> dict:
         preds["final_grade_scale"] = gs.get("content", "") if gs.get("found") else ""
     else:
         preds["final_grade_scale"] = ""
+
+    # Grading Process
+    if GRADING_PROCESS_AVAILABLE:
+        gp = GradingProcessDetector().detect(text)
+        preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
+    else:
+        preds["grading_process"] = ""
 
     return preds
 
@@ -445,6 +460,13 @@ def main():
             field_stats["final_grade_scale"]["total"] += 1
             field_stats["final_grade_scale"]["correct"] += int(match)
             result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
+        # Grading Process
+        if "grading_process" in record:
+            match = loose_compare(record["grading_process"], preds.get("grading_process", ""))
+            field_stats["grading_process"]["total"] += 1
+            field_stats["grading_process"]["correct"] += int(match)
+            result["grading_process"] = {"gt": record["grading_process"], "pred": preds.get("grading_process", ""), "match": match}
 
         details.append(result)
 
