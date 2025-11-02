@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Manchester",
+    "latitude": 42.9956,
+    "longitude": -71.4548,
+    "type": "city",
+    "county": "Hillsborough"
+  },
+  {
+    "name": "Nashua", 
+    "latitude": 42.7654,
+    "longitude": -71.4676,
+    "type": "city",
+    "county": "Hillsborough"
+  },
+  {
+    "name": "Concord",
+    "latitude": 43.2081,
+    "longitude": -71.5376,
+    "type": "city",
+    "county": "Merrimack"
+  },
+  {
+    "name": "Dover",
+    "latitude": 43.1979,
+    "longitude": -70.8737,
+    "type": "city",
+    "county": "Strafford"
+  },
+  {
+    "name": "Rochester",
+    "latitude": 43.3042,
+    "longitude": -70.9759,
+    "type": "city",
+    "county": "Strafford"
+  },
+  {
+    "name": "Salem",
+    "latitude": 42.7876,
+    "longitude": -71.2011,
+    "type": "town",
+    "county": "Rockingham"
+  },
+  {
+    "name": "Merrimack",
+    "latitude": 42.8651,
+    "longitude": -71.4990,
+    "type": "town",
+    "county": "Hillsborough"
+  },
+  {
+    "name": "Portsmouth",
+    "latitude": 43.0718,
+    "longitude": -70.7626,
+    "type": "city",
+    "county": "Rockingham"
+  },
+  {
+    "name": "Keene",
+    "latitude": 42.9342,
+    "longitude": -72.2781,
+    "type": "city",
+    "county": "Cheshire"
+  },
+  {
+    "name": "Lebanon",
+    "latitude": 43.6422,
+    "longitude": -72.2517,
+    "type": "city",
+    "county": "Grafton"
+  },
+  {
+    "name": "Berlin",
+    "latitude": 44.4687,
+    "longitude": -71.1851,
+    "type": "city",
+    "county": "Coos"
+  },
+  {
+    "name": "Laconia",
+    "latitude": 43.5276,
+    "longitude": -71.4703,
+    "type": "city",
+    "county": "Belknap"
+  },
+  {
+    "name": "Claremont",
+    "latitude": 43.3767,
+    "longitude": -72.3465,
+    "type": "city",
+    "county": "Sullivan"
+  },
+  {
+    "name": "Hudson",
+    "latitude": 42.7659,
+    "longitude": -71.4342,
+    "type": "town",
+    "county": "Hillsborough"
+  },
+  {
+    "name": "Londonderry",
+    "latitude": 42.8651,
+    "longitude": -71.3740,
+    "type": "town",
+    "county": "Rockingham"
+  }
+]
