@@ -66,25 +66,30 @@
       "total": 120
     },
     "deadline_expectations_title": {
-      "accuracy": 0.3917,
-      "correct": 47,
+      "accuracy": 0.5917,
+      "correct": 71,
       "total": 120
     },
     "assignment_delivery": {
-      "accuracy": 0.4083,
-      "correct": 49,
+      "accuracy": 0.7667,
+      "correct": 92,
       "total": 120
     },
     "final_grade_scale": {
-      "accuracy": 0.2,
-      "correct": 24,
+      "accuracy": 0.825,
+      "correct": 99,
+      "total": 120
+    },
+    "grading_process": {
+      "accuracy": 0.7417,
+      "correct": 89,
       "total": 120
     }
   },
   "overall": {
-    "accuracy": 0.5344,
-    "correct": 1026,
-    "total": 1920
+    "accuracy": 0.6162,
+    "correct": 1257,
+    "total": 2040
   },
   "details": [
     {
@@ -168,8 +173,13 @@
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "1. Completion of weekly work log for the minimal required work hours. Logs must be submitted weekly (of each work week) during your internship (20%) 2. Final project report (25%) 3. In-class progress presentations and submission of slide decks and summary for the presentation. (20%) 4. Class Participation. (35%). a. Attendance at scheduled class meetings b. Request to join in UNHM COMPTECH online LinkedIn group https://www.linkedin.com/groups/4485737/ c. Participation of all class discussions, peer meetups and group activities recorded in weekly work logs AND earn at least 75% for your final report grade.",
         "pred": "order to receive a grade.\n1. Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n2. Final project report (25%)\n3. In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n4. Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs AND earn at least 75% for your final report grade.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -253,8 +263,13 @@
       },
       "final_grade_scale": {
         "gt": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Grading Policy: Assignments Homework 30% Projects 70%",
         "pred": "Course grades will be assigned based on your final total percentage as follows:\nA: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9\nC+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9\nD-: 60 - 62.9 F: 59.9 or below",
-        "match": true
+        "match": false
       }
     },
     {
@@ -337,9 +352,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Percent Grade Grade Points Level of Achievement 94-100 A 4.0 90-93 A- 3.67 87-89 B+ 3.33 84-86 B 3.0 Superior 80-83 B- 2.67 77-79 C+ 2.33 74-76 C 2.0 70-73 C- 1.67 67-69 D+ 1.33 64-66 D 1.0 60-63 D- 0.67 59-Below F 0.0 ",
-        "pred": "Course Grading System:\nReflective Papers (4) 15%\nProposal 15%\nResearch Paper 30%\nMidterm Exam 20%\nFinal Exam 20%\nTotal 100%\nPercent Grade Grade Points Level of Achievement",
+        "gt": " 94-100 A 4.0 90-93 A- 3.67 87-89 B+ 3.33 84-86 B 3.0 Superior 80-83 B- 2.67 77-79 C+ 2.33 74-76 C 2.0 70-73 C- 1.67 67-69 D+ 1.33 64-66 D 1.0 60-63 D- 0.67 59-Below F 0.0 ",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Course Grading System: Reflective Papers (4) 15% Proposal 15% Research Paper 30% Midterm Exam 20% Final Exam 20% Total 100% Percent Grade Grade Points Level of Achievement",
+        "pred": "Course Grading System:\nReflective Papers (4) 15%\nProposal 15%\nResearch Paper 30%\nMidterm Exam 20%\nFinal Exam 20%\nTotal 100%\nPercent Grade Grade Points Level of Achievement",
+        "match": true
       }
     },
     {
@@ -423,8 +443,13 @@
       },
       "final_grade_scale": {
         "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignments: The course grade is based on 200 points and is developed from a variety of assignments and tests.",
         "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
-        "match": true
+        "match": false
       }
     },
     {
@@ -508,6 +533,11 @@
       },
       "final_grade_scale": {
         "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignments The course grade is based on 200 points and is developed from a variety of assignments and tests.",
         "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
         "match": true
       }
@@ -593,6 +623,11 @@
       },
       "final_grade_scale": {
         "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignments The course grade is based on 200 points and is developed from a variety of assignments and tests.",
         "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
         "match": true
       }
@@ -677,7 +712,12 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Final grades in this course will be based on the following scale: 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
+        "gt": " 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Distribution Grades will be available at any time through our Canvas course. The final grade will be calculated as follows (expanded descriptions of each category can be found further in the syllabus): 5% Course Preparatory Skill Building 25% Weekly Assignments & Activities 50% Average of Mid-term and Final Assessment 20% Laboratory Grade",
         "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n5% Course Preparatory Skill Building\n25% Weekly Assignments & Activities\n50% Average of Mid-term and Final Assessment\n20% Laboratory Grade\nCourse Activities",
         "match": false
       }
@@ -763,8 +803,13 @@
       },
       "final_grade_scale": {
         "gt": "Final grades in this course will be based on the following scale: 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "45% Average of Mid-term and Final Assessment 20% Weekly Assignments & Activities 15% Research Project 20% Laboratory Grade",
         "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nsyllabus):\n45% Average of Mid-term and Final Assessment\n20% Weekly Assignments & Activities\n15% Research Project\n20% Laboratory Grade\nCourse Activities",
-        "match": false
+        "match": true
       }
     },
     {
@@ -848,8 +893,13 @@
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Participation/Attendance Attendance and participation in the lab activities are\n10% of total grade critical to learning the techniques introduced in the\ncourse.\nLab reports Five lab reports covering broadly 1) Ball lens lab; 2)\n90% of total grade transmitted light techniques; 3) Widefield\nepifluorescent microscopy; 4) Confocal microscopy;\n** Lowest lab report grade will contribute half as\nmuch as the others. (20% per 4-highest reports, 10%",
         "pred": "Participation/Attendance Attendance and participation in the lab activities are\n10% of total grade critical to learning the techniques introduced in the\ncourse.\nLab reports Five lab reports covering broadly 1) Ball lens lab; 2)\n90% of total grade transmitted light techniques; 3) Widefield\nepifluorescent microscopy; 4) Confocal microscopy;\n** Lowest lab report grade will contribute half as\nmuch as the others. (20% per 4-highest reports, 10%",
-        "match": false
+        "match": true
       }
     },
     {
@@ -933,8 +983,13 @@
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "4 lecture exams (100pts each), 400 points total (67% of final grade) - Mastering A&P assignments (12 assignments, 8% of final grade) - Laboratory grade (150 points total, 25% of final grade)",
         "pred": "Assignments & Grading\nEvaluation:\n- 4 lecture exams (100pts each), 400 points total (67% of final grade)\n- Mastering A&P assignments (12 assignments, 8% of final grade)\n- Laboratory grade (150 points total, 25% of final grade)\nExams:",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1018,8 +1073,13 @@
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Evaluation: - 4 lecture exams (100pts each), 400 points total (67% of final grade) - Mastering A&P assignments (12 assignments, 8% of final grade) - Laboratory grade (150 points total, 25% of final grade) Final grades will be calculated in accordance with the standard UNH grading scale",
         "pred": "week outside of class completing assignments and reviewing materials to prepare for assessments.\nEvaluation:\n- 4 lecture exams (100pts each), 400 points total (67% of final grade)\n- Mastering A&P assignments (12 assignments, 8% of final grade)\n- Laboratory grade (150 points total, 25% of final grade)\nFinal grades will be calculated in accordance with the standard UNH grading scale.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1103,8 +1163,13 @@
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "PROJECTS (70%) 70 Points Project #1 – Brochure - 10 points Project #2 - Menu Design - 10 points Project #3 - Alumni Magazine - 10 points Project #4 - Children’s Story Zine - 5 points Project #5 - Poster for Sporting Event - 10 points Project #6 - Case Statement - 15 points Project #7 - Childrens’ Story - ZINE Executed - 10 points",
         "pred": "Successful completion of this course requires completion of all assignments below.\nPROJECTS (70%) 70 Points\nProject #1 – Brochure - 10 points\nProject #2 - Menu Design - 10 points\nProject #3 - Alumni Magazine - 10 points\nProject #4 - Children’s Story Zine - 5 points\nProject #5 - Poster for Sporting Event - 10 points\nProject #6 - Case Statement - 15 points\nProject #7 - Childrens’ Story - ZINE Executed - 10 points\nAssignments - Graded as Incomplete/Complete\nProject #6 (Outline) for Case Statement\nQuiz & Mid-Term (20%) 20 Points\nQuiz #1 - 10 points\nMid-Term Exam - 10 points\nOTHER (10%) 10 Points",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1182,12 +1247,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": " GRADING SCHEME Your final grade is calculated as follows: Labs (25%)",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
         "match": false
       }
@@ -1267,12 +1337,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "GRADING SCHEME Your final grade is calculated as follows: Labs (25%)",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams, and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
         "match": false
       }
@@ -1352,14 +1427,19 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1437,12 +1517,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme- Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be",
         "match": false
       }
@@ -1522,14 +1607,19 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1607,12 +1697,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 25% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
         "match": false
       }
@@ -1692,12 +1787,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
         "match": false
       }
@@ -1777,12 +1877,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
         "match": false
       }
@@ -1862,14 +1967,19 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1947,14 +2057,19 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2032,12 +2147,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be",
         "match": false
       }
@@ -2117,12 +2237,17 @@
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
         "match": false
       }
@@ -2197,19 +2322,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading: 10% Participation Includes showing up to class on time, submitting assignments on their due dates 30% Labs Lab work is done during classroom time Point total is 10 out of 11 at 3 points each 30% Assignments There will be 2 assignments at 15 points, with each assignment divided into: A design document worth 4 points Presenting your work in class worth 1 point Core elements of your assignments worth 10 points 30% Exams Two exams worth 15 points each",
         "pred": "Includes showing up to class on time, submitting assignments on their due dates\n30% Labs\nLab work is done during classroom time\nPoint total is 10 out of 11 at 3 points each\n30% Assignments\nThere will be 2 assignments at 15 points, with each assignment divided into:\nA design document worth 4 points\nPresenting your work in class worth 1 point\nCore elements of your assignments worth 10 points\n30% Exams\nTwo exams worth 15 points each\nPolicies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2282,19 +2412,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "Grading Rubric Labs- (Assigned weekly: 25% of total grade)",
         "pred": "Grading Rubric\nLabs- (Assigned weekly: 25% of total grade)\nHomework- (Assigned weekly: 25% of total grade)",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2367,19 +2502,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Submissions will not be accepted after the deadline",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\nLabs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2452,17 +2592,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Blackboard",
         "pred": "Blackboard",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%\n● Class participation 10 %.\nThere is a spreadsheet in Course Information to allow each student to calculate their own score; as the score in",
         "match": false
       }
@@ -2537,17 +2682,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Blackboard",
         "pred": "Blackboard",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%\n● Class participation 10 %.\nThere is a spreadsheet in Course Information to allow each student to calculate their own score; as the score in",
         "match": false
       }
@@ -2622,17 +2772,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
         "pred": "Late Submissions",
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas; MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "GRADING AND EVALUATION OF STUDENT WORK Final grade is calculated as follows (Subject to minor changes): - Lab and Lecture participation: 20 points (10 @ 2 points each) - Homework assignments: 20 points (2 @ 10 points each) - Quizzes: 20 points (2 @ 10 points each) - Team Project: 25 points - Final Exam: 15 points",
         "pred": "Final grade is calculated as follows (Subject to minor changes):\n- Lab and Lecture participation: 20 points (10 @ 2 points each)\n- Homework assignments: 20 points (2 @ 10 points each)\n- Quizzes: 20 points (2 @ 10 points each)\n- Team Project: 25 points\n- Final Exam: 15 points\nHomework Assignments\nThere will be two outside class homework assignments, each worth 10 points, for a total of 20 points.\nHomework assignments must be completed and submitted by the assigned due date for full credit.",
         "match": false
       }
@@ -2707,19 +2862,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
         "pred": "Final grade is calculated as follows:\n● 5 homework assignments @ 4 points each, for a total of 20 points\n● 12 weekly reflections @ 1 point each, for a total of 12 points\n● Lab practice, 8 points\n● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points.\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR\nLate submissions and make-up exams\nYou will lose 10% per day for work that are submitted late. Late work is any homework assignments and\nproject submitted after the announced due date and time. Three days after the due date late work will not be",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2792,17 +2952,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
         "pred": "Final grade is calculated as follows:\n● 4-5 homework assignments @ 4 points each, for a total of 20 points\n● 12 weekly reflections @ 1 point each, for a total of 12 points\n● Lab practice, 8 points\n● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points.\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR\nLate submissions and make-up exams\nYou will lose 10% per day for work that are submitted late. Late work is any homework assignments and\nproject submitted after the announced due date and time. Three days after the due date late work will not be",
         "match": false
       }
@@ -2877,17 +3042,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
         "pred": "● Team project, 20 points, broken down into:\n​\n● 2 logs @ 3 points each, for a total of 6 points\n​ ​\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points.\n​ ​ ​ ​ ​\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\n​ ​ ​ ​",
         "match": false
       }
@@ -2962,17 +3132,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make‐up exams",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "MyCourses",
+        "pred": "MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": " Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
         "pred": "Final grade is calculated as follows:\n● 5 homework assignments @ 4 points each, for a total of 2 0 points\n● 12 weekly reflec\u0000ons @ 1 point each, for a total of 1 2 points\n● Lab prac\u0000ce, 8 points\n● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presenta\u0000on, 6 points\n● final report, 3 points\n● Midterm exam and fi nal exam @ 20 points each, for a total of 4 0 points.\nThere is a 5 points penalty for each unexcused absences (see policy on A \u0000endance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
         "match": false
       }
@@ -3047,19 +3222,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "quiz is taken.\n● Team project, 22 points, broken down into:\n● Use Cases: 3 points.\n● MockUps: 3 points.\n● Code Base: 5 points.\n● Final Presentation: 3 points.\n● Report: 3 points.\n● Mid-Project Presentation: 3 points.\n● final report, 2 points\n● Midterm exam @ 20 points and final exam @ 20 points each, for a total of 40 points\n● Extra Credit Homework (+5 points possible)\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
         "pred": "quiz is taken.\n● Team project, 22 points, broken down into:\n● Use Cases: 3 points.\n● MockUps: 3 points.\n● Code Base: 5 points.\n● Final Presentation: 3 points.\n● Report: 3 points.\n● Mid-Project Presentation: 3 points.\n● final report, 2 points\n● Midterm exam @ 20 points and final exam @ 20 points each, for a total of 40 points\n● Extra Credit Homework (+5 points possible)\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3132,19 +3312,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\nActive Reading (10%)\nIn-class projects (10%)\nReflections  (10%)\nHomework problems (20%)\nMidterm and final exams (50%, midterm 20% and final 30%)\nGo back to the top.",
         "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\nActive Reading (10%)\nIn-class projects (10%)\nReflections  (10%)\nHomework problems (20%)\nMidterm and final exams (50%, midterm 20% and final 30%)\nGo back to the top.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3217,19 +3402,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grade",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "Canvas; MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "COMP 424 Applied Computing 1: Foundations of Python Programming\nFall 2023\n● Reflections (10%)\n● Homework problems (20%)\n● Midterm and final exams (50%, midterm 20% and final 30%)\nGo back to the top.",
         "pred": "COMP 424 Applied Computing 1: Foundations of Python Programming\nFall 2023\n● Reflections (10%)\n● Homework problems (20%)\n● Midterm and final exams (50%, midterm 20% and final 30%)\nGo back to the top.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3302,19 +3492,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas; MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows:\nActive Reading (10%)\nIn-class Projects (10%)\nReflections  (10%)\nHomework Problems (10%): H1 and H3\nMidterm and final exams (60%, 30% each)\nSee the remaining of the syllabus on Course Policies and University and Manchester Campus Policies.",
         "pred": "Final grade is calculated as follows:\nActive Reading (10%)\nIn-class Projects (10%)\nReflections  (10%)\nHomework Problems (10%): H1 and H3\nMidterm and final exams (60%, 30% each)\nSee the remaining of the syllabus on Course Policies and University and Manchester Campus Policies.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3387,19 +3582,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "Canvas; MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\nActive Reading (5%)\nIn-class projects (10%)\nReflections (10%)\nHomework problems (20%)\nIntermediate and final exams (20%, 2 intermediate, and final 35%)\nLEARNING RESOURCES",
         "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\nActive Reading (5%)\nIn-class projects (10%)\nReflections (10%)\nHomework problems (20%)\nIntermediate and final exams (20%, 2 intermediate, and final 35%)\nLEARNING RESOURCES",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3472,19 +3672,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "Canvas; MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Active Reading(10%)\n● In-class Projects(10%)\n● Guided reflections (10%)\n● Homework Problems(20%)\n● Midtermandfinal exams(50%, midterm 20% and final30%)\nGo back to the top.",
         "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Active Reading(10%)\n● In-class Projects(10%)\n● Guided reflections (10%)\n● Homework Problems(20%)\n● Midtermandfinal exams(50%, midterm 20% and final30%)\nGo back to the top.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3557,19 +3762,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
+        "pred": "",
+        "match": false
+      },
+      "assignment_delivery": {
+        "gt": "Canvas; MyCourses",
+        "pred": "Canvas; MyCourses",
+        "match": true
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "assignment_delivery": {
-        "gt": "",
-        "pred": "Canvas; MyCourses",
-        "match": false
-      },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "COMP 424 Applied Computing 1: Foundations of Python Programming\nFall 2022\n● Reflections (10%)\n● Homework problems(20%)\n● Midtermandfinal exams(50%, midterm 20% and final30%)\nGo back to the top.",
         "pred": "COMP 424 Applied Computing 1: Foundations of Python Programming\nFall 2022\n● Reflections (10%)\n● Homework problems(20%)\n● Midtermandfinal exams(50%, midterm 20% and final30%)\nGo back to the top.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3642,19 +3852,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nParticipation (5%)\nActive Reading (5%)\nReflections (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nPersonal Project (20%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "gt": "A A- B+ B B- C C C- D+ D D- F 93 90 87 83 80 77 73 70 67 63 60 <60",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nParticipation (5%)\nActive Reading (5%)\nReflections (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nPersonal Project (20%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "pred": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nParticipation (5%)\nActive Reading (5%)\nReflections (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nPersonal Project (20%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "match": true
       }
     },
     {
@@ -3727,19 +3942,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas; MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows:\nActive Reading (10%)\nIn-class Projects (10%)\nReflections  (10%)\nHomework Problems (20%)\nMidterm and final exams (50%, midterm 20% and final 30%)\nSee the remaining of the syllabus on Course Policies and University and Manchester Campus Policies.",
         "pred": "Final grade is calculated as follows:\nActive Reading (10%)\nIn-class Projects (10%)\nReflections  (10%)\nHomework Problems (20%)\nMidterm and final exams (50%, midterm 20% and final 30%)\nSee the remaining of the syllabus on Course Policies and University and Manchester Campus Policies.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3812,19 +4032,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Assignments:",
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
         "pred": "Grading\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3897,19 +4122,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Assignments:",
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
         "pred": "Grading:\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
-        "match": false
+        "match": true
       }
     },
     {
@@ -3982,19 +4212,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows:\n6 labs, divided over 35%\nSubmit a proposal for an individual project, 5%\nMidterm exam and programming task, 25%\nParticipation in the URC, 5 %  (this a Spring semester requirement so the 5% is rolled into the final project)\nPresentation of the final project, 20 %\nTurning in acceptable project documentation, 10 %\nTENTATIVE COURSE SCHEDULE",
         "pred": "Final grade is calculated as follows:\n6 labs, divided over 35%\nSubmit a proposal for an individual project, 5%\nMidterm exam and programming task, 25%\nParticipation in the URC, 5 %  (this a Spring semester requirement so the 5% is rolled into the final project)\nPresentation of the final project, 20 %\nTurning in acceptable project documentation, 10 %\nTENTATIVE COURSE SCHEDULE",
-        "match": false
+        "match": true
       }
     },
     {
@@ -4067,17 +4302,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "in-class",
+        "pred": "",
+        "match": false
+      },
+      "final_grade_scale": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
-      "final_grade_scale": {
-        "gt": "",
+      "grading_process": {
+        "gt": "Final grade is calculated as follows:\n6 labs, divided over 35%\nSubmit a proposal for an individual project, 5%\nMidterm exam and programming task, 25%\nParticipation in the URC, 5 %  (this a Spring semester requirement so the 5% is rolled into the final project)\nPresentation of the final project, 20 %\nTurning in acceptable project documentation, 10 %\nTENTATIVE COURSE SCHEDULE",
         "pred": "Lab Assignments\nThere will be 6 lab exercises done during the normal class period. One class period should be sufficient to complete each of these, however you may take them home to complete them by the next week if necessary. These labs total of 35 points of the final grade. Labs must be completed and submitted before the class when they are due (no later than midnight, 11:59 PM, the day before the class).\nMidterm",
         "match": false
       }
@@ -4152,17 +4392,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Late submissions and make-up exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows: 6 labs, divided over 35 points; Submit a proposal for an individual project, 5 points; Midterm exam and programming task, 25 points; Participation in the URC, 5 points (this is a Spring component, so the 5 are a freebie); Presentation of the final project, 20 points; Turning in acceptable project documentation, 10 points",
         "pred": "Lab Assignments\nThere will be 6 lab exercises done during the normal class period. One class period should be sufficient to complete each of these, however you may take them home to complete them by the next week if necessary. These labs total of 35 points of the final grade. Labs must be completed and submitted before the class when they are due (no later than midnight, 11:59 PM, the day before the class).\nMidterm",
         "match": false
       }
@@ -4237,19 +4482,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "assignments and the Creative Projects.",
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Final grade is calculated by using the following weights for your work in this class:\n● 5 homework assignments including self-evaluations, 5% of final grade each: 25% total\n● Creative Project 1@ 15%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Creative Project 2 @ 20%\n● Written concept with specifications and features @ 5%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Mid-term exam and final exam @ 20% each: 40% total\nThere is a 5% penalty for each unexcused absence (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
+        "gt": "Grading Rubric The Reflection grading rubric has assessment criteria and corresponding scores",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated by using the following weights for your work in this class:\n● 5 homework assignments including self-evaluations, 5% of final grade each: 25% total\n● Creative Project 1@ 15%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Creative Project 2 @ 20%\n● Written concept with specifications and features @ 5%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Mid-term exam and final exam @ 20% each: 40% total\nThere is a 5% penalty for each unexcused absence (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
+        "pred": "Final grade is calculated by using the following weights for your work in this class:\n● 5 homework assignments including self-evaluations, 5% of final grade each: 25% total\n● Creative Project 1@ 15%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Creative Project 2 @ 20%\n● Written concept with specifications and features @ 5%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Mid-term exam and final exam @ 20% each: 40% total\nThere is a 5% penalty for each unexcused absence (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
+        "match": true
       }
     },
     {
@@ -4322,19 +4572,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "gt": "A: 93% – 100% A-: 90% – 92.99% B+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99% C+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99% D+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99% F: 0% – 59.99%",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "match": true
       }
     },
     {
@@ -4407,19 +4662,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Make-Up Policy",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "HW | 60%\nQuizes | 25%\nFinal Exam | 15%\n90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
+        "gt": "90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "HW | 60%\nQuizes | 25%\nFinal Exam | 15%\n90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
+        "pred": "HW | 60%\nQuizes | 25%\nFinal Exam | 15%\n90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
+        "match": true
       }
     },
     {
@@ -4492,19 +4752,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "gt": "A: 93% – 100% A-: 90% – 92.99% B+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99% C+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99% D+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99% F: 0% – 59.99%",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "match": true
       }
     },
     {
@@ -4577,19 +4842,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions and Make-Up Exams",
         "pred": "Late Submissions and Make-Up Exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Blackboard",
         "pred": "Blackboard",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading\n Homework assignments: 28 points\n Examinations: 44 points\n Team Project: 24 points\n Class Participation. 4 points.\nSchedule",
         "pred": "Grading\n Homework assignments: 28 points\n Examinations: 44 points\n Team Project: 24 points\n Class Participation. 4 points.\nSchedule",
-        "match": false
+        "match": true
       }
     },
     {
@@ -4662,19 +4932,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions and Make-Up Exams",
         "pred": "Late Submissions and Make-Up Exams",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading\n Homework assignments: 28 points\n Examinations: 44 points\n Team Project: 24 points\n Class Participation. 4 points.\nSchedule",
         "pred": "Grading\nHomework assignments: 28 points\nExaminations: 44 points\nTeam Project: 24 points\nClass Participation.  4 points.\nSchedule",
-        "match": false
+        "match": true
       }
     },
     {
@@ -4747,19 +5022,24 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Your final grade is calculated as follows:\nProgramming Homework (40%)\nThere are two types of homework:\ntopic unit.\nTests (40%)\nThere will be a test for each topic unit. The test format is closed-book in-person written test. No cheat\nsheets are allowed.\nWeekly Learning Journals (20%)",
         "pred": "Your final grade is calculated as follows:\nProgramming Homework (40%)\nThere are two types of homework:\ntopic unit.\nTests (40%)\nThere will be a test for each topic unit. The test format is closed-book in-person written test. No cheat\nsheets are allowed.\nWeekly Learning Journals (20%)",
-        "match": false
+        "match": true
       }
     },
     {
@@ -4832,19 +5112,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grade is calculated as follows:\nReading Assignments (PA#): 10%\nCollaborative Labs (10%)\nReflections (10%)\nHomework Problems (15%)\nTeam Project (15%)\nMidterm and final exam (40%)\nCOURSE POLICIES",
         "pred": "Final grade is calculated as follows:\nReading Assignments (PA#): 10%\nCollaborative Labs (10%)\nReflections (10%)\nHomework Problems (15%)\nTeam Project (15%)\nMidterm and final exam (40%)\nCOURSE POLICIES",
-        "match": false
+        "match": true
       }
     },
     {
@@ -4917,19 +5202,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exams",
         "pred": "Assignments:",
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\nThe homework (a total of 4) will be worth 40% of the final grade. The two exams will be worth 30% each, for a total of 100%.\nHelp with labs or final projects",
         "pred": "Grading:\nThe homework (a total of 4) will be worth 40% of the final grade. The two exams will be worth 30% each, for a total of 100%.\nHelp with labs or final projects",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5002,19 +5292,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Assignments:",
         "match": false
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "Canvas; MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness\n20% Lab work2\nLab assignments done during lab: 10 out of 12 at 2 points each\n35% Homework3\nYou will have 7 homework assignments at 5 points each\n30% Exams4\nYou will have 2 exams worth 15 points each\nPolicies:",
         "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness\n20% Lab work2\nLab assignments done during lab: 10 out of 12 at 2 points each\n35% Homework3\nYou will have 7 homework assignments at 5 points each\n30% Exams4\nYou will have 2 exams worth 15 points each\nPolicies:",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5087,19 +5382,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final Project: 20%\nCOMP 880.M2: 1 Credit\nClass Participation: 20%\nMid-Term: 15%\nHome Work/Lab Assignments: 10 6% Each = 60%\nFinal Exam: 15%\nSemester Project",
         "pred": "Final Project: 20%\nCOMP 880.M2: 1 Credit\nClass Participation: 20%\nMid-Term: 15%\nHome Work/Lab Assignments: 10 6% Each = 60%\nFinal Exam: 15%\nSemester Project",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5172,17 +5472,22 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "MyCourses",
         "pred": "MyCourses",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final Project: 20%\nCOMP 880.M2: 1 Credit\nClass Participation: 20%\nMid-Term: 15%\nHome Work/Lab Assignments: 10 6% Each = 60%\nFinal Exam: 15%\nSemester Project",
         "pred": "COMP550.M1\nClass Participation: 10%\nMid-Term: 20%\nHome Work/Lab Assignments: 10 3% Each = 30%\nNote there are 11 HW assignments.\nFinal Exam: 20%",
         "match": false
       }
@@ -5257,19 +5562,24 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
         "pred": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
-        "gt": "",
+        "gt": "Canvas",
         "pred": "Canvas",
-        "match": false
+        "match": true
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
+        "gt": "A+ = 97-100\tB+ =  87-89\tC+ =  77-79\tD+ = 67-69\tF = below 60\nA   =  93-96\tB   =  83-86\tC   =  73-76\tD   =  63-66\nA-  =  90-92\tB-  =  80-82\tC-  =  70-72\tD-  =  60-62",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
+        "pred": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
+        "match": true
       }
     },
     {
@@ -5342,9 +5652,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
         "pred": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -5353,8 +5663,13 @@
       },
       "final_grade_scale": {
         "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
         "pred": "Percent of Grade\nCase Studies (3)\t\t\t\t24% (8% each)\nExams (3) \t\t\t\t30% (10% each)\nEthics Position Papers (3)\t\t21% (7% each)\nEthics Audit Group Project\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5427,9 +5742,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -5437,9 +5752,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100%+ A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "gt": "Missing",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100%+ A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100%+ A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "match": true
       }
     },
     {
@@ -5512,9 +5832,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day.",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -5522,9 +5842,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5597,9 +5922,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -5607,9 +5932,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n15% Participation\nThis includes attendance and participation\n15% Lab work\nLab assignments done during lab: 5 out of 6 at 3 points each\n25% Homework\nYou will have 5 homework assignments at 5 points each\n20% Programming Project\nDesign worth 5 points and implementation worth 15 points\n25% Exam\nPolicies",
         "pred": "Grading:\n15% Participation\nThis includes attendance and participation\n15% Lab work\nLab assignments done during lab: 5 out of 6 at 3 points each\n25% Homework\nYou will have 5 homework assignments at 5 points each\n20% Programming Project\nDesign worth 5 points and implementation worth 15 points\n25% Exam\nPolicies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5682,9 +6012,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -5692,9 +6022,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted.\nFinal Exam 20%\nProject 35%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class.",
         "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted.\nFinal Exam 20%\nProject 35%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5767,9 +6102,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exam",
         "pred": "Late submissions and make-up exam",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -5777,9 +6112,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading\nClass Participation 15%\nHomework and Quiz 20%\nMidterm 20%\nGroup Project 20%\nFinal Paper 25%\nClass Participation",
         "pred": "Grading\nClass Participation 15%\nHomework and Quiz 20%\nMidterm 20%\nGroup Project 20%\nFinal Paper 25%\nClass Participation",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5852,7 +6192,7 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions and make-up exam",
         "pred": "Assignments (10; 5 pts each): 50%",
         "match": false
       },
@@ -5862,9 +6202,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\nSemester Take Home Exam: 20%\nSemester Final Project: 20%\nClass Participation: 10%\nAssignments (10; 5 pts each): 50%\nGrade Policy\nAssignments must be submitted as email attachments where appropriate. Assignments are\ngraded as binary. Best effort will be awarded 100%. Otherwise 0% will be awarded. The\nsemester exam will be in take-home format. It may be emailed or handed in by the due",
         "pred": "Grading:\nSemester Take Home Exam: 20%\nSemester Final Project: 20%\nClass Participation: 10%\nAssignments (10; 5 pts each): 50%\nGrade Policy\nAssignments must be submitted as email attachments where appropriate. Assignments are\ngraded as binary. Best effort will be awarded 100%. Otherwise 0% will be awarded. The\nsemester exam will be in take-home format. It may be emailed or handed in by the due",
-        "match": false
+        "match": true
       }
     },
     {
@@ -5937,9 +6282,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -5947,9 +6292,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
         "pred": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6022,9 +6372,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6032,9 +6382,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Work Logs – (20% of grade)\nFirst log due by 11:59 pm on Sunday, Sept 11 (to reflect 2 weeks of work/research activity)\nSubsequent logs are due weekly, by 11:59 pm on Sunday for the prior week\nIn Class Presentations – (25% of grade) Your presentation/slides and reflection paper must be uploaded by noon on Friday following each class (Sept 2, Sept 9, Oct 14, Nov 25 and Dec 9)\nFinal Report – (25% of grade) Due by noon on Friday, December 9\nClass Attendance (15% of grade)\nParticipation – (15% of grade) Required at each class, including questions for presenters; see MyCourse Assignments for Discussion posting requirements and due dates (9/16, 10/7, 11/11, 12/2 and 12/7).\nREMINDER: You need to meet the 150 hours requirement and earn at least 75% on the Final Report to pass the class, in addition to earning points on other assignments (presentations and participation, etc).\nUNHM POLICIES AND INFORMATION",
         "pred": "Work Logs – (20% of grade)\nFirst log due by 11:59 pm on Sunday, Sept 11 (to reflect 2 weeks of work/research activity)\nSubsequent logs are due weekly, by 11:59 pm on Sunday for the prior week\nIn Class Presentations – (25% of grade) Your presentation/slides and reflection paper must be uploaded by noon on Friday following each class (Sept 2, Sept 9, Oct 14, Nov 25 and Dec 9)\nFinal Report – (25% of grade) Due by noon on Friday, December 9\nClass Attendance (15% of grade)\nParticipation – (15% of grade) Required at each class, including questions for presenters; see MyCourse Assignments for Discussion posting requirements and due dates (9/16, 10/7, 11/11, 12/2 and 12/7).\nREMINDER: You need to meet the 150 hours requirement and earn at least 75% on the Final Report to pass the class, in addition to earning points on other assignments (presentations and participation, etc).\nUNHM POLICIES AND INFORMATION",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6107,9 +6462,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "You may hand in ONE late homework assignmen",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -6118,8 +6473,13 @@
       },
       "final_grade_scale": {
         "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Midterm and Final\nProject 30%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class.",
         "pred": "Midterm and Final\nProject 30%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6192,9 +6552,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6202,9 +6562,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 5 problem sets worth 8 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
         "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 5 problem sets worth 8 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6277,9 +6642,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6287,9 +6652,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Homework assignments that are submitted late will be besubject to the following deductions:\n• up to 1 weeks late: Deduct 5%\n• 1 - 3 weeks late: Deduct 10%\n• 3+ weeks late: Deduct 20%\nSTATEMENT ON ACADEMIC INTEGRITY",
         "pred": "Homework assignments that are submitted late will be besubject to the following deductions:\n• up to 1 weeks late: Deduct 5%\n• 1 - 3 weeks late: Deduct 10%\n• 3+ weeks late: Deduct 20%\nSTATEMENT ON ACADEMIC INTEGRITY",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6362,9 +6732,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6372,9 +6742,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n10% Participation\nUndergrad: 10 points general participation\nGrad: Wiki textbook work 10 points\n48% Homework\nThere will be 4 assignments at 8, 8, 12 and 12+8 points respectively\n20% Projects\nLanguage Project: develop programming language, 6% grammar/14% implement\n22% Exam\nA final exam",
         "pred": "Grading:\n10% Participation\nUndergrad: 10 points general participation\nGrad: Wiki textbook work 10 points\n48% Homework\nThere will be 4 assignments at 8, 8, 12 and 12+8 points respectively\n20% Projects\nLanguage Project: develop programming language, 6% grammar/14% implement\n22% Exam\nA final exam",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6447,7 +6822,7 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
@@ -6457,7 +6832,12 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Homework: 30% - Assigned weekly. All homework assignments are individual assignments. Each assignment includes 2-5 open-ended questions to review past week's material. Discussions: 20% - Assigned several times. Students participate in problem solving activities through online discussion. Requirements for the full credit: at least one discussion post and at least two replies to peer students. Midterm Exam: 20% - Take-home exam to be scheduled. Includes multiple choice questions and open-ended questions. Open notes. No collaboration is allowed while taking the examination. Final project: COMP730 - 30%, COMP830 - 20% - Group project (2-3 students in a team). You will be asked to develop an app of your choice. Project requirements: to be announced. Each team will give a presentation in the last class meeting. Individual Final Project: 10% COMP830 only - You will develop a solution to a software design problem. Project requirements: to be announced.",
         "pred": "To Achieve These WI Learning Objectives\nWriting is substantial (more than 50% of the grade) and integral to this course\n(homework assignments, self-evaluations, class forum posts, project artifacts).",
         "match": false
       }
@@ -6532,9 +6912,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6542,9 +6922,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Final grade will be calculated based on the following weights:\nParticipation 5%\nLab reports 15%\nAssessments 30%\nIndividual project 15%\nTeam project 35%\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "gt": "A A- B+ B B- C C C- D+ D D- F 93 90 87 83 80 77 73 70 67 63 60 <60",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Final grade will be calculated based on the following weights: Participation 5%, Lab reports 15%, Assessments 30%, Individual project 15%, Team project 35%. Letter Grade Determination - The minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "pred": "Final grade will be calculated based on the following weights:\nParticipation 5%\nLab reports 15%\nAssessments 30%\nIndividual project 15%\nTeam project 35%\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
+        "match": true
       }
     },
     {
@@ -6617,9 +7002,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6627,9 +7012,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n• Homework: 25%\n− Weekly assigned (approximately)\npersonal) that may arise. Late work is anything submitted after the announced due date\nand time. You will lose 10% per day for work submitted late for up to 48 hours after the\ndue day. Submissions must be completed through MyCourses in order to receive credits.\n• Class Participation: 15%",
         "pred": "Grading:\n• Homework: 25%\n− Weekly assigned (approximately)\npersonal) that may arise. Late work is anything submitted after the announced due date\nand time. You will lose 10% per day for work submitted late for up to 48 hours after the\ndue day. Submissions must be completed through MyCourses in order to receive credits.\n• Class Participation: 15%",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6702,9 +7092,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6712,9 +7102,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
         "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6787,9 +7182,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6797,9 +7192,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies",
         "pred": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -6872,9 +7272,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
         "pred": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6882,9 +7282,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
-        "pred": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded.",
+        "gt": "94-100 A (4.0) Excellent, 90-93 A- (3.67), 87-89 B+ (3.33), 84-86 B (3.0) Superior, 80-83 B- (2.67), 77-79 C+ (2.33), 74-76 C (2.0) Satisfactory/Competent, 70-73 C- (1.67), 67-69 D+ (1.33), 64-66 D (1.0) Marginal, 60-63 D- (0.67), 59-Below F (0.0) Failure",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded.",
+        "pred": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded.",
+        "match": true
       }
     },
     {
@@ -6957,9 +7362,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -6967,9 +7372,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading and Evaluation of Student Work:\nClass Participation: 20%\nMid-Term Exam: 10%\nHome Work/Lab Assignments: 12 @5% Each = 60%\nFinal Exam: 10%\nReading List",
         "pred": "Grading and Evaluation of Student Work:\nClass Participation: 20%\nMid-Term Exam: 10%\nHome Work/Lab Assignments: 12 @5% Each = 60%\nFinal Exam: 10%\nReading List",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7042,9 +7452,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments",
         "pred": "Late Assignments",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7052,9 +7462,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading\n• 20% Participation/Attendance\n• 30% Quizzes and Exams\n• 50% Homework/Assessments* and Labs\n* Homework may include a short written assessment given in the class following the date\nHomework assignments that are submitted late will only be able to achieve grades as follows:\n● up to 1 weeks late: Deduct 5%\n● 1 - 3 weeks late: Deduct 10%\n● 3+ weeks late: Deduct 20%\nSubmissions",
         "pred": "Grading\n• 20% Participation/Attendance\n• 30% Quizzes and Exams\n• 50% Homework/Assessments* and Labs\n* Homework may include a short written assessment given in the class following the date\nHomework assignments that are submitted late will only be able to achieve grades as follows:\n● up to 1 weeks late: Deduct 5%\n● 1 - 3 weeks late: Deduct 10%\n● 3+ weeks late: Deduct 20%\nSubmissions",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7127,9 +7542,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7137,9 +7552,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n• Homework: 20%\n- Bi-weekly (approximately)\n- Full Credit or No Credit (if incomplete or late)\n• In-class Quizzes: 10%\n- Beginning of every class\n- From past week’s content including assigned reading\n- One A4-size page of handwritten note allowed\n- Lowest quiz thrown out\n• Individual Project: 30%",
         "pred": "Grading:\n• Homework: 20%\n- Bi-weekly (approximately)\n- Full Credit or No Credit (if incomplete or late)\n• In-class Quizzes: 10%\n- Beginning of every class\n- From past week’s content including assigned reading\n- One A4-size page of handwritten note allowed\n- Lowest quiz thrown out\n• Individual Project: 30%",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7212,9 +7632,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late submissions",
         "pred": "Late submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7222,9 +7642,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final grades will be based on Quizzes, Homework, Project and Final Exam.\nParticipation/Attendance: 20%\nHomework/Projects : 40%\nQuizzes and Final Exam: 40%\nQuizzes will be announced but you should always keep up with the material from week to week.\nHomework assignments that are submitted late will only be able to achieve grades as follows:\nup to 1 weeks late: Deduct 5%\n1 - 3 weeks late: Deduct 10%\n3+ weeks late: Deduct 20%\nGrade Mode: UNH Letter Grading",
         "pred": "Final grades will be based on Quizzes, Homework, Project and Final Exam.\nParticipation/Attendance: 20%\nHomework/Projects : 40%\nQuizzes and Final Exam: 40%\nQuizzes will be announced but you should always keep up with the material from week to week.\nHomework assignments that are submitted late will only be able to achieve grades as follows:\nup to 1 weeks late: Deduct 5%\n1 - 3 weeks late: Deduct 10%\n3+ weeks late: Deduct 20%\nGrade Mode: UNH Letter Grading",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7297,9 +7722,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -7307,7 +7732,12 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading Percentages: Discussions/Journal 100 points per assignment, Chapter Problems 150 points per assignment, Chapter Problems Portfolio 400 points, Case Study 200 points, Final Project Milestone 1 150 points, Final Project Milestone 2 150 points, Final Project Milestone 3 150 points, Final Project 900 points, Microsoft OneNote 500 points.",
         "pred": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date. No extensions to the DB beyond Day 7 @ 11:59pm local time will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nAll assignments are due Sunday by 11:59 pm.\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.  After 7 days the assignment will not be accepted and a zero will be recorded.",
         "match": false
       }
@@ -7382,9 +7812,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7392,9 +7822,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
         "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7467,9 +7902,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7477,9 +7912,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
         "pred": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7552,9 +7992,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Assignments and Make-Up Exams:",
         "pred": "Late Assignments and Make-Up Exams:",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7562,9 +8002,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "20% Final Report\nA : Exceptional team member – went above and beyond what was required\nB : Average team member – met requirements consistently\nC : Below Average team member - tasks were consistently late, bad at communication\nD : Troublesome team member - lack of communication, missed many status reports\nF : Failed as team member - no significant contribution or team participation",
         "pred": "20% Final Report\nA : Exceptional team member – went above and beyond what was required\nB : Average team member – met requirements consistently\nC : Below Average team member - tasks were consistently late, bad at communication\nD : Troublesome team member - lack of communication, missed many status reports\nF : Failed as team member - no significant contribution or team participation",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7637,7 +8082,7 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Assessments",
         "match": false
       },
@@ -7647,9 +8092,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nIn-class participation (5%)\nActive Reading (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nTeam Project (25%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
         "pred": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nIn-class participation (5%)\nActive Reading (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nTeam Project (25%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7722,9 +8172,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Do NOT submit homework or final late!",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -7732,9 +8182,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Grading\nMidterm 50%\nFinal 50%\nPrimary Text: Witten, Frank, Hall. Data Mining: Practical Machine\nTools: Weka (primary), Python/Scikit-learn (secondary)\nAssessment: Midterm 50%, Final 50%\nWeek 1 — Introduction to Data Mining & Machine Learning",
         "pred": "Grading\nMidterm 50%\nFinal 50%\nPrimary Text: Witten, Frank, Hall. Data Mining: Practical Machine\nTools: Weka (primary), Python/Scikit-learn (secondary)\nAssessment: Midterm 50%, Final 50%\nWeek 1 — Introduction to Data Mining & Machine Learning",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7807,9 +8262,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7817,9 +8272,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
         "pred": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7892,9 +8352,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7902,9 +8362,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "grade consists of the following three components.\n10% Class Attendance: Attendance of all class meetings.\n70% Sprint Grade:\nThis is an individual grade calculated as: Teamwork Multiplier * Team Sprint Grade, for each sprint.\nproduct and team project management process.\n10% Homework: additional homework in project management and development tools.\n10% Project Report: a report to reflect on your team project experience and provide self-assessment.\nTextbooks: There is no required textbook. Course materials and resources will be posted in Canvas.",
         "pred": "grade consists of the following three components.\n10% Class Attendance: Attendance of all class meetings.\n70% Sprint Grade:\nThis is an individual grade calculated as: Teamwork Multiplier * Team Sprint Grade, for each sprint.\nproduct and team project management process.\n10% Homework: additional homework in project management and development tools.\n10% Project Report: a report to reflect on your team project experience and provide self-assessment.\nTextbooks: There is no required textbook. Course materials and resources will be posted in Canvas.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -7977,9 +8442,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "",
@@ -7987,9 +8452,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "GRADING\nTo evaluate your achievement in this course, the following evidence is taken into account:\nParticipation (15%)\nWriting artifacts (15%)\nOutline (5%); First draft (5%); Almost final draft (5%)\nWork progress (10%)\nPresentation (10%)\nComputing artifacts (20%)\nFinal Paper/Thesis Manuscript (30%)\nLEARNING RESOURCES",
         "pred": "GRADING\nTo evaluate your achievement in this course, the following evidence is taken into account:\nParticipation (15%)\nWriting artifacts (15%)\nOutline (5%); First draft (5%); Almost final draft (5%)\nWork progress (10%)\nPresentation (10%)\nComputing artifacts (20%)\nFinal Paper/Thesis Manuscript (30%)\nLEARNING RESOURCES",
-        "match": false
+        "match": true
       }
     },
     {
@@ -8062,9 +8532,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "",
+        "gt": "Late Submissions",
         "pred": "",
-        "match": true
+        "match": false
       },
       "assignment_delivery": {
         "gt": "",
@@ -8072,9 +8542,14 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Outline (4%); First draft (8%); Almost final draft (8%)\n4\nreceive advising and feedback from your advisor.\n● Work progress (10%)\n● Presentation (10%)\n● Computing artifacts (20%)\n● Final Paper (30%)\nLEARNING RESOURCES",
         "pred": "○ Outline (4%); First draft (8%); Almost final draft (8%)\n4\nreceive advising and feedback from your advisor.\n● Work progress (10%)\n● Presentation (10%)\n● Computing artifacts (20%)\n● Final Paper (30%)\nLEARNING RESOURCES",
-        "match": false
+        "match": true
       }
     },
     {
@@ -8158,8 +8633,13 @@
       },
       "final_grade_scale": {
         "gt": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignment breakdown by points and timeframe: Introductions (video) 10 points Week one, Certificate (from FEMA IS course) 10 points Week two, Mini-writing assignment 20 points, Discussion post 20 points Week three, Knowledge check 15 points Week four, Extra Credit opportunity available, Exam (cumulative) 40 points Week five, Knowledge check 15 points Week six, Presentation (video) 30 points Week seven, Extra Credit opportunity available, Writing assignment 40 points Week eight.",
         "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
-        "match": true
+        "match": false
       }
     },
     {
@@ -8242,7 +8722,12 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "A = 6 points; B = 5 points; C = 4 points; D = 3 points; F = <3 points",
+        "gt": "A 100-94, A- <94-90, B+ <90-87, B <87-84, B- <84-80, C+ <80-77, C <77-74, C- <74-70, D+ <70-67, D <67-64, D- <64-60, F <60-0",
+        "pred": "",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "least 80% of the time |\nA = 6 points; B = 5 points; C = 4 points; D = 3 points; F = <3 points\nWriter's Blog Entries",
         "pred": "least 80% of the time |\nA = 6 points; B = 5 points; C = 4 points; D = 3 points; F = <3 points\nWriter's Blog Entries",
         "match": true
       }
@@ -8327,7 +8812,12 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Excels = 2 Points Baseline = 1 Point Below = 0 Point Attendance & Punctuality Attend @ least 94% of Attend @ least 86% Attend fewer meetings on time of meetings on time than 86% of class meetings on time discussion google doc discussion google at least 90% of the time doc at least 80% of the time",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "In the Professional Development Project (Assignment Sheet), you will explore technical\n3\nExcels = 2 Points Baseline = 1 Point Below = 0 Point\nAttendance & Punctuality Attend @ least 94% of Attend @ least 86% Attend fewer\nmeetings on time of meetings on time than 86% of class\nmeetings on time\ndiscussion google doc discussion google\nat least 90% of the time doc at least 80% of\nthe time",
         "pred": "In the Professional Development Project (Assignment Sheet), you will explore technical\n3\nExcels = 2 Points Baseline = 1 Point Below = 0 Point\nAttendance & Punctuality Attend @ least 94% of Attend @ least 86% Attend fewer\nmeetings on time of meetings on time than 86% of class\nmeetings on time\ndiscussion google doc discussion google\nat least 90% of the time doc at least 80% of\nthe time",
         "match": true
       }
@@ -8412,6 +8902,11 @@
         "match": true
       },
       "final_grade_scale": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
         "gt": "Homework 30% Tests (2 planned) 30% Lab Projects 20% Final Exam 15% Practice Problems 5%",
         "pred": "assignments:\nHomework 30% Tests (2 planned) 30%\nLab Projects 20% Final Exam 15%\nPractice Problems 5%\nCALCULATION OF LETTER GRADES: Letter grades for the course correspond to the following",
         "match": true
@@ -8498,6 +8993,11 @@
       },
       "final_grade_scale": {
         "gt": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n30% Weekly assignments\n20% Mid-term assessment\n20% Final assessment\n30% Illustrated Report/Research Project\nCourse Activities",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "30% Weekly assignments 20% Mid-term assessment 20% Final assessment 30% Illustrated Report/Research Project",
         "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n30% Weekly assignments\n20% Mid-term assessment\n20% Final assessment\n30% Illustrated Report/Research Project\nCourse Activities",
         "match": true
       }
@@ -8583,8 +9083,13 @@
       },
       "final_grade_scale": {
         "gt": "Letter | Range | Range | Range\nA | 100 % | to | 94 %\nA- | < 94 % | to | 90 %\nB+ | < 90 % | to | 87 %\nB | < 87 % | to | 84 %\nB- | < 84 % | to | 80 %\nC+ | < 80 % | to | 77 %\nC | < 77 % | to | 74 %\nC- | < 74 % | to | 70 %\nD+ | < 70 % | to | 67 %\nD | < 67 % | to | 64 %\nD- | < 64 % | to | 60 %\nF | < 60 % | to | 0 %",
+        "pred": "",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Missing",
         "pred": "Letter | Range | Range | Range\nA | 100 % | to | 94 %\nA- | < 94 % | to | 90 %\nB+ | < 90 % | to | 87 %\nB | < 87 % | to | 84 %\nB- | < 84 % | to | 80 %\nC+ | < 80 % | to | 77 %\nC | < 77 % | to | 74 %\nC- | < 74 % | to | 70 %\nD+ | < 70 % | to | 67 %\nD | < 67 % | to | 64 %\nD- | < 64 % | to | 60 %\nF | < 60 % | to | 0 %",
-        "match": true
+        "match": false
       }
     },
     {
@@ -8667,6 +9172,11 @@
         "match": true
       },
       "final_grade_scale": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
         "gt": "Assignment Description Total Points Participation Weekly class discussion/quizzes/assignments/student-instructor dialogue 40 Exam 1 Midterm 30 Exam 2 Final 30 Total 100",
         "pred": "Days Late | Points subtracted\n1 | 15%\n2 | 30%\n3 | 45%\n4 | 60%\n5 | 75%\n6 | 90%\n7 or more | Will not be graded",
         "match": false
@@ -8753,6 +9263,11 @@
       },
       "final_grade_scale": {
         "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "",
         "pred": "Days Late | Grade Deduction\n1 | 10%\n2 | 20%\n3 | 30%\n4 | 40%\n5 | 50%\n6 or more | Not accepted; will receive a grade of zero",
         "match": false
       }
@@ -8837,9 +9352,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Course Assignments:",
+        "gt": " ",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "prior to each class and turn in writing assignments the following weekend.\n1. Quizzes (40%) – Due by 2:10 PM on Sep. 2, 9, 16, 23, 30; Oct. 7, 14, 21; Nov. 4, 18, 25\nTo develop reading comprehension and critical thinking skills, students will take eleven quizzes that\nten scores will count as 40% of the final grade.",
         "pred": "prior to each class and turn in writing assignments the following weekend.\n1. Quizzes (40%) – Due by 2:10 PM on Sep. 2, 9, 16, 23, 30; Oct. 7, 14, 21; Nov. 4, 18, 25\nTo develop reading comprehension and critical thinking skills, students will take eleven quizzes that\nten scores will count as 40% of the final grade. Quizzes must be submitted before the start of class on the",
-        "match": false
+        "match": true
       }
     },
     {
@@ -8922,7 +9442,12 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "Attendance/Participation 5% Quizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken. MyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a homework assignment, that grade will be counted as 100%. Written Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score. Exam 1, 2 20% *for each exam Final Exam 20% *12/10/25",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Attendance/Participation 5%\nQuizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken.\nMyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a\nhomework assignment, that grade will be counted as 100%.\nWritten Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score.\nExam 1, 2 20% *for each exam\nFinal Exam 20% *12/10/25\nLetter grade equivalences are given below.",
         "pred": "exams can be scheduled during the last five days of the semester.\nAttendance/Participation 5%\nQuizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken.\nMyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a\nhomework assignment, that grade will be counted as 100%.\nWritten Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score.\nExam 1, 2 20% *for each exam\nFinal Exam 20% *12/10/25\nLetter grade equivalences are given below.",
         "match": true
       }
@@ -9008,6 +9533,11 @@
       },
       "final_grade_scale": {
         "gt": "Final Grade Scale Letter Grade Range A 100% - 94% A- <94% - 90% B+ <90% - 87% B <87% - 84% B- <84% - 80% C+ <80% - 77% C <77% - 74% C- <74% - 70% D+ <70% - 67% D <67% - 64% D- <64% - 60% F <60%",
+        "pred": "",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignment",
         "pred": "Letter Grade Range\nA 100% - 94%\nA- <94% - 90%\nB+ <90% - 87%\nB <87% - 84%\nB- <84% - 80%\nC+ <80% - 77%\nC <77% - 74%\nC- <74% - 70%\nD+ <70% - 67%\nD <67% - 64%\nD- <64% - 60%\nF <60%\nParticipation Assignments",
         "match": true
       }
@@ -9093,6 +9623,11 @@
       },
       "final_grade_scale": {
         "gt": "Final Grade Scale Letter Grade Range A 100% - 94% A- <94% - 90% B+ <90% - 87% B <87% - 84% B- <84% - 80% C+ <80% - 77% C <77% - 74% C- <74% - 70% D+ <70% - 67% D <67% - 64% D- <64% - 60% F <60%",
+        "pred": "",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignment",
         "pred": "Letter Grade Range\nA 100% - 94%\nA- <94% - 90%\nB+ <90% - 87%\nB <87% - 84%\nB- <84% - 80%\nC+ <80% - 77%\nC <77% - 74%\nC- <74% - 70%\nD+ <70% - 67%\nD <67% - 64%\nD- <64% - 60%\nF <60%\nParticipation Assignments",
         "match": true
       }
@@ -9178,8 +9713,13 @@
       },
       "final_grade_scale": {
         "gt": "Letter Grade | Range | Range\nA | 100%to94% |\nA- | < 94%to90% |\nB+ | < 90%to87% |\nB | < 87%to84% |\nB- | < 84%to80% |\nC+ | < 80%to77% |\nC | < 77%to74% |\nC- | < 74%to70% |\nD+ | < 70%to67% |\nD | < 67%to64% |\nD- | < 64%to60% |\nF | < 60%to0% |\nModule 1 | Topic",
+        "pred": "",
+        "match": false
+      },
+      "grading_process": {
+        "gt": "Assignment",
         "pred": "Letter Grade | Range | Range\nA | 100%to94% |\nA- | < 94%to90% |\nB+ | < 90%to87% |\nB | < 87%to84% |\nB- | < 84%to80% |\nC+ | < 80%to77% |\nC | < 77%to74% |\nC- | < 74%to70% |\nD+ | < 70%to67% |\nD | < 67%to64% |\nD- | < 64%to60% |\nF | < 60%to0% |\nModule 1 | Topic",
-        "match": true
+        "match": false
       }
     },
     {
@@ -9262,6 +9802,11 @@
         "match": true
       },
       "final_grade_scale": {
+        "gt": "",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
         "gt": "Component Weight\nHomework 10%\nReading Quizzes 2%\nLabs 20%\nRegular Exams 2×24%=48%\nFinal Exam 20%",
         "pred": "Component Weight\nHomework 10%\nReading Quizzes 2%\nLabs 20%\nRegular Exams 2×24%=48%\nFinal Exam 20%\n8",
         "match": true
@@ -9347,9 +9892,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "45% Homework & Labs | 45% Exams | 10% Attitude",
-        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 3-4",
+        "gt": "A 94-100, A- 90-94, B+ 87-90, B 84-87, B- 80-84, C+ 77-80, C 74-77, C- 70-74, D+ 67-70, D 64-67, D- 60-64, F 0-60",
+        "pred": "",
         "match": false
+      },
+      "grading_process": {
+        "gt": "The above 4 components are weighted to determine a student’s final grade as so:\n45% Homework & Labs | 45% Exams | 10% Attitude\nNote: Homework is extremely important. Skipping homework and “making up the points” on the exams is NOT a viable",
+        "pred": "session. The above 4 components are weighted to determine a student’s final grade as so:\n45% Homework & Labs | 45% Exams | 10% Attitude\nNote: Homework is extremely important. Skipping homework and “making up the points” on the exams is NOT a viable",
+        "match": true
       }
     },
     {
@@ -9435,6 +9985,11 @@
         "gt": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": true
+      },
+      "grading_process": {
+        "gt": "CHAPTER QUIZZES 15% DISCUSSIONS 20% MIDTERM EXAM 20% FINAL EXAM 20% SUMMARY/ CRITIQUE PAPER 15% PARTICIPATION 10% ------------------------------------------------ 100%",
+        "pred": "Grades will be calculated based on the following percentage cutoff points:\nA = 93 - 100% C = 73 - 76%\nA- = 90 - 92% C- = 70 - 72%\nB+ = 87 - 89% D+ = 67 - 69%\nB = 83 - 86% D = 63 - 66%\nB- = 80 - 82% D- = 60 - 62%\nC+ = 77 - 79% F = 00 - 59%\nEXTRA CREDIT",
+        "match": false
       }
     },
     {
@@ -9519,6 +10074,11 @@
       "final_grade_scale": {
         "gt": "A = 93 - 100% A- = 90 - 92 B+ = 87 - 89 B = 83 - 86 B- = 80 - 82 C+ = 77 - 79 C = 73 - 76 C- = 70 – 72 D+ = 67 - 69 D = 63 – 66 D- = 60 – 62 F = 0 - 59",
         "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79",
+        "pred": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79",
         "match": true
       }
     },
@@ -9605,6 +10165,11 @@
         "gt": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 0 - 59%",
         "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": true
+      },
+      "grading_process": {
+        "gt": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79",
+        "pred": "Final grades will consist of all of the elements outlined above. Specifically:\nReading Questions: 18%\nOnline Discussions: 7%\nExam 1: 15%\nExam 2: 15%\nExam 3: 15%\nPaper Assignment / PowerPoint Presentation: 20%\nClass Participation: 10%\n-----------------\nTotal 100%\nGrades will be calculated based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92%\nB+ = 87 - 89% B = 83 - 86% B- = 80 - 82%\nC+ = 77 - 79% C = 73 - 76% C- = 70 - 72%\nD+ = 67 - 69% D = 63 - 66% D- = 60 - 62%\nF = 0 - 59%",
+        "match": false
       }
     },
     {
@@ -9690,6 +10255,11 @@
         "gt": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 00 - 59%",
         "pred": "A = 93-100\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": true
+      },
+      "grading_process": {
+        "gt": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79",
+        "pred": "Final grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92%\nB+ = 87 - 89% B = 83 - 86% B- = 80 - 82%\nC+ = 77 - 79% C = 73 - 76% C- = 70 - 72%\nD+ = 67 - 69% D = 63 - 66% D- = 60 - 62%\nF = 00 - 59%\nACADEMIC DISHONESTY",
+        "match": false
       }
     },
     {
@@ -9772,9 +10342,14 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "5% Course Preparatory Skill Building 25% Weekly Assignments & Activities 50% Average of Mid-term and Final Assessment 20% Laboratory Grade",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Method of Evaluation Point Value\nThe lab grade is a total of 135 points Homework: Math Packet 10\nmade up of the categories shown at\nthe right. 25\nThe lab grade is incorporated into Quizzes (5 pts ea)\n15",
         "pred": "Method of Evaluation Point Value\nThe lab grade is a total of 135 points Homework: Math Packet 10\nmade up of the categories shown at\nthe right. 25\nThe lab grade is incorporated into Quizzes (5 pts ea)\n15",
-        "match": false
+        "match": true
       }
     },
     {
@@ -9857,7 +10432,12 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Team Tests\n4 x 50 points 200 points\nMidterm 200 points\nFinal Exam 200 points\nTOTAL 800 points",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Team Tests\n4 x 50 points 200 points\nMidterm 200 points\nFinal Exam 200 points\nTOTAL 800 points\nThis syllabus reflects the federal definition of a credit hour, which entails a minimum of 3",
         "pred": "Team Tests\n4 x 50 points 200 points\nMidterm 200 points\nFinal Exam 200 points\nTOTAL 800 points\nThis syllabus reflects the federal definition of a credit hour, which entails a minimum of 3",
         "match": true
       }
@@ -9942,6 +10522,11 @@
         "match": true
       },
       "final_grade_scale": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
         "gt": "Your final grade will be computed as follows: • Homework Average: 25% • Skill Checks: 25% • Midterm Exam: 25% • Final Exam: 25%",
         "pred": "Your final grade will be computed as follows:\n• Homework Average: 25%\n• Skill Checks: 25%\n• Midterm Exam: 25%\n• Final Exam: 25%\nImportant Note: Grades are determined only by the points earned from the assignments listed above that are\n• Assignment Frequency: Homework will be assigned for each section we cover.\n• Scoring and Credit: To receive credit for a homework assignment, you must achieve a score of 50% or\nhigher. Achieving this minimum score will result in your grade being manually adjusted to 100%. It may take\nup to a week for this adjustment to be reflected in your grade. While it's not necessary to score 100% on",
         "match": true
@@ -10027,6 +10612,11 @@
         "match": true
       },
       "final_grade_scale": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
         "gt": "Grades See below for an outline of assignments and points",
         "pred": "",
         "match": false
@@ -10112,8 +10702,13 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Final grades will be calculated based on the following guidelines: A = 94-100 A- = 90-93 B+ = 87-89 B = 84-86 B- = 80-83 C+ = 77-79 C = 74-76 C- = 70-73 D+ = 67-69 D = 64-66 D- = 60-63 F = 0-59",
+        "gt": "A = 94-100\nA- = 90-93\nB+ = 87-89\nB = 84-86\nB- = 80-83\nC+ = 77-79\nC = 74-76\nC- = 70-73\nD+ = 67-69\nD = 64-66\nD- = 60-63\nF = 0-59",
         "pred": "A = 94-100\nA- = 90-93\nB+ = 87-89\nB = 84-86\nB- = 80-83\nC+ = 77-79\nC = 74-76\nC- = 70-73\nD+ = 67-69\nD = 64-66\nD- = 60-63\nF = 0-59",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Students will earn up to 7.5 points for submitting their final poster on time and\nup to 7.5 points for presenting at the Winter Symposium.\nParticipation and Attendance\nParticipation and attendance are worth 10 points toward your final grade and more than one absence",
+        "pred": "Students will earn up to 7.5 points for submitting their final poster on time and\nup to 7.5 points for presenting at the Winter Symposium.\nParticipation and Attendance\nParticipation and attendance are worth 10 points toward your final grade and more than one absence",
         "match": true
       }
     },
@@ -10197,7 +10792,12 @@
         "match": false
       },
       "final_grade_scale": {
-        "gt": "GRADING DISTRIBUTION In-class Participation and Projects – 10% Weekly Quizzes – 10% First Hour Exam – 20% Second Hour Exam – 20% Third Hour Exam- 20% Final Exam – 20%",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "GRADING DISTRIBUTION\nIn-class Participation and Projects – 10%\nWeekly Quizzes – 10%\nFirst Hour Exam – 20%\nSecond Hour Exam – 20%\nThird Hour Exam- 20%\nFinal Exam – 20%\nCOURSE FORMAT",
         "pred": "GRADING DISTRIBUTION\nIn-class Participation and Projects – 10%\nWeekly Quizzes – 10%\nFirst Hour Exam – 20%\nSecond Hour Exam – 20%\nThird Hour Exam- 20%\nFinal Exam – 20%\nCOURSE FORMAT",
         "match": true
       }
@@ -10282,7 +10882,12 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "Bacteria quiz 5pts Protista Fungi quiz 5pts Plant Anatomy quiz  5pts Plant Diversity Quiz 5pts Exam 1 30 pts Animal Diversity quiz  10pts Animal anatomy quiz  10pts Exam 2 30pts",
+        "gt": "Missing",
+        "pred": "",
+        "match": true
+      },
+      "grading_process": {
+        "gt": "Quizzes and Exams\nBacteria quiz                                      5pts                                       Jun 27\nProtista Fungi quiz                             5pts                                       Jun 30\nPlant Anatomy quiz                           5pts                                       July 5\nPlant Diversity Quiz                           5pts                                       July 10\nExam 1                                               30 pts                                    July 11\nAnimal Diversity quiz                        10pts                                     July 17\nAnimal anatomy quiz                        10pts                                     July 21\nExam 2                                               30pts                                     July 22",
         "pred": "Quizzes and Exams\nBacteria quiz                                      5pts                                       Jun 27\nProtista Fungi quiz                             5pts                                       Jun 30\nPlant Anatomy quiz                           5pts                                       July 5\nPlant Diversity Quiz                           5pts                                       July 10\nExam 1                                               30 pts                                    July 11\nAnimal Diversity quiz                        10pts                                     July 17\nAnimal anatomy quiz                        10pts                                     July 21\nExam 2                                               30pts                                     July 22",
         "match": true
       }

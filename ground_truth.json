@@ -1421,8 +1421,8 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
-    "assignment_delivery": "",
-    "final_grade_scale": "",
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "A+ = 97-100\tB+ =  87-89\tC+ =  77-79\tD+ = 67-69\tF = below 60\nA   =  93-96\tB   =  83-86\tC   =  73-76\tD   =  63-66\nA-  =  90-92\tB-  =  80-82\tC-  =  70-72\tD-  =  60-62",
     "grading_process": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies"
   },
   {
@@ -1444,8 +1444,8 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "You will receive a grade of 0 for any quiz or exam that you miss.",
-    "assignment_delivery": "",
-    "final_grade_scale": "Missing",
+    "assignment_delivery": "MyCourses",
+    "final_grade_scale": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
     "grading_process": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100%+ A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%"
   },
   {
@@ -1467,7 +1467,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day.",
-    "assignment_delivery": "",
+    "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)"
   },
@@ -1490,7 +1490,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n15% Participation\nThis includes attendance and participation\n15% Lab work\nLab assignments done during lab: 5 out of 6 at 3 points each\n25% Homework\nYou will have 5 homework assignments at 5 points each\n20% Programming Project\nDesign worth 5 points and implementation worth 15 points\n25% Exam\nPolicies"
   },
@@ -1513,7 +1513,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted.\nFinal Exam 20%\nProject 35%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class."
   },
@@ -1536,7 +1536,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions and make-up exam",
-    "assignment_delivery": "",
+    "assignment_delivery": "Blackboard",
     "final_grade_scale": "Missing",
     "grading_process": "Grading\nClass Participation 15%\nHomework and Quiz 20%\nMidterm 20%\nGroup Project 20%\nFinal Paper 25%\nClass Participation"
   },
@@ -1559,7 +1559,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions and make-up exam",
-    "assignment_delivery": "",
+    "assignment_delivery": "Handed in",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\nSemester Take Home Exam: 20%\nSemester Final Project: 20%\nClass Participation: 10%\nAssignments (10; 5 pts each): 50%\nGrade Policy\nAssignments must be submitted as email attachments where appropriate. Assignments are\ngraded as binary. Best effort will be awarded 100%. Otherwise 0% will be awarded. The\nsemester exam will be in take-home format. It may be emailed or handed in by the due"
   },
@@ -1582,7 +1582,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade."
   },
@@ -1605,7 +1605,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Work Logs – (20% of grade)\nFirst log due by 11:59 pm on Sunday, Sept 11 (to reflect 2 weeks of work/research activity)\nSubsequent logs are due weekly, by 11:59 pm on Sunday for the prior week\nIn Class Presentations – (25% of grade) Your presentation/slides and reflection paper must be uploaded by noon on Friday following each class (Sept 2, Sept 9, Oct 14, Nov 25 and Dec 9)\nFinal Report – (25% of grade) Due by noon on Friday, December 9\nClass Attendance (15% of grade)\nParticipation – (15% of grade) Required at each class, including questions for presenters; see MyCourse Assignments for Discussion posting requirements and due dates (9/16, 10/7, 11/11, 12/2 and 12/7).\nREMINDER: You need to meet the 150 hours requirement and earn at least 75% on the Final Report to pass the class, in addition to earning points on other assignments (presentations and participation, etc).\nUNHM POLICIES AND INFORMATION"
   },
@@ -1628,8 +1628,8 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "You may hand in ONE late homework assignmen",
-    "assignment_delivery": "",
-    "final_grade_scale": "",
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "Missing",
     "grading_process": "Midterm and Final\nProject 30%\nA(cid:425)endance / Par(cid:415)cipa(cid:415)on 10%\nEmail the instructor before you miss class."
   },
   {
@@ -1651,7 +1651,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 5 problem sets worth 8 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies"
   },
@@ -1674,7 +1674,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Homework assignments that are submitted late will be besubject to the following deductions:\n• up to 1 weeks late: Deduct 5%\n• 1 - 3 weeks late: Deduct 10%\n• 3+ weeks late: Deduct 20%\nSTATEMENT ON ACADEMIC INTEGRITY"
   },
@@ -1697,7 +1697,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n10% Participation\nUndergrad: 10 points general participation\nGrad: Wiki textbook work 10 points\n48% Homework\nThere will be 4 assignments at 8, 8, 12 and 12+8 points respectively\n20% Projects\nLanguage Project: develop programming language, 6% grammar/14% implement\n22% Exam\nA final exam"
   },
@@ -1720,7 +1720,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Missing",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Homework: 30% - Assigned weekly. All homework assignments are individual assignments. Each assignment includes 2-5 open-ended questions to review past week's material. Discussions: 20% - Assigned several times. Students participate in problem solving activities through online discussion. Requirements for the full credit: at least one discussion post and at least two replies to peer students. Midterm Exam: 20% - Take-home exam to be scheduled. Includes multiple choice questions and open-ended questions. Open notes. No collaboration is allowed while taking the examination. Final project: COMP730 - 30%, COMP830 - 20% - Group project (2-3 students in a team). You will be asked to develop an app of your choice. Project requirements: to be announced. Each team will give a presentation in the last class meeting. Individual Final Project: 10% COMP830 only - You will develop a solution to a software design problem. Project requirements: to be announced."
   },
@@ -1743,7 +1743,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "A A- B+ B B- C C C- D+ D D- F 93 90 87 83 80 77 73 70 67 63 60 <60",
     "grading_process": "Final grade will be calculated based on the following weights: Participation 5%, Lab reports 15%, Assessments 30%, Individual project 15%, Team project 35%. Letter Grade Determination - The minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+."
   },
@@ -1766,7 +1766,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n• Homework: 25%\n− Weekly assigned (approximately)\npersonal) that may arise. Late work is anything submitted after the announced due date\nand time. You will lose 10% per day for work submitted late for up to 48 hours after the\ndue day. Submissions must be completed through MyCourses in order to receive credits.\n• Class Participation: 15%"
   },
@@ -1789,7 +1789,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top."
   },
@@ -1812,7 +1812,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies"
   },
@@ -1835,7 +1835,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "94-100 A (4.0) Excellent, 90-93 A- (3.67), 87-89 B+ (3.33), 84-86 B (3.0) Superior, 80-83 B- (2.67), 77-79 C+ (2.33), 74-76 C (2.0) Satisfactory/Competent, 70-73 C- (1.67), 67-69 D+ (1.33), 64-66 D (1.0) Marginal, 60-63 D- (0.67), 59-Below F (0.0) Failure",
     "grading_process": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded."
   },
@@ -1858,7 +1858,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Grading and Evaluation of Student Work:\nClass Participation: 20%\nMid-Term Exam: 10%\nHome Work/Lab Assignments: 12 @5% Each = 60%\nFinal Exam: 10%\nReading List"
   },
@@ -1881,7 +1881,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading\n• 20% Participation/Attendance\n• 30% Quizzes and Exams\n• 50% Homework/Assessments* and Labs\n* Homework may include a short written assessment given in the class following the date\nHomework assignments that are submitted late will only be able to achieve grades as follows:\n● up to 1 weeks late: Deduct 5%\n● 1 - 3 weeks late: Deduct 10%\n● 3+ weeks late: Deduct 20%\nSubmissions"
   },
@@ -1904,7 +1904,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n• Homework: 20%\n- Bi-weekly (approximately)\n- Full Credit or No Credit (if incomplete or late)\n• In-class Quizzes: 10%\n- Beginning of every class\n- From past week’s content including assigned reading\n- One A4-size page of handwritten note allowed\n- Lowest quiz thrown out\n• Individual Project: 30%"
   },
@@ -1927,7 +1927,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Final grades will be based on Quizzes, Homework, Project and Final Exam.\nParticipation/Attendance: 20%\nHomework/Projects : 40%\nQuizzes and Final Exam: 40%\nQuizzes will be announced but you should always keep up with the material from week to week.\nHomework assignments that are submitted late will only be able to achieve grades as follows:\nup to 1 weeks late: Deduct 5%\n1 - 3 weeks late: Deduct 10%\n3+ weeks late: Deduct 20%\nGrade Mode: UNH Letter Grading"
   },
@@ -1950,7 +1950,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Grading Percentages: Discussions/Journal 100 points per assignment, Chapter Problems 150 points per assignment, Chapter Problems Portfolio 400 points, Case Study 200 points, Final Project Milestone 1 150 points, Final Project Milestone 2 150 points, Final Project Milestone 3 150 points, Final Project 900 points, Microsoft OneNote 500 points."
   },
@@ -1973,7 +1973,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies"
   },
@@ -1996,7 +1996,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies"
   },
@@ -2019,7 +2019,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "20% Final Report\nA : Exceptional team member – went above and beyond what was required\nB : Average team member – met requirements consistently\nC : Below Average team member - tasks were consistently late, bad at communication\nD : Troublesome team member - lack of communication, missed many status reports\nF : Failed as team member - no significant contribution or team participation"
   },
@@ -2042,7 +2042,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Final Grade Calculation\nFinal assessment of your work in this course considers the following learning activities:\nIn-class participation (5%)\nActive Reading (5%)\nIn-class Projects (10%)\nHomework Problems (15%)\nTeam Project (25%)\nIn-class Assessments (30%)\nFinal Exam (10%)\nLetter Grade Determination\nThe minimum cutoffs for the letter grades are shown in the table below. For example, if you earn 90%, you will get an A-. If you earn 89%, the letter grade is B+."
   },
@@ -2065,7 +2065,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Do NOT submit homework or final late!",
-    "assignment_delivery": "",
+    "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
     "grading_process": "Grading\nMidterm 50%\nFinal 50%\nPrimary Text: Witten, Frank, Hall. Data Mining: Practical Machine\nTools: Weka (primary), Python/Scikit-learn (secondary)\nAssessment: Midterm 50%, Final 50%\nWeek 1 — Introduction to Data Mining & Machine Learning"
   },
@@ -2088,7 +2088,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade."
   },
@@ -2111,7 +2111,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "grade consists of the following three components.\n10% Class Attendance: Attendance of all class meetings.\n70% Sprint Grade:\nThis is an individual grade calculated as: Teamwork Multiplier * Team Sprint Grade, for each sprint.\nproduct and team project management process.\n10% Homework: additional homework in project management and development tools.\n10% Project Report: a report to reflect on your team project experience and provide self-assessment.\nTextbooks: There is no required textbook. Course materials and resources will be posted in Canvas."
   },
@@ -2134,7 +2134,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "GRADING\nTo evaluate your achievement in this course, the following evidence is taken into account:\nParticipation (15%)\nWriting artifacts (15%)\nOutline (5%); First draft (5%); Almost final draft (5%)\nWork progress (10%)\nPresentation (10%)\nComputing artifacts (20%)\nFinal Paper/Thesis Manuscript (30%)\nLEARNING RESOURCES"
   },
@@ -2157,7 +2157,7 @@
     "assignment_types_title": "",
     "grading_procedures_title": "",
     "deadline_expectations_title": "Late Submissions",
-    "assignment_delivery": "",
+    "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Outline (4%); First draft (8%); Almost final draft (8%)\n4\nreceive advising and feedback from your advisor.\n● Work progress (10%)\n● Presentation (10%)\n● Computing artifacts (20%)\n● Final Paper (30%)\nLEARNING RESOURCES"
   },
