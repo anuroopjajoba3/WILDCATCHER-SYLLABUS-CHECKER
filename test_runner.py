@@ -24,7 +24,8 @@ SUPPORTED_FIELDS = (
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
-    "deadline_expectations_title", "assignment_delivery", "final_grade_scale"
+    "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
+    "grading_process"
 )
 
 # Add repo root to path
@@ -121,6 +122,13 @@ except Exception:
     GRADING_SCALE_AVAILABLE = False
     print("WARNING: Grading scale detector not available")
 
+try:
+    from detectors.grading_process_detection import GradingProcessDetector
+    GRADING_PROCESS_AVAILABLE = True
+except Exception:
+    GRADING_PROCESS_AVAILABLE = False
+    print("WARNING: Grading process detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -141,12 +149,93 @@ def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     return SequenceMatcher(None, a, b).ratio() >= threshold
 
 def loose_compare(gt, pred):
-    """GT 'not found'/empty vs pred empty => True; otherwise fuzzy."""
+    """GT 'not found'/empty/missing vs pred empty => True; otherwise fuzzy."""
     g = norm(gt)
     p = norm(pred)
-    if g in ("", "not found") and p == "":
+    if g in ("", "not found", "missing") and p == "":
         return True
     return fuzzy_match(g, p)
+
+def compare_grading_scale(gt, pred):
+    """Compare grading scales - only return True if both are empty/Missing or if they actually match."""
+    import re
+    
+    # Normalize empty values
+    def is_empty(value):
+        if not value:
+            return True
+        value_str = str(value).strip()
+        return value_str == "" or value_str.lower() == "missing"
+    
+    # If both are empty/Missing, they match
+    if is_empty(gt) and is_empty(pred):
+        return True
+    
+    # If one is empty and the other isn't, no match
+    if is_empty(gt) or is_empty(pred):
+        return False
+    
+    def extract_grades(text):
+        if not text:
+            return {}
+        
+        # Handle both formats:
+        # Format 1: "94-100=A; 90-93.9=A-; ..."
+        # Format 2: "A = 94-100\nA- = 90-94\n..."
+        
+        grades = {}
+        text = str(text).strip()
+        
+        # Pattern for format 1: number-number=letter
+        pattern1 = re.compile(r'(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*=\s*([A-F][+-]?)', re.I)
+        for match in pattern1.finditer(text):
+            low, high, letter = match.groups()
+            grades[letter.upper()] = (float(low), float(high))
+        
+        # Pattern for format 2: letter = number-number  
+        pattern2 = re.compile(r'([A-F][+-]?)\s*=\s*(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)', re.I)
+        for match in pattern2.finditer(text):
+            letter, low, high = match.groups()
+            grades[letter.upper()] = (float(low), float(high))
+            
+        # Pattern for "Below X=F" or "F = 0-X"
+        below_pattern = re.compile(r'below\s+(\d+(?:\.\d+)?)\s*=\s*f', re.I)
+        match = below_pattern.search(text)
+        if match:
+            grades['F'] = (0.0, float(match.group(1)))
+            
+        return grades
+    
+    gt_grades = extract_grades(gt)
+    pred_grades = extract_grades(pred)
+    
+    # If both have no valid grade patterns, no match (this prevents 
+    # rubric text from matching empty predictions)
+    if not gt_grades and not pred_grades:
+        return False
+        
+    # If one has grades and the other doesn't, no match    
+    if not gt_grades or not pred_grades:
+        return False
+        
+    # Check if they have similar letter grades (allow some tolerance)
+    common_letters = set(gt_grades.keys()) & set(pred_grades.keys())
+    if len(common_letters) < min(3, min(len(gt_grades), len(pred_grades))):
+        return False
+        
+    # Check if the ranges are reasonably close
+    matches = 0
+    for letter in common_letters:
+        gt_range = gt_grades[letter]
+        pred_range = pred_grades[letter]
+        
+        # Allow small differences in ranges (±2 points)
+        if (abs(gt_range[0] - pred_range[0]) <= 2.0 and 
+            abs(gt_range[1] - pred_range[1]) <= 2.0):
+            matches += 1
+    
+    # If most ranges match, consider it a match
+    return matches >= len(common_letters) * 0.7
 
 def compare_modality(gt, pred):
     """Normalize to buckets before compare."""
@@ -275,6 +364,13 @@ def detect_all_fields(text: str) -> dict:
         preds["final_grade_scale"] = gs.get("content", "") if gs.get("found") else ""
     else:
         preds["final_grade_scale"] = ""
+
+    # Grading Process
+    if GRADING_PROCESS_AVAILABLE:
+        gp = GradingProcessDetector().detect(text)
+        preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
+    else:
+        preds["grading_process"] = ""
 
     return preds
 
@@ -441,10 +537,17 @@ def main():
 
         # Final Grade Scale
         if "final_grade_scale" in record:
-            match = loose_compare(record["final_grade_scale"], preds.get("final_grade_scale", ""))
+            match = compare_grading_scale(record["final_grade_scale"], preds.get("final_grade_scale", ""))
             field_stats["final_grade_scale"]["total"] += 1
             field_stats["final_grade_scale"]["correct"] += int(match)
             result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
+        # Grading Process
+        if "grading_process" in record:
+            match = loose_compare(record["grading_process"], preds.get("grading_process", ""))
+            field_stats["grading_process"]["total"] += 1
+            field_stats["grading_process"]["correct"] += int(match)
+            result["grading_process"] = {"gt": record["grading_process"], "pred": preds.get("grading_process", ""), "match": match}
 
         details.append(result)
 

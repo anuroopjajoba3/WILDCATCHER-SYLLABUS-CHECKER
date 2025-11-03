@@ -197,7 +197,6 @@ Date: 2025-09-20
         <ul style="margin:8px 0 0 18px;">
           <li><strong>SLOs</strong> (regex-based headings & bullets)</li>
           <li><strong>Email</strong> </li>
-          <li><strong>Preferred Contact</strong> </li>
           <li><strong>Late work</strong> </li>
           <li><strong>Instructor information</strong> </li>
           <li><strong>Office information</strong> </li>
@@ -395,7 +394,6 @@ Date: 2025-09-20
               <div><strong>Modality:</strong> ${getStatus(data.modality_status === 'PASS')}</div>
               <div><strong>Office:</strong> ${getStatus(data.office_information && data.office_information.found)}</div>
               <div><strong>Email:</strong> ${getStatus(data.email_information && data.email_information.found)}</div>
-              <div><strong>Preferred Contact:</strong> ${getStatus(data.preferred_information && data.preferred_information.found)}</div>
               <div><strong>Credit Hours:</strong> ${getStatus(data.credit_hours && data.credit_hours.found)}</div>
               <div><strong>Workload:</strong> ${getStatus(data.workload_information && data.workload_information.found)}</div>
               <div><strong>Grading process & Scale:</strong> ${getStatus(data.grading_scale && data.grading_scale.found)}</div>
@@ -479,21 +477,6 @@ Date: 2025-09-20
             </div>
           `;
 
-        // Email
-
-          const preferred = data.preferred_information || {};
-          const preferredStatus = preferred.found ? '<span class="status-pass"><i class="fas fa-check-circle"></i> FOUND</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> NOT FOUND</span>';
-          const preferredPreview = preferred.preferred ? `<div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Preferred Contact:</strong> <pre style="white-space: pre-wrap; font-size:12px;">${preferred.preferred}</pre></div>` : '';
-          const preferredHTML = `
-            <div class="upload-result">
-              <h3><i class="fas fa-envelope"></i> ${data.filename || 'Uploaded Document'}</h3>
-              <div class="analysis-summary">
-                <div class="status-item"><strong>Preferred Contact Information:</strong> ${preferredStatus}</div>
-                ${preferredPreview}
-              </div>
-            </div>
-          `;
-
         // Late work
 
           const late = data.late_information || {};
@@ -548,7 +531,6 @@ Date: 2025-09-20
           { id: 'modality', label: 'Modality', icon: 'fa-chalkboard-teacher', html: modalityHTML },
           { id: 'office', label: 'Office', icon: 'fa-building', html: officeHTML },
           { id: 'email', label: 'Email', icon: 'fa-envelope', html: emailHTML },
-          { id: 'preferred', label: 'Preferred', icon: 'fa-inbox', html: preferredHTML },
           { id: 'credit', label: 'Credit Hours', icon: 'fa-clock', html: creditHTML },
           { id: 'workload', label: 'Workload', icon: 'fa-tasks', html: workloadHTML },
           { id: 'grade_scale', label: 'Grading Process & Scale', icon: 'fa-percent', html: ''},
