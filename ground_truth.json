@@ -224,7 +224,7 @@
     "workload": "",
     "assignment_types_title": "Assignments & Grading",
     "grading_procedures_title": "Assignments & Grading",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "Missing",
     "assignment_delivery": "MyCourses; Mastering A&P",
     "final_grade_scale": "Missing",
     "grading_process": "4 lecture exams (100pts each), 400 points total (67% of final grade) - Mastering A&P assignments (12 assignments, 8% of final grade) - Laboratory grade (150 points total, 25% of final grade)"
@@ -2248,9 +2248,9 @@
     "workload": "minimum 3 hours of engaged time per week per credit",
     "assignment_types_title": "assignments:",
     "grading_procedures_title": "COURSE GRADE:",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "No credit will be given for an assignment after the end of the Grace Period.",
     "assignment_delivery": "Canvas; MyCourses",
-    "final_grade_scale": "",
+    "final_grade_scale": "Missing",
     "grading_process": "Homework 30% Tests (2 planned) 30% Lab Projects 20% Final Exam 15% Practice Problems 5%"
   },
   {
@@ -2342,8 +2342,8 @@
     "grading_procedures_title": "GRADING",
     "deadline_expectations_title": "GRADING (late policy: 10% deduction per day, up to 5 days)",
     "assignment_delivery": "Canvas",
-    "final_grade_scale": "",
-    "grading_process": ""
+    "final_grade_scale": "Missing",
+    "grading_process": "Days Late | Grade Deduction\n1 | 10%\n2 | 20%\n3 | 30%\n4 | 40%\n5 | 50%\n6 or more | Not accepted; will receive a grade of zero"
   },
   {
     "filename": "Klenotic_CMN455_Syllabus_F25.pdf",
@@ -2480,7 +2480,7 @@
     "grading_procedures_title": "Grading Policy",
     "deadline_expectations_title": "Late Homework Policy",
     "assignment_delivery": "MasteringPhysics; Canvas (grades)",
-    "final_grade_scale": "",
+    "final_grade_scale": "Missing",
     "grading_process": "Component Weight\nHomework 10%\nReading Quizzes 2%\nLabs 20%\nRegular Exams 2×24%=48%\nFinal Exam 20%"
   },
   {
@@ -2501,7 +2501,7 @@
     "workload": "minimum of 3-4 hours per week for the completion of homework",
     "assignment_types_title": "Methods of Testing & Evaluation:",
     "grading_procedures_title": "Homework Grading Rubric:",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "Missing",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "A 94-100, A- 90-94, B+ 87-90, B 84-87, B- 80-84, C+ 77-80, C 74-77, C- 70-74, D+ 67-70, D 64-67, D- 60-64, F 0-60",
     "grading_process": "The above 4 components are weighted to determine a student’s final grade as so:\n45% Homework & Labs | 45% Exams | 10% Attitude\nNote: Homework is extremely important. Skipping homework and “making up the points” on the exams is NOT a viable"
@@ -2616,7 +2616,7 @@
     "workload": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
     "assignment_types_title": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
     "grading_procedures_title": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "Missing",
     "assignment_delivery": "MyCourses/Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Method of Evaluation Point Value\nThe lab grade is a total of 135 points Homework: Math Packet 10\nmade up of the categories shown at\nthe right. 25\nThe lab grade is incorporated into Quizzes (5 pts ea)\n15"
@@ -2708,7 +2708,7 @@
     "workload": "minimum 3 hours of engaged time per week per credit over a 15-week semester",
     "assignment_types_title": "Class Assignments",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "Missing",
     "assignment_delivery": "myCourses",
     "final_grade_scale": "A = 94-100\nA- = 90-93\nB+ = 87-89\nB = 84-86\nB- = 80-83\nC+ = 77-79\nC = 74-76\nC- = 70-73\nD+ = 67-69\nD = 64-66\nD- = 60-63\nF = 0-59",
     "grading_process": "Students will earn up to 7.5 points for submitting their final poster on time and\nup to 7.5 points for presenting at the Winter Symposium.\nParticipation and Attendance\nParticipation and attendance are worth 10 points toward your final grade and more than one absence"
@@ -2731,7 +2731,7 @@
     "workload": "",
     "assignment_types_title": "GRADING DISTRIBUTION",
     "grading_procedures_title": "GRADING DISTRIBUTION",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "Missing",
     "assignment_delivery": "Canvas (MyCourses)",
     "final_grade_scale": "Missing",
     "grading_process": "GRADING DISTRIBUTION\nIn-class Participation and Projects – 10%\nWeekly Quizzes – 10%\nFirst Hour Exam – 20%\nSecond Hour Exam – 20%\nThird Hour Exam- 20%\nFinal Exam – 20%\nCOURSE FORMAT"
@@ -2754,7 +2754,7 @@
     "workload": "need to keep up with the material weekly",
     "assignment_types_title": "Quizzes and Exams",
     "grading_procedures_title": "Grades:",
-    "deadline_expectations_title": "",
+    "deadline_expectations_title": "Missing",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Quizzes and Exams\nBacteria quiz                                      5pts                                       Jun 27\nProtista Fungi quiz                             5pts                                       Jun 30\nPlant Anatomy quiz                           5pts                                       July 5\nPlant Diversity Quiz                           5pts                                       July 10\nExam 1                                               30 pts                                    July 11\nAnimal Diversity quiz                        10pts                                     July 17\nAnimal anatomy quiz                        10pts                                     July 21\nExam 2                                               30pts                                     July 22"
