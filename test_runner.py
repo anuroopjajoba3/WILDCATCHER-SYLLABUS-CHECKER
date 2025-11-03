@@ -8,7 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
-Includes support for assignment_types_title, grading_procedures_title, and deadline_expectations_title fields.
+Includes support for assignment_types_title, grading_procedures_title, deadline_expectations_title, and response_time fields.
 """
 import os
 import sys
@@ -24,7 +24,8 @@ SUPPORTED_FIELDS = (
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
-    "deadline_expectations_title", "assignment_delivery", "final_grade_scale"
+    "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
+    "response_time"
 )
 
 # Add repo root to path
@@ -120,6 +121,13 @@ try:
 except Exception:
     GRADING_SCALE_AVAILABLE = False
     print("WARNING: Grading scale detector not available")
+
+try:
+    from detectors.response_time_detector import ResponseTimeDetector
+    RESPONSE_TIME_AVAILABLE = True
+except Exception:
+    RESPONSE_TIME_AVAILABLE = False
+    print("WARNING: Response time detector not available")
 
 # ======================================================================
 # COMPARISON HELPERS
@@ -239,9 +247,9 @@ def detect_all_fields(text: str) -> dict:
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
         a = AssignmentTypesDetector().detect(text)
-        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
+        preds["assignment_types_title"] = a.get("content", "Missing")
     else:
-        preds["assignment_types_title"] = ""
+        preds["assignment_types_title"] = "Missing"
 
     # Grading Procedures
     if GRADING_PROCEDURES_AVAILABLE:
@@ -275,6 +283,13 @@ def detect_all_fields(text: str) -> dict:
         preds["final_grade_scale"] = gs.get("content", "") if gs.get("found") else ""
     else:
         preds["final_grade_scale"] = ""
+
+    # Response Time - FIXED: Return "Missing" instead of empty string
+    if RESPONSE_TIME_AVAILABLE:
+        rt = ResponseTimeDetector().detect(text)
+        preds["response_time"] = rt.get("content", "Missing")
+    else:
+        preds["response_time"] = "Missing"
 
     return preds
 
@@ -445,6 +460,13 @@ def main():
             field_stats["final_grade_scale"]["total"] += 1
             field_stats["final_grade_scale"]["correct"] += int(match)
             result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
+        # Response Time
+        if "response_time" in record:
+            match = loose_compare(record["response_time"], preds.get("response_time", ""))
+            field_stats["response_time"]["total"] += 1
+            field_stats["response_time"]["correct"] += int(match)
+            result["response_time"] = {"gt": record["response_time"], "pred": preds.get("response_time", ""), "match": match}
 
         details.append(result)
 
