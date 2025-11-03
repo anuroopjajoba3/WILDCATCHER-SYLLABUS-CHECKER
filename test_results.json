@@ -66,8 +66,8 @@
       "total": 120
     },
     "deadline_expectations_title": {
-      "accuracy": 0.5917,
-      "correct": 71,
+      "accuracy": 0.85,
+      "correct": 102,
       "total": 120
     },
     "assignment_delivery": {
@@ -87,8 +87,8 @@
     }
   },
   "overall": {
-    "accuracy": 0.6368,
-    "correct": 1299,
+    "accuracy": 0.652,
+    "correct": 1330,
     "total": 2040
   },
   "details": [
@@ -343,8 +343,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Assignments:",
-        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
@@ -973,8 +973,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
@@ -1063,8 +1063,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Attendance and Late Work",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Attendance and Late Work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
@@ -1153,7 +1153,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments - Graded as Incomplete/Complete",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -1243,8 +1243,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
-        "pred": "",
-        "match": false
+        "pred": "time. You will lose 10% per day for work submitted late for up to 48 hours after the",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1333,8 +1333,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
-        "pred": "",
-        "match": false
+        "pred": "time. You will lose 10% per day for work submitted late for up to 48 hours after the",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1423,8 +1423,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1512,9 +1512,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
+        "pred": "11:59pm for both sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits. - Homework: (bi-weekly assigned; 20% of total grade)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1602,9 +1602,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. ",
+        "pred": "sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. - Homework: (bi-weekly assigned; 25% of total grade)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1693,7 +1693,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits. - Web Project: (25% of total grade)",
         "match": false
       },
       "assignment_delivery": {
@@ -1782,9 +1782,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits.",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1872,9 +1872,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits.",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1963,8 +1963,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2053,8 +2053,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2142,9 +2142,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
+        "pred": "11:59pm for both sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits. - Homework: (bi-weekly assigned; 25% of total grade)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2232,9 +2232,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2413,8 +2413,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day",
-        "pred": "",
-        "match": false
+        "pred": "**Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.**",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2502,9 +2502,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Submissions will not be accepted after the deadline",
-        "pred": "",
-        "match": false
+        "gt": "Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time. Submissions must be compeleted through MyCourses in order to received",
+        "pred": "date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time. Submissions must be compeleted through MyCourses in order to received",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2772,9 +2772,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas; MyCourses",
@@ -4033,8 +4033,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4123,8 +4123,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4483,8 +4483,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
-        "pred": "assignments and the Creative Projects.",
-        "match": false
+        "pred": "Late submissions and make-up exams",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -4663,8 +4663,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Make-Up Policy",
-        "pred": "",
-        "match": false
+        "pred": "Make-Up Policy: Sincesolutionstohomeworkassignmentswillbediscussedduringclass,no late home-",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4752,8 +4752,8 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "Missing",
-        "pred": "",
+        "gt": "You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam",
+        "pred": "semester. You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam that you have to miss.",
         "match": true
       },
       "assignment_delivery": {
@@ -5203,7 +5203,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
-        "pred": "Assignments:",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -5293,8 +5293,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5743,8 +5743,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
-        "pred": "",
-        "match": false
+        "pred": "semester. You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam that you have to miss.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5832,9 +5832,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. ",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -6013,8 +6013,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted",
-        "pred": "",
-        "match": false
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted. Final Exam 20% Project 35%",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -6193,7 +6193,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exam",
-        "pred": "Assignments (10; 5 pts each): 50%",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -6463,8 +6463,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You may hand in ONE late homework assignmen",
-        "pred": "",
-        "match": false
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted. Homework is completed individually. Exams 40%",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -7272,8 +7272,8 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
-        "pred": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
+        "gt": "Unexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date",
+        "pred": "Unexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.",
         "match": true
       },
       "assignment_delivery": {
@@ -7723,8 +7723,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date",
-        "pred": "",
-        "match": false
+        "pred": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date. No extensions to the DB beyond Day 7 @ 11:59pm local time will be granted unless prior arrangements have been made with the instructor.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8083,8 +8083,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "Assessments",
-        "match": false
+        "pred": "Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8173,8 +8173,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Do NOT submit homework or final late!",
-        "pred": "",
-        "match": false
+        "pred": "5. Do NOT submit homework or final late! In the real world, tardiness is simply not tolerated and will destroy your career. This class is intended to force the habit of getting work done early and assuming",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -8713,7 +8713,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -8803,8 +8803,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments",
-        "match": false
+        "pred": "Late Work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8893,8 +8893,8 @@
       },
       "deadline_expectations_title": {
         "gt": "No credit will be given for an assignment after the end of the Grace Period.",
-        "pred": "assignments:",
-        "match": false
+        "pred": "assignment Due Date followed by a short Grace Period. Assignments received after the Due Date but before the end of the Grace Period will be subject to a 10% penalty. No credit will be given for an assignment after the end of the Grace Period.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas; MyCourses",
@@ -9252,9 +9252,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
-        "pred": "ASSIGNMENTS",
-        "match": false
+        "gt": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below:",
+        "pred": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below: No assignments will be accepted more than 5 days past the due date unless prior arrangements have been made and approved by the instructor.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -9433,7 +9433,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -10063,8 +10063,8 @@
       },
       "deadline_expectations_title": {
         "gt": "EXPERIMENTS/DEMONSTRATIONS",
-        "pred": "",
-        "match": false
+        "pred": "EXPERIMENTS/DEMONSTRATIONS",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
@@ -10513,8 +10513,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Makeups:",
-        "pred": "Makeups:",
-        "match": true
+        "pred": "Assignments and Grading",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -10693,8 +10693,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "assessments",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "myCourses",
