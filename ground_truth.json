@@ -42,7 +42,7 @@
     "grading_procedures_title": "Grading Policy:",
     "deadline_expectations_title": "Late/Make-Up Work:",
     "assignment_delivery": "myCourses",
-    "final_grade_scale": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
+    "final_grade_scale": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
     "grading_process": "Grading Policy: Assignments Homework 30% Projects 70%"
   },
   {
@@ -89,7 +89,7 @@
     "deadline_expectations_title": "Policy on Late Submissions",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
-    "grading_process": "Assignments: The course grade is based on 200 points and is developed from a variety of assignments and tests."
+    "grading_process": "Assignments The course grade is based on 200 points and is developed from a variety of assignments and tests."
   },
   {
     "filename": "Archived CPRM 860 syllabus (2025 Term 5).pdf",
@@ -158,7 +158,7 @@
     "deadline_expectations_title": "Assignment Deadlines",
     "assignment_delivery": "Canvas",
     "final_grade_scale": " 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
-    "grading_process": "Distribution Grades will be available at any time through our Canvas course. The final grade will be calculated as follows (expanded descriptions of each category can be found further in the syllabus): 5% Course Preparatory Skill Building 25% Weekly Assignments & Activities 50% Average of Mid-term and Final Assessment 20% Laboratory Grade"
+    "grading_process": "follows (expanded descriptions of each category can be found further in the syllabus):\n5% Course Preparatory Skill Building\n25% Weekly Assignments & Activities\n50% Average of Mid-term and Final Assessment\n20% Laboratory Grade\nCourse Activities"
   },
   {
     "filename": "BIOL414 Principles of Biology II Syllabus (summer 5-week).pdf",
@@ -296,7 +296,7 @@
     "deadline_expectations_title": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": " GRADING SCHEME Your final grade is calculated as follows: Labs (25%)"
+    "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)"
   },
   {
     "filename": "COMP_405 - Capuz_Spring - Spring 2023.docx",
@@ -319,7 +319,7 @@
     "deadline_expectations_title": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "GRADING SCHEME Your final grade is calculated as follows: Labs (25%)"
+    "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)"
   },
   {
     "filename": "COMP_405 - Jin_Fall - Fall 2016.pdf",
@@ -362,10 +362,10 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Scheme- Labs: (weekly assigned; 30% of total grade)"
+    "grading_process": "Grading Scheme - Labs: (weekly assigned; 30% of total grade)"
   },
   {
     "filename": "COMP_405 - Jin_Fall - Fall 2019.pdf",
@@ -385,7 +385,7 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. ",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) "
@@ -411,7 +411,7 @@
     "deadline_expectations_title": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) "
+    "grading_process": "Grading Scheme - Labs: (weekly assigned; 25% of total grade) "
   },
   {
     "filename": "COMP_405 - Jin_Fall - Fall 2021.pdf",
@@ -431,10 +431,10 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits.",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) "
+    "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active"
   },
   {
     "filename": "COMP_405 - Jin_Fall - Fall 2023.pdf",
@@ -454,10 +454,10 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits.",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) "
+    "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)"
   },
   {
     "filename": "COMP_405 - Jin_Spring - Spring 2017.pdf",
@@ -523,10 +523,10 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Scheme Labs: (weekly assigned; 30% of total grade)"
+    "grading_process": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)"
   },
   {
     "filename": "COMP_405 - Jin_Spring - Spring 2021.pdf",
@@ -546,10 +546,10 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) "
+    "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active"
   },
   {
     "filename": "COMP_405 - Jonas_Fall - Fall 2025.pdf",
@@ -572,8 +572,7 @@
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
     "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading: 10% Participation Includes showing up to class on time, submitting assignments on their due dates 30% Labs Lab work is done during classroom time Point total is 10 out of 11 at 3 points each 30% Assignments There will be 2 assignments at 15 points, with each assignment divided into: A design document worth 4 points Presenting your work in class worth 1 point Core elements of your assignments worth 10 points 30% Exams Two exams worth 15 points each"
-  },
+    "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active"  },
   {
     "filename": "COMP_405 - Murphy_Spring - Spring 2021.docx",
     "instructor_name": "",
@@ -615,7 +614,7 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Submissions will not be accepted after the deadline",
+    "deadline_expectations_title": "Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time. Submissions must be compeleted through MyCourses in order to received",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Grading Scheme Labs: (weekly assigned; 30% of total grade)"
@@ -641,7 +640,7 @@
     "deadline_expectations_title": "Late submissions and make-up exams",
     "assignment_delivery": "Blackboard",
     "final_grade_scale": "Missing",
-    "grading_process": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %"
+    "grading_process": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%"
   },
   {
     "filename": "COMP_415 - Blumberg Spring 2018.pdf",
@@ -664,7 +663,7 @@
     "deadline_expectations_title": "Late submissions and make-up exams",
     "assignment_delivery": "Blackboard",
     "final_grade_scale": "Missing",
-    "grading_process": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %"
+    "grading_process": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%\n● Class participation 10 %."
   },
   {
     "filename": "COMP_415 - Harvey_Fall - Fall 2025.pdf",
@@ -684,10 +683,10 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
+    "deadline_expectations_title": "Late Submissions",
     "assignment_delivery": "Canvas; MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "GRADING AND EVALUATION OF STUDENT WORK Final grade is calculated as follows (Subject to minor changes): - Lab and Lecture participation: 20 points (10 @ 2 points each) - Homework assignments: 20 points (2 @ 10 points each) - Quizzes: 20 points (2 @ 10 points each) - Team Project: 25 points - Final Exam: 15 points"
+    "grading_process": "Final grade is calculated as follows (Subject to minor changes): - Lab and Lecture participation: 20 points (10 @ 2 points each) - Homework assignments: 20 points (2 @ 10 points each) - Quizzes: 20 points (2 @ 10 points each) - Team Project: 25 points - Final Exam: 15 points"
   },
   {
     "filename": "COMP_415 - Jin Fall 2016.pdf",
@@ -733,7 +732,7 @@
     "deadline_expectations_title": "Late submissions and make-up exams",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
-    "grading_process": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points"
+    "grading_process": "Final grade is calculated as follows:\n● 4-5 homework assignments @ 4 points each, for a total of 20 points\n● 12 weekly reflections @ 1 point each, for a total of 12 points\n● Lab practice, 8 points\n● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points."
   },
   {
     "filename": "COMP_415 - Sabin Fall 2016.pdf",
@@ -1190,7 +1189,7 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Missing",
+    "deadline_expectations_title": "You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
     "grading_process": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%"
@@ -1354,7 +1353,7 @@
     "deadline_expectations_title": "Late Submissions",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Final Project: 20%\nCOMP 880.M2: 1 Credit\nClass Participation: 20%\nMid-Term: 15%\nHome Work/Lab Assignments: 10 6% Each = 60%\nFinal Exam: 15%\nSemester Project"
+    "grading_process": "COMP550.M1\nClass Participation: 10%\nMid-Term: 20%\nHome Work/Lab Assignments: 10 3% Each = 30%\nNote there are 11 HW assignments.\nFinal Exam: 20%"
   },
   {
     "filename": "COMP_550.880 - Cochrane_Fall - Fall 2023.docx",
@@ -1466,7 +1465,7 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day.",
+    "deadline_expectations_title": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. ",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
     "grading_process": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)"
@@ -1834,7 +1833,7 @@
     "workload": "",
     "assignment_types_title": "",
     "grading_procedures_title": "",
-    "deadline_expectations_title": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
+    "deadline_expectations_title": "Unexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "94-100 A (4.0) Excellent, 90-93 A- (3.67), 87-89 B+ (3.33), 84-86 B (3.0) Superior, 80-83 B- (2.67), 77-79 C+ (2.33), 74-76 C (2.0) Satisfactory/Competent, 70-73 C- (1.67), 67-69 D+ (1.33), 64-66 D (1.0) Marginal, 60-63 D- (0.67), 59-Below F (0.0) Failure",
     "grading_process": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded."
@@ -2181,7 +2180,7 @@
     "grading_procedures_title": "Rubric and Evaluation Methods",
     "deadline_expectations_title": "Policy on Late Submissions",
     "assignment_delivery": "Canvas",
-    "final_grade_scale": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
+    "final_grade_scale": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
     "grading_process": "Assignment breakdown by points and timeframe: Introductions (video) 10 points Week one, Certificate (from FEMA IS course) 10 points Week two, Mini-writing assignment 20 points, Discussion post 20 points Week three, Knowledge check 15 points Week four, Extra Credit opportunity available, Exam (cumulative) 40 points Week five, Knowledge check 15 points Week six, Presentation (video) 30 points Week seven, Extra Credit opportunity available, Writing assignment 40 points Week eight."
   },
   {
@@ -2340,7 +2339,7 @@
     "workload": "minimum of 180 hours in a professional setting",
     "assignment_types_title": "ASSIGNMENTS",
     "grading_procedures_title": "GRADING",
-    "deadline_expectations_title": "GRADING (late policy: 10% deduction per day, up to 5 days)",
+    "deadline_expectations_title": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below:",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
     "grading_process": "Days Late | Grade Deduction\n1 | 10%\n2 | 20%\n3 | 30%\n4 | 40%\n5 | 50%\n6 or more | Not accepted; will receive a grade of zero"

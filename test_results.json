@@ -66,8 +66,8 @@
       "total": 120
     },
     "deadline_expectations_title": {
-      "accuracy": 0.5917,
-      "correct": 71,
+      "accuracy": 0.85,
+      "correct": 102,
       "total": 120
     },
     "assignment_delivery": {
@@ -76,19 +76,19 @@
       "total": 120
     },
     "final_grade_scale": {
-      "accuracy": 0.875,
-      "correct": 105,
+      "accuracy": 0.8917,
+      "correct": 107,
       "total": 120
     },
     "grading_process": {
-      "accuracy": 0.75,
-      "correct": 90,
+      "accuracy": 0.85,
+      "correct": 102,
       "total": 120
     }
   },
   "overall": {
-    "accuracy": 0.6309,
-    "correct": 1287,
+    "accuracy": 0.6529,
+    "correct": 1332,
     "total": 2040
   },
   "details": [
@@ -262,9 +262,9 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
+        "gt": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
         "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
-        "match": false
+        "match": true
       },
       "grading_process": {
         "gt": "Grading Policy: Assignments Homework 30% Projects 70%",
@@ -343,8 +343,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Assignments:",
-        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
@@ -447,9 +447,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Assignments: The course grade is based on 200 points and is developed from a variety of assignments and tests.",
+        "gt": "Assignments The course grade is based on 200 points and is developed from a variety of assignments and tests.",
         "pred": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
-        "match": false
+        "match": true
       }
     },
     {
@@ -717,9 +717,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Distribution Grades will be available at any time through our Canvas course. The final grade will be calculated as follows (expanded descriptions of each category can be found further in the syllabus): 5% Course Preparatory Skill Building 25% Weekly Assignments & Activities 50% Average of Mid-term and Final Assessment 20% Laboratory Grade",
+        "gt": "follows (expanded descriptions of each category can be found further in the syllabus):\n5% Course Preparatory Skill Building\n25% Weekly Assignments & Activities\n50% Average of Mid-term and Final Assessment\n20% Laboratory Grade\nCourse Activities",
         "pred": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n5% Course Preparatory Skill Building\n25% Weekly Assignments & Activities\n50% Average of Mid-term and Final Assessment\n20% Laboratory Grade\nCourse Activities",
-        "match": false
+        "match": true
       }
     },
     {
@@ -973,8 +973,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
@@ -1063,8 +1063,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Attendance and Late Work",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Attendance and Late Work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
@@ -1153,7 +1153,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments - Graded as Incomplete/Complete",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -1243,8 +1243,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
-        "pred": "",
-        "match": false
+        "pred": "time. You will lose 10% per day for work submitted late for up to 48 hours after the",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1257,9 +1257,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": " GRADING SCHEME Your final grade is calculated as follows: Labs (25%)",
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1333,8 +1333,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
-        "pred": "",
-        "match": false
+        "pred": "time. You will lose 10% per day for work submitted late for up to 48 hours after the",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1347,9 +1347,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "GRADING SCHEME Your final grade is calculated as follows: Labs (25%)",
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nHomework (25%)\nIndependent homework assignments are given and collected on a weekly basis. Unless specifically stated, the major portion of the course work will be done using a browser and a text editor. The homework is designed to build your understanding of the class topics and use of the Internet and to develop your coding ability, e.g., in HTML and CSS. Topics from the homework will be used in class activities, exams, and the final project so it is important to complete the material with accuracy and understanding. Each assignment is due at the date and time listed. It is your responsibility to allow enough time during the week to complete the activities despite obstacles (technology driven or personal) that may arise. Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.\nFinal Web Project (25%)\nParticipation (10%)",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1423,8 +1423,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1512,9 +1512,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
+        "pred": "11:59pm for both sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits. - Homework: (bi-weekly assigned; 20% of total grade)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1527,9 +1527,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading Scheme- Labs: (weekly assigned; 30% of total grade)",
+        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1602,9 +1602,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. ",
+        "pred": "sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. - Homework: (bi-weekly assigned; 25% of total grade)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1693,7 +1693,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits. - Web Project: (25% of total grade)",
         "match": false
       },
       "assignment_delivery": {
@@ -1707,9 +1707,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
+        "gt": "Grading Scheme - Labs: (weekly assigned; 25% of total grade) ",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 25% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1782,9 +1782,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits.",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1797,9 +1797,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1872,9 +1872,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits.",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1887,9 +1887,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
-        "match": false
+        "match": true
       }
     },
     {
@@ -1963,8 +1963,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2053,8 +2053,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2142,9 +2142,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
+        "pred": "11:59pm for both sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits. - Homework: (bi-weekly assigned; 25% of total grade)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2157,9 +2157,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
+        "gt": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)",
         "pred": "Grading Scheme\n- Labs: (weekly assigned; 30% of total grade)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2232,9 +2232,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits.",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2247,9 +2247,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
         "pred": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2337,9 +2337,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Grading: 10% Participation Includes showing up to class on time, submitting assignments on their due dates 30% Labs Lab work is done during classroom time Point total is 10 out of 11 at 3 points each 30% Assignments There will be 2 assignments at 15 points, with each assignment divided into: A design document worth 4 points Presenting your work in class worth 1 point Core elements of your assignments worth 10 points 30% Exams Two exams worth 15 points each",
+        "gt": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active",
         "pred": "Includes showing up to class on time, submitting assignments on their due dates\n30% Labs\nLab work is done during classroom time\nPoint total is 10 out of 11 at 3 points each\n30% Assignments\nThere will be 2 assignments at 15 points, with each assignment divided into:\nA design document worth 4 points\nPresenting your work in class worth 1 point\nCore elements of your assignments worth 10 points\n30% Exams\nTwo exams worth 15 points each\nPolicies",
-        "match": true
+        "match": false
       }
     },
     {
@@ -2413,8 +2413,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day",
-        "pred": "",
-        "match": false
+        "pred": "**Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.**",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2502,9 +2502,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Submissions will not be accepted after the deadline",
-        "pred": "",
-        "match": false
+        "gt": "Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time. Submissions must be compeleted through MyCourses in order to received",
+        "pred": "date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time. Submissions must be compeleted through MyCourses in order to received",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2607,9 +2607,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %",
+        "gt": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%\n● Class participation 10 %.\nThere is a spreadsheet in Course Information to allow each student to calculate their own score; as the score in",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2697,9 +2697,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %",
+        "gt": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%\n● Class participation 10 %.",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK\n● 8 homework assignments @ 3% each: 24%\n● Creative project @ 25%\n● Presentation of creative project: 5%\n● Mid-term exam and final exam @ 18% each: 36%\n● Class participation 10 %.\nThere is a spreadsheet in Course Information to allow each student to calculate their own score; as the score in",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2772,9 +2772,9 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
+        "gt": "Late Submissions",
         "pred": "Late Submissions",
-        "match": false
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas; MyCourses",
@@ -2787,9 +2787,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "GRADING AND EVALUATION OF STUDENT WORK Final grade is calculated as follows (Subject to minor changes): - Lab and Lecture participation: 20 points (10 @ 2 points each) - Homework assignments: 20 points (2 @ 10 points each) - Quizzes: 20 points (2 @ 10 points each) - Team Project: 25 points - Final Exam: 15 points",
+        "gt": "Final grade is calculated as follows (Subject to minor changes): - Lab and Lecture participation: 20 points (10 @ 2 points each) - Homework assignments: 20 points (2 @ 10 points each) - Quizzes: 20 points (2 @ 10 points each) - Team Project: 25 points - Final Exam: 15 points",
         "pred": "Final grade is calculated as follows (Subject to minor changes):\n- Lab and Lecture participation: 20 points (10 @ 2 points each)\n- Homework assignments: 20 points (2 @ 10 points each)\n- Quizzes: 20 points (2 @ 10 points each)\n- Team Project: 25 points\n- Final Exam: 15 points\nHomework Assignments\nThere will be two outside class homework assignments, each worth 10 points, for a total of 20 points.\nHomework assignments must be completed and submitted by the assigned due date for full credit.",
-        "match": false
+        "match": true
       }
     },
     {
@@ -2967,9 +2967,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
+        "gt": "Final grade is calculated as follows:\n● 4-5 homework assignments @ 4 points each, for a total of 20 points\n● 12 weekly reflections @ 1 point each, for a total of 12 points\n● Lab practice, 8 points\n● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points.",
         "pred": "Final grade is calculated as follows:\n● 4-5 homework assignments @ 4 points each, for a total of 20 points\n● 12 weekly reflections @ 1 point each, for a total of 12 points\n● Lab practice, 8 points\n● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points.\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR\nLate submissions and make-up exams\nYou will lose 10% per day for work that are submitted late. Late work is any homework assignments and\nproject submitted after the announced due date and time. Three days after the due date late work will not be",
-        "match": false
+        "match": true
       }
     },
     {
@@ -4033,8 +4033,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4123,8 +4123,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4483,8 +4483,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
-        "pred": "assignments and the Creative Projects.",
-        "match": false
+        "pred": "Late submissions and make-up exams",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -4663,8 +4663,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Make-Up Policy",
-        "pred": "",
-        "match": false
+        "pred": "Make-Up Policy: Sincesolutionstohomeworkassignmentswillbediscussedduringclass,no late home-",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4752,8 +4752,8 @@
         "match": false
       },
       "deadline_expectations_title": {
-        "gt": "Missing",
-        "pred": "",
+        "gt": "You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam",
+        "pred": "semester. You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam that you have to miss.",
         "match": true
       },
       "assignment_delivery": {
@@ -5203,7 +5203,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
-        "pred": "Assignments:",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -5293,8 +5293,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5397,9 +5397,9 @@
         "match": true
       },
       "grading_process": {
-        "gt": "Final Project: 20%\nCOMP 880.M2: 1 Credit\nClass Participation: 20%\nMid-Term: 15%\nHome Work/Lab Assignments: 10 6% Each = 60%\nFinal Exam: 15%\nSemester Project",
+        "gt": "COMP550.M1\nClass Participation: 10%\nMid-Term: 20%\nHome Work/Lab Assignments: 10 3% Each = 30%\nNote there are 11 HW assignments.\nFinal Exam: 20%",
         "pred": "Final Project: 20%\nCOMP 880.M2: 1 Credit\nClass Participation: 20%\nMid-Term: 15%\nHome Work/Lab Assignments: 10 6% Each = 60%\nFinal Exam: 15%\nSemester Project",
-        "match": true
+        "match": false
       }
     },
     {
@@ -5743,8 +5743,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
-        "pred": "",
-        "match": false
+        "pred": "semester. You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam that you have to miss.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5832,9 +5832,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day.",
-        "pred": "",
-        "match": false
+        "gt": "Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. ",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -6013,8 +6013,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted",
-        "pred": "",
-        "match": false
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted. Final Exam 20% Project 35%",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -6193,7 +6193,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exam",
-        "pred": "Assignments (10; 5 pts each): 50%",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -6463,8 +6463,8 @@
       },
       "deadline_expectations_title": {
         "gt": "You may hand in ONE late homework assignmen",
-        "pred": "",
-        "match": false
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted. Homework is completed individually. Exams 40%",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -7272,8 +7272,8 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
-        "pred": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
+        "gt": "Unexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date",
+        "pred": "Unexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.",
         "match": true
       },
       "assignment_delivery": {
@@ -7723,8 +7723,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date",
-        "pred": "",
-        "match": false
+        "pred": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date. No extensions to the DB beyond Day 7 @ 11:59pm local time will be granted unless prior arrangements have been made with the instructor.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8083,8 +8083,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "Assessments",
-        "match": false
+        "pred": "Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8173,8 +8173,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Do NOT submit homework or final late!",
-        "pred": "",
-        "match": false
+        "pred": "5. Do NOT submit homework or final late! In the real world, tardiness is simply not tolerated and will destroy your career. This class is intended to force the habit of getting work done early and assuming",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -8632,9 +8632,9 @@
         "match": true
       },
       "final_grade_scale": {
-        "gt": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
+        "gt": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
         "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
-        "match": false
+        "match": true
       },
       "grading_process": {
         "gt": "Assignment breakdown by points and timeframe: Introductions (video) 10 points Week one, Certificate (from FEMA IS course) 10 points Week two, Mini-writing assignment 20 points, Discussion post 20 points Week three, Knowledge check 15 points Week four, Extra Credit opportunity available, Exam (cumulative) 40 points Week five, Knowledge check 15 points Week six, Presentation (video) 30 points Week seven, Extra Credit opportunity available, Writing assignment 40 points Week eight.",
@@ -8713,7 +8713,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -8803,8 +8803,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments",
-        "match": false
+        "pred": "Late Work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8893,8 +8893,8 @@
       },
       "deadline_expectations_title": {
         "gt": "No credit will be given for an assignment after the end of the Grace Period.",
-        "pred": "assignments:",
-        "match": false
+        "pred": "assignment Due Date followed by a short Grace Period. Assignments received after the Due Date but before the end of the Grace Period will be subject to a 10% penalty. No credit will be given for an assignment after the end of the Grace Period.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas; MyCourses",
@@ -9252,9 +9252,9 @@
         "match": true
       },
       "deadline_expectations_title": {
-        "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
-        "pred": "ASSIGNMENTS",
-        "match": false
+        "gt": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below:",
+        "pred": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below: No assignments will be accepted more than 5 days past the due date unless prior arrangements have been made and approved by the instructor.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -9433,7 +9433,7 @@
       },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -10063,8 +10063,8 @@
       },
       "deadline_expectations_title": {
         "gt": "EXPERIMENTS/DEMONSTRATIONS",
-        "pred": "",
-        "match": false
+        "pred": "EXPERIMENTS/DEMONSTRATIONS",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
@@ -10513,8 +10513,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Makeups:",
-        "pred": "Makeups:",
-        "match": true
+        "pred": "Assignments and Grading",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -10693,8 +10693,8 @@
       },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "assessments",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "myCourses",
