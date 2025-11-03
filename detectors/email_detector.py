@@ -122,7 +122,7 @@ class EmailDetector:
         return {
             "field_name": self.field_name,
             "found": False,
-            "content": "missing",
+            "content": None,
             "confidence": 0.0,
             "metadata": {}
         }
