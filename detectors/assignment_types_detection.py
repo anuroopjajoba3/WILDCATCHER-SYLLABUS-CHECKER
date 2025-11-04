@@ -1,5 +1,5 @@
 """
-Assignment Types Title Detector - CAREFUL FIX
+Assignment Types Title Detector - FIXED
 """
 import re
 from typing import Dict, Any
@@ -17,32 +17,43 @@ class AssignmentTypesDetector:
             (r'(?i)^\s*course\s+requirements?\s+and\s+assessments?\s+overview\s*:?\s*$', 135),
             (r'(?i)^\s*required\s+paperwork\s+and\s+submissions?\s*\.?\s*$', 130),
             (r'(?i)^\s*assignments?\s+and\s+course\s+specific\s+policies\s*:?\s*$', 130),
-            (r'(?i)^\s*grading\s+and\s+evaluation\s+of\s+student\s+work\s*:?\s*$', 125),
             (r'(?i)^\s*assignment\s+and\s+grading\s+details?\s+lab\s*:?\s*$', 125),
             (r'(?i)^\s*summary\s+of\s+student\s+evaluation\s*:?\s*$', 120),
             (r'(?i)^\s*methods\s*,\s*grade\s+components', 115),
         ]
         
         # Multiword patterns - standalone (higher score)
+        # Added pattern to capture titles with weights like "Homework Problems (10%)"
         self.multiword_standalone = [
-            (r'(?i)^\s*homework\s+assignments?\s*:?\s*$', 110),
-            (r'(?i)^\s*course\s+assignments?\s*:?\s*$', 108),
-            (r'(?i)^\s*class\s+assignments?\s*:?\s*$', 108),
+            (r'(?i)^\s*homework\s+assignments?\s+and\s+projects?\s*(?:\([^)]+\))?\s*:?\s*$', 112),  # ADDED - compound title
+            (r'(?i)^\s*reading\s+assignments?\s*(?:\([^)]+\))?\s*:?\s*$', 110),  # ADDED
+            (r'(?i)^\s*laboratory\s+assignments?\s*(?:\([^)]+\))?\s*:?\s*$', 110),  # ADDED
+            (r'(?i)^\s*lab\s+assignments?\s*(?:\([^)]+\))?\s*:?\s*$', 110),
+            (r'(?i)^\s*homework\s+problems\s*(?:\([^)]+\))?\s*:?\s*$', 110),
+            (r'(?i)^\s*homework\s+assignments?\s*(?:\([^)]+\))?\s*:?\s*$', 110),
+            (r'(?i)^\s*course\s+assignments?\s*(?:\([^)]+\))?\s*:?\s*$', 108),
+            (r'(?i)^\s*class\s+assignments?\s*(?:\([^)]+\))?\s*:?\s*$', 108),
+            (r'(?i)^\s*assessment\s+overview\s*:?\s*$', 106),
             (r'(?i)^\s*major\s+projects?\s*:?\s*$', 105),
             (r'(?i)^\s*course\s+activities\s*:?\s*$', 105),
             (r'(?i)^\s*assignment\s+details?\s*:?\s*$', 102),
             (r'(?i)^\s*quizzes\s+and\s+exams?\s*:?\s*$', 100),
             (r'(?i)^\s*assignments?\s+and\s+grading\s*:?\s*$', 98),
-            (r'(?i)^\s*grading\s+distribution\s*:?\s*$', 95),
             (r'(?i)^\s*student\s+evaluation\s*:?\s*$', 90),
             (r'(?i)^\s*assessment\s*,\s*participation\s+assignments?\s*:?\s*$', 88),
         ]
         
         # Multiword patterns - with content after (lower score, extract header only)
         self.multiword_with_content = [
-            (r'(?i)^\s*(homework\s+assignments?)\s*:', 85),
+            (r'(?i)^\s*(homework\s+assignments?\s+and\s+projects?)\s*(?:\([^)]+\))?\s*:', 87),  # ADDED
+            (r'(?i)^\s*(reading\s+assignments?)\s*(?:\([^)]+\))?\s*:', 85),  # ADDED
+            (r'(?i)^\s*(laboratory\s+assignments?)\s*(?:\([^)]+\))?\s*:', 85),  # ADDED
+            (r'(?i)^\s*(lab\s+assignments?)\s*(?:\([^)]+\))?\s*:', 85),
+            (r'(?i)^\s*(homework\s+problems)\s*(?:\([^)]+\))?\s*:', 85),
+            (r'(?i)^\s*(homework\s+assignments?)\s*(?:\([^)]+\))?\s*:', 85),
             (r'(?i)^\s*(course\s+assignments?)\s*:', 83),
             (r'(?i)^\s*(class\s+assignments?)\s*:', 83),
+            (r'(?i)^\s*(assessment\s+overview)\s*:', 81),
             (r'(?i)^\s*(major\s+projects?)\s*:', 80),
             (r'(?i)^\s*(course\s+activities)\s*:', 80),
             (r'(?i)^\s*(assignment\s+details?)\s*:', 77),
@@ -54,18 +65,16 @@ class AssignmentTypesDetector:
         # Singleword patterns - standalone (higher score)
         self.singleword_standalone = [
             (r'(?i)^\s*assessment\s*:?\s*$', 70),
-            (r'(?i)^\s*homework\s*:?\s*$', 65),
+            (r'(?i)^\s*homework\s*(?:\([^)]+\))?\s*:?\s*$', 65),
             (r'(?i)^\s*assignments?\s*:?\s*$', 60),
-            (r'(?i)^\s*grades?\s*:?\s*$', 60),
             (r'(?i)^\s*evaluation\s*:?\s*$', 50),
         ]
         
         # Singleword patterns - with content after (lower score, extract header only)
         self.singleword_with_content = [
             (r'(?i)^\s*(assessment)\s*:', 55),
-            (r'(?i)^\s*(homework)\s*:', 50),
+            (r'(?i)^\s*(homework)\s*(?:\([^)]+\))?\s*:', 50),
             (r'(?i)^\s*(assignments?)\s*:', 45),
-            (r'(?i)^\s*(grades?)\s*:', 45),
         ]
         
         self.schedule_patterns = [
@@ -73,6 +82,20 @@ class AssignmentTypesDetector:
             r'(?i)homework\s*:\s*(reading|complete|work\s+on|finish|continue|start)',
             r'(?i)due\s+(by\s+)?next\s+week',
             r'(?i)lecture\s*[-–]\s*review',
+        ]
+        
+        # CRITICAL: Patterns to EXCLUDE - these belong to grading_procedures_title, NOT assignment_types_title
+        self.exclude_patterns = [
+            r'(?i)grading\s+and\s+evaluation\s+of\s+student\s+work',
+            r'(?i)evaluation\s+of\s+student\s+work',
+            r'(?i)grading\s+policy',
+            r'(?i)grading\s+procedure',
+            r'(?i)grading\s+distribution',
+            r'(?i)grading\s+scale',
+            r'(?i)grade\s+distribution',
+            r'(?i)final\s+grade\s+(calculation|scale)',
+            r'(?i)course\s+grading',
+            r'(?i)rubric\s+and\s+evaluation',
         ]
     
     def _is_in_schedule(self, line: str, context: str) -> bool:
@@ -85,6 +108,35 @@ class AssignmentTypesDetector:
             if kw in context_lower:
                 return True
         return False
+    
+    def _should_exclude(self, line: str) -> bool:
+        """
+        Check if line should be excluded because it's a grading section header.
+        These belong to grading_procedures_title, not assignment_types_title.
+        """
+        line_lower = line.lower().strip()
+        
+        # Check against exclude patterns
+        for pattern in self.exclude_patterns:
+            if re.search(pattern, line_lower):
+                return True
+        
+        # Additional heuristic: if line contains "grading" and "evaluation", it's likely grading_procedures
+        if 'grading' in line_lower and 'evaluation' in line_lower:
+            return True
+            
+        return False
+    
+    def _normalize_title(self, line: str) -> str:
+        """
+        Normalize title by removing weight/percentage information in parentheses.
+        Example: "Homework Problems (10%)" -> "Homework Problems"
+        """
+        # Remove content in parentheses (usually percentages/weights)
+        line = re.sub(r'\s*\([^)]+\)\s*', ' ', line)
+        # Clean up whitespace
+        line = ' '.join(line.split())
+        return line.strip()
     
     def _is_valid_with_content(self, line: str) -> bool:
         """Check if a line with content after the header is valid"""
@@ -111,6 +163,10 @@ class AssignmentTypesDetector:
             if len(l) < 2 or len(l) > 250:
                 continue
             
+            # CRITICAL: Skip if this is a grading-related header (MUST CHECK FIRST)
+            if self._should_exclude(l):
+                continue
+            
             # Get context for schedule detection
             start, end = max(0, i - 5), min(len(lines), i + 6)
             context = " ".join(lines[start:end])
@@ -128,7 +184,9 @@ class AssignmentTypesDetector:
                 # Try multiword standalone patterns
                 for pat, score in self.multiword_standalone:
                     if re.match(pat, l):
-                        candidates.append({"content": l, "score": score, "line": i})
+                        # Normalize the title to remove weight info
+                        normalized = self._normalize_title(l)
+                        candidates.append({"content": normalized, "score": score, "line": i})
                         break
                 else:
                     # Try multiword with content patterns
@@ -146,7 +204,9 @@ class AssignmentTypesDetector:
                         # Try singleword standalone patterns
                         for pat, score in self.singleword_standalone:
                             if re.match(pat, l):
-                                candidates.append({"content": l, "score": score, "line": i})
+                                # Normalize the title to remove weight info
+                                normalized = self._normalize_title(l)
+                                candidates.append({"content": normalized, "score": score, "line": i})
                                 matched = True
                                 break
                         
@@ -172,4 +232,4 @@ def detect_assignment_types_title(text: str) -> str:
     """Standalone convenience function."""
     detector = AssignmentTypesDetector()
     result = detector.detect(text)
-    return result.get("content", "") if result.get("found") else ""
+    return result.get("content", "") if result.get("found") else "Missing"

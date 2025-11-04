@@ -423,8 +423,7 @@ def detect_all_fields(text: str) -> dict:
 
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
-        a = AssignmentTypesDetector().detect(text)
-        preds["assignment_types_title"] = a.get("content", "Missing")
+        preds["assignment_types_title"] = detect_assignment_types_title(text)
     else:
         preds["assignment_types_title"] = "Missing"
 
@@ -467,8 +466,8 @@ def detect_all_fields(text: str) -> dict:
         preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
     else:
         preds["class_location"] = ""
-    # Grading Process
     
+    # Grading Process
     if GRADING_PROCESS_AVAILABLE:
         gp = GradingProcessDetector().detect(text)
         preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
@@ -530,11 +529,11 @@ def main():
 
         # Modality
         if "modality" in record:
-            gt_val = record["modality"]
-            pred_val = preds.get("modality", "")
-            match = compare_modality(gt_val, pred_val)
-            update_field_stats(field_stats["modality"], gt_val, pred_val, match)
-            result["modality"] = {"gt": gt_val, "pred": pred_val, "match": match}
+            match = compare_modality(record["modality"], preds.get("modality", ""))
+            field_stats["modality"]["total"] += 1
+            field_stats["modality"]["correct"] += int(match)
+            result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
+        
         # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
             gt_val = record.get("SLOs", "")
@@ -686,6 +685,7 @@ def main():
                 "match": match,
                 "modality": modality_value
             }
+        
         # Grading Process
         if "grading_process" in record:
             gt_val = record["grading_process"]
