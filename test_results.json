@@ -91,6 +91,14 @@
       "TN": 62
     },
     "office_hours": {
+      "accuracy": 0.5285,
+      "precision": 0.4754,
+      "recall": 0.5273,
+      "f1_score": 0.5,
+      "TP": 29,
+      "FP": 32,
+      "FN": 26,
+      "TN": 36
       "accuracy": 0.7398,
       "precision": 0.8608,
       "recall": 0.764,
@@ -192,6 +200,14 @@
     }
   },
   "overall": {
+    "accuracy": 0.7515,
+    "precision": 0.9056,
+    "recall": 0.7081,
+    "f1_score": 0.7948,
+    "TP": 1123,
+    "FP": 117,
+    "FN": 463,
+    "TN": 631
     "accuracy": 0.7626,
     "precision": 0.9237,
     "recall": 0.7173,
@@ -2155,6 +2171,12 @@
         "pred": "Karen Jin",
         "match": true
       },
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
@@ -2576,6 +2598,8 @@
       },
       "office_hours": {
         "gt": "Missing",
+        "pred": "",
+        "match": true
         "pred": "https://calendly.com/karenajin",
         "match": false
       },
@@ -5175,6 +5199,11 @@
         "pred": "Credits:   4.0",
         "match": true
       },
+      "credit_hour": {
+        "gt": "Credits: 4.0",
+        "pred": "Credits:   4.0",
+        "match": true
+      },
       "workload": {
         "gt": "Missing",
         "pred": "",
@@ -5328,12 +5357,24 @@
       },
       "assignment_delivery": {
         "gt": "Missing",
+      },
+      "assignment_types_title": {
+        "gt": "Prerequisite(s)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "final_grade_scale": {
         "gt": "90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
         "pred": "",
+        "match": false
+      "deadline_expectations_title": {
+        "gt": "Make-Up Policy",
+        "pred": "Make-Up Policy: Sincesolutionstohomeworkassignmentswillbediscussedduringclass,no late home-",
+        "match": true
+      },
+      "response_time": {
+        "gt": "Missing",
+        "pred": "Missing",
         "match": false
       },
       "response_time": {
@@ -5403,6 +5444,9 @@
         "match": true
       },
       "office_hours": {
+        "gt": "Missing",
+        "pred": "Right after class or by appointment via MyCourses Zoom",
+        "match": false
         "gt": "Right after class; By appointment via MyCourses Zoom",
         "pred": "Right after class or by appointment via MyCourses Zoom",
         "match": true
@@ -8087,6 +8131,25 @@
         "pred": "In-Person",
         "match": true
       },
+      "class_location": {
+        "gt": "Room 149",
+        "pred": "Room 149",
+        "match": true,
+        "modality": "In-person, scheduled weekly class meetings"
+      },
+      "grading_process": {
+        "gt": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
+        "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
+        "match": true
+      }
+    },
+    {
+      "filename": "COMP_755.855 - Jonas_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
+      },
       "slos": {
         "gt_present": true,
         "pred_present": true,
@@ -8517,6 +8580,12 @@
         "gt": "Karen Jin",
         "pred": "Karen Jin",
         "match": true
+      },
+      "instructor_title": {
+        "gt": "missing",
+        "pred": "missing",
+        "match": false
+      },
       },
       "instructor_title": {
         "gt": "missing",
@@ -10896,6 +10965,12 @@
         "pred": "within 24 hours",
         "match": true
       },
+      },
+      "response_time": {
+        "gt": "responds within 24 hours, Mon–Fri",
+        "pred": "within 24 hours",
+        "match": true
+      },
       "class_location": {
         "gt": "Zoom/Teams weekly optional sessions",
         "pred": "",
@@ -11161,6 +11236,8 @@
       },
       "office_hours": {
         "gt": "After lecture or private Zoom/Teams sessions (by appointment)",
+        "pred": "",
+        "match": false
         "pred": "After lecture or private Zoom/Teams sessions (by appointment).",
         "match": true
       },
@@ -11673,6 +11750,12 @@
         "gt": "603-641-4129 (office), 603-815-1556 (cell)",
         "pred": "",
         "match": false
+      },
+      "preferred_contact_method": {
+        "gt": "kyle.maclea@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
       },
       "preferred_contact_method": {
         "gt": "kyle.maclea@unh.edu",

@@ -127,20 +127,6 @@ except Exception:
     print("WARNING: Grading scale detector not available")
 
 try:
-    from detectors.response_time_detector import ResponseTimeDetector
-    RESPONSE_TIME_AVAILABLE = True
-except Exception:
-    RESPONSE_TIME_AVAILABLE = False
-    print("WARNING: Response time detector not available")
-    
-try:
-    from detectors.class_location_detector import ClassLocationDetector
-    CLASS_LOCATION_AVAILABLE = True
-except Exception:
-    CLASS_LOCATION_AVAILABLE = False
-    print("WARNING: Class location detector not available")
-   
-try:
     from detectors.grading_process_detection import GradingProcessDetector
     GRADING_PROCESS_AVAILABLE = True
 except Exception:
@@ -211,6 +197,87 @@ def loose_compare(gt, pred):
         return p == ""
 
     return fuzzy_match(g, p)
+
+def compare_grading_scale(gt, pred):
+    """Compare grading scales - only return True if both are empty/Missing or if they actually match."""
+    import re
+    
+    # Normalize empty values
+    def is_empty(value):
+        if not value:
+            return True
+        value_str = str(value).strip()
+        return value_str == "" or value_str.lower() == "missing"
+    
+    # If both are empty/Missing, they match
+    if is_empty(gt) and is_empty(pred):
+        return True
+    
+    # If one is empty and the other isn't, no match
+    if is_empty(gt) or is_empty(pred):
+        return False
+    
+    def extract_grades(text):
+        if not text:
+            return {}
+        
+        # Handle both formats:
+        # Format 1: "94-100=A; 90-93.9=A-; ..."
+        # Format 2: "A = 94-100\nA- = 90-94\n..."
+        
+        grades = {}
+        text = str(text).strip()
+        
+        # Pattern for format 1: number-number=letter
+        pattern1 = re.compile(r'(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*=\s*([A-F][+-]?)', re.I)
+        for match in pattern1.finditer(text):
+            low, high, letter = match.groups()
+            grades[letter.upper()] = (float(low), float(high))
+        
+        # Pattern for format 2: letter = number-number  
+        pattern2 = re.compile(r'([A-F][+-]?)\s*=\s*(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)', re.I)
+        for match in pattern2.finditer(text):
+            letter, low, high = match.groups()
+            grades[letter.upper()] = (float(low), float(high))
+            
+        # Pattern for "Below X=F" or "F = 0-X"
+        below_pattern = re.compile(r'below\s+(\d+(?:\.\d+)?)\s*=\s*f', re.I)
+        match = below_pattern.search(text)
+        if match:
+            grades['F'] = (0.0, float(match.group(1)))
+            
+        return grades
+    
+    gt_grades = extract_grades(gt)
+    pred_grades = extract_grades(pred)
+    
+    # If both have no valid grade patterns, no match (this prevents 
+    # rubric text from matching empty predictions)
+    if not gt_grades and not pred_grades:
+        return False
+        
+    # If one has grades and the other doesn't, no match    
+    if not gt_grades or not pred_grades:
+        return False
+        
+    # Check if they have similar letter grades (allow some tolerance)
+    common_letters = set(gt_grades.keys()) & set(pred_grades.keys())
+    if len(common_letters) < min(3, min(len(gt_grades), len(pred_grades))):
+        return False
+        
+    # Check if the ranges are reasonably close
+    matches = 0
+    for letter in common_letters:
+        gt_range = gt_grades[letter]
+        pred_range = pred_grades[letter]
+        
+        # Allow small differences in ranges (±2 points)
+        if (abs(gt_range[0] - pred_range[0]) <= 2.0 and 
+            abs(gt_range[1] - pred_range[1]) <= 2.0):
+            matches += 1
+    
+    # If most ranges match, consider it a match
+    return matches >= len(common_letters) * 0.7
 
 def compare_modality(gt, pred):
     """Normalize to buckets before compare. Missing means field doesn't exist."""
@@ -423,9 +490,13 @@ def detect_all_fields(text: str) -> dict:
 
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
-        preds["assignment_types_title"] = detect_assignment_types_title(text)
+        a = AssignmentTypesDetector().detect(text)
+        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
     else:
-        preds["assignment_types_title"] = "Missing"
+        preds["assignment_types_title"] = ""
+
+    # Grading procedures detection removed
+    preds["grading_procedures_title"] = ""
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
@@ -453,20 +524,6 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["final_grade_scale"] = ""
 
-    # Response Time - FIXED: Return "Missing" instead of empty string
-    if RESPONSE_TIME_AVAILABLE:
-        rt = ResponseTimeDetector().detect(text)
-        preds["response_time"] = rt.get("content", "Missing")
-    else:
-        preds["response_time"] = "Missing"
-        
-    # Class Location
-    if CLASS_LOCATION_AVAILABLE:
-        cl = ClassLocationDetector().detect(text)
-        preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
-    else:
-        preds["class_location"] = ""
-    
     # Grading Process
     if GRADING_PROCESS_AVAILABLE:
         gp = GradingProcessDetector().detect(text)
@@ -529,11 +586,11 @@ def main():
 
         # Modality
         if "modality" in record:
-            match = compare_modality(record["modality"], preds.get("modality", ""))
-            field_stats["modality"]["total"] += 1
-            field_stats["modality"]["correct"] += int(match)
-            result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
-        
+            gt_val = record["modality"]
+            pred_val = preds.get("modality", "")
+            match = compare_modality(gt_val, pred_val)
+            update_field_stats(field_stats["modality"], gt_val, pred_val, match)
+            result["modality"] = {"gt": gt_val, "pred": pred_val, "match": match}
         # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
             gt_val = record.get("SLOs", "")
@@ -658,11 +715,10 @@ def main():
 
         # Final Grade Scale
         if "final_grade_scale" in record:
-            gt_val = record["final_grade_scale"]
-            pred_val = preds.get("final_grade_scale", "")
-            match = loose_compare(gt_val, pred_val)
-            update_field_stats(field_stats["final_grade_scale"], gt_val, pred_val, match)
-            result["final_grade_scale"] = {"gt": gt_val, "pred": pred_val, "match": match}
+            match = compare_grading_scale(record["final_grade_scale"], preds.get("final_grade_scale", ""))
+            field_stats["final_grade_scale"]["total"] += 1
+            field_stats["final_grade_scale"]["correct"] += int(match)
+            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
 
         # Response Time
         if "response_time" in record:
@@ -685,7 +741,6 @@ def main():
                 "match": match,
                 "modality": modality_value
             }
-        
         # Grading Process
         if "grading_process" in record:
             gt_val = record["grading_process"]
