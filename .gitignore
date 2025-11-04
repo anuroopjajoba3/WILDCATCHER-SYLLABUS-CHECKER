@@ -34,3 +34,4 @@ build/
 .idea/
 *.swp
 *.swo
+test_results.json
