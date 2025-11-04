@@ -715,10 +715,11 @@ def main():
 
         # Final Grade Scale
         if "final_grade_scale" in record:
-            match = compare_grading_scale(record["final_grade_scale"], preds.get("final_grade_scale", ""))
-            field_stats["final_grade_scale"]["total"] += 1
-            field_stats["final_grade_scale"]["correct"] += int(match)
-            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+            gt_val = record["modality"]
+            pred_val = preds.get("modality", "")
+            match = compare_modality(gt_val, pred_val)
+            update_field_stats(field_stats["modality"], gt_val, pred_val, match)
+            result["modality"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Response Time
         if "response_time" in record:
@@ -810,7 +811,6 @@ def main():
         stats = summary[field]
         print(f"{field:<30} {stats['accuracy']:>8.1%} {stats['precision']:>10.1%} "
               f"{stats['recall']:>9.1%} {stats['f1_score']:>10.1%}")
-        sys.stdout.flush()  # Force output to display
 
     print("-" * 90)
     print(f"{'OVERALL':<30} {overall_accuracy:>8.1%} {overall_precision:>10.1%} "
