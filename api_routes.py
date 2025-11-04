@@ -1,7 +1,7 @@
 """
 API Routes Module
 Flask route handlers for detectors application.
-Handles file uploads, SLO detection, and course delivery (Online/Hybrid/In-Person).
+Handles file uploads, SLO detection, course delivery (Online/Hybrid/In-Person), and response time.
 """
 
 from __future__ import annotations
@@ -38,6 +38,7 @@ from detectors.credit_hours_detection import CreditHoursDetector
 from detectors.workload_detection import WorkloadDetector
 from detectors.assignment_delivery_detection import AssignmentDeliveryDetector
 from detectors.assignment_types_detection import AssignmentTypesDetector
+from detectors.response_time_detector import ResponseTimeDetector
 
 
 # -----------------------------------------------------------------------------
@@ -91,7 +92,7 @@ def _massage_modality_card(card: dict, meta: dict) -> dict:
     Make the modality card render the way you want:
 
     - Put course & instructor/email as the first "evidence" lines.
-    - Rename the display line to “Modality: …” (while keeping card['label'] for compatibility).
+    - Rename the display line to "Modality: …" (while keeping card['label'] for compatibility).
     - Keep confidence as a decimal (0–1), never percent.
     - Filter evidence down to lines that actually talk about delivery.
     """
@@ -126,7 +127,7 @@ def _massage_modality_card(card: dict, meta: dict) -> dict:
     # Final evidence list begins with header lines
     final_evidence = header_lines + evidence
 
-    # Message: “In-Person modality detected” etc.
+    # Message: "In-Person modality detected" etc.
     message = f"{label} modality detected" if label != "Unknown" else "Detected delivery"
 
     # Return a normalized card the UI can just render
@@ -352,6 +353,22 @@ def _process_single_file(file, temp_dir: str) -> dict:
             "content": at_info.get("content")
         }
 
+        # --- Response Time detection ---
+        if ResponseTimeDetector:
+            response_time_detector = ResponseTimeDetector()
+            rt_info = response_time_detector.detect(extracted_text)
+            result["response_time"] = {
+                "found": bool(rt_info.get("found")),
+                "content": rt_info.get("content"),
+                "method": rt_info.get("method")
+            }
+        else:
+            result["response_time"] = {
+                "found": False,
+                "content": None,
+                "method": None
+            }
+
         return result
 
     except Exception as e:
@@ -482,22 +499,23 @@ def create_routes(app):
     def ask():
         """
         Optional chat endpoint to keep your frontend happy.
-        We don’t do retrieval/LLM here—just a helpful message.
+        We don't do retrieval/LLM here—just a helpful message.
         """
         try:
             data = request.get_json(silent=True) or {}
             user_msg = (data.get("message") or "").strip()
             if not user_msg:
-                return jsonify({"response": "Hi! Upload a syllabus PDF/DOCX or a ZIP/folder and I’ll check SLOs and delivery (Online/Hybrid/In-Person)."})
+                return jsonify({"response": "Hi! Upload a syllabus PDF/DOCX or a ZIP/folder and I'll check SLOs, delivery (Online/Hybrid/In-Person), and instructor response time."})
             return jsonify({
                 "response": (
-                    "I analyze uploaded syllabi for SLOs and course delivery.\n\n"
+                    "I analyze uploaded syllabi for SLOs, course delivery, and instructor response times.\n\n"
                     "• Use the 📎 to upload a single file\n"
                     "• Use the 📁 to upload a folder\n"
                     "• Use the archive icon to upload a ZIP\n\n"
                     "Results will include:\n"
                     "- SLO status and preview\n"
-                    "- Course delivery label (Online/Hybrid/In-Person) with confidence and evidence"
+                    "- Course delivery label (Online/Hybrid/In-Person) with confidence and evidence\n"
+                    "- Instructor response time (e.g., 'within 24 hours', 'typically 48 hours')"
                 )
             })
         except Exception as e:
