@@ -31,9 +31,10 @@ MIN_CONFIDENCE_THRESHOLD = 0.60
 HYBRID_SCORE_MULTIPLIER = 0.55
 INPERSON_PENALTY = 4.0
 ONLINE_BOOST = 2.0
-MIN_SCORE_THRESHOLD_ONLINE = 1.3
-MIN_SCORE_THRESHOLD_INPERSON = 1.3
-MIN_SCORE_THRESHOLD_ONLINE_BOOST = 1.0
+# Adjusted thresholds for better sensitivity
+MIN_SCORE_THRESHOLD_ONLINE = 0.8  # Lowered from 1.3
+MIN_SCORE_THRESHOLD_INPERSON = 0.8  # Lowered from 1.3
+MIN_SCORE_THRESHOLD_ONLINE_BOOST = 0.7  # Lowered from 1.0
 
 # ----------------------------
 # Normalize & helpers
@@ -59,8 +60,8 @@ def normalize_syllabus_text(text: str) -> str:
 # Enhanced detection patterns
 # ----------------------------
 
-# include abbreviations and variants (Rm./Bldg.), keep Pandra/Pandora
-BUILDING_WORDS = r"(?:rm\.?|room|hall|bldg\.?|building|lab|laboratory|lecture hall|classroom|pandra|pandora)"
+# Expanded building words to catch more physical locations
+BUILDING_WORDS = r"(?:rm\.?|room|hall|bldg\.?|building|lab|laboratory|lecture hall|classroom|pandra|pandora|auditorium|center|suite)"
 
 # Day/time tokens to detect class schedules (e.g., TR 9:10–10:00 AM)
 DAYS_TOKEN = r"(?:m/w|mw|t/th|tth|tr|mon(?:day)?|tue(?:s)?(?:day)?|wed(?:nesday)?|thu(?:rs)?(?:day)?|fri(?:day)?|sat(?:urday)?|sun(?:day)?)"
@@ -79,6 +80,8 @@ def _find_class_location_section(text: str) -> str:
         r"(?i)delivery\s+(?:method|format|mode)",
         r"(?i)modality",
         r"(?i)schedule",
+        r"(?i)course\s+format",  # Added
+        r"(?i)instruction\s+mode",  # Added
     ]
 
     for i, line in enumerate(lines[:MAX_LINES_LOCATION_SEARCH]):
@@ -106,7 +109,7 @@ def _has_zoom_class_phrase(s: str) -> bool:
     if not s:
         return False
     return bool(
-        re.search(r"(?i)\b(meets?|meeting|class|delivered|offered)\b.*\b(zoom|microsoft\s*teams|teams|webex)\b", s)
+        re.search(r"(?i)\b(meets?|meeting|class|delivered|offered|via|over|on|through)\b.*\b(zoom|microsoft\s*teams|teams|webex)\b", s)
     )
 
 
@@ -118,10 +121,13 @@ def _has_physical_room_phrase(s: str) -> bool:
         return True
     if re.search(rf"(?i)\b(meets?|meeting)\s+in\b.*\b({BUILDING_WORDS})\b", s):
         return True
+    # Check for just room numbers
+    if re.search(r"(?i)(?:room|rm\.?)\s+[A-Z]?\d{2,4}\b", s):
+        return True
     return False
 
 
-def detect_course_delivery(text: str) -> Dict[str, object]:
+def detect_course_delivery(text: str, debug: bool = False) -> Dict[str, object]:
     """
     Multi-phase rule detector for course modality with context guards
     to avoid office-hours false positives and catch synchronous/asynchronous phrasing.
@@ -135,6 +141,18 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
     class_section = _find_class_location_section(t)
     office_section = _find_office_hours_section(t)
     evidence = []
+
+    # === PHASE 0: Very early explicit modality checks ===
+    # Check for explicit modality statements in first 500 chars
+    header_check = t_lower[:500]
+    if re.search(r"(?:modality|format|delivery)[:\s]+(?:in[-\s]?person|face[-\s]?to[-\s]?face)", header_check):
+        return {"modality": "In-Person", "confidence": 0.93, "evidence": ["header states in-person"]}
+    
+    if re.search(r"(?:modality|format|delivery)[:\s]+online", header_check):
+        return {"modality": "Online", "confidence": 0.93, "evidence": ["header states online"]}
+    
+    if re.search(r"(?:modality|format|delivery)[:\s]+hybrid", header_check):
+        return {"modality": "Hybrid", "confidence": 0.93, "evidence": ["header states hybrid"]}
 
     # === PHASE 1: Explicit definitive statements ===
     online_definitive = [
@@ -160,10 +178,44 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         "no scheduled class meeting times",
         "there are no scheduled class times",
         "there are no scheduled meeting times",
+        # New additions
+        "online asynchronous",
+        "online synchronous", 
+        "delivered online",
+        "course format: online",
+        "modality: online",
+        "no in-person meetings",
+        "remote course",
+        "online course",
+        "distance learning",
+        "remote learning",
     ]
     for phrase in online_definitive:
         if phrase in t_lower:
             return {"modality": "Online", "confidence": 0.95, "evidence": [phrase]}
+
+    # Check for explicit in-person statements
+    inperson_definitive = [
+        "in person",
+        "face-to-face",
+        "in-person",
+        "on-campus course",
+        "modality: in-person",
+        "meets in pandora",
+        "meets in pandra",
+        "face to face",
+        "on campus only",
+        "in-class meetings",
+        "physical attendance required",
+        "in person; there is no option for remote",
+    ]
+    for phrase in inperson_definitive:
+        if phrase in t_lower:
+            # But check it's not "not in person" or similar
+            context_start = max(0, t_lower.find(phrase) - 10)
+            context = t_lower[context_start:context_start + len(phrase) + 20]
+            if not re.search(r"(?i)(not|no)\s+" + re.escape(phrase), context):
+                return {"modality": "In-Person", "confidence": 0.95, "evidence": [phrase]}
 
     # "Time/Location: ... Online" in header
     if re.search(r"(?i)(?:time\s+and\s+)?location[:\s]+.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800]):
@@ -182,6 +234,9 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         "blended format",
         "face-to-face and online",
         "in-person and online",
+        "both online and in-person",
+        "combination of online and face-to-face",
+        "meets both online and in person",
     ]
     for phrase in hybrid_definitive:
         if phrase in t_lower:
@@ -189,6 +244,15 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
 
     if re.search(r"(?i)face[-\s]?to[-\s]?face\s+(?:weekly|sessions?).*(?:async|online)", t_lower):
         return {"modality": "Hybrid", "confidence": 0.92, "evidence": ["face-to-face + async/online components"]}
+
+    # === NEW: Check for synchronous patterns that indicate online ===
+    if re.search(r"(?i)synchronous(?:\s+online)?.*(?:zoom|teams|webex)", t_lower):
+        return {"modality": "Online", "confidence": 0.91, "evidence": ["synchronous online with video platform"]}
+
+    # Asynchronous almost always means online
+    if re.search(r"(?i)asynchronous(?:\s+online)?", t_lower) and \
+       not re.search(r"(?i)(?:hybrid|blended|face-to-face|in-person)", t_lower):
+        return {"modality": "Online", "confidence": 0.90, "evidence": ["asynchronous format"]}
 
     # === PHASE 2: Class location section takes precedence over office hours ===
     if class_section:
@@ -210,9 +274,22 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         if not office_in_header:
             return {"modality": "In-Person", "confidence": 0.92, "evidence": ["header shows physical meeting room"]}
 
-    # NEW early in-person catches
-    if re.search(r"(?i)\bin[ -]?person\b", header_600) and "office" not in header_600:
+    # Check for room numbers without building names in header
+    if re.search(r"(?i)(?:room|rm\.?)\s+[A-Z]?\d{2,4}\b", header_600):
+        if "office" not in header_600:
+            return {"modality": "In-Person", "confidence": 0.88, "evidence": ["room number in header"]}
+
+    # Early in-person catches
+    if re.search(r"(?i)\bin[-\s]?person\b", header_600) and "office" not in header_600:
         return {"modality": "In-Person", "confidence": 0.90, "evidence": ["header says in person"]}
+
+    # === NEW: No scheduled class times pattern ===
+    if re.search(r"(?i)no\s+scheduled\s+(?:class\s+)?(?:meeting\s+)?times?", t_lower):
+        return {"modality": "Online", "confidence": 0.92, "evidence": ["no scheduled class times"]}
+
+    # === NEW: Outdoor/field meetings indicate in-person ===
+    if re.search(r"(?i)(?:outdoor|field)\s+(?:meetings?|sessions?|labs?)", t_lower):
+        return {"modality": "In-Person", "confidence": 0.88, "evidence": ["outdoor/field meetings"]}
 
     non_office = t_lower.replace(office_section, "") if office_section else t_lower
 
@@ -220,7 +297,7 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         return {"modality": "In-Person", "confidence": 0.90, "evidence": ["physical room outside office hours"]}
 
     if re.search(DAYS_TOKEN, non_office) and re.search(TIME_TOKEN, non_office) and not re.search(
-        r"\b(online|zoom|microsoft\s*teams|webex|remote)\b",
+        r"\b(online|zoom|microsoft\s*teams|webex|remote|virtual|asynchronous)\b",
         non_office,
     ):
         return {"modality": "In-Person", "confidence": 0.86, "evidence": ["day/time schedule with no online cues"]}
@@ -264,9 +341,12 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         (r"(?i)\bsynchronous\s+online\b", 3.2),
         (r"(?i)\basynchronous\s+(?:course|format|delivery)\b", 3.2),
         (r"(?i)\bremote\s+(?:course|instruction|learning)\b", 2.5),
-        (r"(?i)\bvirtual\s+course\b", 2.5),
+        (r"(?i)\bvirtual\s+(?:course|class|learning)\b", 2.5),
         (r"(?i)\bclass\s+meets?\s+(?:on|via)\s+(?:zoom|microsoft\s*teams|teams|webex)\b", 3.5),
         (r"(?i)\bdelivered\s+(?:entirely\s+)?(?:online|remotely|asynchronously)\b", 3.5),
+        (r"(?i)\bdistance\s+(?:learning|education)\b", 2.8),
+        (r"(?i)\bno\s+physical\s+meetings?\b", 3.0),
+        (r"(?i)\bvia\s+zoom\b", 2.5),
     ]
     for pat, w in online_patterns:
         if re.search(pat, t_lower):
@@ -291,16 +371,31 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         (r"(?i)\barrive\s+late\s+to\s+class\b", 1.3),
         (r"(?i)\bleave\s+early\s+from\s+class\b", 1.3),
         (r"(?i)\bneed\s+to\s+be\s+here\b", 1.5),
-        # NEW soft in-person signals
-        (r"(?i)\bin[ -]?person\b", 2.0),
-        (r"(?i)\bon[- ]site\b", 1.8),
-        (r"(?i)face[- ]to[- ]face\b", 2.0),
+        # Enhanced in-person signals
+        (r"(?i)\bin[-\s]?person\b", 2.0),
+        (r"(?i)\bon[-\s]site\b", 1.8),
+        (r"(?i)face[-\s]to[-\s]face\b", 2.0),
         (r"(?i)\b(outdoor|field)\s+(meetings?|sessions?|labs?)\b", 2.0),
+        (r"(?i)\bphysical\s+attendance\b", 2.2),
+        (r"(?i)\battend\s+class\b", 1.5),
+        (r"(?i)\bcome\s+to\s+class\b", 1.5),
     ]
     for pat, w in inperson_patterns:
         if re.search(pat, t_lower):
             score_inperson += w
             evidence.append("inperson_pattern_match")
+
+    # Check for hybrid indicators
+    hybrid_patterns = [
+        (r"(?i)\b(?:some|partial|partly)\s+online\b", 2.0),
+        (r"(?i)\b(?:some|partial|partly)\s+in[-\s]?person\b", 2.0),
+        (r"(?i)\balternating\s+(?:online|in[-\s]?person)\b", 2.5),
+        (r"(?i)\bcombination\s+of\b", 1.5),
+    ]
+    for pat, w in hybrid_patterns:
+        if re.search(pat, t_lower):
+            score_hybrid += w
+            evidence.append("hybrid_pattern_match")
 
     if score_online > MIN_SCORE_THRESHOLD_ONLINE and score_inperson > MIN_SCORE_THRESHOLD_INPERSON:
         score_hybrid = max(score_hybrid, (score_online + score_inperson) * HYBRID_SCORE_MULTIPLIER)
@@ -317,6 +412,11 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
 
     scores = {"Online": score_online, "Hybrid": score_hybrid, "In-Person": score_inperson}
     max_score = max(scores.values())
+    
+    if debug:
+        print(f"Scores: Online={score_online:.2f}, Hybrid={score_hybrid:.2f}, In-Person={score_inperson:.2f}")
+        print(f"Max score: {max_score:.2f}")
+    
     if max_score <= 0:
         return {"modality": "Unknown", "confidence": 0.0, "evidence": ["no clear modality indicators"]}
 
@@ -395,4 +495,3 @@ def detect_modality(text: str) -> Tuple[str, str]:
     label = res.get("modality", "Unknown")
     ev = res.get("evidence") or []
     return label, " | ".join(ev[:3])
-

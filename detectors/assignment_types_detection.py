@@ -1,5 +1,6 @@
 """
-Assignment Types Title Detector - CAREFUL FIX
+Assignment Types Title Detector - FIXED VERSION
+Returns the section TITLE/HEADER, not the list of assignments
 """
 import re
 from typing import Dict, Any
@@ -21,6 +22,11 @@ class AssignmentTypesDetector:
             (r'(?i)^\s*assignment\s+and\s+grading\s+details?\s+lab\s*:?\s*$', 125),
             (r'(?i)^\s*summary\s+of\s+student\s+evaluation\s*:?\s*$', 120),
             (r'(?i)^\s*methods\s*,\s*grade\s+components', 115),
+            (r'(?i)^\s*grading\s+scheme\s*:?\s*$', 160),
+            (r'(?i)^\s*grading\s+breakdown\s*:?\s*$', 155),
+            (r'(?i)^\s*grade\s+distribution\s*:?\s*$', 155),
+            (r'(?i)^\s*grade\s+composition\s*:?\s*$', 150),
+            (r'(?i)^\s*grading\s+components?\s*:?\s*$', 150),
         ]
         
         # Multiword patterns - standalone (higher score)
@@ -48,7 +54,7 @@ class AssignmentTypesDetector:
             (r'(?i)^\s*(assignment\s+details?)\s*:', 77),
             (r'(?i)^\s*(quizzes\s+and\s+exams?)\s*:', 75),
             (r'(?i)^\s*(assignments?\s+and\s+grading)\s*:', 73),
-            (r'(?i)^\s*(methods\s+of\s+testing\s*/\s*evaluation)\s*:', 130),  # For ANTH 411W
+            (r'(?i)^\s*(methods\s+of\s+testing\s*/\s*evaluation)\s*:', 130),
         ]
         
         # Singleword patterns - standalone (higher score)
@@ -97,9 +103,9 @@ class AssignmentTypesDetector:
         return True
     
     def detect(self, text: str) -> Dict[str, Any]:
-        """Detect assignment types section title"""
+        """Detect assignment types section TITLE/HEADER"""
         if not text:
-            return {"found": False, "content": ""}
+            return {"found": False, "content": "Missing"}
         
         lines = text.split("\n")
         candidates = []
@@ -122,13 +128,13 @@ class AssignmentTypesDetector:
             # Try exact patterns first
             for pat, score in self.exact_patterns:
                 if re.match(pat, l):
-                    candidates.append({"content": l, "score": score, "line": i})
+                    candidates.append({"line_idx": i, "score": score, "content": l})
                     break
             else:
                 # Try multiword standalone patterns
                 for pat, score in self.multiword_standalone:
                     if re.match(pat, l):
-                        candidates.append({"content": l, "score": score, "line": i})
+                        candidates.append({"line_idx": i, "score": score, "content": l})
                         break
                 else:
                     # Try multiword with content patterns
@@ -136,9 +142,9 @@ class AssignmentTypesDetector:
                     for pat, score in self.multiword_with_content:
                         match = re.match(pat, l)
                         if match and self._is_valid_with_content(l):
-                            # Extract just the header part (group 1 + colon)
+                            # Extract just the header part (group 1)
                             header = match.group(1) + ":"
-                            candidates.append({"content": header, "score": score, "line": i})
+                            candidates.append({"line_idx": i, "score": score, "content": header})
                             matched = True
                             break
                     
@@ -146,7 +152,7 @@ class AssignmentTypesDetector:
                         # Try singleword standalone patterns
                         for pat, score in self.singleword_standalone:
                             if re.match(pat, l):
-                                candidates.append({"content": l, "score": score, "line": i})
+                                candidates.append({"line_idx": i, "score": score, "content": l})
                                 matched = True
                                 break
                         
@@ -155,21 +161,30 @@ class AssignmentTypesDetector:
                             for pat, score in self.singleword_with_content:
                                 match = re.match(pat, l)
                                 if match and self._is_valid_with_content(l):
-                                    # Extract just the header part (group 1 + colon)
+                                    # Extract just the header part (group 1)
                                     header = match.group(1) + ":"
-                                    candidates.append({"content": header, "score": score, "line": i})
+                                    candidates.append({"line_idx": i, "score": score, "content": header})
                                     break
         
         if candidates:
-            # Return highest scoring candidate
-            best = max(candidates, key=lambda x: (x["score"], -x["line"]))
-            return {"found": True, "content": best["content"]}
+            # Return highest scoring candidate - just the section TITLE
+            best = max(candidates, key=lambda x: (x["score"], -x["line_idx"]))
+            
+            return {
+                "found": True,
+                "content": best["content"]  # Return the section title/header
+            }
         
-        return {"found": False, "content": ""}
+        return {"found": False, "content": "Missing"}
 
 
 def detect_assignment_types_title(text: str) -> str:
-    """Standalone convenience function."""
+    """
+    Standalone convenience function.
+    
+    Returns: The section title/header or "Missing" if not found
+    Example: "Assignments:", "Homework:", "Required Paperwork and Submissions."
+    """
     detector = AssignmentTypesDetector()
     result = detector.detect(text)
-    return result.get("content", "") if result.get("found") else ""
+    return result.get("content", "Missing")
