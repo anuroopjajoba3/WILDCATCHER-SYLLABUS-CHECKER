@@ -99,6 +99,14 @@
       "FP": 32,
       "FN": 26,
       "TN": 36
+      "accuracy": 0.7398,
+      "precision": 0.8608,
+      "recall": 0.764,
+      "f1_score": 0.8095,
+      "TP": 68,
+      "FP": 11,
+      "FN": 21,
+      "TN": 23
     },
     "office_phone": {
       "accuracy": 0.878,
@@ -200,6 +208,14 @@
     "FP": 117,
     "FN": 463,
     "TN": 631
+    "accuracy": 0.7626,
+    "precision": 0.9237,
+    "recall": 0.7173,
+    "f1_score": 0.8075,
+    "TP": 1162,
+    "FP": 96,
+    "FN": 458,
+    "TN": 618
   },
   "details": [
     {
@@ -556,7 +572,7 @@
       },
       "office_hours": {
         "gt": "By appointment Sunday - Thursday 7pm - 9pm (eastern time)",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -657,7 +673,7 @@
       },
       "office_hours": {
         "gt": "By appointment Monday - Thursday 5:30 - 8:30 PM, or Sundays 4 - 6 PM (EDT)",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -758,7 +774,7 @@
       },
       "office_hours": {
         "gt": "By appointment Monday -Tuesday from 7pm - 8pm EDT",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -1263,7 +1279,7 @@
       },
       "office_hours": {
         "gt": "M/W 10-10:30 and by appointment ",
-        "pred": "M/W 10-10:30 and by appointment Pandora 540",
+        "pred": "M/W 10-10:30 and by appointment",
         "match": true
       },
       "office_phone": {
@@ -1666,9 +1682,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "are by appointment. You may book a face to face appointment, or an online",
-        "match": false
+        "gt": "By appointment; http://calendly.com/karenajin",
+        "pred": "http://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -1767,9 +1783,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Office hours are by appointment or during announced walk-in office hours",
-        "match": false
+        "gt": "By appointment or during walk-in hours; https://calendly.com/karenajin",
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -1868,9 +1884,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Here is the link to make an appointment with me in my",
-        "match": false
+        "gt": "By appointment; https://calendly.com/karenajin; Walk-ins welcome",
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -1969,7 +1985,7 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment; https://calendly.com/karenajin",
         "pred": "Here is the link to make an appointment with me in my virtual Zoom office: https://",
         "match": false
       },
@@ -2071,8 +2087,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "(603) 641-4398",
@@ -2149,6 +2165,12 @@
         "gt": "You are expected to study at least 3-6 hours outside class every week.",
         "pred": "",
         "match": false
+      },
+      "instructor_name": {
+        "gt": "Karen Jin",
+        "pred": "Karen Jin",
+        "match": true
+      },
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -2272,9 +2294,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "are by appointment. You may book a face to face appointment, or an online",
-        "match": false
+        "gt": "By appointment; http://calendly.com/karenajin",
+        "pred": "http://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2373,9 +2395,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "are by appointment or during announced walk-in office hours. You are",
-        "match": false
+        "gt": "By appointment or during walk-in hours; http://calendly.com/karenajin",
+        "pred": "http://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2474,9 +2496,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Here is the link to make an appointment with me in my office: https://calendly.com/karenajin You can",
-        "match": false
+        "gt": "By appointment; https://calendly.com/karenajin; Walk-ins welcome",
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2578,6 +2600,8 @@
         "gt": "Missing",
         "pred": "",
         "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "(603) 641-4398",
@@ -2676,9 +2700,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2777,9 +2801,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Open office hours on Mondays and Fridays; By appointment",
         "pred": "Open office hours on Monday’s and Friday’s.",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2878,7 +2902,7 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Wednesdays, 4-6 pm; By appointment or during walk-in hours",
         "pred": "Wednesdays, 4-6 pm, UNH-M",
         "match": false
       },
@@ -2979,9 +3003,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "603 296 7880",
@@ -3080,9 +3104,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "603 296 7880",
@@ -3182,8 +3206,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "of free individual tutoring, per course, per week. Make a tutoring appointment and access",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -3283,8 +3307,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "http://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -3384,8 +3408,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "http://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -3686,9 +3710,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "One hour before and after class; By appointment",
         "pred": "One hour before and after class, or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -3787,8 +3811,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "",
+        "gt": "To schedule in-person or Zoom meetings use the Canvas Inbox tool",
+        "pred": "Canvas Inbox tool",
         "match": true
       },
       "office_phone": {
@@ -3888,8 +3912,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "",
+        "gt": "To schedule in-person or Zoom meetings use the Canvas Inbox tool",
+        "pred": "Canvas Inbox tool",
         "match": true
       },
       "office_phone": {
@@ -4090,8 +4114,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Section M2: After class; By appointment (make appointment using MyCourses Canvas Inbox tool)",
-        "pred": "",
+        "gt": "Section M2: After class; By appointment",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -4394,7 +4418,7 @@
       },
       "office_hours": {
         "gt": "Tuesday 1-3 pm (after-class help session)",
-        "pred": "",
+        "pred": "Tuesday, 1-3 pm",
         "match": false
       },
       "office_phone": {
@@ -4494,9 +4518,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "By appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -4595,9 +4619,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Tuesday, 8:30pm or by appointment",
         "pred": "Tuesday, 8:30pm or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -4696,9 +4720,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Tuesday, 4-5pm or by appointment",
         "pred": "Tuesday, 4 - 5pm or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -4798,8 +4822,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "(often 3:00p to before class at 5:30p)",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -5100,9 +5124,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -5175,6 +5199,11 @@
         "pred": "Credits:   4.0",
         "match": true
       },
+      "credit_hour": {
+        "gt": "Credits: 4.0",
+        "pred": "Credits:   4.0",
+        "match": true
+      },
       "workload": {
         "gt": "Missing",
         "pred": "",
@@ -5201,7 +5230,7 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Shortly before and right after class; By appointment",
         "pred": "Mondays 5:31 PM - 8:30 PM",
         "match": false
       },
@@ -5328,12 +5357,24 @@
       },
       "assignment_delivery": {
         "gt": "Missing",
+      },
+      "assignment_types_title": {
+        "gt": "Prerequisite(s)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "final_grade_scale": {
         "gt": "90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
         "pred": "",
+        "match": false
+      "deadline_expectations_title": {
+        "gt": "Make-Up Policy",
+        "pred": "Make-Up Policy: Sincesolutionstohomeworkassignmentswillbediscussedduringclass,no late home-",
+        "match": true
+      },
+      "response_time": {
+        "gt": "Missing",
+        "pred": "Missing",
         "match": false
       },
       "response_time": {
@@ -5406,6 +5447,9 @@
         "gt": "Missing",
         "pred": "Right after class or by appointment via MyCourses Zoom",
         "match": false
+        "gt": "Right after class; By appointment via MyCourses Zoom",
+        "pred": "Right after class or by appointment via MyCourses Zoom",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -5808,8 +5852,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "of free individual tutoring, per course, per week. Make a tutoring appointment and access our services through the CAE myCourses Canvas site, call 603-641-4113 or email unhm.cae@unh.edu",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -5908,9 +5952,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment; Thursdays; Possible Wednesday afternoon",
         "pred": "by appointment, Thursdays, or a possible Wednesday afternoon",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6009,9 +6053,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6514,9 +6558,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Right after class; By appointment via MyCourses Zoom",
         "pred": "Right after class or by appointment via MyCourses Zoom",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6616,8 +6660,8 @@
       },
       "office_hours": {
         "gt": "https://calendly.com/karenajin",
-        "pred": "",
-        "match": false
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4398",
@@ -6716,9 +6760,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6818,8 +6862,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "via Zoom",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -7121,7 +7165,7 @@
       },
       "office_hours": {
         "gt": "See schedule on Canvas; By appointment",
-        "pred": "",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -7423,9 +7467,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7524,8 +7568,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Monday 9:10 am - 12:00 pm P128",
+        "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
+        "pred": "Monday 9:10 am - 12:00 pm",
         "match": false
       },
       "office_phone": {
@@ -7625,9 +7669,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7726,9 +7770,9 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "By appointment -",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7828,8 +7872,8 @@
       },
       "office_hours": {
         "gt": "Monday, 4 - 6 pm (after-class help session)",
-        "pred": "",
-        "match": false
+        "pred": "Monday, 4 - 6 pm",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4144",
@@ -7929,8 +7973,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -8030,8 +8074,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "Canvas Inbox tool",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -8067,6 +8111,25 @@
         "gt": "Missing",
         "pred": "within 3 days",
         "match": false
+      },
+      "class_location": {
+        "gt": "Room 149",
+        "pred": "Room 149",
+        "match": true,
+        "modality": "In-person, scheduled weekly class meetings"
+      },
+      "grading_process": {
+        "gt": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
+        "pred": "ASSESSMENT OVERVIEW\nFinal assessment of your work in this course takes into account the following learning activities:\n● Assigned Reading and Reading Notes 10%\n● Presentation 15%\n● Lab Projects 25%\n● Team Project (50%)\nGo back to the top.",
+        "match": true
+      }
+    },
+    {
+      "filename": "COMP_755.855 - Jonas_Fall - Fall 2025.pdf",
+      "modality": {
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "class_location": {
         "gt": "Room 149",
@@ -8130,9 +8193,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -8332,9 +8395,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Evenings, besides Wednesdays",
         "pred": "Evenings, besides Wednesdays",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -8523,6 +8586,12 @@
         "pred": "missing",
         "match": false
       },
+      },
+      "instructor_title": {
+        "gt": "missing",
+        "pred": "missing",
+        "match": false
+      },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
@@ -8535,8 +8604,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -8636,8 +8705,8 @@
       },
       "office_hours": {
         "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
-        "pred": "",
-        "match": false
+        "pred": "As posted outside my office",
+        "match": true
       },
       "office_phone": {
         "gt": "603-641-4340",
@@ -8837,9 +8906,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -8938,9 +9007,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "by appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -9039,9 +9108,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "by appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -9141,8 +9210,8 @@
       },
       "office_hours": {
         "gt": "Thursday, 4 - 6 pm (after-class help session)",
-        "pred": "",
-        "match": false
+        "pred": "Thursday, 4 - 6 pm",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4144",
@@ -9343,7 +9412,7 @@
       },
       "office_hours": {
         "gt": "See schedule on Canvas; By appointment",
-        "pred": "",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -9444,7 +9513,7 @@
       },
       "office_hours": {
         "gt": "See schedule on Canvas; By appointment",
-        "pred": "",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -9646,8 +9715,8 @@
       },
       "office_hours": {
         "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
-        "pred": "",
-        "match": false
+        "pred": "As posted outside my office",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4340",
@@ -9747,7 +9816,7 @@
       },
       "office_hours": {
         "gt": "See Instructor office hours from a link on the Home page of course website; may request private Zoom session or telephone",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -10252,8 +10321,8 @@
       },
       "office_hours": {
         "gt": "Meetings by Appointment - By Phone, in Person or via Private Teams Session",
-        "pred": "",
-        "match": false
+        "pred": "By Phone, in Person or via Private Teams Session",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -10454,8 +10523,8 @@
       },
       "office_hours": {
         "gt": "available to meet by appointment, on Zoom",
-        "pred": "",
-        "match": false
+        "pred": "available to meet by appointment, on Zoom.",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -10896,6 +10965,12 @@
         "pred": "within 24 hours",
         "match": true
       },
+      },
+      "response_time": {
+        "gt": "responds within 24 hours, Mon–Fri",
+        "pred": "within 24 hours",
+        "match": true
+      },
       "class_location": {
         "gt": "Zoom/Teams weekly optional sessions",
         "pred": "",
@@ -11060,7 +11135,7 @@
       },
       "office_hours": {
         "gt": "Office hours to be determined; Other meeting times may be arranged by appointment",
-        "pred": "",
+        "pred": "to be determined.",
         "match": false
       },
       "office_phone": {
@@ -11163,6 +11238,8 @@
         "gt": "After lecture or private Zoom/Teams sessions (by appointment)",
         "pred": "",
         "match": false
+        "pred": "After lecture or private Zoom/Teams sessions (by appointment).",
+        "match": true
       },
       "office_phone": {
         "gt": "603-497-7266",
@@ -11673,6 +11750,12 @@
         "gt": "603-641-4129 (office), 603-815-1556 (cell)",
         "pred": "",
         "match": false
+      },
+      "preferred_contact_method": {
+        "gt": "kyle.maclea@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
       },
       "preferred_contact_method": {
         "gt": "kyle.maclea@unh.edu",
@@ -12257,8 +12340,8 @@
       },
       "office_hours": {
         "gt": "Mondays 1-2, Thursdays 2-4",
-        "pred": "",
-        "match": false
+        "pred": "Mondays 1-2, Thursdays 2-4",
+        "match": true
       },
       "office_phone": {
         "gt": "603-641-4337",

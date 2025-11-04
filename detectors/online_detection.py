@@ -111,9 +111,20 @@ def _has_zoom_class_phrase(s: str) -> bool:
 
 
 def _has_physical_room_phrase(s: str) -> bool:
-    """Physical location cues in class context."""
+    """Physical location cues in class context. Filter out support services."""
     if not s:
         return False
+
+    # Filter out support service contexts - these are NOT class locations
+    support_contexts = [
+        "accessibility services", "student accessibility", "counseling services",
+        "tutoring", "writing center", "library", "financial aid", "registrar",
+        "dean's office", "advisement", "student services"
+    ]
+    s_lower = s.lower()
+    if any(ctx in s_lower for ctx in support_contexts):
+        return False
+
     if re.search(rf"(?i)\b{BUILDING_WORDS}\b.*\b[A-Za-z]?\d{{2,4}}\b", s):
         return True
     if re.search(rf"(?i)\b(meets?|meeting)\s+in\b.*\b({BUILDING_WORDS})\b", s):
@@ -165,14 +176,7 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         if phrase in t_lower:
             return {"modality": "Online", "confidence": 0.95, "evidence": [phrase]}
 
-    # "Time/Location: ... Online" in header
-    if re.search(r"(?i)(?:time\s+and\s+)?location[:\s]+.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800]):
-        return {"modality": "Online", "confidence": 0.93, "evidence": ["location states online"]}
-
-    # Day/time followed by online in header
-    if re.search(r"(?i)(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*[,\s]+\d{1,2}:\d{2}.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800]):
-        return {"modality": "Online", "confidence": 0.93, "evidence": ["class time shows online"]}
-
+    # === HYBRID CHECKS FIRST (before online-only checks) ===
     hybrid_definitive = [
         "hybrid course",
         "hy-flex",
@@ -180,17 +184,46 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         "blended course",
         "hybrid format",
         "blended format",
-        "face-to-face and online",
-        "in-person and online",
+        "hybrid delivery",
+        # Removed "in-person and online" and "face-to-face and online" - too often refers to
+        # tutoring services, learning activities, or resources rather than course modality
     ]
     for phrase in hybrid_definitive:
         if phrase in t_lower:
             return {"modality": "Hybrid", "confidence": 0.95, "evidence": [phrase]}
 
+    # CRITICAL: Check for hybrid patterns BEFORE "location: online" check
+    # Pattern: "online AND also in room X" or "zoom and also in"
+    if re.search(r"(?i)\b(online|zoom|teams|webex).*\b(and also in|also in)\b.*\b(room|rm\.?|pandora|pandra|hall|building)\b", t_lower[:HEADER_SEARCH_LIMIT_1000]):
+        return {"modality": "Hybrid", "confidence": 0.95, "evidence": ["online and also in physical location"]}
+
+    if re.search(r"(?i)\blocation.*:.*\bonline\b.*\band\b.*\b(room|rm\.?|pandora|pandra)\b", t_lower[:HEADER_SEARCH_LIMIT_1000]):
+        return {"modality": "Hybrid", "confidence": 0.95, "evidence": ["location shows both online and room"]}
+
+    # NOW check for online-only patterns
+    # "Time/Location: ... Online" in header (but NOT if it also mentions room/building)
+    location_online_match = re.search(r"(?i)(?:time\s+and\s+)?location[:\s]+.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800])
+    if location_online_match:
+        # Check if it also mentions a room/building (would be hybrid)
+        location_text = t_lower[location_online_match.start():min(location_online_match.end() + 100, len(t_lower))]
+        if not any(word in location_text for word in ["room", "rm", "hall", "building", "pandora", "pandra"]):
+            return {"modality": "Online", "confidence": 0.93, "evidence": ["location states online"]}
+
+    # Day/time followed by online in header
+    if re.search(r"(?i)(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*[,\s]+\d{1,2}:\d{2}.*\bonline\b", t_lower[:HEADER_SEARCH_LIMIT_800]):
+        return {"modality": "Online", "confidence": 0.93, "evidence": ["class time shows online"]}
+
     if re.search(r"(?i)face[-\s]?to[-\s]?face\s+(?:weekly|sessions?).*(?:async|online)", t_lower):
         return {"modality": "Hybrid", "confidence": 0.92, "evidence": ["face-to-face + async/online components"]}
 
     # === PHASE 2: Class location section takes precedence over office hours ===
+    # BUT: Check for "hybrid" keyword in header FIRST before assuming in-person
+    header_1500 = t_lower[:HEADER_SEARCH_LIMIT_1500]
+    if "hybrid" in header_1500:
+        # Check if it's actually referring to class modality (not just course content)
+        if any(word in header_1500 for word in ["hybrid delivery", "hybrid course", "hybrid format", "hybrid modality", "online with some campus"]):
+            return {"modality": "Hybrid", "confidence": 0.95, "evidence": ["header explicitly states hybrid"]}
+
     if class_section:
         if _has_zoom_class_phrase(class_section):
             return {"modality": "Online", "confidence": 0.90, "evidence": ["class meets on Zoom/Teams/Webex"]}
@@ -207,22 +240,25 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
     meeting_match = re.search(rf"(?i)\b(meets?|meeting)\b.*\b({BUILDING_WORDS})\b.*\b[A-Za-z]?\d{{2,4}}\b", header_600)
     if meeting_match:
         office_in_header = "office" in header_600[max(0, meeting_match.start() - CONTEXT_OFFSET_50) : meeting_match.end() + CONTEXT_OFFSET_150]
-        if not office_in_header:
+        # Also check for hybrid before assuming in-person
+        if not office_in_header and "hybrid" not in header_1500:
             return {"modality": "In-Person", "confidence": 0.92, "evidence": ["header shows physical meeting room"]}
 
     # NEW early in-person catches
-    if re.search(r"(?i)\bin[ -]?person\b", header_600) and "office" not in header_600:
+    # But ONLY if "hybrid" is not mentioned in header
+    if re.search(r"(?i)\bin[ -]?person\b", header_600) and "office" not in header_600 and "hybrid" not in header_1500:
         return {"modality": "In-Person", "confidence": 0.90, "evidence": ["header says in person"]}
 
     non_office = t_lower.replace(office_section, "") if office_section else t_lower
 
-    if re.search(rf"\b({BUILDING_WORDS})\b.*\b[A-Za-z]?\d{{2,4}}\b", non_office):
+    # Check for hybrid again before returning in-person for physical room
+    if re.search(rf"\b({BUILDING_WORDS})\b.*\b[A-Za-z]?\d{{2,4}}\b", non_office) and "hybrid" not in header_1500:
         return {"modality": "In-Person", "confidence": 0.90, "evidence": ["physical room outside office hours"]}
 
     if re.search(DAYS_TOKEN, non_office) and re.search(TIME_TOKEN, non_office) and not re.search(
         r"\b(online|zoom|microsoft\s*teams|webex|remote)\b",
         non_office,
-    ):
+    ) and "hybrid" not in header_1500:
         return {"modality": "In-Person", "confidence": 0.86, "evidence": ["day/time schedule with no online cues"]}
 
     # === PHASE 3: Asynchronous (guard against office hours / tutoring) ===
@@ -260,7 +296,7 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
 
     online_patterns = [
         (r"(?i)\bcourse\s+(?:is\s+)?(?:delivered|offered|taught)\s+online\b", 3.5),
-        (r"(?i)\bonline\s+(?:course|format|delivery|instruction)\b", 3.0),
+        (r"(?i)\bonline\s+(?:course|format|delivery|instruction|modality)\b", 3.0),
         (r"(?i)\bsynchronous\s+online\b", 3.2),
         (r"(?i)\basynchronous\s+(?:course|format|delivery)\b", 3.2),
         (r"(?i)\bremote\s+(?:course|instruction|learning)\b", 2.5),
@@ -268,17 +304,31 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         (r"(?i)\bclass\s+meets?\s+(?:on|via)\s+(?:zoom|microsoft\s*teams|teams|webex)\b", 3.5),
         (r"(?i)\bdelivered\s+(?:entirely\s+)?(?:online|remotely|asynchronously)\b", 3.5),
     ]
+
+    # Avoid counting "online" in irrelevant contexts (textbook, materials, resources)
+    irrelevant_online_contexts = [
+        "textbook online", "materials online", "resources online",
+        "available online", "posted online", "submit online", "canvas online"
+    ]
+
     for pat, w in online_patterns:
-        if re.search(pat, t_lower):
-            score_online += w
-            evidence.append("online_pattern_match")
+        match = re.search(pat, t_lower)
+        if match:
+            # Check if this match is in an irrelevant context
+            match_start = match.start()
+            match_context = t_lower[max(0, match_start - 30):match.end() + 30]
+            if not any(ctx in match_context for ctx in irrelevant_online_contexts):
+                score_online += w
+                evidence.append("online_pattern_match")
 
     first_1500 = t_lower[:HEADER_SEARCH_LIMIT_1500]
     zoom_position = first_1500.find("zoom")
     if zoom_position != -1:
         near = first_1500[max(0, zoom_position - CONTEXT_OFFSET_60) : zoom_position + CONTEXT_OFFSET_60]
-        if "office" not in near:
-            score_online += 2.0
+        # Only count zoom if it's about class meetings, not office hours or support services
+        if "office" not in near and "counseling" not in near and "support" not in near:
+            if any(ctx in near for ctx in ["meet", "class", "course", "location", "delivery"]):
+                score_online += 2.0
 
     inperson_patterns = [
         (rf"(?i)\b(?:class|course|lecture)\s+(?:meets?|is held|location).*(?:{BUILDING_WORDS})\b", 3.0),
@@ -291,16 +341,48 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
         (r"(?i)\barrive\s+late\s+to\s+class\b", 1.3),
         (r"(?i)\bleave\s+early\s+from\s+class\b", 1.3),
         (r"(?i)\bneed\s+to\s+be\s+here\b", 1.5),
-        # NEW soft in-person signals
+        # Soft in-person signals
         (r"(?i)\bin[ -]?person\b", 2.0),
         (r"(?i)\bon[- ]site\b", 1.8),
         (r"(?i)face[- ]to[- ]face\b", 2.0),
         (r"(?i)\b(outdoor|field)\s+(meetings?|sessions?|labs?)\b", 2.0),
     ]
+
+    # Support service contexts to filter out
+    support_service_contexts = [
+        "accessibility", "counseling", "tutoring", "writing center",
+        "library", "financial aid", "registrar", "advisement", "student services",
+        "wellness", "health services"
+    ]
+
+    # Course code patterns to filter out (these are NOT buildings)
+    course_code_patterns = [
+        r"\bcomp\s*\d",  # COMP 405, COMP405
+        r"\bmath\s*\d",  # MATH 418
+        r"\bbms\s*\d",   # BMS 508
+        r"\bphys\s*\d",  # PHYS 401
+        r"\banth\s*\d",  # ANTH 411
+        r"\bpsyc\s*\d",  # PSYC 401
+        r"\bbiol\s*\d",  # BIOL 414
+        r"\bcmn\s*\d",   # CMN 455
+        r"\bnsia\s*\d",  # NSIA 850
+        r"\bcredit",     # "4 credits"
+        r"\bcrn\s*:",    # CRN: 12143
+    ]
+
     for pat, w in inperson_patterns:
-        if re.search(pat, t_lower):
-            score_inperson += w
-            evidence.append("inperson_pattern_match")
+        match = re.search(pat, t_lower)
+        if match:
+            # Check if this match is in a support service context
+            match_start = match.start()
+            match_context = t_lower[max(0, match_start - 50):match.end() + 50]
+
+            # Also check if it's a course code pattern
+            is_course_code = any(re.search(code_pat, match_context) for code_pat in course_code_patterns)
+
+            if not any(ctx in match_context for ctx in support_service_contexts) and not is_course_code:
+                score_inperson += w
+                evidence.append("inperson_pattern_match")
 
     if score_online > MIN_SCORE_THRESHOLD_ONLINE and score_inperson > MIN_SCORE_THRESHOLD_INPERSON:
         score_hybrid = max(score_hybrid, (score_online + score_inperson) * HYBRID_SCORE_MULTIPLIER)
@@ -317,13 +399,21 @@ def detect_course_delivery(text: str) -> Dict[str, object]:
 
     scores = {"Online": score_online, "Hybrid": score_hybrid, "In-Person": score_inperson}
     max_score = max(scores.values())
-    if max_score <= 0:
+
+    # Return Unknown if no significant evidence found
+    # Require at least 2.0 score (lowered from 3.5 to improve recall)
+    if max_score < 2.0:
         return {"modality": "Unknown", "confidence": 0.0, "evidence": ["no clear modality indicators"]}
 
     modality = max(scores, key=scores.get)
     total = sum(scores.values())
     confidence = round(max_score / total, 2) if total > 0 else MIN_CONFIDENCE_THRESHOLD
     confidence = max(confidence, MIN_CONFIDENCE_THRESHOLD)
+
+    # Also return Unknown if confidence is too low (ambiguous/weak signals)
+    # Lowered from 0.70 to 0.60 to improve recall
+    if confidence < 0.60:
+        return {"modality": "Unknown", "confidence": 0.0, "evidence": ["weak or ambiguous modality signals"]}
 
     return {
         "modality": modality,
