@@ -41,13 +41,13 @@
       "TN": 33
     },
     "workload": {
-      "accuracy": 0.7154,
-      "precision": 0.9318,
-      "recall": 0.5616,
-      "f1_score": 0.7009,
-      "TP": 41,
+      "accuracy": 0.8699,
+      "precision": 0.9524,
+      "recall": 0.8219,
+      "f1_score": 0.8824,
+      "TP": 60,
       "FP": 3,
-      "FN": 32,
+      "FN": 13,
       "TN": 47
     },
     "instructor_name": {
@@ -192,13 +192,13 @@
     }
   },
   "overall": {
-    "accuracy": 0.7626,
-    "precision": 0.9237,
-    "recall": 0.7173,
-    "f1_score": 0.8075,
-    "TP": 1162,
+    "accuracy": 0.7708,
+    "precision": 0.9248,
+    "recall": 0.729,
+    "f1_score": 0.8153,
+    "TP": 1181,
     "FP": 96,
-    "FN": 458,
+    "FN": 439,
     "TN": 618
   },
   "details": [
@@ -1440,8 +1440,8 @@
       },
       "workload": {
         "gt": "You are expected to study at least 3 hours outside of class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study at least 3 hours outside of class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Carlo Capuz",
@@ -1541,8 +1541,8 @@
       },
       "workload": {
         "gt": "You are expected to study at least 2-4 hours outside of class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study at least 2-4 hours outside of class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Carlo Capuz",
@@ -2046,8 +2046,8 @@
       },
       "workload": {
         "gt": "You are expected to study at least 3 hours outside of class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study at least 3 hours outside of class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -2147,8 +2147,8 @@
       },
       "workload": {
         "gt": "You are expected to study at least 3-6 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study at least 3-6 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -2551,8 +2551,8 @@
       },
       "workload": {
         "gt": "You are expected to study at least 2-4 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study at least 2-4 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -3258,8 +3258,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-8 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -3359,8 +3359,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-8 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -3460,8 +3460,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-8 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours   outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Mihaela Sabin",
@@ -3662,8 +3662,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-8 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Jon Shallow",
@@ -3763,8 +3763,8 @@
       },
       "workload": {
         "gt": "You are expected to engage in outside class learning 9 hours outside class every week",
-        "pred": "",
-        "match": false
+        "pred": "expected to engage in outside class learning 9 hours",
+        "match": true
       },
       "instructor_name": {
         "gt": "Howard Eglowstein",
@@ -3864,8 +3864,8 @@
       },
       "workload": {
         "gt": "You are expected to engage in outside class learning 9 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to engage in outside class learning 9 hours",
+        "match": true
       },
       "instructor_name": {
         "gt": "Howard Eglowstein",
@@ -3965,8 +3965,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-8  hours outside class every week. ",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Andrea Murphy",
@@ -4066,8 +4066,8 @@
       },
       "workload": {
         "gt": "You are expected to engage in outside class learning 9 hours every week",
-        "pred": "",
-        "match": false
+        "pred": "expected to engage in outside class learning 9 hours",
+        "match": true
       },
       "instructor_name": {
         "gt": "Ken Gitlitz",
@@ -4268,8 +4268,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-9 hours outside class every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-9 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Mihaela Sabin",
@@ -4369,8 +4369,8 @@
       },
       "workload": {
         "gt": "You are expected to engage in outside class learning 9 hours every week. ",
-        "pred": "",
-        "match": false
+        "pred": "expected to engage in outside class learning 9 hours",
+        "match": true
       },
       "instructor_name": {
         "gt": "Mihaela Sabin",
@@ -4470,8 +4470,8 @@
       },
       "workload": {
         "gt": "You are expected to study 6-8  hours outside class every week. ",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Jon Shallow",
@@ -5682,8 +5682,8 @@
       },
       "workload": {
         "gt": "You are expected to engage in outside class learning 9 hours every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to engage in outside class learning 9 hours",
+        "match": true
       },
       "instructor_name": {
         "gt": "Karen Jin",
@@ -5783,8 +5783,8 @@
       },
       "workload": {
         "gt": "You are also expected to study 6-8  hours outside class every week. ",
-        "pred": "",
-        "match": false
+        "pred": "expected to study 6-8 hours outside class every week",
+        "match": true
       },
       "instructor_name": {
         "gt": "Jonathan Shallow",
@@ -8005,8 +8005,8 @@
       },
       "workload": {
         "gt": "You are expected to engage in outside class learning 10 hours every week.",
-        "pred": "",
-        "match": false
+        "pred": "expected to engage in outside class learning 10 hours",
+        "match": true
       },
       "instructor_name": {
         "gt": "Mihaela Sabin",
@@ -9116,7 +9116,7 @@
       },
       "workload": {
         "gt": "9 hours per week. ",
-        "pred": "",
+        "pred": "expected to engage in outside class learning 7 hours",
         "match": false
       },
       "instructor_name": {
