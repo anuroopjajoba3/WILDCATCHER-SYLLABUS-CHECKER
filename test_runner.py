@@ -25,6 +25,7 @@ SUPPORTED_FIELDS = (
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
     "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
+    "class_location",
     "grading_process"
 )
 
@@ -123,6 +124,12 @@ except Exception:
     print("WARNING: Grading scale detector not available")
 
 try:
+    from detectors.class_location_detector import ClassLocationDetector
+    CLASS_LOCATION_AVAILABLE = True
+except Exception:
+    CLASS_LOCATION_AVAILABLE = False
+    print("WARNING: Class location detector not available")
+try:
     from detectors.grading_process_detection import GradingProcessDetector
     GRADING_PROCESS_AVAILABLE = True
 except Exception:
@@ -168,6 +175,98 @@ def compare_modality(gt, pred):
             return "in-person"
         return s
     return core(gt) == core(pred)
+
+def normalize_location(s):
+    """
+    Normalize location strings for better matching.
+    - PANDRA → Pandora
+    - Rm./Rm → Room
+    - Remove extra spaces
+    - Lowercase
+    - Handle P149 <-> Pandora 149 equivalence
+    """
+    s = s.strip().lower()
+
+    # Building name variations
+    s = s.replace("pandra", "pandora")
+    s = s.replace("hamilton smith", "hamiltonsmith")  # Consistent handling
+
+    # Room prefix variations
+    s = s.replace("rm.", "room")
+    s = s.replace("rm ", "room ")
+    s = s.replace("classroom:", "room")
+    s = s.replace("classroom ", "room ")
+
+    # Normalize separators
+    s = s.replace(",", " ")
+    s = s.replace(".", " ")
+
+    # Normalize whitespace
+    s = " ".join(s.split())
+
+    # Handle P[number] <-> Pandora [number] equivalence
+    # "pandora 149" -> "p149" and "room p149" -> "p149"
+    # This allows "PANDRA 149" and "Room P149" to match
+    import re
+
+    # If format is "pandora 123" or "pandora hall 123", convert to "p123"
+    s = re.sub(r'pandora\s+(?:hall\s+)?(\d+)', r'p\1', s)
+
+    # If format is "room p123", convert to "p123"
+    s = re.sub(r'room\s+(p\d+)', r'\1', s)
+
+    return s
+
+def compare_class_location(gt, pred, modality):
+    """
+    Smart comparison for class_location that considers course modality.
+
+    Logic:
+    - If GT indicates online (contains "online", "canvas", "zoom", "teams") AND
+      modality is "Online", then empty prediction is acceptable (correct).
+    - Otherwise, use fuzzy matching with location normalization.
+    """
+    g = norm(gt)
+    p = norm(pred)
+
+    # Check if GT indicates an online-only course
+    online_indicators = ["online", "canvas", "zoom", "teams", "webex", "remote", "tbd"]
+    gt_is_online = any(indicator in g for indicator in online_indicators)
+
+    # Special case: GT says online and modality confirms it's online/remote
+    # Empty prediction is acceptable (no physical location expected)
+    if gt_is_online and modality:
+        modality_norm = norm(modality)
+        modality_is_online = any(word in modality_norm for word in ["online", "remote", "zoom", "teams", "webex"])
+        if modality_is_online:
+            # Both empty or pred is empty when GT says "online/remote"
+            if p == "" or g == p:
+                return True
+
+    # For TBD/Missing values in GT, accept empty predictions
+    if g in ("tbd", "missing", "n/a", ""):
+        return p == ""
+
+    # Normalize location strings for better matching
+    g_norm = normalize_location(g)
+    p_norm = normalize_location(p)
+
+    # Empty checks
+    if not g_norm and not p_norm:
+        return True
+    if not g_norm or not p_norm:
+        return False
+
+    # Exact match after normalization
+    if g_norm == p_norm:
+        return True
+
+    # Substring match (one contains the other)
+    if g_norm in p_norm or p_norm in g_norm:
+        return True
+
+    # Fuzzy match on normalized strings
+    return SequenceMatcher(None, g_norm, p_norm).ratio() >= FUZZY_MATCH_THRESHOLD
 
 # ======================================================================
 # DETECTOR WRAPPERS
@@ -284,6 +383,12 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["final_grade_scale"] = ""
 
+    # Class Location
+    if CLASS_LOCATION_AVAILABLE:
+        cl = ClassLocationDetector().detect(text)
+        preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
+    else:
+        preds["class_location"] = ""
     # Grading Process
     if GRADING_PROCESS_AVAILABLE:
         gp = GradingProcessDetector().detect(text)
@@ -461,6 +566,22 @@ def main():
             field_stats["final_grade_scale"]["correct"] += int(match)
             result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
 
+        # Class Location (with smart comparison considering modality)
+        if "class_location" in record:
+            modality_value = record.get("modality", "")
+            match = compare_class_location(
+                record["class_location"],
+                preds.get("class_location", ""),
+                modality_value
+            )
+            field_stats["class_location"]["total"] += 1
+            field_stats["class_location"]["correct"] += int(match)
+            result["class_location"] = {
+                "gt": record["class_location"],
+                "pred": preds.get("class_location", ""),
+                "match": match,
+                "modality": modality_value
+            }
         # Grading Process
         if "grading_process" in record:
             match = loose_compare(record["grading_process"], preds.get("grading_process", ""))
