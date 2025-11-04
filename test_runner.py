@@ -23,9 +23,8 @@ SUPPORTED_FIELDS = (
     "modality", "SLOs", "email", "credit_hour", "workload",
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
-    "assignment_types_title", "grading_procedures_title",
-    "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
-    "grading_process"
+    "assignment_types_title", "deadline_expectations_title", 
+    "assignment_delivery", "final_grade_scale", "grading_process"
 )
 
 # Add repo root to path
@@ -94,12 +93,7 @@ except Exception:
     ASSIGNMENT_TYPES_AVAILABLE = False
     print("WARNING: Assignment types detector not available")
 
-try:
-    from detectors.grading_procedures_detection import GradingProceduresDetector
-    GRADING_PROCEDURES_AVAILABLE = True
-except Exception:
-    GRADING_PROCEDURES_AVAILABLE = False
-    print("WARNING: Grading procedures detector not available")
+# Grading procedures detector removed from testing
 
 try:
     from detectors.late_missing_work_detector import LateDetector
@@ -332,12 +326,8 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["assignment_types_title"] = ""
 
-    # Grading Procedures
-    if GRADING_PROCEDURES_AVAILABLE:
-        g = GradingProceduresDetector().detect(text)
-        preds["grading_procedures_title"] = g.get("content", "") if g.get("found") else ""
-    else:
-        preds["grading_procedures_title"] = ""
+    # Grading procedures detection removed
+    preds["grading_procedures_title"] = ""
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:

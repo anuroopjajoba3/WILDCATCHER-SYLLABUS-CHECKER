@@ -60,11 +60,6 @@
       "correct": 72,
       "total": 120
     },
-    "grading_procedures_title": {
-      "accuracy": 0.5167,
-      "correct": 62,
-      "total": 120
-    },
     "deadline_expectations_title": {
       "accuracy": 0.85,
       "correct": 102,
@@ -87,9 +82,9 @@
     }
   },
   "overall": {
-    "accuracy": 0.5961,
-    "correct": 1216,
-    "total": 2040
+    "accuracy": 0.601,
+    "correct": 1154,
+    "total": 1920
   },
   "details": [
     {
@@ -158,8 +153,8 @@
       },
       "grading_procedures_title": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Expectations regarding assignment deadlines, late, or missing work",
@@ -248,8 +243,8 @@
       },
       "grading_procedures_title": {
         "gt": "Grading Policy:",
-        "pred": "Grading Policy:",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late/Make-Up Work:",
@@ -338,8 +333,8 @@
       },
       "grading_procedures_title": {
         "gt": "Course Grading System:",
-        "pred": "Course Grading System:",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Assignments:",
@@ -428,8 +423,8 @@
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
@@ -518,8 +513,8 @@
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
@@ -608,8 +603,8 @@
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
@@ -698,8 +693,8 @@
       },
       "grading_procedures_title": {
         "gt": "Grading",
-        "pred": "Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines",
@@ -788,8 +783,8 @@
       },
       "grading_procedures_title": {
         "gt": "Grading",
-        "pred": "Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines",
@@ -968,8 +963,8 @@
       },
       "grading_procedures_title": {
         "gt": "Assignments & Grading",
-        "pred": "Assignments & Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Missing",
@@ -1058,8 +1053,8 @@
       },
       "grading_procedures_title": {
         "gt": "Evaluation:",
-        "pred": "Evaluation:",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Attendance and Late Work",
@@ -2318,8 +2313,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -2588,8 +2583,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -2678,8 +2673,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -2768,8 +2763,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -2858,8 +2853,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -2948,8 +2943,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -3038,8 +3033,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -3128,8 +3123,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make‐up exams",
@@ -3218,8 +3213,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -3848,8 +3843,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "ASSESSMENT",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
@@ -4028,8 +4023,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -4118,8 +4113,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -4208,8 +4203,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -4298,8 +4293,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -4388,8 +4383,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -4478,8 +4473,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -4568,8 +4563,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading Policy",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
@@ -4748,8 +4743,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading Policy",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam",
@@ -4838,8 +4833,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions and Make-Up Exams",
@@ -4928,8 +4923,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions and Make-Up Exams",
@@ -5108,8 +5103,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -5198,8 +5193,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
@@ -5288,8 +5283,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -5378,8 +5373,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading and Evaluation of Student Work:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -5468,8 +5463,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading and Evaluation of Student Work:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -5558,8 +5553,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grades",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
@@ -5648,8 +5643,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grades",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Assignments and Grading: you will be given many opportunities to exhibit your knowledge and understanding of the material in the text and class lectures. This will be accomplished through four case studies, two examinations, three position papers, a team debate, and in-class participation.",
@@ -5738,8 +5733,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading Policy",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
@@ -5918,8 +5913,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -6098,8 +6093,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exam",
@@ -6188,8 +6183,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exam",
@@ -6278,8 +6273,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -6368,8 +6363,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -6548,8 +6543,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -6638,8 +6633,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -6728,8 +6723,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -6818,8 +6813,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Missing",
@@ -6908,8 +6903,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "ASSESSMENT",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -6998,8 +6993,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -7178,8 +7173,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -7358,8 +7353,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading and Evaluation of Student Work:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -7448,8 +7443,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
@@ -7538,8 +7533,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -7628,8 +7623,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -7808,8 +7803,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -7898,8 +7893,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -7988,8 +7983,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
@@ -8168,8 +8163,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Grading",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Do NOT submit homework or final late!",
@@ -8258,8 +8253,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -8438,8 +8433,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Evaluation",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -8528,8 +8523,8 @@
       },
       "grading_procedures_title": {
         "gt": "",
-        "pred": "Evaluation",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -8618,8 +8613,8 @@
       },
       "grading_procedures_title": {
         "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
@@ -8708,8 +8703,8 @@
       },
       "grading_procedures_title": {
         "gt": "GRADING",
-        "pred": "Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
@@ -8798,8 +8793,8 @@
       },
       "grading_procedures_title": {
         "gt": "GRADING",
-        "pred": "Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
@@ -8978,8 +8973,8 @@
       },
       "grading_procedures_title": {
         "gt": "Grading",
-        "pred": "Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Assignment Deadlines:",
@@ -9068,8 +9063,8 @@
       },
       "grading_procedures_title": {
         "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
-        "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -9158,8 +9153,8 @@
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "Assessment",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
@@ -9248,8 +9243,8 @@
       },
       "grading_procedures_title": {
         "gt": "GRADING",
-        "pred": "GRADING",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below:",
@@ -9518,8 +9513,8 @@
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "Assessment",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
@@ -9608,8 +9603,8 @@
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "Assessment",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
@@ -9698,8 +9693,8 @@
       },
       "grading_procedures_title": {
         "gt": "Assessment",
-        "pred": "Assessment",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
@@ -9878,8 +9873,8 @@
       },
       "grading_procedures_title": {
         "gt": "Homework Grading Rubric:",
-        "pred": "Homework Grading Rubric:",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Missing",
@@ -9968,8 +9963,8 @@
       },
       "grading_procedures_title": {
         "gt": "STUDENT EVALUATION",
-        "pred": "STUDENT EVALUATION",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "SUMMARY/CRITIQUE PAPER (late policy)",
@@ -10058,8 +10053,8 @@
       },
       "grading_procedures_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "SUMMARY OF STUDENT EVALUATION",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "EXPERIMENTS/DEMONSTRATIONS",
@@ -10148,8 +10143,8 @@
       },
       "grading_procedures_title": {
         "gt": "STUDENT EVALUATION",
-        "pred": "STUDENT EVALUATION",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
@@ -10238,8 +10233,8 @@
       },
       "grading_procedures_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "SUMMARY OF STUDENT EVALUATION",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "PENALTY FOR LATE ASSIGNMENTS",
@@ -10328,8 +10323,8 @@
       },
       "grading_procedures_title": {
         "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Missing",
@@ -10418,7 +10413,7 @@
       },
       "grading_procedures_title": {
         "gt": "ASSIGNMENT OF A LETTER GRADE:",
-        "pred": "Grades:",
+        "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
@@ -10508,8 +10503,8 @@
       },
       "grading_procedures_title": {
         "gt": "Assignments and Grading",
-        "pred": "Assignments and Grading",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Makeups:",
@@ -10598,8 +10593,8 @@
       },
       "grading_procedures_title": {
         "gt": "Grades",
-        "pred": "Grades",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Attendance, Late Submissions",
@@ -10778,8 +10773,8 @@
       },
       "grading_procedures_title": {
         "gt": "GRADING DISTRIBUTION",
-        "pred": "GRADING DISTRIBUTION",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Missing",
@@ -10868,8 +10863,8 @@
       },
       "grading_procedures_title": {
         "gt": "Grades:",
-        "pred": "Grades:",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Missing",
