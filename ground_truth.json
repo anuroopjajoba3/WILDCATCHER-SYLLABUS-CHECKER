@@ -42,7 +42,7 @@
     "grading_procedures_title": "Grading Policy:",
     "deadline_expectations_title": "Late/Make-Up Work:",
     "assignment_delivery": "myCourses",
-    "final_grade_scale": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
+    "final_grade_scale": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
     "grading_process": "Grading Policy: Assignments Homework 30% Projects 70%"
   },
   {
@@ -2180,7 +2180,7 @@
     "grading_procedures_title": "Rubric and Evaluation Methods",
     "deadline_expectations_title": "Policy on Late Submissions",
     "assignment_delivery": "Canvas",
-    "final_grade_scale": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
+    "final_grade_scale": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
     "grading_process": "Assignment breakdown by points and timeframe: Introductions (video) 10 points Week one, Certificate (from FEMA IS course) 10 points Week two, Mini-writing assignment 20 points, Discussion post 20 points Week three, Knowledge check 15 points Week four, Extra Credit opportunity available, Exam (cumulative) 40 points Week five, Knowledge check 15 points Week six, Presentation (video) 30 points Week seven, Extra Credit opportunity available, Writing assignment 40 points Week eight."
   },
   {
