@@ -25,7 +25,8 @@ SUPPORTED_FIELDS = (
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
     "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
-    "class_location"
+    "class_location",
+    "grading_process"
 )
 
 # Add repo root to path
@@ -128,6 +129,12 @@ try:
 except Exception:
     CLASS_LOCATION_AVAILABLE = False
     print("WARNING: Class location detector not available")
+try:
+    from detectors.grading_process_detection import GradingProcessDetector
+    GRADING_PROCESS_AVAILABLE = True
+except Exception:
+    GRADING_PROCESS_AVAILABLE = False
+    print("WARNING: Grading process detector not available")
 
 # ======================================================================
 # COMPARISON HELPERS
@@ -149,10 +156,10 @@ def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     return SequenceMatcher(None, a, b).ratio() >= threshold
 
 def loose_compare(gt, pred):
-    """GT 'not found'/empty vs pred empty => True; otherwise fuzzy."""
+    """GT 'not found'/empty/missing vs pred empty => True; otherwise fuzzy."""
     g = norm(gt)
     p = norm(pred)
-    if g in ("", "not found") and p == "":
+    if g in ("", "not found", "missing") and p == "":
         return True
     return fuzzy_match(g, p)
 
@@ -382,6 +389,12 @@ def detect_all_fields(text: str) -> dict:
         preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
     else:
         preds["class_location"] = ""
+    # Grading Process
+    if GRADING_PROCESS_AVAILABLE:
+        gp = GradingProcessDetector().detect(text)
+        preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
+    else:
+        preds["grading_process"] = ""
 
     return preds
 
@@ -569,6 +582,12 @@ def main():
                 "match": match,
                 "modality": modality_value
             }
+        # Grading Process
+        if "grading_process" in record:
+            match = loose_compare(record["grading_process"], preds.get("grading_process", ""))
+            field_stats["grading_process"]["total"] += 1
+            field_stats["grading_process"]["correct"] += int(match)
+            result["grading_process"] = {"gt": record["grading_process"], "pred": preds.get("grading_process", ""), "match": match}
 
         details.append(result)
 
