@@ -216,24 +216,7 @@ function displaySLOResult(data) {
 }
 ```
 
-#### C. Update CSS Styling (Optional)
 
-You can add custom styling for your new field in the `<style>` section of `index.html`:
-
-```css
-/* Add this to the existing styles */
-.course-id-preview {
-    margin-top: 10px;
-    padding: 10px;
-    background: #e8f4ff;
-    border-radius: 5px;
-    border-left: 4px solid #007bff;
-}
-
-.course-id-preview strong {
-    color: #007bff;
-}
-```
 
 ### Frontend Integration Checklist
 
@@ -247,28 +230,3 @@ When adding a new field to the frontend:
 - [ ] Test with both passing and failing cases
 - [ ] Add custom CSS styling if needed
 
-### Example Output
-
-With multiple fields, your frontend will show:
-
-**PASS case:**
-```
-Result: PASS
-Result: All fields detected
-SLO Content Found: [SLO content]
-Course ID Found: CS 101
-```
-
-**FAIL case:**
-```
-Result: FAIL
-Missing Fields:
-Student Learning Outcome: Not find the acceptable title for SLO
-• Student Learning Outcomes
-• Student Learning Objectives
-• Learning Outcomes
-• Learning Objectives
-
-Course ID: Not found
-• Must include course identifier (e.g., CS 101, MATH 205)
-```

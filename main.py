@@ -1,5 +1,5 @@
 """
-Main Application Entry Point
+Main Application Entry Point.
 This module serves as the main entry point for the SLO detection application.
 It initializes all components and starts the Flask server.
 """
