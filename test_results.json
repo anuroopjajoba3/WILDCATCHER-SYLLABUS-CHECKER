@@ -1,105 +1,205 @@
 {
   "summary": {
     "modality": {
-      "accuracy": 0.3333,
-      "correct": 41,
-      "total": 123
+      "accuracy": 0.7805,
+      "precision": 0.9697,
+      "recall": 0.8,
+      "f1_score": 0.8767,
+      "TP": 96,
+      "FP": 3,
+      "FN": 24,
+      "TN": 0
     },
     "SLOs": {
-      "accuracy": 0.3821,
-      "correct": 47,
-      "total": 123
+      "accuracy": 0.878,
+      "precision": 1.0,
+      "recall": 0.7414,
+      "f1_score": 0.8515,
+      "TP": 43,
+      "FP": 0,
+      "FN": 15,
+      "TN": 65
     },
     "email": {
       "accuracy": 0.9024,
-      "correct": 111,
-      "total": 123
+      "precision": 0.9636,
+      "recall": 0.9298,
+      "f1_score": 0.9464,
+      "TP": 106,
+      "FP": 4,
+      "FN": 8,
+      "TN": 5
     },
     "credit_hour": {
       "accuracy": 0.7398,
-      "correct": 91,
-      "total": 123
+      "precision": 0.8529,
+      "recall": 0.725,
+      "f1_score": 0.7838,
+      "TP": 58,
+      "FP": 10,
+      "FN": 22,
+      "TN": 33
     },
     "workload": {
       "accuracy": 0.7154,
-      "correct": 88,
-      "total": 123
+      "precision": 0.9318,
+      "recall": 0.5616,
+      "f1_score": 0.7009,
+      "TP": 41,
+      "FP": 3,
+      "FN": 32,
+      "TN": 47
     },
     "instructor_name": {
       "accuracy": 0.6098,
-      "correct": 75,
-      "total": 123
+      "precision": 1.0,
+      "recall": 0.6033,
+      "f1_score": 0.7526,
+      "TP": 73,
+      "FP": 0,
+      "FN": 48,
+      "TN": 2
     },
     "instructor_title": {
       "accuracy": 0.8455,
-      "correct": 104,
-      "total": 123
+      "precision": 0.7931,
+      "recall": 0.8679,
+      "f1_score": 0.8288,
+      "TP": 46,
+      "FP": 12,
+      "FN": 7,
+      "TN": 58
     },
     "instructor_department": {
-      "accuracy": 0.7642,
-      "correct": 94,
-      "total": 123
+      "accuracy": 0.7724,
+      "precision": 0.7846,
+      "recall": 0.7846,
+      "f1_score": 0.7846,
+      "TP": 51,
+      "FP": 14,
+      "FN": 14,
+      "TN": 44
     },
     "office_address": {
       "accuracy": 0.7236,
-      "correct": 89,
-      "total": 123
+      "precision": 0.75,
+      "recall": 0.5192,
+      "f1_score": 0.6136,
+      "TP": 27,
+      "FP": 9,
+      "FN": 25,
+      "TN": 62
     },
     "office_hours": {
       "accuracy": 0.5285,
-      "correct": 65,
-      "total": 123
+      "precision": 0.4754,
+      "recall": 0.5273,
+      "f1_score": 0.5,
+      "TP": 29,
+      "FP": 32,
+      "FN": 26,
+      "TN": 36
     },
     "office_phone": {
       "accuracy": 0.878,
-      "correct": 108,
-      "total": 123
+      "precision": 0.9333,
+      "recall": 0.7778,
+      "f1_score": 0.8485,
+      "TP": 42,
+      "FP": 3,
+      "FN": 12,
+      "TN": 66
+    },
+    "preferred_contact_method": {
+      "accuracy": 0.878,
+      "precision": 0.9626,
+      "recall": 0.9035,
+      "f1_score": 0.9321,
+      "TP": 103,
+      "FP": 4,
+      "FN": 11,
+      "TN": 5
     },
     "assignment_types_title": {
-      "accuracy": 0.9512,
-      "correct": 117,
-      "total": 123
-    },
-    "grading_procedures_title": {
-      "accuracy": 0.5203,
-      "correct": 64,
-      "total": 123
+      "accuracy": 0.4309,
+      "precision": 0.9556,
+      "recall": 0.3874,
+      "f1_score": 0.5513,
+      "TP": 43,
+      "FP": 2,
+      "FN": 68,
+      "TN": 10
     },
     "deadline_expectations_title": {
-      "accuracy": 0.6016,
-      "correct": 74,
-      "total": 123
+      "accuracy": 0.7561,
+      "precision": 0.9884,
+      "recall": 0.7456,
+      "f1_score": 0.85,
+      "TP": 85,
+      "FP": 1,
+      "FN": 29,
+      "TN": 8
     },
     "assignment_delivery": {
       "accuracy": 0.9512,
-      "correct": 117,
-      "total": 123
+      "precision": 1.0,
+      "recall": 0.945,
+      "f1_score": 0.9717,
+      "TP": 103,
+      "FP": 0,
+      "FN": 6,
+      "TN": 14
     },
     "final_grade_scale": {
       "accuracy": 0.7805,
-      "correct": 96,
-      "total": 123
+      "precision": 0.875,
+      "recall": 0.2121,
+      "f1_score": 0.3415,
+      "TP": 7,
+      "FP": 1,
+      "FN": 26,
+      "TN": 89
     },
     "response_time": {
-      "accuracy": 0.6992,
-      "correct": 86,
-      "total": 123
+      "accuracy": 0.7154,
+      "precision": 0.4375,
+      "recall": 0.4516,
+      "f1_score": 0.4444,
+      "TP": 14,
+      "FP": 18,
+      "FN": 17,
+      "TN": 74
     },
     "class_location": {
-      "accuracy": 0.8537,
-      "correct": 105,
-      "total": 123
+      "accuracy": 0.6667,
+      "precision": 1.0,
+      "recall": 0.6273,
+      "f1_score": 0.7709,
+      "TP": 69,
+      "FP": 0,
+      "FN": 41,
+      "TN": 13
     },
     "grading_process": {
       "accuracy": 0.725,
-      "correct": 87,
-      "total": 120
+      "precision": 0.9886,
+      "recall": 0.7311,
+      "f1_score": 0.8406,
+      "TP": 87,
+      "FP": 1,
+      "FN": 32,
+      "TN": 0
     }
   },
   "overall": {
-    "accuracy": 0.7108,
-    "correct": 1659,
-    "total": 2334
+    "accuracy": 0.7515,
+    "precision": 0.9056,
+    "recall": 0.7081,
+    "f1_score": 0.7948,
+    "TP": 1123,
+    "FP": 117,
+    "FN": 463,
+    "TN": 631
   },
   "details": [
     {
@@ -161,14 +261,14 @@
         "pred": "(603) 641-4398",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Required Paperwork and Submissions.",
         "pred": "Required Paperwork and Submissions.",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "GRADING AND EVALUATION OF STUDENT WORK",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": true
       },
       "deadline_expectations_title": {
@@ -262,14 +362,14 @@
         "pred": "(603) 641-4127",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "jeremiah.johnson@unh.edu",
+        "pred": "jeremiah.johnson@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Homework:",
         "pred": "Homework",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grading Policy:",
-        "pred": "Grading Policy:",
         "match": true
       },
       "deadline_expectations_title": {
@@ -284,7 +384,7 @@
       },
       "final_grade_scale": {
         "gt": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
-        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
         "match": false
       },
       "response_time": {
@@ -308,8 +408,8 @@
       "filename": "ANTH 411W.pdf",
       "modality": {
         "gt": "In-person",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -341,12 +441,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "missing",
@@ -363,20 +463,20 @@
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "Kurt.Springs@unh.edu",
+        "pred": "Kurt.Springs@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Methods of Testing / Evaluation:",
         "pred": "Methods of Testing / Evaluation:",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "Course Grading System:",
-        "pred": "Course Grading System:",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "Assignments:",
-        "pred": "Assignments: Assignments are due on the date they are listed on the syllabus. Unless previously",
-        "match": true
+        "pred": "",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
@@ -391,7 +491,7 @@
       "response_time": {
         "gt": "missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora P380",
@@ -447,7 +547,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "missing",
@@ -464,14 +564,14 @@
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "randall.magiera@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
       "assignment_types_title": {
         "gt": "Assignments",
         "pred": "Assignments",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
         "match": true
       },
       "deadline_expectations_title": {
@@ -486,13 +586,13 @@
       },
       "final_grade_scale": {
         "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
         "match": false
       },
       "response_time": {
         "gt": "missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Canvas (online learning management system)",
@@ -548,7 +648,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "missing",
@@ -565,14 +665,14 @@
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "raymond.tramposch@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
       "assignment_types_title": {
         "gt": "Assignments",
         "pred": "Assignments",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
         "match": true
       },
       "deadline_expectations_title": {
@@ -587,13 +687,13 @@
       },
       "final_grade_scale": {
         "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
         "match": false
       },
       "response_time": {
         "gt": "missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Canvas (online learning management system)",
@@ -649,7 +749,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "missing",
@@ -666,14 +766,14 @@
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "tnishia.dials@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
       "assignment_types_title": {
         "gt": "Assignments",
         "pred": "Assignments",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
         "match": true
       },
       "deadline_expectations_title": {
@@ -688,13 +788,13 @@
       },
       "final_grade_scale": {
         "gt": "Letter Range\nA 100 % to 94 %\nA- < 94 % to 90 %\nB+ < 90 % to 87 %\nB < 87 % to 84 %\nB- < 84 % to 80 %\nC+ < 80 % to 77 %\nC < 77 % to 74 %\nC- < 74 % to 70 %\nD+ < 70 % to 67 %\nD < 67 % to 64 %\nD- < 64 % to 60 %\nF < 60 % to 0 %\nAssignments\nThe course grade is based on 200 points and is developed from a variety of assignments and tests.\nAssignments will be due weekly. There are also some Extra Credit (EC) opportunities that are",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
         "match": false
       },
       "response_time": {
         "gt": "missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Canvas (online learning management system)",
@@ -760,21 +860,21 @@
       "office_hours": {
         "gt": "TBD",
         "pred": "TBD",
-        "match": true
+        "match": false
       },
       "office_phone": {
         "gt": "(603) 641-4173",
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "christine.andrews@unh.edu",
+        "pred": "christine.andrews@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Course Activities",
         "pred": "Course Activities",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grading",
-        "pred": "Grading",
         "match": true
       },
       "deadline_expectations_title": {
@@ -789,7 +889,7 @@
       },
       "final_grade_scale": {
         "gt": " 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
         "match": false
       },
       "response_time": {
@@ -861,21 +961,21 @@
       "office_hours": {
         "gt": "TBD",
         "pred": "TBD",
-        "match": true
+        "match": false
       },
       "office_phone": {
         "gt": "(603) 641-4173",
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "christine.andrews@unh.edu",
+        "pred": "christine.andrews@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Course Activities",
         "pred": "Course Activities",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grading",
-        "pred": "Grading",
         "match": true
       },
       "deadline_expectations_title": {
@@ -890,7 +990,7 @@
       },
       "final_grade_scale": {
         "gt": "Final grades in this course will be based on the following scale: 94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-; 67-69.9=D+; 63-66.9=D; 60-62.9=D-; Below 60=F",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
         "match": false
       },
       "response_time": {
@@ -947,12 +1047,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Room 628",
@@ -969,15 +1069,15 @@
         "pred": "603-641-4389",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "mark.scimone@unh.edu",
+        "pred": "mark.scimone@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Assignment and Grading Details Lab",
         "pred": "Assignment and Grading Details Lab",
         "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grading:",
-        "pred": "",
-        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Submissions",
@@ -1070,20 +1170,20 @@
         "pred": "603-641-4328",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assignments & Grading",
-        "pred": "Assignments & Grading",
+      "preferred_contact_method": {
+        "gt": "suzanne.cooke@unh.edu",
+        "pred": "suzanne.cooke@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "Assignments & Grading",
         "pred": "Assignments & Grading",
         "match": true
       },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
@@ -1098,7 +1198,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "TBD(remote)",
@@ -1116,8 +1216,8 @@
       "filename": "BMS508 Human A&P syllabus, SP25.pdf",
       "modality": {
         "gt": "Face-to-face",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -1171,20 +1271,20 @@
         "pred": "603-641-4328",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "suzanne.cooke@unh.edu",
+        "pred": "suzanne.cooke@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Assignments:",
         "pred": "Assignments:",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "Evaluation:",
-        "pred": "Evaluation:",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "Attendance and Late Work",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Attendance and Late Work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses; Mastering A&P",
@@ -1199,7 +1299,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Lecture: M/W, 8:40-10am Pandora 380; Lab: R 9-noon Pandora 540",
@@ -1250,12 +1350,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Room 443",
@@ -1272,19 +1372,19 @@
         "pred": "(603) 531-3894",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "beverly.hodsdon@unh.edu",
+        "pred": "beverly.hodsdon@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Assignments & Grades",
-        "pred": "Missing",
-        "match": false
-      },
-      "grading_procedures_title": {
-        "gt": "Grading",
         "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments - Graded as Incomplete/Complete",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -1351,7 +1451,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -1373,20 +1473,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Homework",
-        "match": false
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
+      "preferred_contact_method": {
+        "gt": "carlo.capuz@unh.edu",
+        "pred": "carlo.capuz@unh.edu",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
-        "pred": "",
-        "match": false
+        "pred": "time. You will lose 10% per day for work submitted late for up to 48 hours after the",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1401,7 +1501,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
@@ -1452,7 +1552,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -1474,20 +1574,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Homework",
+      "preferred_contact_method": {
+        "gt": "carlo.capuz@unh.edu",
+        "pred": "cmc1197@usnh.edu",
         "match": false
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. ",
-        "pred": "",
-        "match": false
+        "pred": "time. You will lose 10% per day for work submitted late for up to 48 hours after the",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1502,7 +1602,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
@@ -1519,7 +1619,7 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2016.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "Online",
         "match": false
       },
@@ -1553,12 +1653,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -1575,20 +1675,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework ",
-        "pred": "Homework:",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
-        "match": true
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "Homework:",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -1609,7 +1709,7 @@
         "gt": "Section 1: Rm 128; Section 2: Rm 132",
         "pred": "Rm 128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
@@ -1620,9 +1720,9 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2018.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -1654,12 +1754,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -1676,19 +1776,19 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day",
-        "pred": "",
+        "pred": "11:59pm for both sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits. - Homework: (bi-weekly assigned; 20% of total grade)",
         "match": false
       },
       "assignment_delivery": {
@@ -1710,7 +1810,7 @@
         "gt": "Rm 132",
         "pred": "Rm 132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme- Labs: (weekly assigned; 30% of total grade)",
@@ -1721,9 +1821,9 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2019.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -1755,12 +1855,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -1777,19 +1877,19 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. - Homework: (bi-weekly assigned; 25% of total grade)",
         "match": false
       },
       "assignment_delivery": {
@@ -1811,7 +1911,7 @@
         "gt": "P128",
         "pred": "Room P128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
@@ -1856,12 +1956,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -1878,19 +1978,19 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits. - Web Project: (25% of total grade)",
         "match": false
       },
       "assignment_delivery": {
@@ -1924,8 +2024,8 @@
       "filename": "COMP_405 - Jin_Fall - Fall 2021.pdf",
       "modality": {
         "gt": "Hybrid Delivery - SCHEDULED MEETING TIME, ONLINE WITH SOME CAMPUS VISITS",
-        "pred": "In-Person",
-        "match": false
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -1957,7 +2057,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -1979,19 +2079,19 @@
         "pred": "(603) 641-4398",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Homework",
-        "match": false
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
         "match": false
       },
       "assignment_delivery": {
@@ -2007,7 +2107,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
@@ -2024,9 +2124,9 @@
     {
       "filename": "COMP_405 - Jin_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -2058,7 +2158,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -2080,19 +2180,19 @@
         "pred": "(603) 641-4398",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Homework",
-        "match": false
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
         "match": false
       },
       "assignment_delivery": {
@@ -2108,13 +2208,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
         "pred": "P128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme - Labs: (weekly assigned; 30% of total grade) ",
@@ -2125,7 +2225,7 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2017.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "Online",
         "match": false
       },
@@ -2159,12 +2259,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -2181,20 +2281,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework:",
-        "pred": "Homework:",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
-        "match": true
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "Homework:",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2215,7 +2315,7 @@
         "gt": "Section 1: Rm 128; Section 2: Rm 128",
         "pred": "Rm 128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
@@ -2226,9 +2326,9 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2018.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -2260,12 +2360,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -2282,20 +2382,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework:",
-        "pred": "Homework:",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
-        "match": true
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "Homework:",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
-        "pred": "",
-        "match": false
+        "pred": "arise. You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2316,7 +2416,7 @@
         "gt": "Section 1: Rm 128; Section 2: Rm 128",
         "pred": "Rm 128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
@@ -2327,7 +2427,7 @@
     {
       "filename": "COMP_405 - Jin_Spring - Spring 2019.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "Online",
         "match": false
       },
@@ -2361,12 +2461,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -2383,19 +2483,19 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "You will lose 10% per day for work submitted late. Late work is anything submitted after the announced due date and time.",
-        "pred": "",
+        "pred": "11:59pm for both sections. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to received credits. - Homework: (bi-weekly assigned; 25% of total grade)",
         "match": false
       },
       "assignment_delivery": {
@@ -2417,7 +2517,7 @@
         "gt": "Section 1: P132; Section 2: P128",
         "pred": "Room P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
@@ -2462,7 +2562,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -2484,19 +2584,19 @@
         "pred": "(603) 641-4398",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Homework",
-        "match": false
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
+      },
+      "assignment_types_title": {
+        "gt": "Grading Scheme",
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time.You will lose 10% per day for work submitted late for up to three days after the due day.",
-        "pred": "",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
         "match": false
       },
       "assignment_delivery": {
@@ -2512,7 +2612,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online",
@@ -2529,9 +2629,9 @@
     {
       "filename": "COMP_405 - Jonas_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -2563,7 +2663,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -2585,14 +2685,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments:",
-        "pred": "Homework Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Homework Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -2613,13 +2713,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Room 142",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading: 10% Participation Includes showing up to class on time, submitting assignments on their due dates 30% Labs Lab work is done during classroom time Point total is 10 out of 11 at 3 points each 30% Assignments There will be 2 assignments at 15 points, with each assignment divided into: A design document worth 4 points Presenting your work in class worth 1 point Core elements of your assignments worth 10 points 30% Exams Two exams worth 15 points each",
@@ -2664,12 +2764,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -2686,20 +2786,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Andrea.Murphy@unh.edu",
+        "pred": "Andrea.Murphy@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Participation and Attendance",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day",
-        "pred": "",
-        "match": false
+        "pred": "**Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day. Submissions must be completed through MyCourses in order to receive credits.**",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -2714,7 +2814,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online",
@@ -2731,7 +2831,7 @@
     {
       "filename": "COMP_405 - Nickerson_Fall - Fall 2017.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "Online",
         "match": false
       },
@@ -2765,12 +2865,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -2787,19 +2887,19 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework:",
-        "pred": "Homework:",
+      "preferred_contact_method": {
+        "gt": "laura.nickerson@unh.edu",
+        "pred": "laura.nickerson@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
-        "match": true
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "Homework:",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Submissions will not be accepted after the deadline",
-        "pred": "",
+        "pred": "date and time. Three days after the due date late work will not be accepted and a zero will be given unless you have received prior approval to submit after this time. Submissions must be compeleted through MyCourses in order to received",
         "match": false
       },
       "assignment_delivery": {
@@ -2821,7 +2921,7 @@
         "gt": "Rm. 128",
         "pred": "Rm. 128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Scheme Labs: (weekly assigned; 30% of total grade)",
@@ -2832,9 +2932,9 @@
     {
       "filename": "COMP_415 - Blumberg Spring 2017.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
-        "match": false
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -2846,7 +2946,7 @@
       "email": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "credit_hour": {
         "gt": "Credits: 4",
@@ -2888,13 +2988,13 @@
         "pred": "603 296 7880",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework",
-        "pred": "Homework",
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -2922,7 +3022,7 @@
         "gt": "P132, Pandora Mill building",
         "pred": "P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %",
@@ -2933,9 +3033,9 @@
     {
       "filename": "COMP_415 - Blumberg Spring 2018.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
-        "match": false
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -2947,7 +3047,7 @@
       "email": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "credit_hour": {
         "gt": "Credits: 4",
@@ -2989,13 +3089,13 @@
         "pred": "603 296 7880",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework",
-        "pred": "Homework",
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3023,7 +3123,7 @@
         "gt": "P132, Pandora Mill building",
         "pred": "P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated by using the following weights for the student work in this class: ● 8 homework assignments @ 3% each: 24% ● Creative project @ 25% ● Presentation of creative project: 5% ● Mid-term exam and final exam @ 18% each: 36% ● Class participation 10 %",
@@ -3034,9 +3134,9 @@
     {
       "filename": "COMP_415 - Harvey_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3090,13 +3190,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
+      "preferred_contact_method": {
+        "gt": "gsh1006@usnh.edu",
+        "pred": "gsh1006@usnh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3124,7 +3224,7 @@
         "gt": "P132",
         "pred": "P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "GRADING AND EVALUATION OF STUDENT WORK Final grade is calculated as follows (Subject to minor changes): - Lab and Lecture participation: 20 points (10 @ 2 points each) - Homework assignments: 20 points (2 @ 10 points each) - Quizzes: 20 points (2 @ 10 points each) - Team Project: 25 points - Final Exam: 15 points",
@@ -3135,9 +3235,9 @@
     {
       "filename": "COMP_415 - Jin Fall 2016.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
-        "match": false
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3191,13 +3291,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3219,13 +3319,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P132",
         "pred": "P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
@@ -3236,9 +3336,9 @@
     {
       "filename": "COMP_415 - Jin Fall 2017.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
-        "match": false
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3292,13 +3392,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3320,13 +3420,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P132",
         "pred": "P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
@@ -3337,9 +3437,9 @@
     {
       "filename": "COMP_415 - Sabin Fall 2016.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
-        "match": false
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3393,13 +3493,13 @@
         "pred": "603 6414144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3427,7 +3527,7 @@
         "gt": "P128",
         "pred": "P128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
@@ -3438,9 +3538,9 @@
     {
       "filename": "COMP_415 - Sabin Spring 2017.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3494,13 +3594,13 @@
         "pred": "603 6414144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3528,7 +3628,7 @@
         "gt": "P149",
         "pred": "P149",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": " Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points",
@@ -3539,9 +3639,9 @@
     {
       "filename": "COMP_415 - Shallow Spring 2018.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
-        "match": false
+        "gt": "In-Person",
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3595,13 +3695,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "jax472@wildcats.unh.edu",
+        "pred": "Janessa.zurek@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -3623,13 +3723,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "TBD",
         "pred": "",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "quiz is taken.\n● Team project, 22 points, broken down into:\n● Use Cases: 3 points.\n● MockUps: 3 points.\n● Code Base: 5 points.\n● Final Presentation: 3 points.\n● Report: 3 points.\n● Mid-Project Presentation: 3 points.\n● final report, 2 points\n● Midterm exam @ 20 points and final exam @ 20 points each, for a total of 40 points\n● Extra Credit Homework (+5 points possible)\nThere is a 5 points penalty for each unexcused absences (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
@@ -3641,8 +3741,8 @@
       "filename": "COMP_424 - Eglowstein Fall 2023 M2.docx",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3674,7 +3774,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department",
@@ -3696,15 +3796,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "howard.eglowstein@unh.edu",
+        "pred": "howard.eglowstein@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -3742,8 +3842,8 @@
       "filename": "COMP_424 - Gitlitz Fall 2023.pdf",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3775,7 +3875,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department",
@@ -3797,15 +3897,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "howard.eglowstein@unh.edu",
+        "pred": "howard.eglowstein@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grade",
@@ -3842,9 +3942,9 @@
     {
       "filename": "COMP_424 - Murphy Spring 2021.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3898,15 +3998,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "Andrea.Murphy@unh.edu",
+        "pred": "unhm.cae@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -3932,7 +4032,7 @@
         "gt": "Online",
         "pred": "",
         "match": false,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows:\nActive Reading (10%)\nIn-class Projects (10%)\nReflections  (10%)\nHomework Problems (10%): H1 and H3\nMidterm and final exams (60%, 30% each)\nSee the remaining of the syllabus on Course Policies and University and Manchester Campus Policies.",
@@ -3944,8 +4044,8 @@
       "filename": "COMP_424 - Sabin & Gitlitz Fall 2024.docx",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -3999,15 +4099,15 @@
         "pred": "603 641 4317",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "ken.gitlitz@unh.edu",
+        "pred": "ken.gitlitz@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -4100,15 +4200,15 @@
         "pred": "603 641 4144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
@@ -4128,7 +4228,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P149",
@@ -4201,15 +4301,15 @@
         "pred": "603 641 4144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions No assignment will be accepted after the deadline and a 0 grade will be entered in the Canvas Grades",
@@ -4229,7 +4329,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P149",
@@ -4302,13 +4402,13 @@
         "pred": "603 641 4144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems ",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE EXPECTATIONS",
         "pred": "ASSESSMENT",
         "match": false
       },
@@ -4324,7 +4424,7 @@
       },
       "final_grade_scale": {
         "gt": "A A- B+ B B- C C C- D+ D D- F 93 90 87 83 80 77 73 70 67 63 60 <60",
-        "pred": "",
+        "pred": "A | A- | B+ | B | B- | C+ | C | C- | D+ | D | D- | F\n93",
         "match": false
       },
       "response_time": {
@@ -4347,9 +4447,9 @@
     {
       "filename": "COMP_424 - Shallow Fall 2021.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -4403,15 +4503,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems ",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "jonathan.shallow@unh.edu",
+        "pred": "jonathan.shallow@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -4431,13 +4531,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P149",
         "pred": "P149",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows:\nActive Reading (10%)\nIn-class Projects (10%)\nReflections  (10%)\nHomework Problems (20%)\nMidterm and final exams (50%, midterm 20% and final 30%)\nSee the remaining of the syllabus on Course Policies and University and Manchester Campus Policies.",
@@ -4448,9 +4548,9 @@
     {
       "filename": "COMP_425 - Jonas Fall 2016.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -4482,7 +4582,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -4504,20 +4604,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assignments:",
-        "pred": "Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4532,13 +4632,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Room 132 in Pandora",
         "pred": "Room 132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
@@ -4549,9 +4649,9 @@
     {
       "filename": "COMP_425 - Jonas_Spring - Spring 2017.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -4583,7 +4683,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -4605,20 +4705,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assignments:",
-        "pred": "Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -4633,13 +4733,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Room 132",
         "pred": "Room 132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n15% Participation\nThis includes attendance and participation\n20% Lab work\nLab assignments done during lab: 5 out of 6 at 4 points each\n20% Homework\nYou will have 4 homework assignments at 5 points each\n15% Programming Project\nDesign worth 5 points and implementation worth 10 points\n30% Exams\nYou will have 2 exams worth 15 points each\nPolicies:",
@@ -4650,8 +4750,8 @@
     {
       "filename": "COMP_430 - Eglowstein_Fall - Fall 2020.docx",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
+        "gt": "Hybrid",
+        "pred": "In-Person",
         "match": false
       },
       "slos": {
@@ -4706,13 +4806,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Lab Assignments",
-        "pred": "Lab Assignments",
+      "preferred_contact_method": {
+        "gt": "Howard.Eglowstein@unh.edu",
+        "pred": "Howard.Eglowstein@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -4734,13 +4834,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandra 149",
         "pred": "Pandra 149",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows:\n6 labs, divided over 35%\nSubmit a proposal for an individual project, 5%\nMidterm exam and programming task, 25%\nParticipation in the URC, 5 %  (this a Spring semester requirement so the 5% is rolled into the final project)\nPresentation of the final project, 20 %\nTurning in acceptable project documentation, 10 %\nTENTATIVE COURSE SCHEDULE",
@@ -4751,8 +4851,8 @@
     {
       "filename": "COMP_430 - Eglowstein_Fall - Fall 2021.docx",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
+        "gt": "Hybrid",
+        "pred": "In-Person",
         "match": false
       },
       "slos": {
@@ -4807,13 +4907,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Lab Assignments",
-        "pred": "Lab Assignments",
+      "preferred_contact_method": {
+        "gt": "Howard.Eglowstein@unh.edu",
+        "pred": "Howard.Eglowstein@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -4835,13 +4935,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandra 149",
         "pred": "Pandra 149",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows:\n6 labs, divided over 35%\nSubmit a proposal for an individual project, 5%\nMidterm exam and programming task, 25%\nParticipation in the URC, 5 %  (this a Spring semester requirement so the 5% is rolled into the final project)\nPresentation of the final project, 20 %\nTurning in acceptable project documentation, 10 %\nTENTATIVE COURSE SCHEDULE",
@@ -4852,8 +4952,8 @@
     {
       "filename": "COMP_430 - Eglowstein_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
+        "gt": "Hybrid",
+        "pred": "In-Person",
         "match": false
       },
       "slos": {
@@ -4908,13 +5008,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Lab Assignments",
-        "pred": "Lab Assignments",
+      "preferred_contact_method": {
+        "gt": "howard.eglowstein@unh.edu",
+        "pred": "Howard.Eglowstein@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
@@ -4936,13 +5036,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandra 149",
         "pred": "Pandra 149",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows: 6 labs, divided over 35 points; Submit a proposal for an individual project, 5 points; Midterm exam and programming task, 25 points; Participation in the URC, 5 points (this is a Spring component, so the 5 are a freebie); Presentation of the final project, 20 points; Turning in acceptable project documentation, 10 points",
@@ -4953,8 +5053,8 @@
     {
       "filename": "COMP_430 - Wallace_Fall - Fall 2016.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "Hybrid",
+        "gt": "Hybrid",
+        "pred": "In-Person",
         "match": false
       },
       "slos": {
@@ -5009,20 +5109,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments",
-        "pred": "Homework Assignments",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "jenessa.zurek@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE ASSIGNMENTS, CREATIVE PROJECTS AND EXPECTATIONS",
         "pred": "GRADING AND EVALUATION OF STUDENT WORK",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
-        "pred": "assignments and the Creative Projects.",
-        "match": false
+        "pred": "Late submissions and make-up exams",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5043,7 +5143,7 @@
         "gt": "RM. 149 Electrical Engineering Lab",
         "pred": "RM. 149 Electrical Engineering Lab",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Final grade is calculated by using the following weights for your work in this class:\n● 5 homework assignments including self-evaluations, 5% of final grade each: 25% total\n● Creative Project 1@ 15%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Creative Project 2 @ 20%\n● Written concept with specifications and features @ 5%\n● Design, fabrication and documentation @ 10%\n● Presentation and Interview @ 5%\n● Mid-term exam and final exam @ 20% each: 40% total\nThere is a 5% penalty for each unexcused absence (see policy on Attendance below).\nCOURSE POLICIES REGARDING STUDENT BEHAVIOR",
@@ -5054,9 +5154,9 @@
     {
       "filename": "COMP_490 - Pacha-Sucharzewski_Spring - Spring 2019.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5072,7 +5172,7 @@
       },
       "credit_hour": {
         "gt": "Credits: 4.0",
-        "pred": "Credits: 4.0",
+        "pred": "Credits:   4.0",
         "match": true
       },
       "workload": {
@@ -5088,12 +5188,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -5110,15 +5210,15 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "mp11@wildcats.unh.edu",
+        "pred": "",
+        "match": false
+      },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
         "pred": "Quizzes and Exams",
         "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading Policy",
-        "match": false
       },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
@@ -5132,32 +5232,32 @@
       },
       "final_grade_scale": {
         "gt": "A: 93% – 100% A-: 90% – 92.99% B+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99% C+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99% D+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99% F: 0% – 59.99%",
-        "pred": "",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
         "match": false
       },
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora Building (UNHM) P 146",
         "pred": "",
         "match": false,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
-        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "pred": "Final grade will be based on your overall p ercentage in the following way:\nA: 93% – 100%     A-: 90% – 92.99%\nB+: 87% – 89.99%     B: 83% – 86.99%     B-: 80% – 82.99%\nC+: 77% – 79.99%      C: 73% – 76.99%      C-: 70% – 72.99%\nD+: 67% – 69.99%      D: 63% – 66.99%     D-: 60% – 62.99%\nF: 0% – 59.99%",
         "match": true
       }
     },
     {
       "filename": "COMP_500 - Couture_Fall - Fall 2016.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5189,7 +5289,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -5211,20 +5311,20 @@
         "pred": "(603) 817-4356",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "unhm.studentdevelopment@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Prerequisite(s)",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Make-Up Policy",
-        "pred": "",
-        "match": false
+        "pred": "Make-Up Policy: Sincesolutionstohomeworkassignmentswillbediscussedduringclass,no late home-",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -5239,13 +5339,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora (UNHM) P126",
         "pred": "P126",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "HW | 60%\nQuizes | 25%\nFinal Exam | 15%\n90% to 100% | A\n80% to 89% | B\n70% to 79% | C\n60% to 69% | D\n< 60% | F",
@@ -5256,7 +5356,7 @@
     {
       "filename": "COMP_500 - Pacha-Sucharzewski_Fall - Fall 2023.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "Hybrid",
         "match": false
       },
@@ -5274,7 +5374,7 @@
       },
       "credit_hour": {
         "gt": "Credits: 4.0",
-        "pred": "Credits: 4.0",
+        "pred": "Credits:  4.0",
         "match": true
       },
       "workload": {
@@ -5290,12 +5390,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -5304,7 +5404,7 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "Mondays 5:40 PM - 8:30 PM",
+        "pred": "Right after class or by appointment via MyCourses Zoom",
         "match": false
       },
       "office_phone": {
@@ -5312,20 +5412,20 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "Mateusz.Pacha-Sucharzewski@unh.edu",
+        "pred": "Sucharzewski@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
         "pred": "Quizzes and Exams",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading Policy",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "semester . You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the in structor prior to the quiz or exam that you have to miss.",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5334,23 +5434,23 @@
       },
       "final_grade_scale": {
         "gt": "A: 93% – 100% A-: 90% – 92.99% B+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99% C+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99% D+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99% F: 0% – 59.99%",
-        "pred": "",
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
         "match": false
       },
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora P146",
-        "pred": "Pandora P146",
+        "pred": "Pandora P14",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
-        "pred": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
+        "pred": "Final grade will be based on your overall p ercentage in the following way:\nA: 93% – 100%     A-: 90% – 92.99%\nB+: 87% – 89.99%     B: 83% – 86.99%     B-: 80% – 82.99%\nC+: 77% – 79.99%      C: 73% – 76.99%      C-: 70% – 72.99%\nD+: 67% – 69.99%      D: 63% – 66.99%     D-: 60% – 62.99%\nF: 0% – 59.99%",
         "match": true
       }
     },
@@ -5371,7 +5471,7 @@
       "email": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "credit_hour": {
         "gt": "Missing",
@@ -5391,12 +5491,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -5413,14 +5513,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Reading Assignments/Homework Assignments and Projects/Laboratory Assignments",
-        "pred": "Homework Assignments and Projects",
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Activities",
+        "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
@@ -5441,7 +5541,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "TBD",
@@ -5459,7 +5559,7 @@
       "filename": "COMP_520.880 - Blumberg_Fall - Fall 2018.docx",
       "modality": {
         "gt": "Missing",
-        "pred": "In-Person",
+        "pred": "Hybrid",
         "match": false
       },
       "slos": {
@@ -5472,7 +5572,7 @@
       "email": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "credit_hour": {
         "gt": "Missing",
@@ -5492,12 +5592,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -5514,14 +5614,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Reading Assignments/Homework Assignments and Projects/Laboratory Assignments",
-        "pred": "Homework Assignments and Projects",
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Activities",
+        "pred": "Homework assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -5542,7 +5642,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "TBD",
@@ -5560,8 +5660,8 @@
       "filename": "COMP_525 - Jin_Fall - Fall 2025.pdf",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5615,13 +5715,13 @@
         "pred": "(603) 641-4398",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
@@ -5643,7 +5743,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "PANDRA 380",
@@ -5660,9 +5760,9 @@
     {
       "filename": "COMP_525 - Shallow_Fall - Fall 2021.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5716,14 +5816,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Reading Assignments",
-        "pred": "Reading Assignments",
+      "preferred_contact_method": {
+        "gt": "jonathan.shallow@unh.edu",
+        "pred": "jonathan.shallow@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "GRADING",
+      "assignment_types_title": {
+        "gt": "LEARNING ACTIVITIES",
+        "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
@@ -5750,7 +5850,7 @@
         "gt": "Online",
         "pred": "",
         "match": false,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade is calculated as follows:\nReading Assignments (PA#): 10%\nCollaborative Labs (10%)\nReflections (10%)\nHomework Problems (15%)\nTeam Project (15%)\nMidterm and final exam (40%)\nCOURSE POLICIES",
@@ -5761,9 +5861,9 @@
     {
       "filename": "COMP_530 - Eglowstein_Spring - Spring 2021.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5795,7 +5895,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -5817,19 +5917,19 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assignments:",
-        "pred": "Assignments:",
+      "preferred_contact_method": {
+        "gt": "howard.eglowstein@unh.edu",
+        "pred": "howard.eglowstein@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exams",
-        "pred": "Assignments:",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -5845,13 +5945,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P101 or Online",
         "pred": "P101",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\nThe homework (a total of 4) will be worth 40% of the final grade. The two exams will be worth 30% each, for a total of 100%.\nHelp with labs or final projects",
@@ -5862,9 +5962,9 @@
     {
       "filename": "COMP_530 - Jonas_Fall - Fall 2024.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5896,7 +5996,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -5918,20 +6018,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Class Assignments",
-        "pred": "Class Assignments",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Class Assignments",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments and Make-Up Exams:",
-        "pred": "Assignments:",
-        "match": false
+        "pred": "Late Assignments and Make-Up Exams:",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -5946,13 +6046,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "room 142 in Pandora",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness\n20% Lab work2\nLab assignments done during lab: 10 out of 12 at 2 points each\n35% Homework3\nYou will have 7 homework assignments at 5 points each\n30% Exams4\nYou will have 2 exams worth 15 points each\nPolicies:",
@@ -5964,8 +6064,8 @@
       "filename": "COMP_550.880 - Cochrane_Fall - Fall 2022.docx",
       "modality": {
         "gt": "Hybrid",
-        "pred": "Online",
-        "match": false
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -5997,7 +6097,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -6019,13 +6119,13 @@
         "pred": "603-781-6972",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignment",
-        "pred": "Homework Assignment",
+      "preferred_contact_method": {
+        "gt": "donald.cochrane@unh.edu",
+        "pred": "donald.cochrane@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Homework ",
         "pred": "Grading and Evaluation of Student Work:",
         "match": false
       },
@@ -6065,8 +6165,8 @@
       "filename": "COMP_550.880 - Cochrane_Fall - Fall 2023.docx",
       "modality": {
         "gt": "Hybrid",
-        "pred": "Online",
-        "match": false
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -6098,7 +6198,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -6120,13 +6220,13 @@
         "pred": "603-781-6972",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignment",
-        "pred": "Homework Assignment",
+      "preferred_contact_method": {
+        "gt": "donald.cochrane@usnh.edu",
+        "pred": "donald.cochrane@usnh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Homework ",
         "pred": "Grading and Evaluation of Student Work:",
         "match": false
       },
@@ -6165,7 +6265,7 @@
     {
       "filename": "COMP_560 - Kilcrease_Fall - Fall 2023.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "Hybrid",
         "pred": "Online",
         "match": false
       },
@@ -6204,7 +6304,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Room 512",
@@ -6221,13 +6321,13 @@
         "pred": "603-400-0123",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "kelly.kilcrease@unh.edu",
+        "pred": "kelly.kilcrease@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Assignments and Grading: ",
         "pred": "Grades",
         "match": false
       },
@@ -6243,19 +6343,19 @@
       },
       "final_grade_scale": {
         "gt": "A+ = 97-100\tB+ =  87-89\tC+ =  77-79\tD+ = 67-69\tF = below 60\nA   =  93-96\tB   =  83-86\tC   =  73-76\tD   =  63-66\nA-  =  90-92\tB-  =  80-82\tC-  =  70-72\tD-  =  60-62",
-        "pred": "",
+        "pred": "A = 93-96\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": false
       },
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Missing",
         "pred": "",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
@@ -6266,7 +6366,7 @@
     {
       "filename": "COMP_560 - Kilcrease_Fall - Fall 2025.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "Hybrid",
         "pred": "Online",
         "match": false
       },
@@ -6322,13 +6422,13 @@
         "pred": "603-400-0123",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "kelly.kilcrease@unh.edu",
+        "pred": "kelly.kilcrease@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Assignments and Grading: ",
         "pred": "Grades",
         "match": false
       },
@@ -6344,19 +6444,19 @@
       },
       "final_grade_scale": {
         "gt": "A+ = 97-100\tB+ =  87-89\tC+ =  77-79\tD+ = 67-69\tF = below 60\nA   =  93-96\tB   =  83-86\tC   =  73-76\tD   =  63-66\nA-  =  90-92\tB-  =  80-82\tC-  =  70-72\tD-  =  60-62",
-        "pred": "",
+        "pred": "A = 93-96\nA- = 90-92\nB+ = 87-89\nB = 83-86\nB- = 80-82\nC+ = 77-79\nC = 73-76\nC- = 70-72\nD+ = 67-69\nD = 63-66\nD- = 60-62\nF = 0-59",
         "match": false
       },
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Classroom: 302",
         "pred": "Classroom: 302",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Percent of Grade\nCase Studies (4)\t\t\t\t24% (6% each)\nExams (2) \t\t\t\t30% (15% each)\nEthics Position Papers (3)\t\t21% (7% each)\nTeam Debate\t\t\t\t15%\nParticipation \t\t\t \t10%\n100%\nCase Studies",
@@ -6367,7 +6467,7 @@
     {
       "filename": "COMP_570 - Pacha-Sucharzewski_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "Hybrid",
         "match": false
       },
@@ -6401,12 +6501,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -6423,20 +6523,20 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "Mateusz.Pacha-Sucharzewski@unh.edu",
+        "pred": "Sucharzewski@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
         "pred": "Quizzes and Exams",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading Policy",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "You will receive a grade of 0 for any quiz or exam that you miss.",
-        "pred": "",
-        "match": false
+        "pred": "semester. You will receive a grade of 0 for any quiz or exam that you miss. You will not be able to make up a missed quiz or exam unless you prove a valid reason for having to miss it or make appropriate arrangements with the instructor prior to the quiz or exam that you have to miss.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -6445,19 +6545,19 @@
       },
       "final_grade_scale": {
         "gt": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
-        "pred": "",
-        "match": false
+        "pred": "A = 93-100\nA- = 90-93\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "match": true
       },
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora Building (UNHM) P126",
         "pred": "P126",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100%+ A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%",
@@ -6468,9 +6568,9 @@
     {
       "filename": "COMP_574 - Jin_Fall - Fall 2021.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "In-Person",
-        "match": false
+        "gt": "Hybrid",
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -6502,7 +6602,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -6524,19 +6624,19 @@
         "pred": "(603) 641-4398",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework",
-        "pred": "Homework",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late work is anything submitted after the announced due date and time. You will lose 10% per day for work submitted late for up to 48 hours after the due day.",
-        "pred": "",
+        "pred": "11:59pm on the day of class. Submissions will not be accepted after the deadline. Submissions must be completed through MyCourses in order to receive credits. Homework (25%)",
         "match": false
       },
       "assignment_delivery": {
@@ -6558,7 +6658,7 @@
         "gt": "P128",
         "pred": "P128",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Your final grade is calculated as follows:\nLabs (25%)\nThe weekly labs consist of hands-on lab exercises and other active learning activities. Students will be active\nparticipants in the development of the content material through individual and group activities and Internet\ncompleted through MyCourses in order to receive credits.\nHomework (25%)",
@@ -6569,9 +6669,9 @@
     {
       "filename": "COMP_625 - Jonas_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -6603,7 +6703,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -6625,14 +6725,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments:",
-        "pred": "Homework Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Homework Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -6653,13 +6753,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "room 142 in Pandora",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n15% Participation\nThis includes attendance and participation\n15% Lab work\nLab assignments done during lab: 5 out of 6 at 3 points each\n25% Homework\nYou will have 5 homework assignments at 5 points each\n20% Programming Project\nDesign worth 5 points and implementation worth 15 points\n25% Exam\nPolicies",
@@ -6671,8 +6771,8 @@
       "filename": "COMP_630 - Gitlitz_Fall - Fall 2023.pdf",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -6704,7 +6804,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences",
@@ -6726,20 +6826,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "ken.gitlitz@unh.edu",
+        "pred": "ken.gitlitz@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
       "deadline_expectations_title": {
         "gt": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted",
-        "pred": "",
-        "match": false
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted. Final Exam 20% Project 35%",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -6754,7 +6854,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P126",
@@ -6771,9 +6871,9 @@
     {
       "filename": "COMP_640 - Poirier_COMP - Spring 2016.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -6810,7 +6910,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -6827,15 +6927,15 @@
         "pred": "603-566-7013",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Suzanne.Poirier@unh.edu",
+        "pred": "Suzanne.Poirier@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
-        "match": false
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exam",
@@ -6855,13 +6955,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Studio Lab, Pandora 128",
         "pred": "Pandora 128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading\nClass Participation 15%\nHomework and Quiz 20%\nMidterm 20%\nGroup Project 20%\nFinal Paper 25%\nClass Participation",
@@ -6872,9 +6972,9 @@
     {
       "filename": "COMP_650 - Cochrane_Fall - Fall 2017.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -6906,12 +7006,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -6928,19 +7028,19 @@
         "pred": "",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Donald.Cochrane@unh.edu",
+        "pred": "Donald.Cochrane@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Assignments",
+        "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late submissions and make-up exam",
-        "pred": "Assignments (10; 5 pts each): 50%",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -6956,13 +7056,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Missing",
         "pred": "",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\nSemester Take Home Exam: 20%\nSemester Final Project: 20%\nClass Participation: 10%\nAssignments (10; 5 pts each): 50%\nGrade Policy\nAssignments must be submitted as email attachments where appropriate. Assignments are\ngraded as binary. Best effort will be awarded 100%. Otherwise 0% will be awarded. The\nsemester exam will be in take-home format. It may be emailed or handed in by the due",
@@ -6973,9 +7073,9 @@
     {
       "filename": "COMP_690 - Jin_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7029,15 +7129,15 @@
         "pred": "(603) 641-4398",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Required Paperwork and Submissions.",
         "pred": "Required Paperwork and Submissions.",
         "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -7057,13 +7157,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "PANDRA 126",
         "pred": "PANDRA 126",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
@@ -7074,8 +7174,8 @@
     {
       "filename": "COMP_690 - Kokolis_Fall - Fall 2022.docx",
       "modality": {
-        "gt": "Missing",
-        "pred": "Online",
+        "gt": "Online",
+        "pred": "Unknown",
         "match": false
       },
       "slos": {
@@ -7108,12 +7208,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -7130,15 +7230,15 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "andrea.kokolis@unh.edu",
+        "pred": "andrea.kokolis@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "REQUIRED PAPERWORK AND SUBMISSIONS",
         "pred": "REQUIRED PAPERWORK AND SUBMISSIONS",
         "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -7158,13 +7258,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online",
         "pred": "",
-        "match": false,
-        "modality": "Missing"
+        "match": true,
+        "modality": "Online"
       },
       "grading_process": {
         "gt": "Work Logs – (20% of grade)\nFirst log due by 11:59 pm on Sunday, Sept 11 (to reflect 2 weeks of work/research activity)\nSubsequent logs are due weekly, by 11:59 pm on Sunday for the prior week\nIn Class Presentations – (25% of grade) Your presentation/slides and reflection paper must be uploaded by noon on Friday following each class (Sept 2, Sept 9, Oct 14, Nov 25 and Dec 9)\nFinal Report – (25% of grade) Due by noon on Friday, December 9\nClass Attendance (15% of grade)\nParticipation – (15% of grade) Required at each class, including questions for presenters; see MyCourse Assignments for Discussion posting requirements and due dates (9/16, 10/7, 11/11, 12/2 and 12/7).\nREMINDER: You need to meet the 150 hours requirement and earn at least 75% on the Final Report to pass the class, in addition to earning points on other assignments (presentations and participation, etc).\nUNHM POLICIES AND INFORMATION",
@@ -7176,8 +7276,8 @@
       "filename": "COMP_705.805 - Gitlitz_Fall - Fall 2023.pdf",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7209,7 +7309,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences",
@@ -7231,20 +7331,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "ken.gitlitz@unh.edu",
+        "pred": "ken.gitlitz@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Prerequisite Knowledge",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "You may hand in ONE late homework assignmen",
-        "pred": "",
-        "match": false
+        "pred": "You may hand in ONE late homework assignment. Otherwise, no late homework accepted. Homework is completed individually. Exams 40%",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -7259,7 +7359,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Rooms 345",
@@ -7276,9 +7376,9 @@
     {
       "filename": "COMP_715.815 - Jonas_Fall - Fall 2024.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7310,7 +7410,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -7332,14 +7432,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments:",
-        "pred": "Homework Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Homework Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -7360,13 +7460,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "room 142 in Pandora",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 5 problem sets worth 8 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
@@ -7377,9 +7477,9 @@
     {
       "filename": "COMP_720.820 - Finan_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7411,7 +7511,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -7433,15 +7533,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
-        "match": false
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -7461,13 +7561,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
         "pred": "P128",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Homework assignments that are submitted late will be besubject to the following deductions:\n• up to 1 weeks late: Deduct 5%\n• 1 - 3 weeks late: Deduct 10%\n• 3+ weeks late: Deduct 20%\nSTATEMENT ON ACADEMIC INTEGRITY",
@@ -7478,9 +7578,9 @@
     {
       "filename": "COMP_725.825 - Jonas_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7512,7 +7612,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -7534,14 +7634,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments and Projects:",
-        "pred": "Homework Assignments and Projects:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
@@ -7562,13 +7662,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "room 142",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n10% Participation\nUndergrad: 10 points general participation\nGrad: Wiki textbook work 10 points\n48% Homework\nThere will be 4 assignments at 8, 8, 12 and 12+8 points respectively\n20% Projects\nLanguage Project: develop programming language, 6% grammar/14% implement\n22% Exam\nA final exam",
@@ -7579,9 +7679,9 @@
     {
       "filename": "COMP_730.830 - Ohkami_Spring - Spring 2023.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7613,12 +7713,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -7635,14 +7735,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework:",
-        "pred": "Homework:",
+      "preferred_contact_method": {
+        "gt": "takahide.ohkami@unh.edu",
+        "pred": "takahide.ohkami@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "Homework:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -7663,13 +7763,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora P132",
         "pred": "Pandora P132",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Homework: 30% - Assigned weekly. All homework assignments are individual assignments. Each assignment includes 2-5 open-ended questions to review past week's material. Discussions: 20% - Assigned several times. Students participate in problem solving activities through online discussion. Requirements for the full credit: at least one discussion post and at least two replies to peer students. Midterm Exam: 20% - Take-home exam to be scheduled. Includes multiple choice questions and open-ended questions. Open notes. No collaboration is allowed while taking the examination. Final project: COMP730 - 30%, COMP830 - 20% - Group project (2-3 students in a team). You will be asked to develop an app of your choice. Project requirements: to be announced. Each team will give a presentation in the last class meeting. Individual Final Project: 10% COMP830 only - You will develop a solution to a software design problem. Project requirements: to be announced.",
@@ -7736,13 +7836,13 @@
         "pred": "603 641 4144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "ASSESSMENT",
-        "pred": "ASSESSMENT",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE EXPECTATIONS ",
         "pred": "ASSESSMENT",
         "match": false
       },
@@ -7758,7 +7858,7 @@
       },
       "final_grade_scale": {
         "gt": "A A- B+ B B- C C C- D+ D D- F 93 90 87 83 80 77 73 70 67 63 60 <60",
-        "pred": "",
+        "pred": "A | A- | B+ | B | B- | C+ | C | C- | D+ | D | D- | F\n93",
         "match": false
       },
       "response_time": {
@@ -7815,12 +7915,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Rm 139, Pandora Mill building",
@@ -7837,15 +7937,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
-        "match": false
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -7865,7 +7965,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Remote through Zoom",
@@ -7883,8 +7983,8 @@
       "filename": "COMP_741.841 - Sabin_Fall - Fall 2023.pdf",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -7938,15 +8038,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "ASSESSMENT OVERVIEW",
-        "pred": "ASSESSMENT OVERVIEW",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -7983,9 +8083,9 @@
     {
       "filename": "COMP_755.855 - Jonas_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8017,12 +8117,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "room 141",
@@ -8039,14 +8139,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments:",
-        "pred": "Homework Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Homework Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -8067,13 +8167,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "room 142",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n10% Participation\nThis includes attendance, timeliness, and preparedness\n24% Lab work\nWork done on 8 labs at 3 points each\n66% Projects\nThere will be 3 projects worth 22 points each\nProposal worth 2 points\nProject Summary worth 4 points\nPresentation worth 16 points (5 points quality of talk, 11 points technical content)\nPolicies",
@@ -8084,9 +8184,9 @@
     {
       "filename": "COMP_760.860 - Sulpizio - Fall 2025.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8123,7 +8223,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -8140,20 +8240,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "arsulpizio@unh.edu",
+        "pred": "arsulpizio@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Description of Course Activities and Requirements: ",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
-        "pred": "Assignments can be changed by Professor in list above.  All assignments are due on Sunday by 11:59 pm.",
-        "match": true
+        "pred": "Unexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8168,13 +8268,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Missing",
         "pred": "",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Complete and submit all assignments by the due dates.\nUnexcused late submissions will receive a 10% deduction each day; no submissions will be accepted more than 7 days after the original due date. No extensions to Discussion Boards will be granted unless prior arrangements have been made with the instructor.\nDescription of Course Activities and Requirements:\nGrading Percentages:\nCourse Schedule & Topics:\nFor each day that the assignment is late there will be a 10% deduction up to 7 days.   After 7 days the assignment will not be accepted and a zero will be recorded.",
@@ -8186,8 +8286,8 @@
       "filename": "COMP_780.835 - Cochrane_Spring - Spring 2023.docx",
       "modality": {
         "gt": "Hybrid",
-        "pred": "Online",
-        "match": false
+        "pred": "Hybrid",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8219,7 +8319,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -8241,13 +8341,13 @@
         "pred": "603-781-6972",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "donald.cochrane@unh.edu",
+        "pred": "donald.cochrane@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Homework ",
         "pred": "Grading and Evaluation of Student Work:",
         "match": false
       },
@@ -8286,8 +8386,8 @@
     {
       "filename": "COMP_780.835 - Finan_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
-        "pred": "In-Person",
+        "gt": "Hybrid",
+        "pred": "Unknown",
         "match": false
       },
       "slos": {
@@ -8320,7 +8420,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "Applied Engineering and Sciences Department,",
@@ -8342,15 +8442,15 @@
         "pred": "603-641-4340",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
-        "match": false
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Assignments",
@@ -8370,13 +8470,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
         "pred": "P128",
         "match": true,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "Grading\n• 20% Participation/Attendance\n• 30% Quizzes and Exams\n• 50% Homework/Assessments* and Labs\n* Homework may include a short written assessment given in the class following the date\nHomework assignments that are submitted late will only be able to achieve grades as follows:\n● up to 1 weeks late: Deduct 5%\n● 1 - 3 weeks late: Deduct 10%\n● 3+ weeks late: Deduct 20%\nSubmissions",
@@ -8387,9 +8487,9 @@
     {
       "filename": "COMP_780.840 - Jin_Fall - Fall 2018.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8421,12 +8521,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Rm 139, Pandora Mill building",
@@ -8443,15 +8543,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
-        "match": false
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -8471,13 +8571,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Rm126",
         "pred": "Rm 126",
         "match": false,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n• Homework: 20%\n- Bi-weekly (approximately)\n- Full Credit or No Credit (if incomplete or late)\n• In-class Quizzes: 10%\n- Beginning of every class\n- From past week’s content including assigned reading\n- One A4-size page of handwritten note allowed\n- Lowest quiz thrown out\n• Individual Project: 30%",
@@ -8544,15 +8644,15 @@
         "pred": "(603) 641-4340",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
-        "match": false
+      "assignment_types_title": {
+        "gt": "Missing",
+        "pred": "",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late submissions",
@@ -8572,7 +8672,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "P128",
@@ -8589,9 +8689,9 @@
     {
       "filename": "COMP_780.860 - Sulpizio_Fall - Fall 2024.docx",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8628,7 +8728,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -8645,20 +8745,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "arsulpizio@unh.edu",
+        "pred": "arsulpizio@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Description of Course Activities and Requirements",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date",
-        "pred": "",
-        "match": false
+        "pred": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date. No extensions to the DB beyond Day 7 @ 11:59pm local time will be granted unless prior arrangements have been made with the instructor.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -8673,13 +8773,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Missing",
         "pred": "",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading Percentages: Discussions/Journal 100 points per assignment, Chapter Problems 150 points per assignment, Chapter Problems Portfolio 400 points, Case Study 200 points, Final Project Milestone 1 150 points, Final Project Milestone 2 150 points, Final Project Milestone 3 150 points, Final Project 900 points, Microsoft OneNote 500 points.",
@@ -8690,9 +8790,9 @@
     {
       "filename": "COMP_780.880 - Jonas_Spring - Spring 2021.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "Online",
         "pred": "Online",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8724,7 +8824,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -8746,14 +8846,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments:",
-        "pred": "Homework Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Class Pedagogies:",
+        "pred": "Homework Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -8774,13 +8874,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "online",
         "pred": "",
-        "match": false,
-        "modality": "Missing"
+        "match": true,
+        "modality": "Online"
       },
       "grading_process": {
         "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
@@ -8791,9 +8891,9 @@
     {
       "filename": "COMP_785.885_Applied_Cryptography - Jonas_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -8825,7 +8925,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -8847,14 +8947,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments:",
-        "pred": "Homework Assignments:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "Homework Assignments:",
         "match": false
       },
       "deadline_expectations_title": {
@@ -8875,13 +8975,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "room 142",
         "pred": "room 142",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "Grading:\n15% Participation1\nThis includes attendance, participation, and preparedness (5 points each)\n40% Assignments2\nThere will be 4 problem sets worth 10 points each\n20% Project3\nMore details in the first half of class\n25% Exam4\nPolicies",
@@ -8892,7 +8992,7 @@
     {
       "filename": "COMP_790 - Jonas_Spring - Spring 2023.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "Hybrid",
         "pred": "In-Person",
         "match": false
       },
@@ -8926,12 +9026,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "room 141",
@@ -8948,14 +9048,14 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Assignments and Projects:",
-        "pred": "Homework Assignments and Projects:",
+      "preferred_contact_method": {
+        "gt": "mcy59@unh.edu",
+        "pred": "mcy59@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading:",
+      "assignment_types_title": {
+        "gt": "Student Work and Class Pedagogies:",
+        "pred": "",
         "match": false
       },
       "deadline_expectations_title": {
@@ -8976,13 +9076,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "hybrid, with in-person in room 142",
         "pred": "",
         "match": false,
-        "modality": "Missing"
+        "modality": "Hybrid"
       },
       "grading_process": {
         "gt": "20% Final Report\nA : Exceptional team member – went above and beyond what was required\nB : Average team member – met requirements consistently\nC : Below Average team member - tasks were consistently late, bad at communication\nD : Troublesome team member - lack of communication, missed many status reports\nF : Failed as team member - no significant contribution or team participation",
@@ -9049,20 +9149,20 @@
         "pred": "603 641 4144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework Problems",
-        "pred": "Homework Problems",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE EXPECTATIONS",
         "pred": "",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
-        "pred": "Assessments",
-        "match": false
+        "pred": "Late Submissions",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -9071,8 +9171,8 @@
       },
       "final_grade_scale": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "A | A- | B+ | B | B- | C+ | C | C- | D+ | D | D- | F",
+        "match": false
       },
       "response_time": {
         "gt": "Missing",
@@ -9128,7 +9228,7 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
@@ -9150,20 +9250,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Homework:",
-        "pred": "Homework:",
+      "preferred_contact_method": {
+        "gt": "Rich.Greene@usnh.edu",
+        "pred": "Rich.Greene@usnh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "Grading",
+      "assignment_types_title": {
+        "gt": "Assessment",
+        "pred": "Homework:",
         "match": false
       },
       "deadline_expectations_title": {
         "gt": "Do NOT submit homework or final late!",
-        "pred": "",
-        "match": false
+        "pred": "5. Do NOT submit homework or final late! In the real world, tardiness is simply not tolerated and will destroy your career. This class is intended to force the habit of getting work done early and assuming",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Missing",
@@ -9178,7 +9278,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Missing",
@@ -9195,9 +9295,9 @@
     {
       "filename": "COMP_891 - Jin_Fall - Fall 2025.pdf",
       "modality": {
-        "gt": "Missing",
+        "gt": "In-Person",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -9251,15 +9351,15 @@
         "pred": "(603) 641-4398",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Required Paperwork and Submissions.",
         "pred": "Required Paperwork and Submissions.",
         "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "GRADING AND EVALUATION OF STUDENT WORK",
-        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Late Submissions",
@@ -9279,13 +9379,13 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "PANDRA 126",
         "pred": "PANDRA 126",
         "match": true,
-        "modality": "Missing"
+        "modality": "In-Person"
       },
       "grading_process": {
         "gt": "order to receive a grade.\n• Completion of weekly work log for the minimal required work hours. Logs must be\nsubmitted weekly (of each work week) during your internship (20%)\n• Final project report (25%)\n• In-class progress presentations and submission of slide decks and summary for the\npresentation. (20%)\n• Class Participation. (35%)\na. Attendance at scheduled class meetings\nb. Request to join in UNHM COMPTECH online LinkedIn group\nhttps://www.linkedin.com/groups/4485737/\nc. Participation of all class discussions, peer meetups and group activities\nrecorded in weekly work logs, OR you fail to earn minimal 75% for your final report grade.",
@@ -9297,8 +9397,8 @@
       "filename": "COMP_893 - Jin_Fall - Fall 2025.pdf",
       "modality": {
         "gt": "In-person, scheduled weekly class meetings",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -9352,13 +9452,13 @@
         "pred": "(603) 641-4398",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "karen.jin@unh.edu",
+        "pred": "karen.jin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "Missing",
         "pred": "",
         "match": true
       },
@@ -9380,7 +9480,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "PANDRA 149",
@@ -9453,13 +9553,13 @@
         "pred": "603 641 4144",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Evaluation",
-        "pred": "Evaluation",
+      "preferred_contact_method": {
+        "gt": "mihaela.sabin@unh.edu",
+        "pred": "mihaela.sabin@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "Evaluation",
         "match": false
       },
@@ -9554,13 +9654,13 @@
         "pred": "(603) 641-4340",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Evaluation",
-        "pred": "Evaluation",
+      "preferred_contact_method": {
+        "gt": "Timothy.Finan@unh.edu",
+        "pred": "Timothy.Finan@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
+      "assignment_types_title": {
+        "gt": "COURSE REQUIREMENTS",
         "pred": "Evaluation",
         "match": false
       },
@@ -9628,17 +9728,17 @@
       "instructor_name": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -9655,14 +9755,14 @@
         "pred": "",
         "match": false
       },
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "sas.office@unh.edu",
+        "match": false
+      },
       "assignment_types_title": {
         "gt": "Assignments",
         "pred": "Assignments",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Rubric and Evaluation Methods",
-        "pred": "Rubric and Evaluation Methods",
         "match": true
       },
       "deadline_expectations_title": {
@@ -9677,13 +9777,13 @@
       },
       "final_grade_scale": {
         "gt": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 84-87\nB- = 80-84\nC+ = 77-80\nC = 74-77\nC- = 70-74\nD+ = 67-70\nD = 64-67\nD- = 60-64\nF = 0-59",
         "match": false
       },
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Canvas (online learning management system)",
@@ -9739,7 +9839,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -9756,19 +9856,19 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "c.c.hendricks@unh.edu",
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Assignments",
         "pred": "Assignments",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "GRADING",
-        "pred": "Grading",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -9784,7 +9884,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandra 345",
@@ -9840,7 +9940,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -9857,20 +9957,20 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "c.c.hendricks@unh.edu",
+        "pred": "c.c.hendricks@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Major Projects",
         "pred": "Major Projects",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "GRADING",
-        "pred": "Grading",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "Late Work",
-        "pred": "Assignments",
-        "match": false
+        "pred": "Late Work",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas",
@@ -9885,7 +9985,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Remote (Zoom)",
@@ -9958,20 +10058,20 @@
         "pred": "(603) 641-4322",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "Sean.Tavares@unh.edu",
+        "pred": "Sean.Tavares@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "assignments:",
         "pred": "assignments:",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "COURSE GRADE:",
-        "pred": "",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "No credit will be given for an assignment after the end of the Grace Period.",
-        "pred": "assignments:",
-        "match": false
+        "pred": "assignment Due Date followed by a short Grace Period. Assignments received after the Due Date but before the end of the Grace Period will be subject to a 10% penalty. No credit will be given for an assignment after the end of the Grace Period.",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas; MyCourses",
@@ -10052,21 +10152,21 @@
       "office_hours": {
         "gt": "TBD",
         "pred": "TBD",
-        "match": true
+        "match": false
       },
       "office_phone": {
         "gt": "603-641-4338",
         "pred": "603-641-4338",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "christine.andrews@unh.edu",
+        "pred": "christine.andrews@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Course Activities",
         "pred": "Course Activities",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grading",
-        "pred": "Grading",
         "match": true
       },
       "deadline_expectations_title": {
@@ -10081,7 +10181,7 @@
       },
       "final_grade_scale": {
         "gt": "94-100=A; 90-93.9=A-; 87-89.9=B+; 83-86.9=B; 80-82.9=B-; 77-79.9=C+; 73-76.9=C; 70-72.9=C-;\nfollows (expanded descriptions of each category can be found further in the syllabus):\n30% Weekly assignments\n20% Mid-term assessment\n20% Final assessment\n30% Illustrated Report/Research Project\nCourse Activities",
-        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-60",
+        "pred": "A = 94-100\nA- = 90-94\nB+ = 87-90\nB = 83-87\nB- = 80-83\nC+ = 77-80\nC = 73-77\nC- = 70-73\nD+ = 67-70\nD = 63-67\nD- = 60-63\nF = 0-59",
         "match": false
       },
       "response_time": {
@@ -10160,12 +10260,12 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
-        "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
+      "preferred_contact_method": {
+        "gt": "sonic.woytonik@unh.edu",
+        "pred": "sonic.woytonik@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "Methods, Grade Components, Academic Integrity and Extra Credit",
         "pred": "Methods, Grade Components, Academic Integrity and Extra Credit",
         "match": true
@@ -10188,7 +10288,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online",
@@ -10261,13 +10361,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assessment, Participation Assignments",
-        "pred": "Assessment",
+      "preferred_contact_method": {
+        "gt": "bridget.nolan@unh.edu",
+        "pred": "bridget.nolan@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "Assessment",
+      "assignment_types_title": {
+        "gt": "Assessment, Participation Assignments",
         "pred": "Assessment",
         "match": true
       },
@@ -10362,19 +10462,19 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "omero.navarroambriz@unh.edu",
+        "pred": "omero.navarroambriz@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "ASSIGNMENTS",
         "pred": "ASSIGNMENTS",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "GRADING",
-        "pred": "GRADING",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "GRADING (late policy: 10% deduction per day, up to 5 days)",
-        "pred": "ASSIGNMENTS",
+        "pred": "Assignments submitted after the deadline will be accepted for up to 5 calendar days, with a 10% deduction from the total possible grade for each day late, as outlined below: No assignments will be accepted more than 5 days past the due date unless prior arrangements have been made and approved by the instructor.",
         "match": false
       },
       "assignment_delivery": {
@@ -10390,7 +10490,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "UNH MyCourses (online)",
@@ -10409,7 +10509,7 @@
       "modality": {
         "gt": "In person; there is no option for remote attendance",
         "pred": "In-Person",
-        "match": false
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -10446,7 +10546,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Building, Room 481",
@@ -10463,15 +10563,15 @@
         "pred": "(603) 641-4130",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "jeffrey.klenotic@unh.edu",
+        "pred": "jeffrey.klenotic@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Course Assignments:",
         "pred": "Course Assignments:",
         "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Student grades",
-        "pred": "",
-        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Policy on Late Work:",
@@ -10564,19 +10664,19 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "Lesley.Fallu@unh.edu",
+        "pred": "Lesley.Fallu@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Assignments:",
         "pred": "Assignments:",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "Grading Procedures:",
-        "pred": "",
-        "match": false
-      },
       "deadline_expectations_title": {
         "gt": "Late Work:",
-        "pred": "Assignments: Most homework assignments are done using the online platform, MyOpenMath, which is embedded",
+        "pred": "",
         "match": false
       },
       "assignment_delivery": {
@@ -10665,12 +10765,12 @@
         "pred": "434-981-2446",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assessment",
-        "pred": "Assessment",
+      "preferred_contact_method": {
+        "gt": "john.borek@unh.edu",
+        "pred": "john.borek@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "Assessment",
         "pred": "Assessment",
         "match": true
@@ -10766,12 +10866,12 @@
         "pred": "434-981-2446",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assessment",
-        "pred": "Assessment",
+      "preferred_contact_method": {
+        "gt": "john.borek@unh.edu",
+        "pred": "john.borek@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "Assessment",
         "pred": "Assessment",
         "match": true
@@ -10867,12 +10967,12 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assessment",
-        "pred": "Assessment",
+      "preferred_contact_method": {
+        "gt": "bridget.nolan@unh.edu",
+        "pred": "bridget.nolan@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "Assessment",
         "pred": "Assessment",
         "match": true
@@ -10968,13 +11068,13 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "adam.hopper@unh.edu",
+        "pred": "adam.hopper@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "Grading Policy",
+      "assignment_types_title": {
+        "gt": "Assessment",
         "pred": "",
         "match": false
       },
@@ -11014,8 +11114,8 @@
       "filename": "PHYS 401.M1-Summer 2025 Syllabus .pdf",
       "modality": {
         "gt": "Online (Synchronous)",
-        "pred": "In-Person",
-        "match": false
+        "pred": "Online",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -11069,15 +11169,15 @@
         "pred": "",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "Homework :",
-        "pred": "Homework :",
+      "preferred_contact_method": {
+        "gt": "David.Jagodowski@unh.edu",
+        "pred": "David.Jagodowski@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "Homework Grading Rubric:",
-        "pred": "Homework Grading Rubric:",
-        "match": true
+      "assignment_types_title": {
+        "gt": "Methods of Testing & Evaluation:",
+        "pred": "",
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "Missing",
@@ -11148,12 +11248,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Rm. 529",
@@ -11170,15 +11270,15 @@
         "pred": "(603)641-4151 (",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "STUDENT EVALUATION",
-        "pred": "STUDENT EVALUATION",
+      "preferred_contact_method": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "STUDENT EVALUATION",
+      "assignment_types_title": {
+        "gt": "TEXTBOOK CHAPTER QUIZZES, DISCUSSIONS, EXAMS, SUMMARY/CRITIQUE PAPER, EXTRA CREDIT",
         "pred": "STUDENT EVALUATION",
-        "match": true
+        "match": false
       },
       "deadline_expectations_title": {
         "gt": "SUMMARY/CRITIQUE PAPER (late policy)",
@@ -11198,7 +11298,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online (Canvas - https://mycourses.unh.edu/)",
@@ -11254,7 +11354,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Pandra Rm. 529",
@@ -11271,20 +11371,20 @@
         "pred": "641-4151 (",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "SUMMARY OF STUDENT EVALUATION",
+      "preferred_contact_method": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
       },
       "deadline_expectations_title": {
         "gt": "EXPERIMENTS/DEMONSTRATIONS",
-        "pred": "",
-        "match": false
+        "pred": "EXPERIMENTS/DEMONSTRATIONS",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "Canvas (myCourses)",
@@ -11299,7 +11399,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Pandora Rm. 529",
@@ -11355,7 +11455,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Room 529",
@@ -11372,12 +11472,12 @@
         "pred": "(603)641-4151 (",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "READING ASSIGNMENTS",
-        "pred": "READING ASSIGNMENTS",
+      "preferred_contact_method": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "STUDENT EVALUATION",
         "pred": "STUDENT EVALUATION",
         "match": true
@@ -11400,7 +11500,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online",
@@ -11456,7 +11556,7 @@
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Pandora Rm. 529",
@@ -11473,12 +11573,12 @@
         "pred": "641-4151 (",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "SUMMARY OF STUDENT EVALUATION",
+      "preferred_contact_method": {
+        "gt": "john.sparrow@unh.edu",
+        "pred": "john.sparrow@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
@@ -11501,7 +11601,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "missing",
@@ -11574,12 +11674,12 @@
         "pred": "",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "kyle.maclea@unh.edu",
+        "pred": "sas.office@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
         "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
         "match": true
@@ -11602,7 +11702,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Lab (Rm 560)",
@@ -11675,15 +11775,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
+      "preferred_contact_method": {
+        "gt": "Samantha.Reynolds@unh.edu",
+        "pred": "Samantha.Reynolds@unh.edu",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "ASSIGNMENT OF A LETTER GRADE:",
+      "assignment_types_title": {
+        "gt": "Grades:",
         "pred": "Grades:",
-        "match": false
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Work:",
@@ -11703,7 +11803,7 @@
       "response_time": {
         "gt": "missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "missing",
@@ -11776,12 +11876,12 @@
         "pred": "641-4151 (",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "SUMMARY OF STUDENT EVALUATION",
-        "pred": "SUMMARY OF STUDENT EVALUATION",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "Email",
+        "pred": "john.sparrow@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "SUMMARY OF STUDENT EVALUATION",
         "pred": "SUMMARY OF STUDENT EVALUATION",
         "match": true
@@ -11872,12 +11972,12 @@
         "pred": "",
         "match": false
       },
-      "assignment_types_title": {
-        "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "Email is best, text next!",
+        "pred": "sas.office@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
         "pred": "COURSE REQUIREMENTS and ASSESSMENTS OVERVIEW:",
         "match": true
@@ -11968,15 +12068,15 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "ASSIGNMENT OF A LETTER GRADE:",
-        "pred": "Grades:",
+      "preferred_contact_method": {
+        "gt": "Email",
+        "pred": "Samantha.Reynolds@unh.edu",
         "match": false
+      },
+      "assignment_types_title": {
+        "gt": "Grades:",
+        "pred": "Grades:",
+        "match": true
       },
       "deadline_expectations_title": {
         "gt": "Late Work:",
@@ -12022,7 +12122,7 @@
       "email": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "credit_hour": {
         "gt": "Missing",
@@ -12037,12 +12137,12 @@
       "instructor_name": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "of Mathematics",
@@ -12064,20 +12164,20 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Assignments and Grading",
-        "pred": "Assignments and Grading",
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "",
         "match": true
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "Assignments and Grading",
         "pred": "Assignments and Grading",
         "match": true
       },
       "deadline_expectations_title": {
         "gt": "Makeups:",
-        "pred": "Makeups:",
-        "match": true
+        "pred": "Assignments and Grading",
+        "match": false
       },
       "assignment_delivery": {
         "gt": "MyCourses",
@@ -12092,7 +12192,7 @@
       "response_time": {
         "gt": "missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Online (MyCourses)",
@@ -12110,8 +12210,8 @@
       "filename": "Syllabus_BIOT-775-875-BioPharm_Su25.pdf",
       "modality": {
         "gt": "In-person (with lab activities)",
-        "pred": "Hybrid",
-        "match": false
+        "pred": "In-Person",
+        "match": true
       },
       "slos": {
         "gt_present": true,
@@ -12143,12 +12243,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -12165,14 +12265,14 @@
         "pred": "603-641-4337",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "Raymond.Miller@unh.edu",
+        "pred": "Raymond.Miller@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Assignment Details",
         "pred": "Assignment Details",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grades",
-        "pred": "Grades",
         "match": true
       },
       "deadline_expectations_title": {
@@ -12244,12 +12344,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Student Services Suite, 4th floor",
@@ -12266,20 +12366,20 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "stephanie.kirylych@unh.edu",
+        "pred": "stephanie.kirylych@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Class Assignments",
         "pred": "Class Assignments",
         "match": true
       },
-      "grading_procedures_title": {
-        "gt": "",
-        "pred": "",
-        "match": true
-      },
       "deadline_expectations_title": {
         "gt": "Missing",
-        "pred": "assessments",
-        "match": false
+        "pred": "",
+        "match": true
       },
       "assignment_delivery": {
         "gt": "myCourses",
@@ -12294,7 +12394,7 @@
       "response_time": {
         "gt": "Missing",
         "pred": "Missing",
-        "match": true
+        "match": false
       },
       "class_location": {
         "gt": "Room 380",
@@ -12345,12 +12445,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -12367,12 +12467,12 @@
         "pred": "",
         "match": true
       },
-      "assignment_types_title": {
-        "gt": "Missing",
-        "pred": "Missing",
-        "match": true
+      "preferred_contact_method": {
+        "gt": "missing",
+        "pred": "unhm.library@unh.edu",
+        "match": false
       },
-      "grading_procedures_title": {
+      "assignment_types_title": {
         "gt": "GRADING DISTRIBUTION",
         "pred": "GRADING DISTRIBUTION",
         "match": true
@@ -12446,12 +12546,12 @@
       "instructor_title": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "instructor_department": {
         "gt": "missing",
         "pred": "missing",
-        "match": true
+        "match": false
       },
       "office_address": {
         "gt": "Missing",
@@ -12468,14 +12568,14 @@
         "pred": "",
         "match": true
       },
+      "preferred_contact_method": {
+        "gt": "keith.legro@unh.edu",
+        "pred": "keith.legro@unh.edu",
+        "match": true
+      },
       "assignment_types_title": {
         "gt": "Quizzes and Exams",
         "pred": "Quizzes and Exams",
-        "match": true
-      },
-      "grading_procedures_title": {
-        "gt": "Grades:",
-        "pred": "Grades:",
         "match": true
       },
       "deadline_expectations_title": {
