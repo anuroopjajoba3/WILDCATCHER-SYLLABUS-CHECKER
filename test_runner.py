@@ -8,7 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
-Includes support for assignment_types_title, grading_procedures_title, and deadline_expectations_title fields.
+Includes support for assignment_types_title, grading_procedures_title, deadline_expectations_title, and response_time fields.
 """
 import os
 import sys
@@ -25,6 +25,7 @@ SUPPORTED_FIELDS = (
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
     "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
+    "response_time",
     "class_location",
     "grading_process"
 )
@@ -124,11 +125,19 @@ except Exception:
     print("WARNING: Grading scale detector not available")
 
 try:
+    from detectors.response_time_detector import ResponseTimeDetector
+    RESPONSE_TIME_AVAILABLE = True
+except Exception:
+    RESPONSE_TIME_AVAILABLE = False
+    print("WARNING: Response time detector not available")
+    
+try:
     from detectors.class_location_detector import ClassLocationDetector
     CLASS_LOCATION_AVAILABLE = True
 except Exception:
     CLASS_LOCATION_AVAILABLE = False
     print("WARNING: Class location detector not available")
+   
 try:
     from detectors.grading_process_detection import GradingProcessDetector
     GRADING_PROCESS_AVAILABLE = True
@@ -346,9 +355,9 @@ def detect_all_fields(text: str) -> dict:
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
         a = AssignmentTypesDetector().detect(text)
-        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
+        preds["assignment_types_title"] = a.get("content", "Missing")
     else:
-        preds["assignment_types_title"] = ""
+        preds["assignment_types_title"] = "Missing"
 
     # Grading Procedures
     if GRADING_PROCEDURES_AVAILABLE:
@@ -383,6 +392,13 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["final_grade_scale"] = ""
 
+    # Response Time - FIXED: Return "Missing" instead of empty string
+    if RESPONSE_TIME_AVAILABLE:
+        rt = ResponseTimeDetector().detect(text)
+        preds["response_time"] = rt.get("content", "Missing")
+    else:
+        preds["response_time"] = "Missing"
+        
     # Class Location
     if CLASS_LOCATION_AVAILABLE:
         cl = ClassLocationDetector().detect(text)
@@ -390,6 +406,7 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["class_location"] = ""
     # Grading Process
+    
     if GRADING_PROCESS_AVAILABLE:
         gp = GradingProcessDetector().detect(text)
         preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
@@ -566,6 +583,13 @@ def main():
             field_stats["final_grade_scale"]["correct"] += int(match)
             result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
 
+        # Response Time
+        if "response_time" in record:
+            match = loose_compare(record["response_time"], preds.get("response_time", ""))
+            field_stats["response_time"]["total"] += 1
+            field_stats["response_time"]["correct"] += int(match)
+            result["response_time"] = {"gt": record["response_time"], "pred": preds.get("response_time", ""), "match": match}
+            
         # Class Location (with smart comparison considering modality)
         if "class_location" in record:
             modality_value = record.get("modality", "")
