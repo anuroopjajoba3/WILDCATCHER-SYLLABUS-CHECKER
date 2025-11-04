@@ -35,25 +35,11 @@ class GradingProcessDetector:
         # Keywords that suggest a grading scale block
         self.percent_pattern = re.compile(r"\d+\s*%")
         self.points_pattern = re.compile(r"\b\d+\s*(points|pts)\b", re.I)
-        
-        # Table-based grading patterns
-        self.table_points_pattern = re.compile(r"(\d+)\s*(points|pts|@)", re.I)
-        self.assignment_count_pattern = re.compile(r"(\d+)\s*(assignments?|exams?|quizzes?|projects?|homeworks?)", re.I)
-        self.grade_table_keywords = re.compile(r"\b(grade|assignment|points|category|weight|breakdown)\b", re.I)
-        
         # Letter-grade block pattern (A:, B:, C:, D:, F: in same area)
         self.letter_block_pattern = re.compile(
             r"A\s*[:\-].{0,80}B\s*[:\-].{0,80}C\s*[:\-].{0,80}D\s*[:\-].{0,80}F\s*[:\-]",
             re.I | re.S,
         )
-        
-        # Enhanced patterns for points-based grading
-        self.points_table_patterns = [
-            re.compile(r"(\w+[\w\s]*)\s+(\d+)\s*(points?|pts)", re.I),  # "Homework 100 points"
-            re.compile(r"(\d+)\s*×\s*(\d+)\s*(points?|pts)", re.I),     # "5 × 20 points"
-            re.compile(r"(\d+)\s*@\s*(\d+)\s*(points?|pts)", re.I),     # "5 @ 20 points"
-            re.compile(r"(\w+[\w\s]*)\s*:\s*(\d+)\s*(points?|pts)", re.I), # "Homework: 100 points"
-        ]
 
         # small list of common labels to help anchor sections
         self.anchor_keywords = [
@@ -114,82 +100,6 @@ class GradingProcessDetector:
 
         return False
 
-    def _detect_points_table(self, lines) -> Dict[str, Any]:
-        """Detect points-based grading tables.
-        
-        Looks for patterns like:
-        - "Assignment Type    Points"
-        - "Homework          100 points"
-        - "5 × 20 points each"
-        - "Exams (3 @ 100 points)"
-        """
-        table_sections = []
-        
-        for i, line in enumerate(lines):
-            stripped = line.strip()
-            if not stripped:
-                continue
-                
-            # Look for table headers that suggest points-based grading
-            if self.grade_table_keywords.search(stripped) and any(word in stripped.lower() for word in ['points', 'pts']):
-                # Found potential table header, look for data rows below
-                table_rows = [stripped]
-                table_points_total = 0
-                
-                for j in range(i + 1, min(i + 10, len(lines))):  # Look ahead up to 10 lines
-                    next_line = lines[j].strip()
-                    if not next_line:
-                        continue
-                        
-                    # Stop if we hit another heading or long paragraph
-                    if (self._is_heading_line(next_line) and j > i + 1) or len(next_line.split()) > 20:
-                        break
-                    
-                    # Check if line contains points information
-                    has_points = False
-                    for pattern in self.points_table_patterns:
-                        if pattern.search(next_line):
-                            has_points = True
-                            # Extract points value for scoring
-                            points_match = re.search(r'(\d+)\s*(points?|pts)', next_line, re.I)
-                            if points_match:
-                                table_points_total += int(points_match.group(1))
-                            break
-                    
-                    if has_points or self.table_points_pattern.search(next_line):
-                        table_rows.append(next_line)
-                    elif len(table_rows) > 1:  # We have some data rows, stop here
-                        break
-                
-                # Score this potential table
-                if len(table_rows) >= 3:  # Header + at least 2 data rows
-                    points_lines = sum(1 for row in table_rows[1:] if self.table_points_pattern.search(row))
-                    if points_lines >= 2:  # At least 2 rows with points
-                        table_sections.append({
-                            'start_idx': i,
-                            'rows': table_rows,
-                            'score': points_lines + (1 if table_points_total > 50 else 0),
-                            'total_points': table_points_total
-                        })
-        
-        # Return the best table if any found
-        if table_sections:
-            best_table = max(table_sections, key=lambda x: x['score'])
-            if best_table['score'] >= 2:
-                # Add heading if available
-                heading = self._get_heading_before(lines, best_table['start_idx'])
-                content_lines = best_table['rows']
-                if heading and heading not in content_lines[0]:
-                    content_lines.insert(0, heading)
-                
-                return {
-                    'found': True,
-                    'content': '\n'.join(content_lines),
-                    'type': 'points_table'
-                }
-        
-        return {'found': False, 'content': ''}
-
     def detect(self, text: str) -> Dict[str, Any]:
         """Detect grading process and return a result dict with keys:
         - 'found': bool
@@ -210,13 +120,7 @@ class GradingProcessDetector:
         lines = [ln.rstrip() for ln in text.split('\n')]
         joined = '\n'.join(lines)
 
-        # 1) Points-based table detection (try this first as it's more structured)
-        points_table_result = self._detect_points_table(lines)
-        if points_table_result['found']:
-            self.logger.info(f"FOUND: {self.field_name} (points table)")
-            return points_table_result
-
-        # 2) Letter-grade block detection (A: ... B: ... C: ... F:)
+        # 1) Letter-grade block detection (A: ... B: ... C: ... F:)
         block_match = self.letter_block_pattern.search(joined)
         if block_match:
             # expand to nearest line boundaries
@@ -234,7 +138,7 @@ class GradingProcessDetector:
             self.logger.info(f"FOUND: {self.field_name} (letter block pattern)")
             return {'found': True, 'content': content}
 
-        # 3) Look for contiguous percentage/points lines (window detection)
+        # 2) Look for contiguous percentage/points lines (window detection)
         windows = []
         current_block = []
         for i, ln in enumerate(lines):
