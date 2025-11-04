@@ -1,8 +1,8 @@
 """
-Email Detector
+preferred contact Detector
 =========================================
-Detects instructor email addresses in syllabus documents.
-Prefers emails near typical headings; falls back to first valid email.
+Detects instructor preferred contact in syllabus documents.
+Prefers preferred contact near typical headings; falls back to first valid email.
 """
 
 import re
@@ -12,9 +12,9 @@ from typing import Dict, Any, Optional, List
 # Detection Configuration
 MAX_HEADING_SCAN_LINES = 150
 MAX_HEADER_CHARS = 1200
-EMAIL_CONFIDENCE_SCORE = 0.95
+PREFERRED_CONFIDENCE_SCORE = 0.95
 
-EMAIL_RX = re.compile(
+PREFERRED_RX = re.compile(
     r"[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*@(?:unh|usnh)\.edu"
 )
 
@@ -25,10 +25,10 @@ HEADING_CLUES = [
 ]
 
 
-class EmailDetector:
+class PreferredDetector:
     def __init__(self):
-        self.field_name = 'email'
-        self.logger = logging.getLogger('detector.email')
+        self.field_name = 'preferred'
+        self.logger = logging.getLogger('detector.preferred')
 
     @staticmethod
     def _normalize_text(text: str) -> str:
@@ -59,12 +59,12 @@ class EmailDetector:
         return normalized
 
     def detect(self, text: str) -> Dict[str, Any]:
-        self.logger.info("Starting detection for field: email")
+        self.logger.info("Starting detection for field: preferred")
 
         if not text:
             return self._not_found()
 
-        # 1) Try: scan first N lines for heading + email on the same/next line
+        # 1) Try: scan first N lines for heading + preferred on the same/next line
         lines = text.splitlines()
         window_lines = lines[:MAX_HEADING_SCAN_LINES] if len(lines) > MAX_HEADING_SCAN_LINES else lines
         candidate = self._find_near_heading(window_lines)
@@ -73,21 +73,21 @@ class EmailDetector:
 
         # 2) Try: any valid email in the first N chars (header area)
         header = text[:MAX_HEADER_CHARS]
-        header_emails = EMAIL_RX.findall(header)
-        if header_emails:
-            return self._found(header_emails[0], method="header_any")
+        header_preferred = PREFERRED_RX.findall(header)
+        if header_preferred:
+            return self._found(header_preferred[0], method="header_any")
 
-        # 3) Fallback: first valid email anywhere in the doc
-        all_emails = EMAIL_RX.findall(text)
-        if all_emails:
-            return self._found(all_emails[0], method="fallback_any")
+        # 3) Fallback: first valid preferred contact anywhere in the doc
+        all_preferred = PREFERRED_RX.findall(text)
+        if all_preferred:
+            return self._found(all_preferred[0], method="fallback_any")
 
         return self._not_found()
 
     # ---------------- helpers ----------------
 
     def _find_near_heading(self, lines: List[str]) -> Optional[str]:
-        """Find an email on a line that contains a clue word, or the next line."""
+        """Find a preferred contact on a line that contains a clue word, or the next line."""
         for i, raw in enumerate(lines):
             line = raw.strip()
             # Normalize the line for comparison
@@ -96,29 +96,29 @@ class EmailDetector:
             # Check if any heading clue appears in the normalized line
             if any(self._normalize_text(clue) in normalized_line for clue in HEADING_CLUES):
                 # same line (search in original, not normalized)
-                m = EMAIL_RX.search(line)
+                m = PREFERRED_RX.search(line)
                 if m:
                     return m.group(0)
                 # next line
                 if i + 1 < len(lines):
-                    m2 = EMAIL_RX.search(lines[i+1])
+                    m2 = PREFERRED_RX.search(lines[i+1])
                     if m2:
                         return m2.group(0)
         return None
 
     def _found(self, content: str, method: str) -> Dict[str, Any]:
-        """Return found result with email as string (consistent with other detectors)."""
-        self.logger.info(f"FOUND: email via {method}")
+        """Return found result with preferred contact as string (consistent with other detectors)."""
+        self.logger.info(f"FOUND: preferred via {method}")
         return {
             "field_name": self.field_name,
             "found": True,
             "content": content,
-            "confidence": EMAIL_CONFIDENCE_SCORE,
+            "confidence": PREFERRED_CONFIDENCE_SCORE,
             "metadata": {"method": method}
         }
 
     def _not_found(self) -> Dict[str, Any]:
-        self.logger.info("NOT_FOUND: email")
+        self.logger.info("NOT_FOUND: preferred")
         return {
             "field_name": self.field_name,
             "found": False,
@@ -136,12 +136,12 @@ if __name__ == "__main__":
         ("Instructor\nEmail: prof@unh.edu", "Email on next line"),
     ]
 
-    detector = EmailDetector()
-    print("Testing Email Detector:")
+    detector = PreferredDetector()
+    print("Testing Preferred Detector:")
     print("=" * 60)
     for test_text, description in test_cases:
         result = detector.detect(test_text)
         print(f"\nTest: {description}")
         print(f"Found: {result.get('found')}")
-        print(f"Email: {result.get('content')}")
+        print(f"Preferred: {result.get('content')}")
         print(f"Method: {result.get('metadata', {}).get('method')}")
