@@ -89,6 +89,15 @@ class WorkloadDetector:
             # "expected to spend at least X hours per week on this class"
             r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week\s+on\s+this\s+class',
 
+            # "You are expected to study at least X hours outside class every week" (very common!)
+            r'expected\s+to\s+study\s+at\s+least\s+(\d+(?:-\d+)?)\s+hours?\s+outside\s+(?:of\s+)?class\s+every\s+week',
+
+            # "You are expected to study X hours outside class every week" (without "at least")
+            r'expected\s+to\s+study\s+(\d+(?:-\d+)?)\s+hours?\s+outside\s+(?:of\s+)?class\s+every\s+week',
+
+            # "You are expected to engage in outside class learning X hours"
+            r'expected\s+to\s+engage\s+in\s+outside\s+class\s+learning\s+(\d+)\s+hours',
+
             # "minimum of 180 hours in a professional setting"
             r'minimum\s+of\s+(\d+)\s+hours?\s+in\s+a\s+professional\s+setting',
 
