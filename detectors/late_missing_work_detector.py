@@ -4,6 +4,22 @@ Late Missing Work Detector
 
 This detector identifies late work policies in syllabus documents.
 It uses pattern matching and keyword detection to find late sections.
+
+Developer Notes:
+---------------
+This is a simple e                    # Case 6: Extra lenient check for exact title matches in short lines
+                    elif (normalized_title == line_without_punctuation or 
+                          normalized_title + ':' == line_without_punctuation or
+                          normalized_title == line_without_punctuation.rstrip(':')):
+                        is_valid_header = True
+                    
+                    # Case 7: Very direct matching for common problematic cases
+                    elif (line_without_punctuation in ["late work", "late submissions", "late assignments"] or
+                          line_without_punctuation.startswith("late submissions no assignment") or
+                          line_without_punctuation.startswith("late work no") or
+                          line_without_punctuation.startswith("late assignments no")):
+                        is_valid_header = Truee of a field detector. When creating new detectors,
+use this as a template for structure and patterns.
 """
 
 import re
