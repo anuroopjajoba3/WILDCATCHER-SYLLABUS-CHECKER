@@ -221,12 +221,10 @@ def compare_grading_scale(gt, pred):
         if not text:
             return {}
         
-        # Handle both formats:
-        # Format 1: "94-100=A; 90-93.9=A-; ..."
-        # Format 2: "A = 94-100\nA- = 90-94\n..."
-        
         grades = {}
         text = str(text).strip()
+
+        # this is for fixing syntax errors in how the scales are given by the tester
         
         # Pattern for format 1: number-number=letter
         pattern1 = re.compile(r'(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*=\s*([A-F][+-]?)', re.I)
@@ -715,12 +713,12 @@ def main():
 
         # Final Grade Scale
         if "final_grade_scale" in record:
-            gt_val = record["modality"]
-            pred_val = preds.get("modality", "")
-            match = compare_modality(gt_val, pred_val)
-            update_field_stats(field_stats["modality"], gt_val, pred_val, match)
-            result["modality"] = {"gt": gt_val, "pred": pred_val, "match": match}
-
+            gt_val = record["final_grade_scale"]  
+            pred_val = preds.get("final_grade_scale", "")    
+            match = compare_grading_scale(gt_val, pred_val)  
+            update_field_stats(field_stats["final_grade_scale"], gt_val, pred_val, match)  
+            result["final_grade_scale"] = {"gt": gt_val, "pred": pred_val, "match": match}  
+            
         # Response Time
         if "response_time" in record:
             gt_val = record["response_time"]
