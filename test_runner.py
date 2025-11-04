@@ -8,7 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
-Includes support for assignment_types_title, grading_procedures_title, deadline_expectations_title, and response_time fields.
+Includes support for assignment_types_title, deadline_expectations_title, response_time, and grading_process fields.
 """
 import os
 import sys
@@ -23,7 +23,8 @@ SUPPORTED_FIELDS = (
     "modality", "SLOs", "email", "credit_hour", "workload",
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
-    "assignment_types_title", "grading_procedures_title",
+    "preferred_contact_method",
+    "assignment_types_title",
     "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
     "response_time",
     "class_location",
@@ -90,18 +91,19 @@ except Exception:
     print("WARNING: Office information detector not available")
 
 try:
+    from detectors.preferred_contact_detector import PreferredDetector
+    PREFERRED_CONTACT_AVAILABLE = True
+except Exception:
+    PREFERRED_CONTACT_AVAILABLE = False
+    print("WARNING: Preferred contact detector not available")
+
+try:
     from detectors.assignment_types_detection import AssignmentTypesDetector
     ASSIGNMENT_TYPES_AVAILABLE = True
 except Exception:
     ASSIGNMENT_TYPES_AVAILABLE = False
     print("WARNING: Assignment types detector not available")
 
-try:
-    from detectors.grading_procedures_detection import GradingProceduresDetector
-    GRADING_PROCEDURES_AVAILABLE = True
-except Exception:
-    GRADING_PROCEDURES_AVAILABLE = False
-    print("WARNING: Grading procedures detector not available")
 
 try:
     from detectors.late_missing_work_detector import LateDetector
@@ -153,6 +155,38 @@ def norm(s):
     if s is None:
         return ""
     return " ".join(str(s).strip().lower().split())
+
+def has_value(value):
+    """
+    Check if a field has a meaningful value (not empty/missing/not found).
+    Simple helper for F1 score calculation.
+    """
+    normalized = norm(value)
+    # Consider these as "no value"
+    empty_indicators = ["", "not found", "missing", "n/a", "tbd"]
+    return normalized not in empty_indicators
+
+def update_field_stats(stats, gt_value, pred_value, match):
+    """
+    Update TP/FP/FN/TN counts based on ground truth, prediction, and match.
+
+    Logic:
+    - TP (True Positive): GT has value AND Pred has value AND they match
+    - FP (False Positive): GT has NO value BUT Pred found something
+    - FN (False Negative): GT has value BUT (Pred has no value OR they don't match)
+    - TN (True Negative): GT has NO value AND Pred has no value
+    """
+    gt_has = has_value(gt_value)
+    pred_has = has_value(pred_value)
+
+    if gt_has and pred_has and match:
+        stats["TP"] += 1  # Correct detection
+    elif not gt_has and pred_has:
+        stats["FP"] += 1  # False alarm (detected something that doesn't exist)
+    elif gt_has and (not pred_has or not match):
+        stats["FN"] += 1  # Missed detection (should have found but didn't, or found wrong value)
+    elif not gt_has and not pred_has:
+        stats["TN"] += 1  # Correct rejection (correctly found nothing)
 
 def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     a, b = norm(a), norm(b)
@@ -352,19 +386,19 @@ def detect_all_fields(text: str) -> dict:
         preds["office_hours"] = ""
         preds["office_phone"] = ""
 
+    # Preferred Contact Method
+    if PREFERRED_CONTACT_AVAILABLE:
+        pc = PreferredDetector().detect(text)
+        preds["preferred_contact_method"] = pc.get("content", "") if pc.get("found") else ""
+    else:
+        preds["preferred_contact_method"] = ""
+
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
         a = AssignmentTypesDetector().detect(text)
         preds["assignment_types_title"] = a.get("content", "Missing")
     else:
         preds["assignment_types_title"] = "Missing"
-
-    # Grading Procedures
-    if GRADING_PROCEDURES_AVAILABLE:
-        g = GradingProceduresDetector().detect(text)
-        preds["grading_procedures_title"] = g.get("content", "") if g.get("found") else ""
-    else:
-        preds["grading_procedures_title"] = ""
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
@@ -438,7 +472,12 @@ def main():
 
     print(f"\nFound {len(gt_data)} records in ground truth.")
 
-    field_stats = defaultdict(lambda: {"correct": 0, "total": 0})
+    # Track TP, FP, FN, TN for F1 score calculation
+    # TP = True Positive: GT has value, Pred has value, Match correct
+    # FP = False Positive: GT has NO value, but Pred found something
+    # FN = False Negative: GT has value, but Pred missed or got wrong
+    # TN = True Negative: GT has NO value, Pred found nothing
+    field_stats = defaultdict(lambda: {"TP": 0, "FP": 0, "FN": 0, "TN": 0})
     details = []
 
     for i, record in enumerate(gt_data, 1):
@@ -463,196 +502,258 @@ def main():
 
         # Modality
         if "modality" in record:
-            match = compare_modality(record["modality"], preds.get("modality", ""))
-            field_stats["modality"]["total"] += 1
-            field_stats["modality"]["correct"] += int(match)
-            result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
+            gt_val = record["modality"]
+            pred_val = preds.get("modality", "")
+            match = compare_modality(gt_val, pred_val)
+            update_field_stats(field_stats["modality"], gt_val, pred_val, match)
+            result["modality"] = {"gt": gt_val, "pred": pred_val, "match": match}
         # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
-            gt_text = str(record.get("SLOs", "") or "").strip()
-            gt_has = bool(norm(gt_text))
+            gt_val = record.get("SLOs", "")
+            pred_val = preds.get("slos_text", "") if preds.get("has_slos") else ""
+            gt_has = bool(norm(gt_val))
             pred_has = bool(preds.get("has_slos"))
             match = (gt_has == pred_has)
 
-            field_stats["SLOs"]["total"] += 1
-            field_stats["SLOs"]["correct"] += int(match)
+            update_field_stats(field_stats["SLOs"], gt_val, pred_val, match)
 
             result["slos"] = {
                 "gt_present": gt_has,
                 "pred_present": pred_has,
                 "match": match,
-                "gt_text": gt_text,
+                "gt_text": str(gt_val).strip(),
                 "pred_text": preds.get("slos_text", "")
             }
 
         # Email
         if "email" in record:
-            match = loose_compare(record["email"], preds.get("email", ""))
-            field_stats["email"]["total"] += 1
-            field_stats["email"]["correct"] += int(match)
-            result["email"] = {"gt": record["email"], "pred": preds.get("email", ""), "match": match}
+            gt_val = record["email"]
+            pred_val = preds.get("email", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["email"], gt_val, pred_val, match)
+            result["email"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Credit hour
         if "credit_hour" in record:
-            match = loose_compare(record["credit_hour"], preds.get("credit_hour", ""))
-            field_stats["credit_hour"]["total"] += 1
-            field_stats["credit_hour"]["correct"] += int(match)
-            result["credit_hour"] = {"gt": record["credit_hour"], "pred": preds.get("credit_hour", ""), "match": match}
+            gt_val = record["credit_hour"]
+            pred_val = preds.get("credit_hour", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["credit_hour"], gt_val, pred_val, match)
+            result["credit_hour"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Workload
         if "workload" in record:
-            match = loose_compare(record["workload"], preds.get("workload", ""))
-            field_stats["workload"]["total"] += 1
-            field_stats["workload"]["correct"] += int(match)
-            result["workload"] = {"gt": record["workload"], "pred": preds.get("workload", ""), "match": match}
+            gt_val = record["workload"]
+            pred_val = preds.get("workload", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["workload"], gt_val, pred_val, match)
+            result["workload"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Instructor Name
         if "instructor_name" in record:
-            match = loose_compare(record["instructor_name"], preds.get("instructor_name", ""))
-            field_stats["instructor_name"]["total"] += 1
-            field_stats["instructor_name"]["correct"] += int(match)
-            result["instructor_name"] = {"gt": record["instructor_name"], "pred": preds.get("instructor_name", ""), "match": match}
+            gt_val = record["instructor_name"]
+            pred_val = preds.get("instructor_name", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["instructor_name"], gt_val, pred_val, match)
+            result["instructor_name"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Instructor Title
         if "instructor_title" in record:
-            match = loose_compare(record["instructor_title"], preds.get("instructor_title", ""))
-            field_stats["instructor_title"]["total"] += 1
-            field_stats["instructor_title"]["correct"] += int(match)
-            result["instructor_title"] = {"gt": record["instructor_title"], "pred": preds.get("instructor_title", ""), "match": match}
+            gt_val = record["instructor_title"]
+            pred_val = preds.get("instructor_title", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["instructor_title"], gt_val, pred_val, match)
+            result["instructor_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Instructor Department
         if "instructor_department" in record:
-            match = loose_compare(record["instructor_department"], preds.get("instructor_department", ""))
-            field_stats["instructor_department"]["total"] += 1
-            field_stats["instructor_department"]["correct"] += int(match)
-            result["instructor_department"] = {"gt": record["instructor_department"], "pred": preds.get("instructor_department", ""), "match": match}
+            gt_val = record["instructor_department"]
+            pred_val = preds.get("instructor_department", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["instructor_department"], gt_val, pred_val, match)
+            result["instructor_department"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Office Address
         if "office_address" in record:
-            match = loose_compare(record["office_address"], preds.get("office_address", ""))
-            field_stats["office_address"]["total"] += 1
-            field_stats["office_address"]["correct"] += int(match)
-            result["office_address"] = {"gt": record["office_address"], "pred": preds.get("office_address", ""), "match": match}
+            gt_val = record["office_address"]
+            pred_val = preds.get("office_address", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["office_address"], gt_val, pred_val, match)
+            result["office_address"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Office Hours
         if "office_hours" in record:
-            match = loose_compare(record["office_hours"], preds.get("office_hours", ""))
-            field_stats["office_hours"]["total"] += 1
-            field_stats["office_hours"]["correct"] += int(match)
-            result["office_hours"] = {"gt": record["office_hours"], "pred": preds.get("office_hours", ""), "match": match}
+            gt_val = record["office_hours"]
+            pred_val = preds.get("office_hours", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["office_hours"], gt_val, pred_val, match)
+            result["office_hours"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Office Phone
         if "office_phone" in record:
-            match = loose_compare(record["office_phone"], preds.get("office_phone", ""))
-            field_stats["office_phone"]["total"] += 1
-            field_stats["office_phone"]["correct"] += int(match)
-            result["office_phone"] = {"gt": record["office_phone"], "pred": preds.get("office_phone", ""), "match": match}
+            gt_val = record["office_phone"]
+            pred_val = preds.get("office_phone", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["office_phone"], gt_val, pred_val, match)
+            result["office_phone"] = {"gt": gt_val, "pred": pred_val, "match": match}
+
+        # Preferred Contact Method
+        if "preferred_contact_method" in record:
+            gt_val = record["preferred_contact_method"]
+            pred_val = preds.get("preferred_contact_method", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["preferred_contact_method"], gt_val, pred_val, match)
+            result["preferred_contact_method"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Assignment Types Title
         if "assignment_types_title" in record:
-            match = loose_compare(record["assignment_types_title"], preds.get("assignment_types_title", ""))
-            field_stats["assignment_types_title"]["total"] += 1
-            field_stats["assignment_types_title"]["correct"] += int(match)
-            result["assignment_types_title"] = {"gt": record["assignment_types_title"], "pred": preds.get("assignment_types_title", ""), "match": match}
-
-        # Grading Procedures Title
-        if "grading_procedures_title" in record:
-            match = loose_compare(record["grading_procedures_title"], preds.get("grading_procedures_title", ""))
-            field_stats["grading_procedures_title"]["total"] += 1
-            field_stats["grading_procedures_title"]["correct"] += int(match)
-            result["grading_procedures_title"] = {"gt": record["grading_procedures_title"], "pred": preds.get("grading_procedures_title", ""), "match": match}
+            gt_val = record["assignment_types_title"]
+            pred_val = preds.get("assignment_types_title", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["assignment_types_title"], gt_val, pred_val, match)
+            result["assignment_types_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Deadline Expectations Title
         if "deadline_expectations_title" in record:
-            match = loose_compare(record["deadline_expectations_title"], preds.get("deadline_expectations_title", ""))
-            field_stats["deadline_expectations_title"]["total"] += 1
-            field_stats["deadline_expectations_title"]["correct"] += int(match)
-            result["deadline_expectations_title"] = {"gt": record["deadline_expectations_title"], "pred": preds.get("deadline_expectations_title", ""), "match": match}
+            gt_val = record["deadline_expectations_title"]
+            pred_val = preds.get("deadline_expectations_title", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["deadline_expectations_title"], gt_val, pred_val, match)
+            result["deadline_expectations_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Assignment Delivery
         if "assignment_delivery" in record:
-            match = loose_compare(record["assignment_delivery"], preds.get("assignment_delivery", ""))
-            field_stats["assignment_delivery"]["total"] += 1
-            field_stats["assignment_delivery"]["correct"] += int(match)
-            result["assignment_delivery"] = {"gt": record["assignment_delivery"], "pred": preds.get("assignment_delivery", ""), "match": match}
+            gt_val = record["assignment_delivery"]
+            pred_val = preds.get("assignment_delivery", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["assignment_delivery"], gt_val, pred_val, match)
+            result["assignment_delivery"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Final Grade Scale
         if "final_grade_scale" in record:
-            match = loose_compare(record["final_grade_scale"], preds.get("final_grade_scale", ""))
-            field_stats["final_grade_scale"]["total"] += 1
-            field_stats["final_grade_scale"]["correct"] += int(match)
-            result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+            gt_val = record["final_grade_scale"]
+            pred_val = preds.get("final_grade_scale", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["final_grade_scale"], gt_val, pred_val, match)
+            result["final_grade_scale"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Response Time
         if "response_time" in record:
-            match = loose_compare(record["response_time"], preds.get("response_time", ""))
-            field_stats["response_time"]["total"] += 1
-            field_stats["response_time"]["correct"] += int(match)
-            result["response_time"] = {"gt": record["response_time"], "pred": preds.get("response_time", ""), "match": match}
+            gt_val = record["response_time"]
+            pred_val = preds.get("response_time", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["response_time"], gt_val, pred_val, match)
+            result["response_time"] = {"gt": gt_val, "pred": pred_val, "match": match}
             
         # Class Location (with smart comparison considering modality)
         if "class_location" in record:
+            gt_val = record["class_location"]
+            pred_val = preds.get("class_location", "")
             modality_value = record.get("modality", "")
-            match = compare_class_location(
-                record["class_location"],
-                preds.get("class_location", ""),
-                modality_value
-            )
-            field_stats["class_location"]["total"] += 1
-            field_stats["class_location"]["correct"] += int(match)
+            match = compare_class_location(gt_val, pred_val, modality_value)
+            update_field_stats(field_stats["class_location"], gt_val, pred_val, match)
             result["class_location"] = {
-                "gt": record["class_location"],
-                "pred": preds.get("class_location", ""),
+                "gt": gt_val,
+                "pred": pred_val,
                 "match": match,
                 "modality": modality_value
             }
         # Grading Process
         if "grading_process" in record:
-            match = loose_compare(record["grading_process"], preds.get("grading_process", ""))
-            field_stats["grading_process"]["total"] += 1
-            field_stats["grading_process"]["correct"] += int(match)
-            result["grading_process"] = {"gt": record["grading_process"], "pred": preds.get("grading_process", ""), "match": match}
+            gt_val = record["grading_process"]
+            pred_val = preds.get("grading_process", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["grading_process"], gt_val, pred_val, match)
+            result["grading_process"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         details.append(result)
 
-    # Calculate summary statistics
+    # Calculate summary statistics with Precision, Recall, and F1 Score
     summary = {}
-    total_correct = total_tests = 0
+    total_tp = total_fp = total_fn = total_tn = 0
+
     for field in SUPPORTED_FIELDS:
         stats = field_stats[field]
-        acc = (stats["correct"] / stats["total"]) if stats["total"] else 0.0
+        tp = stats["TP"]
+        fp = stats["FP"]
+        fn = stats["FN"]
+        tn = stats["TN"]
+
+        # Calculate metrics
+        # Precision: Of all detections, how many were correct?
+        precision = (tp / (tp + fp)) if (tp + fp) > 0 else 0.0
+
+        # Recall: Of all actual values, how many did we detect correctly?
+        recall = (tp / (tp + fn)) if (tp + fn) > 0 else 0.0
+
+        # F1 Score: Harmonic mean of precision and recall
+        f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
+
+        # Accuracy: Overall correctness
+        total = tp + fp + fn + tn
+        accuracy = ((tp + tn) / total) if total > 0 else 0.0
+
         summary[field] = {
-            "accuracy": round(acc, 4),
-            "correct": stats["correct"],
-            "total": stats["total"]
+            "accuracy": round(accuracy, 4),
+            "precision": round(precision, 4),
+            "recall": round(recall, 4),
+            "f1_score": round(f1, 4),
+            "TP": tp,
+            "FP": fp,
+            "FN": fn,
+            "TN": tn
         }
-        total_correct += stats["correct"]
-        total_tests += stats["total"]
 
-    overall = (total_correct / total_tests) if total_tests else 0.0
+        total_tp += tp
+        total_fp += fp
+        total_fn += fn
+        total_tn += tn
 
-    # Print summary to terminal
-    print("\n" + "=" * 70)
-    print("RESULTS SUMMARY")
-    print("=" * 70)
-    print(f"{'Field':<30} {'Accuracy':<10} {'Correct/Total'}")
-    print("-" * 70)
+    # Overall metrics
+    overall_precision = (total_tp / (total_tp + total_fp)) if (total_tp + total_fp) > 0 else 0.0
+    overall_recall = (total_tp / (total_tp + total_fn)) if (total_tp + total_fn) > 0 else 0.0
+    overall_f1 = (2 * overall_precision * overall_recall / (overall_precision + overall_recall)) if (overall_precision + overall_recall) > 0 else 0.0
+    overall_total = total_tp + total_fp + total_fn + total_tn
+    overall_accuracy = ((total_tp + total_tn) / overall_total) if overall_total > 0 else 0.0
+
+    # Print summary to terminal with F1 Score
+    print("\n" + "=" * 90)
+    print("RESULTS SUMMARY - Detector Performance Metrics")
+    print("=" * 90)
+    print(f"{'Field':<30} {'Accuracy':>9} {'Precision':>10} {'Recall':>9} {'F1 Score':>10}")
+    print("-" * 90)
 
     for field in SUPPORTED_FIELDS:
         stats = summary[field]
-        print(f"{field:<30} {stats['accuracy']:>6.1%}      {stats['correct']:>3}/{stats['total']:<3}")
+        print(f"{field:<30} {stats['accuracy']:>8.1%} {stats['precision']:>10.1%} "
+              f"{stats['recall']:>9.1%} {stats['f1_score']:>10.1%}")
 
-    print("-" * 70)
-    print(f"{'OVERALL':<30} {overall:>6.1%}      {total_correct}/{total_tests}")
-    print("=" * 70)
+    print("-" * 90)
+    print(f"{'OVERALL':<30} {overall_accuracy:>8.1%} {overall_precision:>10.1%} "
+          f"{overall_recall:>9.1%} {overall_f1:>10.1%}")
+    print("=" * 90)
+
+    # Print explanation for non-technical audience
+    print("\nMETRIC DEFINITIONS:")
+    print("  • Accuracy:  How often the detector is correct overall")
+    print("  • Precision: When detector finds something, how often is it right?")
+    print("  • Recall:    Of all fields that exist, how many did we find?")
+    print("  • F1 Score:  Balanced measure combining Precision and Recall")
+    print("               (Higher F1 = better overall detector quality)")
+    print("=" * 90)
 
     # Save results to JSON
     output_data = {
         "summary": summary,
         "overall": {
-            "accuracy": round(overall, 4),
-            "correct": total_correct,
-            "total": total_tests
+            "accuracy": round(overall_accuracy, 4),
+            "precision": round(overall_precision, 4),
+            "recall": round(overall_recall, 4),
+            "f1_score": round(overall_f1, 4),
+            "TP": total_tp,
+            "FP": total_fp,
+            "FN": total_fn,
+            "TN": total_tn
         },
         "details": details
     }
