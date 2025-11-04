@@ -91,14 +91,14 @@
       "TN": 62
     },
     "office_hours": {
-      "accuracy": 0.5285,
-      "precision": 0.4754,
-      "recall": 0.5273,
-      "f1_score": 0.5,
-      "TP": 29,
-      "FP": 32,
-      "FN": 26,
-      "TN": 36
+      "accuracy": 0.7236,
+      "precision": 0.8986,
+      "recall": 0.6966,
+      "f1_score": 0.7848,
+      "TP": 62,
+      "FP": 7,
+      "FN": 27,
+      "TN": 27
     },
     "office_phone": {
       "accuracy": 0.878,
@@ -192,14 +192,14 @@
     }
   },
   "overall": {
-    "accuracy": 0.7515,
-    "precision": 0.9056,
-    "recall": 0.7081,
-    "f1_score": 0.7948,
-    "TP": 1123,
-    "FP": 117,
-    "FN": 463,
-    "TN": 631
+    "accuracy": 0.7618,
+    "precision": 0.9263,
+    "recall": 0.7136,
+    "f1_score": 0.8061,
+    "TP": 1156,
+    "FP": 92,
+    "FN": 464,
+    "TN": 622
   },
   "details": [
     {
@@ -1263,7 +1263,7 @@
       },
       "office_hours": {
         "gt": "M/W 10-10:30 and by appointment ",
-        "pred": "M/W 10-10:30 and by appointment Pandora 540",
+        "pred": "M/W 10-10:30 and by appointment",
         "match": true
       },
       "office_phone": {
@@ -1666,9 +1666,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "are by appointment. You may book a face to face appointment, or an online",
-        "match": false
+        "gt": "By appointment; http://calendly.com/karenajin",
+        "pred": "http://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -1767,9 +1767,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Office hours are by appointment or during announced walk-in office hours",
-        "match": false
+        "gt": "By appointment or during walk-in hours; https://calendly.com/karenajin",
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -1868,9 +1868,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Here is the link to make an appointment with me in my",
-        "match": false
+        "gt": "By appointment; https://calendly.com/karenajin; Walk-ins welcome",
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -1969,7 +1969,7 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment; https://calendly.com/karenajin",
         "pred": "Here is the link to make an appointment with me in my virtual Zoom office: https://",
         "match": false
       },
@@ -2071,8 +2071,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "(603) 641-4398",
@@ -2272,9 +2272,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "are by appointment. You may book a face to face appointment, or an online",
-        "match": false
+        "gt": "By appointment; http://calendly.com/karenajin",
+        "pred": "http://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2373,9 +2373,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "are by appointment or during announced walk-in office hours. You are",
-        "match": false
+        "gt": "By appointment or during walk-in hours; http://calendly.com/karenajin",
+        "pred": "http://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2474,9 +2474,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Here is the link to make an appointment with me in my office: https://calendly.com/karenajin You can",
-        "match": false
+        "gt": "By appointment; https://calendly.com/karenajin; Walk-ins welcome",
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2576,8 +2576,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "(603) 641-4398",
@@ -2676,9 +2676,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2777,9 +2777,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Open office hours on Mondays and Fridays; By appointment",
         "pred": "Open office hours on Monday’s and Friday’s.",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -2878,7 +2878,7 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Wednesdays, 4-6 pm; By appointment or during walk-in hours",
         "pred": "Wednesdays, 4-6 pm, UNH-M",
         "match": false
       },
@@ -2979,9 +2979,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "603 296 7880",
@@ -3080,9 +3080,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "603 296 7880",
@@ -3283,8 +3283,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "http://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -3384,8 +3384,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "http://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -3686,9 +3686,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "One hour before and after class; By appointment",
         "pred": "One hour before and after class, or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -3787,8 +3787,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "",
+        "gt": "To schedule in-person or Zoom meetings use the Canvas Inbox tool",
+        "pred": "Canvas Inbox tool",
         "match": true
       },
       "office_phone": {
@@ -3888,8 +3888,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "",
+        "gt": "To schedule in-person or Zoom meetings use the Canvas Inbox tool",
+        "pred": "Canvas Inbox tool",
         "match": true
       },
       "office_phone": {
@@ -4090,8 +4090,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Section M2: After class; By appointment (make appointment using MyCourses Canvas Inbox tool)",
-        "pred": "",
+        "gt": "Section M2: After class; By appointment",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -4394,7 +4394,7 @@
       },
       "office_hours": {
         "gt": "Tuesday 1-3 pm (after-class help session)",
-        "pred": "",
+        "pred": "Tuesday, 1-3 pm",
         "match": false
       },
       "office_phone": {
@@ -4494,9 +4494,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "By appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -4595,9 +4595,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Tuesday, 8:30pm or by appointment",
         "pred": "Tuesday, 8:30pm or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -4696,9 +4696,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Tuesday, 4-5pm or by appointment",
         "pred": "Tuesday, 4 - 5pm or by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -5100,9 +5100,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -5201,7 +5201,7 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Shortly before and right after class; By appointment",
         "pred": "Mondays 5:31 PM - 8:30 PM",
         "match": false
       },
@@ -5403,9 +5403,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Right after class; By appointment via MyCourses Zoom",
         "pred": "Right after class or by appointment via MyCourses Zoom",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -5908,9 +5908,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment; Thursdays; Possible Wednesday afternoon",
         "pred": "by appointment, Thursdays, or a possible Wednesday afternoon",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6009,9 +6009,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6514,9 +6514,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Right after class; By appointment via MyCourses Zoom",
         "pred": "Right after class or by appointment via MyCourses Zoom",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -6616,8 +6616,8 @@
       },
       "office_hours": {
         "gt": "https://calendly.com/karenajin",
-        "pred": "",
-        "match": false
+        "pred": "https://calendly.com/karenajin",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4398",
@@ -6716,9 +6716,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7121,7 +7121,7 @@
       },
       "office_hours": {
         "gt": "See schedule on Canvas; By appointment",
-        "pred": "",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -7423,9 +7423,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7524,8 +7524,8 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
-        "pred": "Monday 9:10 am - 12:00 pm P128",
+        "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
+        "pred": "Monday 9:10 am - 12:00 pm",
         "match": false
       },
       "office_phone": {
@@ -7625,9 +7625,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7726,9 +7726,9 @@
         "match": false
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "By appointment -",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -7929,8 +7929,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -8030,8 +8030,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "Canvas Inbox tool",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -8130,9 +8130,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -8332,9 +8332,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "Evenings, besides Wednesdays",
         "pred": "Evenings, besides Wednesdays",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -8535,8 +8535,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "https://calendly.com/karenajin",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -8636,8 +8636,8 @@
       },
       "office_hours": {
         "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
-        "pred": "",
-        "match": false
+        "pred": "As posted outside my office",
+        "match": true
       },
       "office_phone": {
         "gt": "603-641-4340",
@@ -8837,9 +8837,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "By appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -8938,9 +8938,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "by appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -9039,9 +9039,9 @@
         "match": true
       },
       "office_hours": {
-        "gt": "Missing",
+        "gt": "by appointment",
         "pred": "by appointment",
-        "match": false
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -9343,7 +9343,7 @@
       },
       "office_hours": {
         "gt": "See schedule on Canvas; By appointment",
-        "pred": "",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -9444,7 +9444,7 @@
       },
       "office_hours": {
         "gt": "See schedule on Canvas; By appointment",
-        "pred": "",
+        "pred": "for help session",
         "match": false
       },
       "office_phone": {
@@ -9646,8 +9646,8 @@
       },
       "office_hours": {
         "gt": "As posted outside my office; Outside posted hours; as needed by appointment",
-        "pred": "",
-        "match": false
+        "pred": "As posted outside my office",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4340",
