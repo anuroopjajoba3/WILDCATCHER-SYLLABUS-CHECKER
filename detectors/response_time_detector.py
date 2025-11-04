@@ -16,13 +16,16 @@ class ResponseTimeDetector:
             r'(?i)(within\s+\d+(?:-\d+)?\s*(?:hour|hr|day|business\s+day)s?(?:\s+on\s+\w+)?(?:\s*\([^)]{0,30}\))?)',
             r'(?i)(?:respond(?:s)?|reply|replies?)\s+(within\s+\d+(?:-\d+)?\s*(?:hour|hr|day|business\s+day)s?(?:\s+on\s+\w+)?)',
             r'(?i)(typically|usually)\s+(?:respond(?:s)?|reply|replies?)?\s*(?:to\s+emails?\s*)?(within\s+\d+(?:-\d+)?\s*(?:hour|hr|day)s?(?:\s*\([^)]{0,30}\))?)',
+            # NEW: Catches "I'll reply no later than next weekday/business day"
+            r'(?i)(?:I\'ll|I\s+will|you\'ll\s+get\s+a)\s+(?:respond|reply)\s+no\s+later\s+than\s+(next\s+(?:business\s+)?(?:day|weekday))',
             r'(?i)(?:I\'ll|I\s+will|you\'ll\s+get\s+a)\s+(?:respond|reply)\s+(?:no\s+later\s+than\s+)?(within\s+\d+(?:-\d+)?\s*(?:hour|hr|day)s?)',
             r'(?i)(\d+(?:-\d+)?\s*(?:hour|hr|day|business\s+day)s?)\s+response\s+time',
             r'(?i)(?:within\s+|typically\s+|usually\s+)?(24-48\s*hours?)',
             r'(?i)(?:within\s+|typically\s+|usually\s+)?(24\s*hours?)(?:\s+on\s+\w+)?',
             r'(?i)(?:within\s+|typically\s+|usually\s+)?(48\s*hours?)(?:\s+on\s+\w+)?',
             r'(?i)(within\s+)?\d+\s+business\s+days?',
-            r'(?i)((?:by\s+)?(?:the\s+)?next\s+(?:business\s+)?day)',
+            # UPDATED: Now catches "next weekday" in addition to "next day"
+            r'(?i)((?:by\s+)?(?:the\s+)?next\s+(?:business\s+)?(?:day|weekday))',
         ]
         
         self.contact_keywords = [
@@ -78,7 +81,8 @@ class ResponseTimeDetector:
         text_lower = text.lower()
         has_time_unit = bool(re.search(r'\d+\s*(?:hour|hr|day|business\s+day)s?', text_lower))
         if not has_time_unit:
-            has_time_unit = bool(re.search(r'next\s+(?:business\s+)?day', text_lower))
+            # UPDATED: Now also checks for "next weekday"
+            has_time_unit = bool(re.search(r'next\s+(?:business\s+)?(?:day|weekday)', text_lower))
         
         vague_terms = ['may vary', 'varies', 'depends', 'as soon as possible', 'asap', 'promptly']
         has_vague = any(term in text_lower for term in vague_terms)
@@ -188,6 +192,11 @@ class ResponseTimeDetector:
                 if re.search(r'\d+\s*(?:hour|day)', candidate, re.IGNORECASE):
                     score += 2
                 if '(' in candidate or 'business' in candidate.lower():
+                    score += 1
+                # NEW: Boost score for "no later than" patterns
+                if 'no later than' in candidate.lower():
+                    score += 2
+                if 'weekday' in candidate.lower():
                     score += 1
                 
                 if score > best_score:
