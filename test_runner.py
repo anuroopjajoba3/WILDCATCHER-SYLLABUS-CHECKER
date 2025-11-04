@@ -163,7 +163,7 @@ def has_value(value):
     """
     normalized = norm(value)
     # Consider these as "no value"
-    empty_indicators = ["", "not found", "missing", "n/a", "tbd"]
+    empty_indicators = ["", "not found", "missing", "n/a", "tbd", "not specified"]
     return normalized not in empty_indicators
 
 def update_field_stats(stats, gt_value, pred_value, match):
@@ -175,6 +175,8 @@ def update_field_stats(stats, gt_value, pred_value, match):
     - FP (False Positive): GT has NO value BUT Pred found something
     - FN (False Negative): GT has value BUT (Pred has no value OR they don't match)
     - TN (True Negative): GT has NO value AND Pred has no value
+
+    Note: "Missing" in GT means field was verified to NOT exist in syllabus
     """
     gt_has = has_value(gt_value)
     pred_has = has_value(pred_value)
@@ -199,25 +201,50 @@ def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     return SequenceMatcher(None, a, b).ratio() >= threshold
 
 def loose_compare(gt, pred):
-    """GT 'not found'/empty/missing vs pred empty => True; otherwise fuzzy."""
+    """GT 'not found'/empty/missing means field doesn't exist - expect empty pred."""
     g = norm(gt)
     p = norm(pred)
-    if g in ("", "not found", "missing") and p == "":
-        return True
+
+    # If GT is Missing/not found/empty, the field doesn't exist in syllabus
+    # Prediction should also be empty for a match
+    if g in ("", "not found", "missing", "tbd", "not specified", "n/a"):
+        return p == ""
+
     return fuzzy_match(g, p)
 
 def compare_modality(gt, pred):
-    """Normalize to buckets before compare."""
+    """Normalize to buckets before compare. Missing means field doesn't exist."""
     def core(s):
         s = norm(s)
+        # If GT is Missing/empty, field doesn't exist in syllabus
+        if s in ("", "missing", "tbd", "not found", "not specified", "n/a"):
+            return "not_present"
+
+        # Check for negations (no remote, no online, etc.) -> treat as in-person
+        if any(neg in s for neg in ("no remote", "no option for remote", "no online")):
+            return "in-person"
+
+        # Hybrid variations
         if "hybrid" in s or "blended" in s or "hy-flex" in s or "hyflex" in s:
             return "hybrid"
-        if any(x in s for x in ("online", "remote", "asynchronous", "synchronous online")):
+
+        # Online variations (including synchronous/asynchronous, remote, zoom)
+        if any(x in s for x in ("online", "remote", "asynchronous", "synchronous", "zoom")):
             return "online"
-        if "in-person" in s or "in person" in s or "on campus" in s:
+
+        # In-person variations (face-to-face, on campus, specific locations, outdoor/field)
+        if any(x in s for x in ("in-person", "in person", "on campus", "face to face",
+                                 "face-to-face", "outdoor", "field meeting", "classroom",
+                                 "lab activit", "pandra", "pandora")):
             return "in-person"
+
         return s
-    return core(gt) == core(pred)
+
+    gt_norm = core(gt)
+    pred_norm = core(pred)
+
+    # Both normalized values should match
+    return gt_norm == pred_norm
 
 def normalize_location(s):
     """
@@ -265,12 +292,17 @@ def compare_class_location(gt, pred, modality):
     Smart comparison for class_location that considers course modality.
 
     Logic:
+    - If GT is Missing/empty, field doesn't exist - expect empty prediction
     - If GT indicates online (contains "online", "canvas", "zoom", "teams") AND
       modality is "Online", then empty prediction is acceptable (correct).
     - Otherwise, use fuzzy matching with location normalization.
     """
     g = norm(gt)
     p = norm(pred)
+
+    # If GT is Missing/empty, the field doesn't exist - pred should also be empty
+    if g in ("missing", "tbd", "not specified", "n/a", ""):
+        return p == ""
 
     # Check if GT indicates an online-only course
     online_indicators = ["online", "canvas", "zoom", "teams", "webex", "remote", "tbd"]
@@ -285,10 +317,6 @@ def compare_class_location(gt, pred, modality):
             # Both empty or pred is empty when GT says "online/remote"
             if p == "" or g == p:
                 return True
-
-    # For TBD/Missing values in GT, accept empty predictions
-    if g in ("tbd", "missing", "n/a", ""):
-        return p == ""
 
     # Normalize location strings for better matching
     g_norm = normalize_location(g)
