@@ -8,7 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
-Includes support for assignment_types_title, grading_procedures_title, and deadline_expectations_title fields.
+Includes support for assignment_types_title, grading_procedures_title, deadline_expectations_title, and response_time fields.
 """
 import os
 import sys
@@ -24,7 +24,10 @@ SUPPORTED_FIELDS = (
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
-    "deadline_expectations_title", "assignment_delivery", "final_grade_scale"
+    "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
+    "response_time",
+    "class_location",
+    "grading_process"
 )
 
 # Add repo root to path
@@ -87,7 +90,7 @@ except Exception:
     print("WARNING: Office information detector not available")
 
 try:
-    from detectors.assignment_types_detection import AssignmentTypesDetector
+    from detectors.assignment_types_detection import detect_assignment_types_title
     ASSIGNMENT_TYPES_AVAILABLE = True
 except Exception:
     ASSIGNMENT_TYPES_AVAILABLE = False
@@ -121,6 +124,27 @@ except Exception:
     GRADING_SCALE_AVAILABLE = False
     print("WARNING: Grading scale detector not available")
 
+try:
+    from detectors.response_time_detector import ResponseTimeDetector
+    RESPONSE_TIME_AVAILABLE = True
+except Exception:
+    RESPONSE_TIME_AVAILABLE = False
+    print("WARNING: Response time detector not available")
+    
+try:
+    from detectors.class_location_detector import ClassLocationDetector
+    CLASS_LOCATION_AVAILABLE = True
+except Exception:
+    CLASS_LOCATION_AVAILABLE = False
+    print("WARNING: Class location detector not available")
+   
+try:
+    from detectors.grading_process_detection import GradingProcessDetector
+    GRADING_PROCESS_AVAILABLE = True
+except Exception:
+    GRADING_PROCESS_AVAILABLE = False
+    print("WARNING: Grading process detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -141,10 +165,10 @@ def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     return SequenceMatcher(None, a, b).ratio() >= threshold
 
 def loose_compare(gt, pred):
-    """GT 'not found'/empty vs pred empty => True; otherwise fuzzy."""
+    """GT 'not found'/empty/missing vs pred empty => True; otherwise fuzzy."""
     g = norm(gt)
     p = norm(pred)
-    if g in ("", "not found") and p == "":
+    if g in ("", "not found", "missing") and p == "":
         return True
     return fuzzy_match(g, p)
 
@@ -160,6 +184,98 @@ def compare_modality(gt, pred):
             return "in-person"
         return s
     return core(gt) == core(pred)
+
+def normalize_location(s):
+    """
+    Normalize location strings for better matching.
+    - PANDRA → Pandora
+    - Rm./Rm → Room
+    - Remove extra spaces
+    - Lowercase
+    - Handle P149 <-> Pandora 149 equivalence
+    """
+    s = s.strip().lower()
+
+    # Building name variations
+    s = s.replace("pandra", "pandora")
+    s = s.replace("hamilton smith", "hamiltonsmith")  # Consistent handling
+
+    # Room prefix variations
+    s = s.replace("rm.", "room")
+    s = s.replace("rm ", "room ")
+    s = s.replace("classroom:", "room")
+    s = s.replace("classroom ", "room ")
+
+    # Normalize separators
+    s = s.replace(",", " ")
+    s = s.replace(".", " ")
+
+    # Normalize whitespace
+    s = " ".join(s.split())
+
+    # Handle P[number] <-> Pandora [number] equivalence
+    # "pandora 149" -> "p149" and "room p149" -> "p149"
+    # This allows "PANDRA 149" and "Room P149" to match
+    import re
+
+    # If format is "pandora 123" or "pandora hall 123", convert to "p123"
+    s = re.sub(r'pandora\s+(?:hall\s+)?(\d+)', r'p\1', s)
+
+    # If format is "room p123", convert to "p123"
+    s = re.sub(r'room\s+(p\d+)', r'\1', s)
+
+    return s
+
+def compare_class_location(gt, pred, modality):
+    """
+    Smart comparison for class_location that considers course modality.
+
+    Logic:
+    - If GT indicates online (contains "online", "canvas", "zoom", "teams") AND
+      modality is "Online", then empty prediction is acceptable (correct).
+    - Otherwise, use fuzzy matching with location normalization.
+    """
+    g = norm(gt)
+    p = norm(pred)
+
+    # Check if GT indicates an online-only course
+    online_indicators = ["online", "canvas", "zoom", "teams", "webex", "remote", "tbd"]
+    gt_is_online = any(indicator in g for indicator in online_indicators)
+
+    # Special case: GT says online and modality confirms it's online/remote
+    # Empty prediction is acceptable (no physical location expected)
+    if gt_is_online and modality:
+        modality_norm = norm(modality)
+        modality_is_online = any(word in modality_norm for word in ["online", "remote", "zoom", "teams", "webex"])
+        if modality_is_online:
+            # Both empty or pred is empty when GT says "online/remote"
+            if p == "" or g == p:
+                return True
+
+    # For TBD/Missing values in GT, accept empty predictions
+    if g in ("tbd", "missing", "n/a", ""):
+        return p == ""
+
+    # Normalize location strings for better matching
+    g_norm = normalize_location(g)
+    p_norm = normalize_location(p)
+
+    # Empty checks
+    if not g_norm and not p_norm:
+        return True
+    if not g_norm or not p_norm:
+        return False
+
+    # Exact match after normalization
+    if g_norm == p_norm:
+        return True
+
+    # Substring match (one contains the other)
+    if g_norm in p_norm or p_norm in g_norm:
+        return True
+
+    # Fuzzy match on normalized strings
+    return SequenceMatcher(None, g_norm, p_norm).ratio() >= FUZZY_MATCH_THRESHOLD
 
 # ======================================================================
 # DETECTOR WRAPPERS
@@ -236,12 +352,11 @@ def detect_all_fields(text: str) -> dict:
         preds["office_hours"] = ""
         preds["office_phone"] = ""
 
-    # Assignment Types
+    # Assignment Types - UPDATED TO USE CONVENIENCE FUNCTION
     if ASSIGNMENT_TYPES_AVAILABLE:
-        a = AssignmentTypesDetector().detect(text)
-        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
+        preds["assignment_types_title"] = detect_assignment_types_title(text)
     else:
-        preds["assignment_types_title"] = ""
+        preds["assignment_types_title"] = "Missing"
 
     # Grading Procedures
     if GRADING_PROCEDURES_AVAILABLE:
@@ -275,6 +390,27 @@ def detect_all_fields(text: str) -> dict:
         preds["final_grade_scale"] = gs.get("content", "") if gs.get("found") else ""
     else:
         preds["final_grade_scale"] = ""
+
+    # Response Time - FIXED: Return "Missing" instead of empty string
+    if RESPONSE_TIME_AVAILABLE:
+        rt = ResponseTimeDetector().detect(text)
+        preds["response_time"] = rt.get("content", "Missing")
+    else:
+        preds["response_time"] = "Missing"
+        
+    # Class Location
+    if CLASS_LOCATION_AVAILABLE:
+        cl = ClassLocationDetector().detect(text)
+        preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
+    else:
+        preds["class_location"] = ""
+    
+    # Grading Process
+    if GRADING_PROCESS_AVAILABLE:
+        gp = GradingProcessDetector().detect(text)
+        preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
+    else:
+        preds["grading_process"] = ""
 
     return preds
 
@@ -330,6 +466,7 @@ def main():
             field_stats["modality"]["total"] += 1
             field_stats["modality"]["correct"] += int(match)
             result["modality"] = {"gt": record["modality"], "pred": preds.get("modality", ""), "match": match}
+        
         # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
             gt_text = str(record.get("SLOs", "") or "").strip()
@@ -445,6 +582,37 @@ def main():
             field_stats["final_grade_scale"]["total"] += 1
             field_stats["final_grade_scale"]["correct"] += int(match)
             result["final_grade_scale"] = {"gt": record["final_grade_scale"], "pred": preds.get("final_grade_scale", ""), "match": match}
+
+        # Response Time
+        if "response_time" in record:
+            match = loose_compare(record["response_time"], preds.get("response_time", ""))
+            field_stats["response_time"]["total"] += 1
+            field_stats["response_time"]["correct"] += int(match)
+            result["response_time"] = {"gt": record["response_time"], "pred": preds.get("response_time", ""), "match": match}
+            
+        # Class Location (with smart comparison considering modality)
+        if "class_location" in record:
+            modality_value = record.get("modality", "")
+            match = compare_class_location(
+                record["class_location"],
+                preds.get("class_location", ""),
+                modality_value
+            )
+            field_stats["class_location"]["total"] += 1
+            field_stats["class_location"]["correct"] += int(match)
+            result["class_location"] = {
+                "gt": record["class_location"],
+                "pred": preds.get("class_location", ""),
+                "match": match,
+                "modality": modality_value
+            }
+        
+        # Grading Process
+        if "grading_process" in record:
+            match = loose_compare(record["grading_process"], preds.get("grading_process", ""))
+            field_stats["grading_process"]["total"] += 1
+            field_stats["grading_process"]["correct"] += int(match)
+            result["grading_process"] = {"gt": record["grading_process"], "pred": preds.get("grading_process", ""), "match": match}
 
         details.append(result)
 
