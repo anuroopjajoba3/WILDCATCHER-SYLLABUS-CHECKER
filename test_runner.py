@@ -8,7 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
-Includes support for assignment_types_title, grading_procedures_title, and deadline_expectations_title fields.
+Includes support for assignment_types_title, grading_procedures_title, deadline_expectations_title, and response_time fields.
 """
 import os
 import sys
@@ -25,7 +25,9 @@ SUPPORTED_FIELDS = (
     "office_address", "office_hours", "office_phone",
     "assignment_types_title", "grading_procedures_title",
     "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
-    "class_location"
+    "response_time",
+    "class_location",
+    "grading_process"
 )
 
 # Add repo root to path
@@ -123,11 +125,25 @@ except Exception:
     print("WARNING: Grading scale detector not available")
 
 try:
+    from detectors.response_time_detector import ResponseTimeDetector
+    RESPONSE_TIME_AVAILABLE = True
+except Exception:
+    RESPONSE_TIME_AVAILABLE = False
+    print("WARNING: Response time detector not available")
+    
+try:
     from detectors.class_location_detector import ClassLocationDetector
     CLASS_LOCATION_AVAILABLE = True
 except Exception:
     CLASS_LOCATION_AVAILABLE = False
     print("WARNING: Class location detector not available")
+   
+try:
+    from detectors.grading_process_detection import GradingProcessDetector
+    GRADING_PROCESS_AVAILABLE = True
+except Exception:
+    GRADING_PROCESS_AVAILABLE = False
+    print("WARNING: Grading process detector not available")
 
 # ======================================================================
 # COMPARISON HELPERS
@@ -181,10 +197,10 @@ def fuzzy_match(a, b, threshold=FUZZY_MATCH_THRESHOLD):
     return SequenceMatcher(None, a, b).ratio() >= threshold
 
 def loose_compare(gt, pred):
-    """GT 'not found'/empty vs pred empty => True; otherwise fuzzy."""
+    """GT 'not found'/empty/missing vs pred empty => True; otherwise fuzzy."""
     g = norm(gt)
     p = norm(pred)
-    if g in ("", "not found") and p == "":
+    if g in ("", "not found", "missing") and p == "":
         return True
     return fuzzy_match(g, p)
 
@@ -371,9 +387,9 @@ def detect_all_fields(text: str) -> dict:
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
         a = AssignmentTypesDetector().detect(text)
-        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
+        preds["assignment_types_title"] = a.get("content", "Missing")
     else:
-        preds["assignment_types_title"] = ""
+        preds["assignment_types_title"] = "Missing"
 
     # Grading Procedures
     if GRADING_PROCEDURES_AVAILABLE:
@@ -408,12 +424,26 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["final_grade_scale"] = ""
 
+    # Response Time - FIXED: Return "Missing" instead of empty string
+    if RESPONSE_TIME_AVAILABLE:
+        rt = ResponseTimeDetector().detect(text)
+        preds["response_time"] = rt.get("content", "Missing")
+    else:
+        preds["response_time"] = "Missing"
+        
     # Class Location
     if CLASS_LOCATION_AVAILABLE:
         cl = ClassLocationDetector().detect(text)
         preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
     else:
         preds["class_location"] = ""
+    # Grading Process
+    
+    if GRADING_PROCESS_AVAILABLE:
+        gp = GradingProcessDetector().detect(text)
+        preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
+    else:
+        preds["grading_process"] = ""
 
     return preds
 
@@ -605,6 +635,14 @@ def main():
             update_field_stats(field_stats["final_grade_scale"], gt_val, pred_val, match)
             result["final_grade_scale"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
+        # Response Time
+        if "response_time" in record:
+            gt_val = record["response_time"]
+            pred_val = preds.get("response_time", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["response_time"], gt_val, pred_val, match)
+            result["response_time"] = {"gt": gt_val, "pred": pred_val, "match": match}
+            
         # Class Location (with smart comparison considering modality)
         if "class_location" in record:
             gt_val = record["class_location"]
@@ -618,6 +656,13 @@ def main():
                 "match": match,
                 "modality": modality_value
             }
+        # Grading Process
+        if "grading_process" in record:
+            gt_val = record["grading_process"]
+            pred_val = preds.get("grading_process", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["grading_process"], gt_val, pred_val, match)
+            result["grading_process"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         details.append(result)
 
