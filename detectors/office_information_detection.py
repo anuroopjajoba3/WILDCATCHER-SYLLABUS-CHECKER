@@ -1,6 +1,5 @@
 """
-
- from syllabus text.
+Detects professor office location, office hours, and phone number from syllabus text.
 """
 
 import re
@@ -10,7 +9,7 @@ from dataclasses import dataclass
 
 # Detection Configuration Constants
 DEFAULT_LOCATION_SEARCH_LIMIT = 5000
-DEFAULT_HOURS_SEARCH_LIMIT = 2000
+DEFAULT_HOURS_SEARCH_LIMIT = 8000  # Increased to catch office hours further in document
 DEFAULT_PHONE_SEARCH_LIMIT = 2000
 OFFICE_CONTEXT_SEARCH_LIMIT = 2000
 
@@ -289,11 +288,13 @@ class HoursDetector(BaseDetector):
             # NEW: Canvas Inbox tool pattern
             r'(?:To\s+)?schedule\s+(?:in-person\s+or\s+)?Zoom\s+meetings\s+use\s+the\s+(Canvas\s+Inbox\s+tool)',
 
-            # NEW: After-class help session patterns
-            r'(?:Office\s*Hours?[\s:]+)?([MTWRF][a-z]*,?\s+\d{1,2}(?::\d{2})?\s*-\s*\d{1,2}(?::\d{2})?\s*[ap]m\s+\(after-class\s+help\s+session\))',
-            r'(?:Office\s*Hours?[\s:]+)?(\d{1,2}(?::\d{2})?\s*[ap]m\s*-\s*\d{1,2}(?::\d{2})?\s*[ap]m\s+\(after-class\s+help\s+session\))',
-            # Help session before the time (e.g., "help session, Tuesday, 1-3 pm")
-            r'help\s+session,?\s+([MTWRF][a-z]*,?\s+\d{1,2}(?::\d{2})?\s*-\s*\d{1,2}(?::\d{2})?\s*[ap]m)',
+            # NEW: After-class help session patterns (with en-dash support)
+            r'(?:Office\s*Hours?[\s:]+)?([MTWRF][a-z]*,?\s+\d{1,2}(?::\d{2})?\s*[-\u2013]\s*\d{1,2}(?::\d{2})?\s*[ap]m\s+\(after-class\s+help\s+session\))',
+            r'(?:Office\s*Hours?[\s:]+)?(\d{1,2}(?::\d{2})?\s*[ap]m\s*[-\u2013]\s*\d{1,2}(?::\d{2})?\s*[ap]m\s+\(after-class\s+help\s+session\))',
+            # Help session before the time (e.g., "help session, Tuesday, 1-3 pm") - with en-dash
+            r'help\s+session,?\s+([MTWRF][a-z]*,?\s+\d{1,2}(?::\d{2})?\s*[-\u2013]\s*\d{1,2}(?::\d{2})?\s*[ap]m)',
+            # "The after-class help session, Monday, 4 - 6 pm"
+            r'after-class\s+help\s+session,?\s+([MTWRF][a-z]*,?\s+\d{1,2}(?::\d{2})?\s*[-\u2013]\s*\d{1,2}(?::\d{2})?\s*[ap]m)',
 
             # NEW: Section-specific hours
             r'(?:Office\s*Hours?[\s:]+)?(Section\s+[A-Z]\d+:\s+After\s+class;\s+By\s+appointment)',
@@ -311,8 +312,8 @@ class HoursDetector(BaseDetector):
             # "After lecture or private Zoom/Teams sessions"
             r'(?:Office\s*Hours?[\s:]+)?(After\s+lecture\s+or\s+private\s+(?:Zoom|Teams)[^\n]{0,80})',
 
-            # NEW: "Meetings by Appointment" pattern
-            r'Meetings?\s+by\s+Appointment[:\s-]+([^\n]{5,100})',
+            # NEW: "Meetings by Appointment" pattern (with en-dash)
+            r'Meetings?\s+by\s+Appointment[\s:�\u2013-]+([^\n]{5,100})',
 
             # NEW: "available to meet" pattern
             r'(?:Office\s*Hours?[\s:]+)?([Aa]vailable\s+to\s+meet\s+by\s+appointment[^\n]{0,80})',
@@ -324,7 +325,7 @@ class HoursDetector(BaseDetector):
             r'(?:Office\s*Hours?[\s:]+)?([Bb]y\s+appointment\s+(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s*[-]\s*(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)[^\n]{0,100})',
 
             # NEW: Compact time format without am/pm (e.g., "Mondays 1-2, Thursdays 2-4")
-            r'(?:Office\s*Hours?[\s:]+)?([MTWRF][a-z]+s?\s+\d{1,2}\s*-\s*\d{1,2},?\s+[MTWRF][a-z]+s?\s+\d{1,2}\s*-\s*\d{1,2})',
+            r'(?:Office\s*Hours?[\s:]+)?([MTWRF][a-z]+s?\s+\d{1,2}\s*[-\u2013]\s*\d{1,2},?\s+[MTWRF][a-z]+s?\s+\d{1,2}\s*[-\u2013]\s*\d{1,2})',
 
             # NEW: "As posted outside my office" pattern
             r'(?:Office\s*Hours?[\s:]+)?(As\s+posted\s+outside\s+my\s+office[^\n]{0,80})',

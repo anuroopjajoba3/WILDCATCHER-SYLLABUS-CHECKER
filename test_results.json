@@ -91,14 +91,14 @@
       "TN": 62
     },
     "office_hours": {
-      "accuracy": 0.7236,
-      "precision": 0.8986,
-      "recall": 0.6966,
-      "f1_score": 0.7848,
-      "TP": 62,
-      "FP": 7,
-      "FN": 27,
-      "TN": 27
+      "accuracy": 0.7398,
+      "precision": 0.8608,
+      "recall": 0.764,
+      "f1_score": 0.8095,
+      "TP": 68,
+      "FP": 11,
+      "FN": 21,
+      "TN": 23
     },
     "office_phone": {
       "accuracy": 0.878,
@@ -192,14 +192,14 @@
     }
   },
   "overall": {
-    "accuracy": 0.7618,
-    "precision": 0.9263,
-    "recall": 0.7136,
-    "f1_score": 0.8061,
-    "TP": 1156,
-    "FP": 92,
-    "FN": 464,
-    "TN": 622
+    "accuracy": 0.7626,
+    "precision": 0.9237,
+    "recall": 0.7173,
+    "f1_score": 0.8075,
+    "TP": 1162,
+    "FP": 96,
+    "FN": 458,
+    "TN": 618
   },
   "details": [
     {
@@ -556,7 +556,7 @@
       },
       "office_hours": {
         "gt": "By appointment Sunday - Thursday 7pm - 9pm (eastern time)",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -657,7 +657,7 @@
       },
       "office_hours": {
         "gt": "By appointment Monday - Thursday 5:30 - 8:30 PM, or Sundays 4 - 6 PM (EDT)",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -758,7 +758,7 @@
       },
       "office_hours": {
         "gt": "By appointment Monday -Tuesday from 7pm - 8pm EDT",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -3182,8 +3182,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "of free individual tutoring, per course, per week. Make a tutoring appointment and access",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -4798,8 +4798,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "(often 3:00p to before class at 5:30p)",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -5808,8 +5808,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "of free individual tutoring, per course, per week. Make a tutoring appointment and access our services through the CAE myCourses Canvas site, call 603-641-4113 or email unhm.cae@unh.edu",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -6818,8 +6818,8 @@
       },
       "office_hours": {
         "gt": "Missing",
-        "pred": "",
-        "match": true
+        "pred": "via Zoom",
+        "match": false
       },
       "office_phone": {
         "gt": "Missing",
@@ -7828,8 +7828,8 @@
       },
       "office_hours": {
         "gt": "Monday, 4 - 6 pm (after-class help session)",
-        "pred": "",
-        "match": false
+        "pred": "Monday, 4 - 6 pm",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4144",
@@ -9141,8 +9141,8 @@
       },
       "office_hours": {
         "gt": "Thursday, 4 - 6 pm (after-class help session)",
-        "pred": "",
-        "match": false
+        "pred": "Thursday, 4 - 6 pm",
+        "match": true
       },
       "office_phone": {
         "gt": "(603) 641-4144",
@@ -9747,7 +9747,7 @@
       },
       "office_hours": {
         "gt": "See Instructor office hours from a link on the Home page of course website; may request private Zoom session or telephone",
-        "pred": "",
+        "pred": "See Instructor office hours from a link on the Home page of our course website. Instructors are",
         "match": false
       },
       "office_phone": {
@@ -10252,8 +10252,8 @@
       },
       "office_hours": {
         "gt": "Meetings by Appointment - By Phone, in Person or via Private Teams Session",
-        "pred": "",
-        "match": false
+        "pred": "By Phone, in Person or via Private Teams Session",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -10454,8 +10454,8 @@
       },
       "office_hours": {
         "gt": "available to meet by appointment, on Zoom",
-        "pred": "",
-        "match": false
+        "pred": "available to meet by appointment, on Zoom.",
+        "match": true
       },
       "office_phone": {
         "gt": "Missing",
@@ -11060,7 +11060,7 @@
       },
       "office_hours": {
         "gt": "Office hours to be determined; Other meeting times may be arranged by appointment",
-        "pred": "",
+        "pred": "to be determined.",
         "match": false
       },
       "office_phone": {
@@ -11161,8 +11161,8 @@
       },
       "office_hours": {
         "gt": "After lecture or private Zoom/Teams sessions (by appointment)",
-        "pred": "",
-        "match": false
+        "pred": "After lecture or private Zoom/Teams sessions (by appointment).",
+        "match": true
       },
       "office_phone": {
         "gt": "603-497-7266",
@@ -12257,8 +12257,8 @@
       },
       "office_hours": {
         "gt": "Mondays 1-2, Thursdays 2-4",
-        "pred": "",
-        "match": false
+        "pred": "Mondays 1-2, Thursdays 2-4",
+        "match": true
       },
       "office_phone": {
         "gt": "603-641-4337",
