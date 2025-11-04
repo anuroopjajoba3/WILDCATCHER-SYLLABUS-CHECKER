@@ -755,6 +755,7 @@ def main():
         stats = summary[field]
         print(f"{field:<30} {stats['accuracy']:>8.1%} {stats['precision']:>10.1%} "
               f"{stats['recall']:>9.1%} {stats['f1_score']:>10.1%}")
+        sys.stdout.flush()  # Force output to display
 
     print("-" * 90)
     print(f"{'OVERALL':<30} {overall_accuracy:>8.1%} {overall_precision:>10.1%} "
