@@ -8,7 +8,7 @@ Uses detectors + ground_truth.json
   * Modality normalization (online / hybrid / in-person)
 Prints results to terminal and saves to test_results.json
 Now also captures SLO text and writes it to JSON only (no terminal SLO prints), including both GT and predicted SLOs in the per-file details.
-Includes support for assignment_types_title, grading_procedures_title, deadline_expectations_title, and response_time fields.
+Includes support for assignment_types_title, deadline_expectations_title, response_time, and grading_process fields.
 """
 import os
 import sys
@@ -23,7 +23,8 @@ SUPPORTED_FIELDS = (
     "modality", "SLOs", "email", "credit_hour", "workload",
     "instructor_name", "instructor_title", "instructor_department",
     "office_address", "office_hours", "office_phone",
-    "assignment_types_title", "grading_procedures_title",
+    "preferred_contact_method",
+    "assignment_types_title",
     "deadline_expectations_title", "assignment_delivery", "final_grade_scale",
     "response_time",
     "class_location",
@@ -90,18 +91,19 @@ except Exception:
     print("WARNING: Office information detector not available")
 
 try:
+    from detectors.preferred_contact_detector import PreferredDetector
+    PREFERRED_CONTACT_AVAILABLE = True
+except Exception:
+    PREFERRED_CONTACT_AVAILABLE = False
+    print("WARNING: Preferred contact detector not available")
+
+try:
     from detectors.assignment_types_detection import AssignmentTypesDetector
     ASSIGNMENT_TYPES_AVAILABLE = True
 except Exception:
     ASSIGNMENT_TYPES_AVAILABLE = False
     print("WARNING: Assignment types detector not available")
 
-try:
-    from detectors.grading_procedures_detection import GradingProceduresDetector
-    GRADING_PROCEDURES_AVAILABLE = True
-except Exception:
-    GRADING_PROCEDURES_AVAILABLE = False
-    print("WARNING: Grading procedures detector not available")
 
 try:
     from detectors.late_missing_work_detector import LateDetector
@@ -384,19 +386,19 @@ def detect_all_fields(text: str) -> dict:
         preds["office_hours"] = ""
         preds["office_phone"] = ""
 
+    # Preferred Contact Method
+    if PREFERRED_CONTACT_AVAILABLE:
+        pc = PreferredDetector().detect(text)
+        preds["preferred_contact_method"] = pc.get("content", "") if pc.get("found") else ""
+    else:
+        preds["preferred_contact_method"] = ""
+
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
         a = AssignmentTypesDetector().detect(text)
         preds["assignment_types_title"] = a.get("content", "Missing")
     else:
         preds["assignment_types_title"] = "Missing"
-
-    # Grading Procedures
-    if GRADING_PROCEDURES_AVAILABLE:
-        g = GradingProceduresDetector().detect(text)
-        preds["grading_procedures_title"] = g.get("content", "") if g.get("found") else ""
-    else:
-        preds["grading_procedures_title"] = ""
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
@@ -595,6 +597,14 @@ def main():
             update_field_stats(field_stats["office_phone"], gt_val, pred_val, match)
             result["office_phone"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
+        # Preferred Contact Method
+        if "preferred_contact_method" in record:
+            gt_val = record["preferred_contact_method"]
+            pred_val = preds.get("preferred_contact_method", "")
+            match = loose_compare(gt_val, pred_val)
+            update_field_stats(field_stats["preferred_contact_method"], gt_val, pred_val, match)
+            result["preferred_contact_method"] = {"gt": gt_val, "pred": pred_val, "match": match}
+
         # Assignment Types Title
         if "assignment_types_title" in record:
             gt_val = record["assignment_types_title"]
@@ -602,14 +612,6 @@ def main():
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["assignment_types_title"], gt_val, pred_val, match)
             result["assignment_types_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
-
-        # Grading Procedures Title
-        if "grading_procedures_title" in record:
-            gt_val = record["grading_procedures_title"]
-            pred_val = preds.get("grading_procedures_title", "")
-            match = loose_compare(gt_val, pred_val)
-            update_field_stats(field_stats["grading_procedures_title"], gt_val, pred_val, match)
-            result["grading_procedures_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
 
         # Deadline Expectations Title
         if "deadline_expectations_title" in record:
