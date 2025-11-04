@@ -133,6 +133,20 @@ except Exception:
     GRADING_PROCESS_AVAILABLE = False
     print("WARNING: Grading process detector not available")
 
+try:
+    from detectors.class_location_detector import ClassLocationDetector
+    CLASS_LOCATION_AVAILABLE = True
+except Exception:
+    CLASS_LOCATION_AVAILABLE = False
+    print("WARNING: Class location detector not available")
+
+try:
+    from detectors.response_time_detector import ResponseTimeDetector
+    RESPONSE_TIME_AVAILABLE = True
+except Exception:
+    RESPONSE_TIME_AVAILABLE = False
+    print("WARNING: Response time detector not available")
+
 # ======================================================================
 # COMPARISON HELPERS
 # ======================================================================
@@ -528,6 +542,20 @@ def detect_all_fields(text: str) -> dict:
         preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
     else:
         preds["grading_process"] = ""
+
+    # Class Location
+    if CLASS_LOCATION_AVAILABLE:
+        cl = ClassLocationDetector().detect(text)
+        preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
+    else:
+        preds["class_location"] = ""
+
+    # Response Time
+    if RESPONSE_TIME_AVAILABLE:
+        rt = ResponseTimeDetector().detect(text)
+        preds["response_time"] = rt.get("content", "") if rt.get("found") else ""
+    else:
+        preds["response_time"] = ""
 
     return preds
 
