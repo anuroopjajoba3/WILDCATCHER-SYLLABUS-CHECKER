@@ -33,6 +33,7 @@ from detectors.online_detection import (
 # Optional detectors (now required in this repo) imported at module top
 from detectors.office_information_detection import OfficeInformationDetector
 from detectors.email_detector import EmailDetector
+from detectors.preferred_contact_detector import PreferredDetector
 from detectors.late_missing_work_detector import LateDetector
 from detectors.credit_hours_detection import CreditHoursDetector
 from detectors.workload_detection import WorkloadDetector
@@ -287,6 +288,22 @@ def _process_single_file(file, temp_dir: str) -> dict:
         else:
             result["email_information"] = {
                 "email": None,
+                "found": False,
+                "confidence": 0.0
+            }
+
+        # --- Email detection ---
+        if PreferredDetector:
+            preferred_detector = PreferredDetector()
+            preferred_info = preferred_detector.detect(extracted_text)
+            result["preferred_information"] = {
+                "preferred": preferred_info.get("content"),
+                "found": preferred_info.get("found", False),
+                "confidence": preferred_info.get("confidence", 0.0)
+            }
+        else:
+            result["preferred_information"] = {
+                "preferred": None,
                 "found": False,
                 "confidence": 0.0
             }
