@@ -242,7 +242,7 @@ class InstructorDetector:
         # lower-case false positives (e.g., 'department' inside sentences).
         dept_pattern_cs = re.compile(r"\b(Department|Dept\.)[\s:,-]*([A-Za-z &\-.,]+)")
         # Fallback patterns (case-insensitive) for School/Division/Program/College
-        other_pattern = re.compile(r"\b(School of|Division of|Program|College of|Department and Program|Department/Program)[\s:,-]*([A-Za-z &\-.,]+)", re.IGNORECASE)
+        other_pattern = re.compile(r"\b(School of|Division of|Program\b|College of|Department and Program|Department/Program)[\s:,-]*([A-Za-z &\-.,]+)", re.IGNORECASE)
 
         for line in lines:
             # try case-sensitive Department/Dept. first
@@ -269,7 +269,7 @@ class InstructorDetector:
 
             # cleanup leading punctuation/labels
             value = re.sub(r'^[\s:,-]+', '', value)
-            value = re.sub(r'^(Department|Dept\.|Program|School of|Division of|College of)[\s:,-]*', '', value, flags=re.IGNORECASE)
+            value = re.sub(r'^(Department|Dept\.|Program\b|School of|Division of|College of)[\s:,-]*', '', value, flags=re.IGNORECASE)
 
             # normalize whitespace and strip trailing punctuation
             value = re.sub(r'\s+', ' ', value).strip().strip('.,;-')
@@ -331,11 +331,11 @@ class InstructorDetector:
             self.logger.info(f"FOUND: {self.field_name} - Name: {name}, Title: {title}, Dept: {department}")
         else:
             if not name:
-                name = 'missing'
+                name = 'Missing'
             if not title:
-                title = 'missing'
+                title = 'Missing'
             if not department:
-                department = 'missing'
+                department = 'Missing'
             self.logger.info(f"NOT_FOUND: {self.field_name} - Name: {name}, Title: {title}, Dept: {department}")
 
         return {'found': found, 'name': name, 'title': title, 'department': department}

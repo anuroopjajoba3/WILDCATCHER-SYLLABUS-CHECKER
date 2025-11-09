@@ -122,7 +122,7 @@ class PreferredDetector:
         return {
             "field_name": self.field_name,
             "found": False,
-            "content": "missing",
+            "content": "Missing",
             "confidence": 0.0,
             "metadata": {}
         }
