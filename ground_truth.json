@@ -2840,19 +2840,13 @@
     "modality": " in-person, on-campus course",
     "SLOs": "missing",
     "credit_hour": " 4 Credits",
-    "workload": ". For this 4-credit, 
-15-week course, students are expected to spend a minimum of 12 hours each week on their 
-academic work.",
+    "workload": ". For this 4-credit, \n15-week course, students are expected to spend a minimum of 12 hours each week on their \nacademic work.",
     "assignment_types_title": "Tests, Activity/Exercise and Final Project:",
     "grading_procedures_title": "no need",
     "deadline_expectations_title": "ASSIGNMENTS",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "missing",
-    "grading_process": "The grading for this course will be divided among the following categories: 
-Homework 20%
-Tests (2) 30%
-Activity/exercise assignments (3) 30%
-Final Project 20%"
+    "grading_process": "The grading for this course will be divided among the following categories: \nHomework 20%\nTests (2) 30%\nActivity/exercise assignments (3) 30%\nFinal Project 20%"
   },
   {
     "filename": "Arredondo Spring 2023.docx",
@@ -2875,43 +2869,30 @@ Final Project 20%"
     "deadline_expectations_title": "ASSIGNMENTS",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "missing",
-    "grading_process": "The grading for this course will be divided among the following categories:
-
-
-Attendance/participation (includes safety practices) 10%
-
-Quizzes (approx. 6-7) 15%
-
-Tests (2) 30%
-
-Lab assignments and projects 25%
-
-Final Exam (comprehensive) 20%
-
-100%"
+    "grading_process": "The grading for this course will be divided among the following categories:\n\n\nAttendance/participation (includes safety practices) 10%\n\nQuizzes (approx. 6-7) 15%\n\nTests (2) 30%\n\nLab assignments and projects 25%\n\nFinal Exam (comprehensive) 20%\n\n100%"
   },
   {
     "filename": "Beltramo Spring 2020.pdf",
-    "instructor_name": "",
-    "instructor_title": "",
-    "instructor_department": "",
-    "preferred_contact_method": "",
-    "email": "",
-    "response_time": "",
-    "office_address": "",
-    "office_phone": "",
-    "office_hours": "",
-    "class_location": "",
-    "modality": "",
-    "SLOs": "",
-    "credit_hour": "",
-    "workload": "",
-    "assignment_types_title": "",
+    "instructor_name": "Jeff Beltramo",
+    "instructor_title": "Prof.",
+    "instructor_department": "missing",
+    "preferred_contact_method": "missing",
+    "email": "missing",
+    "response_time": "missing",
+    "office_address": "missing",
+    "office_phone": " 603-271-6484",
+    "office_hours": "By Arrangement. Please contact by e-mail (preferred) or phone. Students \nare encouraged to seek help from the instructor before falling too far behind",
+    "class_location": "88 Commercial St, Rm. P142",
+    "modality": "in person",
+    "SLOs": "missing",
+    "credit_hour": "missing",
+    "workload": "missing",
+    "assignment_types_title": "ASSIGNMENTS:",
     "grading_procedures_title": "no need",
-    "deadline_expectations_title": "",
-    "assignment_delivery": "",
-    "final_grade_scale": "",
-    "grading_process": ""
+    "deadline_expectations_title": "ASSIGNMENTS:",
+    "assignment_delivery": "Turn in each assignment in the form of a single coherent hard copy",
+    "final_grade_scale": "missing",
+    "grading_process": ": Breakdown will be as follows:\nAttendance/Participation 5%\nHomework 20%\nTests (2) 30%\nProject 20%\nFinal Exam 25%"
   },
   {
     "filename": "Marcotte Fall 2024.docx",
@@ -2934,11 +2915,7 @@ Final Exam (comprehensive) 20%
     "deadline_expectations_title": "Assignments",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "missing",
-    "grading_process": "Homework 40%
-
-Tests (2) 40%
-
-Final Exam 20%"
+    "grading_process": "Homework 40%\n\nTests (2) 40%\n\nFinal Exam 20%"
   },
   {
     "filename": "Ohkami Spring 2021.docx",
@@ -2961,42 +2938,36 @@ Final Exam 20%"
     "deadline_expectations_title": "HOMEWORK ASSIGNMENTS:",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "missing",
-    "grading_process": "Homework Assignments 20%
-
-Take-Home Examinations (2) 30%
-
-Laboratory Reports (tentatively 8 reports) 30%
-
-Final Examination (comprehensive, not exemptions) 20%"
+    "grading_process": "Homework Assignments 20%\n\nTake-Home Examinations (2) 30%\n\nLaboratory Reports (tentatively 8 reports) 30%\n\nFinal Examination (comprehensive, not exemptions) 20%"
   },
   {
     "filename": "Ohkami Spring 2023.docx",
-    "instructor_name": "",
-    "instructor_title": "",
-    "instructor_department": "",
-    "preferred_contact_method": "",
-    "email": "",
-    "response_time": "",
-    "office_address": "",
-    "office_phone": "",
-    "office_hours": "",
-    "class_location": "",
-    "modality": "",
-    "SLOs": "",
-    "credit_hour": "",
-    "workload": "",
-    "assignment_types_title": "",
+    "instructor_name": "Takahide Ohkami",
+    "instructor_title": "missing",
+    "instructor_department": "missing",
+    "preferred_contact_method": "Takahide.Ohkami@unh.edu",
+    "email": "Takahide.Ohkami@unh.edu",
+    "response_time": "missing",
+    "office_address": "missing",
+    "office_phone": "missing",
+    "office_hours": "Please contact the instructors by e-mail or in-person.",
+    "class_location": "P146",
+    "modality": "in-person on-campus",
+    "SLOs": "missing",
+    "credit_hour": "missing",
+    "workload": "missing",
+    "assignment_types_title": "HOMEWORK ASSIGNMENTS",
     "grading_procedures_title": "no need",
-    "deadline_expectations_title": "",
-    "assignment_delivery": "",
-    "final_grade_scale": "",
-    "grading_process": ""
+    "deadline_expectations_title": "HOMEWORK ASSIGNMENTS",
+    "assignment_delivery": "submit them in a single file by the closing date    /   canvas",
+    "final_grade_scale": "missing",
+    "grading_process": "Homework Assignments 20%\n\nTake-Home Examinations (2) 30%\n\nLaboratory Reports (8) and Final Project 30%\n\nFinal Examination 20%"
   },
   {
     "filename": "Plante Fall 2019.pdf",
     "instructor_name": "missing",
     "instructor_title": "missing",
-    "instructor_department": "",
+    "instructor_department": "missing",
     "preferred_contact_method": "donald.plante@unh.edu",
     "email": "donald.plante@unh.edu",
     "response_time": "missing",
@@ -3004,7 +2975,7 @@ Final Examination (comprehensive, not exemptions) 20%"
     "office_phone": "603) 641-4149",
     "office_hours": " T/R 9:00 am -10:00 am, and directly after class.",
     "class_location": "missing",
-    "modality": "",
+    "modality": "in person",
     "SLOs": "Learning Outcomes: After completion of this course students will be able to:\n• Identify and define basic terms in manufacturing\n• Compare and contrast multiple manufacturing techniques impact on the environment\n• Identify areas in society likely to be impacted by new additive manufacturing techniques\n• Assess the effectiveness of current advances in 3D printing technologies\n• Model complex geometric shapes using various computer software applications\n• Revise and improve upon their own as well as other’s existing models\n• Publish their work under a creative commons license as an open resource for society",
     "credit_hour": "missing",
     "workload": "missing",
@@ -3017,26 +2988,26 @@ Final Examination (comprehensive, not exemptions) 20%"
   },
   {
     "filename": "Short Spring 2020.docx",
-    "instructor_name": "",
-    "instructor_title": "",
-    "instructor_department": "",
-    "preferred_contact_method": "",
-    "email": "",
-    "response_time": "",
-    "office_address": "",
-    "office_phone": "",
-    "office_hours": "",
-    "class_location": "",
-    "modality": "",
-    "SLOs": "",
-    "credit_hour": "",
-    "workload": "",
-    "assignment_types_title": "",
+    "instructor_name": "Lauren Short",
+    "instructor_title": "missing",
+    "instructor_department": "missing",
+    "preferred_contact_method": "ls2010@wildcats.unh.edu",
+    "email": "ls2010@wildcats.unh.edu",
+    "response_time": "missing",
+    "office_address": "missing",
+    "office_phone": "missing",
+    "office_hours": "missing",
+    "class_location": "Pandora Building P104",
+    "modality": "hybrid",
+    "SLOs": "❑ To understand how to research the technical writing activities of a field/profession\n\n❑ To explore the types of jobs available in your field of study\n\n❑ To gain experience writing resumes and letters\n\n❑ To practice tailoring your job application materials to meet the demands of specific job\n\nopenings,\n\n❑ To learn the importance of analyzing the audience and purpose of a technical document\n\n❑ To practice writing clearly and concisely\n\n❑ To learn key principles of document design\n\n❑ To practice word processing skills (e.g., keeping a style sheet, formatting a document,\n\nselecting appropriate fonts, etc.",
+    "credit_hour": "missing",
+    "workload": "missing",
+    "assignment_types_title": "General Overview of Required Work:",
     "grading_procedures_title": "no need",
-    "deadline_expectations_title": "",
-    "assignment_delivery": "",
-    "final_grade_scale": "",
-    "grading_process": ""
+    "deadline_expectations_title": "Late Work:",
+    "assignment_delivery": "Canvas",
+    "final_grade_scale": "I will use the standard university grading scale on all assignments in this class (i.e., A, B,\n\nC, D, F).",
+    "grading_process": "Your grade will be calculated as follows:\n\n• 20% Class Presence and Discussion (i.e. how much you contribute to reading discussions and group work online and on days we meet in person)\n\n• 10% Short Individual Activities (includes small writing projects, peer reviews, in-class\n\nprojects, etc.)\n\n• 70% Final Portfolio, which includes the following:\n\n▪ Professional Development Packet (20%)\n\n▪ Instructions and Usability (20%)\n\n▪ Technical Writing Consultation (25%)\n\n▪ 2-page final memo (5%)"
   },
   {
     "filename": "Tappin Spring 2023.rev.A.pdf",
@@ -3045,7 +3016,7 @@ Final Examination (comprehensive, not exemptions) 20%"
     "instructor_department": "missing",
     "preferred_contact_method": "dennis.tappin@unh.edu",
     "email": "dennis.tappin@unh.edu",
-    "response_time": "At a minimum, the instructor will check email each day/night and respond accordingly, typically within 24 hours, please be patient with email responses.",
+    "response_time": "At a minimum, the instructor will check email each day/night and respond accordingly, typically within 24 hours, please be patient with email responses.",
     "office_address": "virtual",
     "office_phone": " 603-548-1096",
     "office_hours": "Office is virtual – via Zoom by appointmen",
@@ -3059,11 +3030,7 @@ Final Examination (comprehensive, not exemptions) 20%"
     "deadline_expectations_title": "ASSIGNMENTS:",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "missing",
-    "grading_process": "Chapter Assessments 25% 
- Exams (5) 35% 
- Lab assignments 25%
- Final Exam (comprehensive) 15% 
- 100%"
+    "grading_process": "Chapter Assessments 25% \n Exams (5) 35% \n Lab assignments 25%\n Final Exam (comprehensive) 15% \n 100%"
   },
   {
     "filename": "Tavares Spring 2023.pdf",
@@ -3078,9 +3045,7 @@ Final Examination (comprehensive, not exemptions) 20%"
     "office_hours": "As posted outside Room P103, and by appointment.",
     "class_location": "Pandora 102",
     "modality": "in person",
-    "SLOs": "Learning 
-objectives for ET courses are aligned with the ABET Outcomes for baccalaureate degree programs in 
-Engineering Technology. ",
+    "SLOs": "Learning \nobjectives for ET courses are aligned with the ABET Outcomes for baccalaureate degree programs in \nEngineering Technology. ",
     "credit_hour": "missing",
     "workload": "missing",
     "assignment_types_title": "ASSIGNMENTS AND COURSE SPECIFIC POLICIES:",
@@ -3088,10 +3053,6 @@ Engineering Technology. ",
     "deadline_expectations_title": "Homework:",
     "assignment_delivery": " myCourses",
     "final_grade_scale": "missing",
-    "grading_process": "The course grade will be determined using the following weighting of assignment
-groups:
-Homework 30% Tests (2 planned) 30%
-Lab Projects 20% Final Exam 15% 
-Practice Problems 5%"
+    "grading_process": "The course grade will be determined using the following weighting of assignment\ngroups:Homework 30% Tests (2 planned) 30%\nLab Projects 20% Final Exam 15% \nPractice Problems 5%"
   }
 ]
