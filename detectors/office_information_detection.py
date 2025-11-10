@@ -237,10 +237,12 @@ class HoursDetector(BaseDetector):
     """
 
     # Phrases that indicate false positives (not actual office hours)
+    # Made more specific to avoid blocking valid office hours text
     INVALID_PHRASES = [
-        'to discuss', 'ideas and', 'material', 'students are encouraged',
-        'encourage', 'question', 'problem', 'assignment', 'to join',
-        'meeting)', 'click here', 'available for', 'feel free'
+        'to discuss ideas', 'questions about the material', 'meeting agenda',
+        'click here for', 'assignment submission', 'to join the meeting',
+        'feel free to contact me about', 'hours of free individual tutoring',
+        'tutoring appointment and access'
     ]
 
     # Patterns that indicate valid office hours content
@@ -250,6 +252,8 @@ class HoursDetector(BaseDetector):
         r'monday|tuesday|wednesday|thursday|friday',  # Day names
         r'\b[MTWRF]\s+\d',  # Abbreviated days with times "T 5:15"
         r'appointment',  # "By appointment"
+        r'arrangement',  # "By Arrangement"
+        r'contact\s+(?:the\s+)?(?:instructor|professor)',  # "Please contact the instructor"
         r'zoom',  # "via Zoom"
         r'virtual',  # "Virtual office hours"
         r'TBD',  # "TBD"
@@ -287,6 +291,8 @@ class HoursDetector(BaseDetector):
 
             # NEW: Canvas Inbox tool pattern
             r'(?:To\s+)?schedule\s+(?:in-person\s+or\s+)?Zoom\s+meetings\s+use\s+the\s+(Canvas\s+Inbox\s+tool)',
+            # "Make an appointment using MyCourses Canvas Inbox tool"
+            r'[Mm]ake\s+an?\s+appointment\s+using\s+(?:the\s+)?(MyCourses\s+Canvas\s+Inbox\s+tool)',
 
             # NEW: After-class help session patterns (with en-dash support)
             r'(?:Office\s*Hours?[\s:]+)?([MTWRF][a-z]*,?\s+\d{1,2}(?::\d{2})?\s*[-\u2013]\s*\d{1,2}(?::\d{2})?\s*[ap]m\s+\(after-class\s+help\s+session\))',
@@ -300,12 +306,14 @@ class HoursDetector(BaseDetector):
             r'(?:Office\s*Hours?[\s:]+)?(Section\s+[A-Z]\d+:\s+After\s+class;\s+By\s+appointment)',
 
             # NEW: Standalone URL pattern (calendly links)
-            r'(?:Office\s*Hours?[\s:]*)?(https?://(?:www\.)?calendly\.com/[a-zA-Z0-9_/-]+)',
+            # Allow newlines/spaces within URL (PDFs sometimes break URLs across lines)
+            r'(?:Office\s*Hours?[\s:]*)?(https?://\s*(?:www\.)?calendly\.com/[a-zA-Z0-9_/-]+)',
 
             # NEW: "See schedule on Canvas" pattern
             r'(?:Office\s*Hours?[\s:]+)?(See\s+schedule\s+on\s+Canvas(?:;\s+By\s+appointment)?)',
             # "See Instructor office hours from a link"
-            r'(?:Office\s*Hours?[\s:]+)?(See\s+Instructor\s+office\s+hours\s+from\s+a\s+link[^\n]{0,80})',
+            # Limit capture and stop at sentence boundaries to avoid capturing unrelated text
+            r'(?:Office\s*Hours?[\s:]+)?(See\s+Instructor\s+office\s+hours\s+from\s+a\s+link[^.!\n]{0,40})',
 
             # NEW: After class pattern (simple)
             r'(?:Office\s*Hours?[\s:]+)?(After\s+class;\s+By\s+appointment)',
@@ -331,8 +339,13 @@ class HoursDetector(BaseDetector):
             r'(?:Office\s*Hours?[\s:]+)?(As\s+posted\s+outside\s+my\s+office[^\n]{0,80})',
 
             # Standard patterns
-            r'Office\s*(?:Hours?|Hrs?)[\s:]+([^\n]{5,100}?)(?=\n|$|Phone|Email|Web)',
-            r'OFFICE\s*HOURS?[\s:]+([^\n]{5,100}?)(?=\n|$|PHONE|EMAIL)',
+            # Special case: if line contains semicolon, allow newline continuation (up to 250 chars total)
+            # This captures: "Hours: X; Y\nZ" where Z continues from Y
+            # Use greedy match, then stop at clear boundaries
+            r'Office\s*(?:Hours?|Hrs?)[\s:]+([^\n]+;[\s\S]{1,250}?)(?=\n[A-Z][a-z]+\s*(?:Prerequisite|Text|Course|Description|Location|Meeting|Schedule|Required|Recommended)|$)',
+            # Regular single-line pattern (no semicolon)
+            r'Office\s*(?:Hours?|Hrs?)[\s:]+([^\n;]{5,150}?)(?=\n|$|Phone|Email|Web|Course|Prerequisite|Text|Instructor)',
+            r'OFFICE\s*HOURS?[\s:]+([^\n]{5,150}?)(?=\n|$|PHONE|EMAIL|COURSE)',
 
             # Virtual office hours
             r'virtual\s*office\s*hrs?\.?:?\s*([^\n]{5,100}?)(?=\n|$|I am)',
@@ -343,7 +356,9 @@ class HoursDetector(BaseDetector):
 
             # IMPROVED: Multi-line semicolon pattern for PSYC_511 style
             # Captures: "Tuesday - 4:00 - 5:00;Thursday - 3:00 - 5:00;\nFriday - 1:00 - 2:00"
-            r'(?:Office\s*)?Hours?[\s:]+([^;\n]+(?:[;\n]+[^;\n]+)*?)(?=\s*(?:Phone|Email|Course|$))',
+            # Also captures: "Wednesdays 10:30 am - 12:00 pm; alternatively, Zoom and phone appointments..."
+            # Allow newlines within semicolon-separated clauses (up to 200 chars after semicolon)
+            r'(?:Office\s*)?Hours?[\s:]+([^;\n]+(?:;[\s\S]{0,200}?)*?)(?=\s*(?:Phone|Email|Course|Office|Instructor|Prerequisites?|Text|$))',
 
             # IMPROVEMENT 4a: Pattern for multi-day hours separated by newlines (document_processing extraction)
             # Matches: "Tuesday - 4:00 � 5:00\nThursday - 3:00 � 5:00\nFriday - 1:00 � 2:00"
@@ -355,14 +370,25 @@ class HoursDetector(BaseDetector):
             r'(?:Office\s*)?Hours?[\s:]+((Monday|Tuesday|Wednesday|Thursday|Friday)\s*[-:]\s*\d{1,2}:\d{2}\s*[-�]\s*\d{1,2}:\d{2}\s*(?:\s+(Monday|Tuesday|Wednesday|Thursday|Friday)\s*[-:]\s*\d{1,2}:\d{2}\s*[-�]\s*\d{1,2}:\d{2})+)',
 
             # Day-based patterns
-            r'(?:Hours?|Hrs?)[\s:]+([MTWRF][a-z]*[^.\n]{5,80}?)(?=\.|$|\n|Phone)',
+            # Increased from 80 to 200 chars to capture full multi-clause hours with semicolons
+            # Use [\s\S] to allow newlines when semicolons are present
+            r'(?:Hours?|Hrs?)[\s:]+([MTWRF][a-z]*[^.;]+;[\s\S]{1,180}?)(?=\n[A-Z][a-z]+:|\n[A-Z][a-z]+\s+[A-Z]|$)',
+            # Single-line day pattern (no semicolon)
+            r'(?:Hours?|Hrs?)[\s:]+([MTWRF][a-z]*[^\n.;]{5,150}?)(?=\.|$|\n|Phone|Email|Course)',
 
             # Time-based patterns
             r'(?:Hours?|Hrs?)[\s:]+(\d{1,2}:\d{2}\s*[ap]m[^.\n]{0,80}?)(?=\.|$|\n)',
 
             # IMPROVED: By appointment patterns with more variations
-            r'(?:Office\s*)?Hours?[\s:]+([Bb]y\s+appointment[^.\n]{0,80})(?=\.|$|\n)',
+            # Increased from 80 to 120 chars to avoid truncation
+            r'(?:Office\s*)?Hours?[\s:]+([Bb]y\s+appointment[^.\n]{0,120})(?=\.|$|\n)',
             r'Office\s*hours?\s+are\s+(schedule[d]?\s+by\s+appointment[^\n]{0,50})',
+
+            # NEW: By Arrangement pattern (similar to "By appointment")
+            r'(?:Office\s*)?Hours?[\s:]+([Bb]y\s+[Aa]rrangement[^.\n]{0,100})(?=\.|$|\n)',
+
+            # NEW: "Please contact" style office hours
+            r'(?:Office\s*)?Hours?[\s:]+([Pp]lease\s+contact\s+(?:the\s+)?(?:instructor|professor)[^.\n]{0,100})',
 
             # IMPROVED: Available/By appointment combined pattern for Karen Jin style
             r'(?:Office\s*)?Hours?[\s:]+([Bb]y\s+appointment[^;]*;\s*(?:available\s+)?in\s+person\s+or\s+virtual[^\n]*)',
@@ -479,9 +505,15 @@ class HoursDetector(BaseDetector):
                 elif 'calendly.com' in original_match.lower():
                     # URL pattern - preserve as is (no cleaning)
                     cleaned = original_match.strip()
-                elif 'canvas inbox' in original_match.lower():
+                elif 'canvas inbox' in original_match.lower() or 'mycourses canvas inbox' in original_match.lower():
                     # Canvas Inbox tool - preserve as is
                     cleaned = original_match.strip()
+                elif 'by arrangement' in original_match.lower():
+                    # "By Arrangement" - minimal cleaning (just whitespace)
+                    cleaned = re.sub(r'\s+', ' ', original_match).strip()
+                elif 'please contact' in original_match.lower():
+                    # "Please contact" style - minimal cleaning
+                    cleaned = re.sub(r'\s+', ' ', original_match).strip()
                 elif 'after-class' in original_match.lower() or 'help session' in original_match.lower():
                     # After-class help session - minimal cleaning (just whitespace)
                     cleaned = re.sub(r'\s+', ' ', original_match).strip()
@@ -560,13 +592,25 @@ class HoursDetector(BaseDetector):
         """Check if text is likely valid office hours."""
         if not text:
             return False
-        
+
         text_lower = text.lower()
-        
+
         # Reject invalid phrases
         if any(phrase in text_lower for phrase in self.INVALID_PHRASES):
             return False
-        
+
+        # Reject class/lecture times (not office hours)
+        # These patterns indicate class meeting times, not office hours
+        class_time_indicators = [
+            r'class\s+(?:meets|meeting|schedule|time)',
+            r'lecture\s+(?:meets|time|schedule)',
+            r'course\s+(?:meets|meeting|schedule)',
+            r'session\s+time',
+            r'class\s+(?:is\s+)?held',
+        ]
+        if any(re.search(pattern, text_lower) for pattern in class_time_indicators):
+            return False
+
         # Accept valid indicators
         return any(re.search(pattern, text, re.IGNORECASE) for pattern in self.VALID_INDICATORS)
     
@@ -574,32 +618,40 @@ class HoursDetector(BaseDetector):
         """Select the most descriptive office hours."""
         if not hours_list:
             return None
-        
+
         # Debug: look at what we have
         self.logger.debug(f"Selecting from hours options: {hours_list}")
-        
+
         # Priority 1: Multi-line/multi-day patterns with semicolons (most complete)
         for hours in hours_list:
             if ';' in hours and any(day in hours.lower() for day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']):
                 # This looks like a complete weekly schedule
                 return hours
-        
-        # Priority 2: "By appointment" with additional context (in person/virtual)
+
+        # Priority 2: "By appointment/arrangement" with day range and specific times
+        # e.g., "By appointment Sunday - Thursday 7pm - 9pm"
         for hours in hours_list:
-            if 'by appointment' in hours.lower() and (';' in hours or 'person' in hours.lower() or 'virtual' in hours.lower()):
+            if ('by appointment' in hours.lower() or 'by arrangement' in hours.lower()) and \
+               re.search(r'(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s*[-–]\s*(monday|tuesday|wednesday|thursday|friday|saturday|sunday)', hours, re.IGNORECASE) and \
+               re.search(r'\d{1,2}\s*[ap]m', hours, re.IGNORECASE):
                 return hours
-        
-        # Priority 3: Monday patterns with Zoom (specific virtual hours)
-        for hours in hours_list:
-            if 'monday' in hours.lower() and 'zoom' in hours.lower():
-                return hours
-        
-        # Priority 4: Entries with specific times and days
+
+        # Priority 3: Entries with specific times and days
         for hours in hours_list:
             if re.search(r'\d{1,2}:\d{2}', hours) and re.search(r'[MTWRF]|Monday|Tuesday|Wednesday|Thursday|Friday', hours, re.IGNORECASE):
                 return hours
-        
-        # Priority 5: Just specific times
+
+        # Priority 4: "By appointment" with additional context (in person/virtual)
+        for hours in hours_list:
+            if 'by appointment' in hours.lower() and (';' in hours or 'person' in hours.lower() or 'virtual' in hours.lower()):
+                return hours
+
+        # Priority 5: Monday patterns with Zoom (specific virtual hours)
+        for hours in hours_list:
+            if 'monday' in hours.lower() and 'zoom' in hours.lower():
+                return hours
+
+        # Priority 6: Just specific times
         for hours in hours_list:
             if re.search(r'\d{1,2}:\d{2}', hours):
                 return hours
@@ -613,7 +665,14 @@ class HoursDetector(BaseDetector):
         for hours in hours_list:
             if 'scheduled' in hours.lower() or 'available' in hours.lower():
                 return hours
-        
+
+        # Before default: Filter out generic "see...link" patterns if there are other options
+        # These are less useful than almost anything else
+        non_generic = [h for h in hours_list if not re.search(r'see\s+.*\s+from\s+a\s+link', h, re.IGNORECASE)]
+        if non_generic:
+            # Return longest of the non-generic options
+            return max(non_generic, key=len)
+
         # Default: Return longest (most complete)
         return max(hours_list, key=len)
 
