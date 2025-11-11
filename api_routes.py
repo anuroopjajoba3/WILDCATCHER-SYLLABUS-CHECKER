@@ -20,7 +20,6 @@ from document_processing import extract_text_from_pdf, extract_text_from_docx
 # SLO regex detector (your existing detector)
 from detectors.slo_detector import SLODetector
 from detectors.grading_scale_detection import GradingScaleDetector
-from detectors.grading_procedures_detection import GradingProceduresDetector
 
 # Modality (Online / Hybrid / In-Person) rule-based detector (procedural API)
 from detectors.online_detection import (
@@ -212,18 +211,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
             'content': grading_info.get('content')
         }
 
-        # --- Grading procedure (section title) detection ---
-        gp_detector = GradingProceduresDetector()
-        gp_info = gp_detector.detect(extracted_text)
-        gp_found = bool(gp_info.get('found'))
-        gp_content = gp_info.get('content') or ''
-
-        result['grading_procedure'] = {
-            'found': gp_found,
-            'content': gp_content
-        }
-
-    # (grading procedure detector removed; backend returns grading_scale only)
 
         # --- Modality detection (Online / Hybrid / In-Person) ---
         if not (detect_course_delivery and format_modality_card and quick_course_metadata):
