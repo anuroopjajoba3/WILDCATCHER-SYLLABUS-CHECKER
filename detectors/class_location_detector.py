@@ -226,6 +226,10 @@ class ClassLocationDetector:
         # PRE-COMPILED room extraction patterns (performance optimization)
         # Format: (compiled_pattern, confidence_level)
         self.room_patterns = [
+            # Pattern 0: Explicit class meeting formats "in ROOM" or "Section X: ... Room Y"
+            (re.compile(r'\b(?:class\s+meetings?|section\s+\w+).*?\b((?:in|room|rm\.?)\s+[A-Za-z]?\d{2,4})\b', re.IGNORECASE | re.DOTALL),
+             HIGH_CONFIDENCE + 0.01),  # Slightly higher than other high confidence
+
             # Pattern 1: "Room/Rm [Number]" possibly followed by building
             (re.compile(r'\b((?:room|rm\.?)\s+[A-Za-z]?\d{2,4}(?:\s*[,\-]?\s*[\w\s]+?(?:hall|building|bldg|mill|lab))?)\b', re.IGNORECASE),
              HIGH_CONFIDENCE),
@@ -249,7 +253,8 @@ class ClassLocationDetector:
              MEDIUM_CONFIDENCE),
 
             # Pattern 6: Single letter + 3-4 digits (like P380, R540)
-            (re.compile(r'\b([A-Z]\d{3,4})\b'),
+            # Must NOT be preceded by alphanumeric (avoids "MegaFix P1135")
+            (re.compile(r'(?<![A-Za-z0-9])([A-Z]\d{3,4})\b'),
              MEDIUM_CONFIDENCE),
         ]
 
@@ -348,11 +353,18 @@ class ClassLocationDetector:
                 if self.year_pattern.search(location):
                     continue
 
+                # REJECT product model numbers (e.g., "MegaFix P1135")
+                # Check if preceded by product/model keywords within 20 chars
+                context_before = text[max(0, match.start()-20):match.start()].lower()
+                product_keywords = ['megafix', 'model', 'product', 'part', 'item', 'catalog', 'screw']
+                if any(keyword in context_before for keyword in product_keywords):
+                    continue  # Skip product models
+
                 # For pattern6 (single letter + digits), only accept if NOT a course code context
                 if pattern == self.room_patterns[5][0]:  # Pattern 6
                     # Check if this is in a course code context (e.g., "COMP 405")
-                    context_before = text[max(0, match.start()-10):match.start()]
-                    if self.course_code_context_pattern.search(context_before):
+                    context_check = text[max(0, match.start()-10):match.start()]
+                    if self.course_code_context_pattern.search(context_check):
                         continue  # Skip if preceded by capital letters (likely course code)
 
                 # Clean up extra spaces and normalize format
