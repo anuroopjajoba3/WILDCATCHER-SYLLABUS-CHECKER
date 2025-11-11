@@ -2,14 +2,19 @@
 Class Location Detector
 =========================================
 
-This detector identifies PHYSICAL classroom locations only.
-Does NOT detect "Online" - that's handled by the modality detector.
+This detector identifies class meeting locations including:
+- Online/Remote/Virtual locations (e.g., "Online", "Zoom", "Canvas", "Remote")
+- Physical classroom locations (e.g., "Room 105", "Pandora 380")
+- Appointment-based locations (e.g., "By appointment")
 
-Focus: Extract physical room/building where class meets in person.
-For online-only courses, this detector returns empty (not found).
-For hybrid courses, extracts the physical location component.
+Priority order:
+1. Online/Remote/Virtual patterns (highest priority)
+2. Appointment-based patterns
+3. Physical room locations (if not online/remote)
 
 Examples of detected formats:
+- "Online", "Remote through Zoom", "Canvas", "UNH MyCourses"
+- "By appointment (in-person or remote)"
 - "Room 105", "Rm 139, Pandora Mill building"
 - "Hamilton Smith 129", "P380"
 - "Classroom: 302"
@@ -72,6 +77,88 @@ class ClassLocationDetector:
         """Initialize the class location detector with disambiguation rules."""
         self.field_name = 'class_location'
         self.logger = logging.getLogger('detector.class_location')
+
+        # ONLINE/REMOTE/VIRTUAL location patterns (checked FIRST before physical rooms)
+        # These patterns detect online/remote course locations with high confidence
+        # IMPORTANT: Only match when there's an explicit location label to avoid false positives
+        self.online_location_patterns = [
+            # Pattern 1: Simple "Online" after location label (most common)
+            # Include standalone "Location:" label
+            # Allow periods in text to handle cases like "Tuesday 1:10pm-4pm. Online"
+            (re.compile(r'(?:time\s+and\s+location|location\s+and\s+time|class\s+location|meeting\s+location|class\s+meetings?|^location)[\s:]+[^\n]{0,100}?\b(online)\b',
+                       re.IGNORECASE | re.MULTILINE), 0.98),
+
+            # Pattern 1b: "Course Format: Online" or "Meeting Times/Locations" + "online asynchronous"
+            (re.compile(r'(?:course\s+format|class\s+format|modality)[\s:]+[^\n]{0,50}?\b(online(?:\s+asynchronous)?)',
+                       re.IGNORECASE), 0.98),
+            (re.compile(r'meeting\s+times?/locations?[^\n]{0,200}?\b(online\s+asynchronous)',
+                       re.IGNORECASE), 0.98),
+            # Pattern 1c: Time info followed by pipe/bar and "Online" (e.g., "Wed, 6:10-9:00 PM | Online, Synchronous")
+            (re.compile(r'(?:mon|tue|wed|thu|fri|sat|sun)[^\n]{0,50}?\|\s*(online(?:,?\s+synchronous)?)',
+                       re.IGNORECASE), 0.98),
+            # Pattern 1d: Standalone "Asynchronous online" (handles reversed order)
+            (re.compile(r'\b(asynchronous\s+online)\b', re.IGNORECASE), 0.98),
+            # Pattern 1e: "As an online class/course" format
+            (re.compile(r'(?:as|is)\s+an?\s+(online\s+(?:class|course))', re.IGNORECASE), 0.98),
+
+            # Pattern 2: "Online" with context in parentheses
+            (re.compile(r'(?:time\s+and\s+location|location\s+and\s+time|class\s+location|meeting\s+location|where|^location)[\s:]+[^\n]{0,50}?\b(online\s*\([^)]{0,100}\))',
+                       re.IGNORECASE | re.MULTILINE), 0.98),
+
+            # Pattern 3: Remote with context
+            (re.compile(r'(?:time\s+and\s+location|location\s+and\s+time|class\s+location|meeting\s+location|where|^location)[\s:]+[^\n]{0,50}?\b(remote(?:\s+through\s+zoom)?)',
+                       re.IGNORECASE | re.MULTILINE), 0.98),
+
+            # Pattern 4: Canvas/MyCourses with "online" context
+            (re.compile(r'\b(canvas\s*\([^)]*(?:online|learning\s+management\s+system|my\s+courses)[^)]*\))',
+                       re.IGNORECASE), 0.98),
+            (re.compile(r'\b((?:unh\s+)?mycourses\s*\([^)]*online[^)]*\))',
+                       re.IGNORECASE), 0.98),
+            # Pattern for "use/will use UNH MyCourses"
+            (re.compile(r'(?:students?\s+)?(?:will\s+)?use\s+((?:unh\s+)?mycourses)',
+                       re.IGNORECASE), 0.98),
+            # CPRM-style: "in Canvas, our learning management system (LMS)"
+            # Special marker pattern - will be handled specially in code
+            (re.compile(r'\basynchronous(?:ly)?\s+online[^\n]{0,100}?\bin\s+(canvas)[,\s]+(?:our\s+)?learning\s+management\s+system',
+                       re.IGNORECASE), 0.98),
+            # Broader Canvas LMS pattern: "Canvas is the learning management system"
+            (re.compile(r'\b(canvas)\s+is\s+(?:the\s+)?learning\s+management\s+system',
+                       re.IGNORECASE), 0.98),
+            # Pattern for "online course" + "course site on Canvas"
+            (re.compile(r'(?:in\s+this|this\s+is\s+an?)\s+online\s+course[^\n]{0,100}?\bcourse\s+site\s+on\s+(canvas)',
+                       re.IGNORECASE), 0.98),
+
+            # Pattern 5: Zoom/Teams in location field
+            (re.compile(r'(?:location|where)[\s:]+[^\n]{0,50}?\b((?:remote\s+)?\(?\s*zoom\s*\))',
+                       re.IGNORECASE), 0.95),
+
+            # Pattern 5b: Zoom/online platform used for class meetings
+            # Capture "online" when Zoom is mentioned for online meetings
+            (re.compile(r'\b(?:zoom|teams)\s+used\s+to\s+hold\s+(?:weekly\s+)?(online)\s+class\s+meetings?',
+                       re.IGNORECASE), 0.98),
+            (re.compile(r'(?:location|where)[\s:]+[^\n]{0,50}?\b(zoom/teams[^\n]{0,60})',
+                       re.IGNORECASE), 0.95),
+
+            # Pattern 6: "By appointment" (for thesis/project courses)
+            (re.compile(r'(?:location|where)[\s:]+[^\n]{0,30}?\b(by\s+appointment(?:\s+\([^)]{0,60}\))?)',
+                       re.IGNORECASE), 0.95),
+
+            # Pattern 7: Hybrid patterns
+            (re.compile(r'(?:location|where|modality)[\s:]+[^\n]{0,50}?\b(hybrid[^\n]{0,100})',
+                       re.IGNORECASE), 0.93),
+
+            # Pattern 8: TBD with remote indicator
+            (re.compile(r'\b(tbd\s*\(\s*remote\s*\))',
+                       re.IGNORECASE), 0.92),
+
+            # Pattern 9: Field sites
+            (re.compile(r'(?:location|where)[\s:]+[^\n]{0,30}?\b(field\s+sites?[^\n]{0,80})',
+                       re.IGNORECASE), 0.90),
+
+            # Pattern 10: Zoom room provided in Canvas
+            (re.compile(r'\b(zoom\s+room\s+provided\s+in\s+canvas)',
+                       re.IGNORECASE), 0.95),
+        ]
 
         # POSITIVE indicators: class location section keywords
         self.class_location_keywords = [
@@ -139,13 +226,18 @@ class ClassLocationDetector:
         # PRE-COMPILED room extraction patterns (performance optimization)
         # Format: (compiled_pattern, confidence_level)
         self.room_patterns = [
+            # Pattern 0: Explicit class meeting formats "in ROOM" or "Section X: ... Room Y"
+            (re.compile(r'\b(?:class\s+meetings?|section\s+\w+).*?\b((?:in|room|rm\.?)\s+[A-Za-z]?\d{2,4})\b', re.IGNORECASE | re.DOTALL),
+             HIGH_CONFIDENCE + 0.01),  # Slightly higher than other high confidence
+
             # Pattern 1: "Room/Rm [Number]" possibly followed by building
             (re.compile(r'\b((?:room|rm\.?)\s+[A-Za-z]?\d{2,4}(?:\s*[,\-]?\s*[\w\s]+?(?:hall|building|bldg|mill|lab))?)\b', re.IGNORECASE),
              HIGH_CONFIDENCE),
 
             # Pattern 2: Known building name followed by room number
+            # Allow parenthetical content like "(UNHM)" between building and room
             (re.compile(r'\b((?:pandora|pandra|hamilton\s+smith|dimond|parsons|kingsbury|morse|rudman|murkland)'
-                       r'(?:\s+mill|\s+hall|\s+building)?\s*[,\-]?\s*(?:room|rm\.?)?\s*[A-Za-z]?\d{2,4})\b', re.IGNORECASE),
+                       r'(?:\s+mill|\s+hall|\s+building|\s+lab)?(?:\s*\([^)]{1,20}\))?\s*[,\-]?\s*(?:room|rm\.?)?\s*[A-Za-z]?\d{2,4})\b', re.IGNORECASE),
              HIGH_CONFIDENCE),
 
             # Pattern 3: Just "Room [Number]" or "Rm [Number]"
@@ -161,7 +253,8 @@ class ClassLocationDetector:
              MEDIUM_CONFIDENCE),
 
             # Pattern 6: Single letter + 3-4 digits (like P380, R540)
-            (re.compile(r'\b([A-Z]\d{3,4})\b'),
+            # Must NOT be preceded by alphanumeric (avoids "MegaFix P1135")
+            (re.compile(r'(?<![A-Za-z0-9])([A-Z]\d{3,4})\b'),
              MEDIUM_CONFIDENCE),
         ]
 
@@ -260,11 +353,18 @@ class ClassLocationDetector:
                 if self.year_pattern.search(location):
                     continue
 
+                # REJECT product model numbers (e.g., "MegaFix P1135")
+                # Check if preceded by product/model keywords within 20 chars
+                context_before = text[max(0, match.start()-20):match.start()].lower()
+                product_keywords = ['megafix', 'model', 'product', 'part', 'item', 'catalog', 'screw']
+                if any(keyword in context_before for keyword in product_keywords):
+                    continue  # Skip product models
+
                 # For pattern6 (single letter + digits), only accept if NOT a course code context
                 if pattern == self.room_patterns[5][0]:  # Pattern 6
                     # Check if this is in a course code context (e.g., "COMP 405")
-                    context_before = text[max(0, match.start()-10):match.start()]
-                    if self.course_code_context_pattern.search(context_before):
+                    context_check = text[max(0, match.start()-10):match.start()]
+                    if self.course_code_context_pattern.search(context_check):
                         continue  # Skip if preceded by capital letters (likely course code)
 
                 # Clean up extra spaces and normalize format
@@ -388,20 +488,86 @@ class ClassLocationDetector:
 
         return (best_candidate.location, best_candidate.confidence)
 
+    def _find_online_or_remote_location(self, text: str) -> Optional[Tuple[str, float]]:
+        """
+        Check if course is online/remote/virtual.
+        Returns (location_string, confidence) or None.
+
+        Examples:
+        - "Time and Location: Tuesday 1:10pm-4pm. Online" -> ("Online", 0.98)
+        - "Location: Remote through Zoom" -> ("Remote through Zoom", 0.98)
+        - "Canvas (online learning management system)" -> ("Canvas (online learning management system)", 0.98)
+        """
+        # Check first 50 lines for online/remote indicators
+        lines = text.split('\n')[:50]
+        text_to_search = '\n'.join(lines)
+
+        for pattern, confidence in self.online_location_patterns:
+            match = pattern.search(text_to_search)
+            if match:
+                location = match.group(1).strip()
+
+                # Special case: CPRM-style "in Canvas, our learning management system"
+                # Or "online course...course site on Canvas"
+                # If we matched just "canvas" from these patterns, expand it
+                if location.lower() == "canvas" and ("learning management system" in match.group(0).lower() or
+                                                      "online course" in match.group(0).lower()):
+                    location = "Canvas (online learning management system)"
+
+                # Normalize "asynchronous online" to just "Online"
+                if location.lower() == "asynchronous online":
+                    location = "Online"
+
+                # Normalize "online class" or "online course" to just "Online"
+                if location.lower() in ("online class", "online course"):
+                    location = "Online"
+
+                # Normalize "mycourses" to "UNH MyCourses (online)"
+                if "mycourses" in location.lower() and "(" not in location:
+                    # Preserve UNH prefix if present
+                    if location.lower().startswith("unh"):
+                        location = "UNH MyCourses (online)"
+                    else:
+                        location = "UNH MyCourses (online)"
+
+                # Clean up the location string
+                location = re.sub(r'\s+', ' ', location)
+                location = location.strip(',;:')
+                # Limit length to avoid capturing too much
+                if len(location) > 100:
+                    # Try to find a reasonable cutoff point (period, newline, etc.)
+                    for i, char in enumerate(location):
+                        if char in '.;\n' and i > 20:
+                            location = location[:i].strip()
+                            break
+                    else:
+                        location = location[:100].strip()
+                self.logger.info(f"Found online/remote location: '{location}' (confidence: {confidence})")
+                return (location, confidence)
+
+        return None
+
     def _find_location_in_document(self, text: str) -> Optional[Tuple[str, float]]:
         """
-        Search entire document for PHYSICAL class location only.
+        Search entire document for class location.
         Returns (location, confidence) or None.
 
         Strategy:
-        1. Find ALL potential physical location candidates
-        2. Filter out office/non-class contexts
-        3. Score each candidate
-        4. Select best candidate
+        1. Check for online/remote/virtual/appointment locations FIRST (highest priority)
+        2. Find ALL potential physical location candidates
+        3. Filter out office/non-class contexts
+        4. Score each candidate
+        5. Select best candidate
 
-        NOTE: Does NOT detect "Online" - that's the modality detector's job.
-        For online-only courses, this returns None (not found).
+        Priority order ensures online/remote courses are detected before
+        accidentally picking up office room numbers.
         """
+        # PRIORITY 1: Check for online/remote/virtual/appointment locations
+        online_result = self._find_online_or_remote_location(text)
+        if online_result:
+            return online_result
+
+        # PRIORITY 2: Look for physical room locations
         lines = text.split('\n')[:MAX_LINES_TO_SCAN]
 
         # Find all physical location candidates with context analysis
@@ -411,8 +577,7 @@ class ClassLocationDetector:
         if candidates:
             return self._select_best_candidate(candidates)
 
-        # No physical location found - return None
-        # (This is expected for online-only courses)
+        # No location found - return None
         return None
 
     def detect(self, text: str) -> Dict[str, Any]:

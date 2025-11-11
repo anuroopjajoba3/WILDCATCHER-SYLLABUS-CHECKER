@@ -172,16 +172,38 @@ class LocationDetector(BaseDetector):
             if room and re.match(r'^\d+[A-Z]?$', room) and room not in seen:
                 # Check if this is actually an office (not a classroom)
                 if self._is_office_context(room, text):
-                    # Extract building name from text if present (not hardcoded)
-                    building_name = self._extract_building_name(room, text)
-                    if building_name:
-                        formatted = f"{building_name} Room {room}"
-                    else:
-                        formatted = f"Room {room}"
+                    # Check how this room appears in the document to match the format
+                    formatted = self._format_room_number(room, text)
                     unique_rooms.append(formatted)
                     seen.add(room)
 
         return unique_rooms
+
+    def _format_room_number(self, room: str, text: str) -> str:
+        """
+        Format room number to match how it appears in the document.
+        Priority: P### > Pandora Room ### > Room ###
+        """
+        search_text = text[:DEFAULT_LOCATION_SEARCH_LIMIT]
+
+        # Check for P### format (shorthand)
+        p_pattern = rf'\bP{re.escape(room)}\b'
+        if re.search(p_pattern, search_text, re.IGNORECASE):
+            return f"P{room}"
+
+        # Check for "Pandora Room ###" or "Pandora, Room ###"
+        pandora_pattern = rf'Pand[o]?ra\s*,?\s*(?:Rm\.?|Room)\s*{re.escape(room)}\b'
+        pandora_match = re.search(pandora_pattern, search_text, re.IGNORECASE)
+        if pandora_match:
+            building_name = pandora_match.group(0)
+            # Normalize "Pandra" to "Pandora"
+            if 'pandra' in building_name.lower():
+                # Extract the full match and replace Pandra with Pandora
+                return re.sub(r'Pandra', 'Pandora', building_name, flags=re.IGNORECASE)
+            return building_name
+
+        # Default to "Room ###" format
+        return f"Room {room}"
 
     def _extract_building_name(self, room: str, text: str) -> str:
         """
