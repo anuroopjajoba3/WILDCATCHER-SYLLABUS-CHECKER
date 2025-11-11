@@ -104,7 +104,6 @@ except Exception:
     ASSIGNMENT_TYPES_AVAILABLE = False
     print("WARNING: Assignment types detector not available")
 
-
 try:
     from detectors.late_missing_work_detector import LateDetector
     DEADLINE_EXPECTATIONS_AVAILABLE = True
@@ -133,6 +132,7 @@ except Exception:
     GRADING_PROCESS_AVAILABLE = False
     print("WARNING: Grading process detector not available")
 
+# NEW: Response Time Detector
 try:
     from detectors.class_location_detector import ClassLocationDetector
     CLASS_LOCATION_AVAILABLE = True
@@ -206,9 +206,9 @@ def loose_compare(gt, pred):
     p = norm(pred)
 
     # If GT is Missing/not found/empty, the field doesn't exist in syllabus
-    # Prediction should also be empty for a match
+    # Prediction should also be empty/missing for a match
     if g in ("", "not found", "missing", "tbd", "not specified", "n/a"):
-        return p == ""
+        return p in ("", "missing")
 
     return fuzzy_match(g, p)
 
@@ -381,7 +381,7 @@ def compare_class_location(gt, pred, modality):
 
     # If GT is Missing/empty, the field doesn't exist - pred should also be empty
     if g in ("missing", "tbd", "not specified", "n/a", ""):
-        return p == ""
+        return p in ("", "missing")
 
     # Check if GT indicates an online-only course
     online_indicators = ["online", "canvas", "zoom", "teams", "webex", "remote", "tbd"]
@@ -394,7 +394,7 @@ def compare_class_location(gt, pred, modality):
         modality_is_online = any(word in modality_norm for word in ["online", "remote", "zoom", "teams", "webex"])
         if modality_is_online:
             # Both empty or pred is empty when GT says "online/remote"
-            if p == "" or g == p:
+            if p in ("", "missing") or g == p:
                 return True
 
     # Normalize location strings for better matching
@@ -453,62 +453,62 @@ def detect_all_fields(text: str) -> dict:
         if isinstance(content, list) and content:
             preds["email"] = content[0]
         else:
-            preds["email"] = content or ""
+            preds["email"] = content or "Missing"
     else:
-        preds["email"] = ""
+        preds["email"] = "Missing"
 
     # Credit Hours
     if CREDIT_HOURS_AVAILABLE:
         c = CreditHoursDetector().detect(text)
-        preds["credit_hour"] = c.get("content", "") if c.get("found") else ""
+        preds["credit_hour"] = c.get("content", "Missing") if c.get("found") else "Missing"
     else:
-        preds["credit_hour"] = ""
+        preds["credit_hour"] = "Missing"
 
     # Workload
     if WORKLOAD_AVAILABLE:
         w = WorkloadDetector().detect(text)
-        preds["workload"] = w.get("content", "") if w.get("found") else ""
+        preds["workload"] = w.get("content", "Missing") if w.get("found") else "Missing"
     else:
-        preds["workload"] = ""
+        preds["workload"] = "Missing"
 
     # Instructor
     if INSTRUCTOR_AVAILABLE:
         instructor_result = InstructorDetector().detect(text)
-        preds["instructor_name"] = instructor_result.get("name", "")
-        preds["instructor_title"] = instructor_result.get("title", "")
-        preds["instructor_department"] = instructor_result.get("department", "")
+        preds["instructor_name"] = instructor_result.get("name", "Missing")
+        preds["instructor_title"] = instructor_result.get("title", "Missing")
+        preds["instructor_department"] = instructor_result.get("department", "Missing")
     else:
-        preds["instructor_name"] = ""
-        preds["instructor_title"] = ""
-        preds["instructor_department"] = ""
+        preds["instructor_name"] = "Missing"
+        preds["instructor_title"] = "Missing"
+        preds["instructor_department"] = "Missing"
 
     # Office Information
     if OFFICE_INFO_AVAILABLE:
         o = OfficeInformationDetector().detect(text)
-        preds["office_address"] = o.get("office_location", {}).get("content", "") if o.get("office_location", {}).get("found") else ""
-        preds["office_hours"] = o.get("office_hours", {}).get("content", "") if o.get("office_hours", {}).get("found") else ""
-        preds["office_phone"] = o.get("phone", {}).get("content", "") if o.get("phone", {}).get("found") else ""
+        preds["office_address"] = o.get("office_location", {}).get("content", "Missing") if o.get("office_location", {}).get("found") else "Missing"
+        preds["office_hours"] = o.get("office_hours", {}).get("content", "Missing") if o.get("office_hours", {}).get("found") else "Missing"
+        preds["office_phone"] = o.get("phone", {}).get("content", "Missing") if o.get("phone", {}).get("found") else "Missing"
     else:
-        preds["office_address"] = ""
-        preds["office_hours"] = ""
-        preds["office_phone"] = ""
+        preds["office_address"] = "Missing"
+        preds["office_hours"] = "Missing"
+        preds["office_phone"] = "Missing"
 
     # Preferred Contact Method
     if PREFERRED_CONTACT_AVAILABLE:
         pc = PreferredDetector().detect(text)
-        preds["preferred_contact_method"] = pc.get("content", "") if pc.get("found") else ""
+        preds["preferred_contact_method"] = pc.get("content", "Missing") if pc.get("found") else "Missing"
     else:
-        preds["preferred_contact_method"] = ""
+        preds["preferred_contact_method"] = "Missing"
 
     # Assignment Types
     if ASSIGNMENT_TYPES_AVAILABLE:
         a = AssignmentTypesDetector().detect(text)
-        preds["assignment_types_title"] = a.get("content", "") if a.get("found") else ""
+        preds["assignment_types_title"] = a.get("content", "Missing") if a.get("found") else "Missing"
     else:
-        preds["assignment_types_title"] = ""
+        preds["assignment_types_title"] = "Missing"
 
     # Grading procedures detection removed
-    preds["grading_procedures_title"] = ""
+    preds["grading_procedures_title"] = "Missing"
 
     # Deadline Expectations
     if DEADLINE_EXPECTATIONS_AVAILABLE:
@@ -518,30 +518,37 @@ def detect_all_fields(text: str) -> dict:
         if content and d.get("found"):
             preds["deadline_expectations_title"] = content.split('\n')[0].strip()
         else:
-            preds["deadline_expectations_title"] = ""
+            preds["deadline_expectations_title"] = "Missing"
     else:
-        preds["deadline_expectations_title"] = ""
+        preds["deadline_expectations_title"] = "Missing"
 
     # Assignment Delivery
     if ASSIGNMENT_DELIVERY_AVAILABLE:
         ad = AssignmentDeliveryDetector().detect(text)
-        preds["assignment_delivery"] = ad.get("content", "") if ad.get("found") else ""
+        preds["assignment_delivery"] = ad.get("content", "Missing") if ad.get("found") else "Missing"
     else:
-        preds["assignment_delivery"] = ""
+        preds["assignment_delivery"] = "Missing"
 
     # Grading Scale
     if GRADING_SCALE_AVAILABLE:
         gs = GradingScaleDetector().detect(text)
-        preds["final_grade_scale"] = gs.get("content", "") if gs.get("found") else ""
+        preds["final_grade_scale"] = gs.get("content", "Missing") if gs.get("found") else "Missing"
     else:
-        preds["final_grade_scale"] = ""
+        preds["final_grade_scale"] = "Missing"
+
+    # Response Time - NEW
+    if RESPONSE_TIME_AVAILABLE:
+        rt = ResponseTimeDetector().detect(text)
+        preds["response_time"] = rt.get("content", "Missing") if rt.get("found") else "Missing"
+    else:
+        preds["response_time"] = "Missing"
 
     # Grading Process
     if GRADING_PROCESS_AVAILABLE:
         gp = GradingProcessDetector().detect(text)
-        preds["grading_process"] = gp.get("content", "") if gp.get("found") else ""
+        preds["grading_process"] = gp.get("content", "Missing") if gp.get("found") else "Missing"
     else:
-        preds["grading_process"] = ""
+        preds["grading_process"] = "Missing"
 
     # Class Location
     if CLASS_LOCATION_AVAILABLE:
@@ -638,7 +645,7 @@ def main():
         # Email
         if "email" in record:
             gt_val = record["email"]
-            pred_val = preds.get("email", "")
+            pred_val = preds.get("email", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["email"], gt_val, pred_val, match)
             result["email"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -646,7 +653,7 @@ def main():
         # Credit hour
         if "credit_hour" in record:
             gt_val = record["credit_hour"]
-            pred_val = preds.get("credit_hour", "")
+            pred_val = preds.get("credit_hour", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["credit_hour"], gt_val, pred_val, match)
             result["credit_hour"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -654,7 +661,7 @@ def main():
         # Workload
         if "workload" in record:
             gt_val = record["workload"]
-            pred_val = preds.get("workload", "")
+            pred_val = preds.get("workload", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["workload"], gt_val, pred_val, match)
             result["workload"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -662,7 +669,7 @@ def main():
         # Instructor Name
         if "instructor_name" in record:
             gt_val = record["instructor_name"]
-            pred_val = preds.get("instructor_name", "")
+            pred_val = preds.get("instructor_name", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["instructor_name"], gt_val, pred_val, match)
             result["instructor_name"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -670,7 +677,7 @@ def main():
         # Instructor Title
         if "instructor_title" in record:
             gt_val = record["instructor_title"]
-            pred_val = preds.get("instructor_title", "")
+            pred_val = preds.get("instructor_title", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["instructor_title"], gt_val, pred_val, match)
             result["instructor_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -678,7 +685,7 @@ def main():
         # Instructor Department
         if "instructor_department" in record:
             gt_val = record["instructor_department"]
-            pred_val = preds.get("instructor_department", "")
+            pred_val = preds.get("instructor_department", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["instructor_department"], gt_val, pred_val, match)
             result["instructor_department"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -686,7 +693,7 @@ def main():
         # Office Address
         if "office_address" in record:
             gt_val = record["office_address"]
-            pred_val = preds.get("office_address", "")
+            pred_val = preds.get("office_address", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["office_address"], gt_val, pred_val, match)
             result["office_address"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -694,7 +701,7 @@ def main():
         # Office Hours
         if "office_hours" in record:
             gt_val = record["office_hours"]
-            pred_val = preds.get("office_hours", "")
+            pred_val = preds.get("office_hours", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["office_hours"], gt_val, pred_val, match)
             result["office_hours"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -702,7 +709,7 @@ def main():
         # Office Phone
         if "office_phone" in record:
             gt_val = record["office_phone"]
-            pred_val = preds.get("office_phone", "")
+            pred_val = preds.get("office_phone", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["office_phone"], gt_val, pred_val, match)
             result["office_phone"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -710,7 +717,7 @@ def main():
         # Preferred Contact Method
         if "preferred_contact_method" in record:
             gt_val = record["preferred_contact_method"]
-            pred_val = preds.get("preferred_contact_method", "")
+            pred_val = preds.get("preferred_contact_method", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["preferred_contact_method"], gt_val, pred_val, match)
             result["preferred_contact_method"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -718,7 +725,7 @@ def main():
         # Assignment Types Title
         if "assignment_types_title" in record:
             gt_val = record["assignment_types_title"]
-            pred_val = preds.get("assignment_types_title", "")
+            pred_val = preds.get("assignment_types_title", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["assignment_types_title"], gt_val, pred_val, match)
             result["assignment_types_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -726,7 +733,7 @@ def main():
         # Deadline Expectations Title
         if "deadline_expectations_title" in record:
             gt_val = record["deadline_expectations_title"]
-            pred_val = preds.get("deadline_expectations_title", "")
+            pred_val = preds.get("deadline_expectations_title", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["deadline_expectations_title"], gt_val, pred_val, match)
             result["deadline_expectations_title"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -734,7 +741,7 @@ def main():
         # Assignment Delivery
         if "assignment_delivery" in record:
             gt_val = record["assignment_delivery"]
-            pred_val = preds.get("assignment_delivery", "")
+            pred_val = preds.get("assignment_delivery", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["assignment_delivery"], gt_val, pred_val, match)
             result["assignment_delivery"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -742,7 +749,7 @@ def main():
         # Final Grade Scale
         if "final_grade_scale" in record:
             gt_val = record["final_grade_scale"]  
-            pred_val = preds.get("final_grade_scale", "")    
+            pred_val = preds.get("final_grade_scale", "Missing")    
             match = compare_grading_scale(gt_val, pred_val)  
             update_field_stats(field_stats["final_grade_scale"], gt_val, pred_val, match)  
             result["final_grade_scale"] = {"gt": gt_val, "pred": pred_val, "match": match}  
@@ -750,7 +757,7 @@ def main():
         # Response Time
         if "response_time" in record:
             gt_val = record["response_time"]
-            pred_val = preds.get("response_time", "")
+            pred_val = preds.get("response_time", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["response_time"], gt_val, pred_val, match)
             result["response_time"] = {"gt": gt_val, "pred": pred_val, "match": match}
@@ -758,7 +765,7 @@ def main():
         # Class Location (with smart comparison considering modality)
         if "class_location" in record:
             gt_val = record["class_location"]
-            pred_val = preds.get("class_location", "")
+            pred_val = preds.get("class_location", "Missing")
             modality_value = record.get("modality", "")
             match = compare_class_location(gt_val, pred_val, modality_value)
             update_field_stats(field_stats["class_location"], gt_val, pred_val, match)
@@ -771,7 +778,7 @@ def main():
         # Grading Process
         if "grading_process" in record:
             gt_val = record["grading_process"]
-            pred_val = preds.get("grading_process", "")
+            pred_val = preds.get("grading_process", "Missing")
             match = loose_compare(gt_val, pred_val)
             update_field_stats(field_stats["grading_process"], gt_val, pred_val, match)
             result["grading_process"] = {"gt": gt_val, "pred": pred_val, "match": match}
