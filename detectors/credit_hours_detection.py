@@ -33,12 +33,20 @@ class CreditHoursDetector:
             # "4 credits", "3 credit", "4.0 credits"
             r'(\d+(?:\.\d+)?)\s*credits?\b',
             
+            # "4 cr.", "3 cr.", "4.0 cr."
+            r'(\d+(?:\.\d+)?)\s*cr\b',
+
+            r'(\d+(?:\.\d+)?)\s*cr\b',
+            
             # "4-credit", "3-credit course"
             r'(\d+(?:\.\d+)?)-credits?\b',
             
             # "Credits: 4", "Credit: 3.0"
             r'\bCredits?:\s*(\d+(?:\.\d+)?)\b',
             
+            # "Variable credits 3-9"
+            r'\bVariable credits(\d+\s*[-–]\s*\d+)\b',
+
             # "credit hours: 4", "Credit Hours: 3"
             r'\bCredit\s+Hours?:\s*(\d+(?:\.\d+)?)\b',
             
@@ -83,7 +91,7 @@ class CreditHoursDetector:
                 result = {
                     'field_name': self.field_name,
                     'found': False,
-                    'content': None
+                    'content': "Missing"
                 }
                 self.logger.info("NOT_FOUND: No explicit credit declaration")
                 
@@ -94,7 +102,7 @@ class CreditHoursDetector:
             return {
                 'field_name': self.field_name,
                 'found': False,
-                'content': None
+                'content': "ERROR"
             }
     
     def _find_credits(self, text: str) -> tuple[bool, Optional[str]]:
