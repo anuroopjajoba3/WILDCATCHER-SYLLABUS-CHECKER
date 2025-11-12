@@ -36,8 +36,6 @@ class CreditHoursDetector:
             # "4 cr.", "3 cr.", "4.0 cr."
             r'(\d+(?:\.\d+)?)\s*cr\b',
 
-            r'(\d+(?:\.\d+)?)\s*cr\b',
-            
             # "4-credit", "3-credit course"
             r'(\d+(?:\.\d+)?)-credits?\b',
             
