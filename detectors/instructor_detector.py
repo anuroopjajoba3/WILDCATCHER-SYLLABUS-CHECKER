@@ -44,10 +44,22 @@ class InstructorDetector:
         self.logger = logging.getLogger('detector.instructor')
 
         self.name_keywords = [
-            'Instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr'
+            'instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr', 'Dr.'
+        ]
+        self.non_name = [
+            "contact information", "office hours", "office location", "office:", "office", "email", "phone", "building", "room"
+        ]
+        self.name_prev_keywords = [
+            'INSTRUCTOR INFORMATION', "instructor information"
+        ]
+        self.non_name_prefixes = [
+            "course", "class", "program", "degree", "assignment"
+        ]
+        self.non_name_keywords = [
+            'Course Name', 'Course Name:', 'class name', 'class name:'
         ]
         self.title_keywords = [
-            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor'
+            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor', "adjunct"
         ]
         self.dept_keywords = [
             'Department', 'Dept.', 'School of', 'Division of', 'Program', 'College of', 'Department/Program', 'Department and Program'
@@ -78,9 +90,13 @@ class InstructorDetector:
                 continue
             if sum(1 for c in part if c.isupper()) > 1 or len(part) < 2 or not re.match(r"^[A-Z][a-zA-Z\-\.]+$", part) or part.isupper() or part.lower() in self.name_stopwords | self.name_non_personal or "'" in part:
                 return False
-        if any(word.lower() in self.name_non_personal or word.lower() in ['course', 'syllabus', 'outline', 'schedule', 'description'] for word in parts):
+        if any(word.lower() in self.name_non_personal or word.lower() in ['course', 'syllabus', 'outline', 'schedule', 'description', "computer", "Computer", "Contact", "contact", "Using", "using", "New", "Wildcat"] for word in parts):
             return False
         return True
+
+    def contains_non_name_keyword(self, text: str) -> bool:
+        t = text.lower()
+        return any(bad.lower() in t for bad in self.non_name_keywords)
 
     def extract_name(self, lines):
         """
@@ -97,17 +113,29 @@ class InstructorDetector:
         found_keyword = False
         patterns = [
             r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First M Last
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+)',
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)'
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.\s+[A-Z][a-zA-Z\-]+)', # First M. Last
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First Last
+            r'([A-Z][a-zA-Z\-]+)\s+\(([A-Z][a-zA-Z\-]+)\)\s+([A-Z][a-zA-Z\-]+(?:-[A-Z][a-zA-Z\-]+)*)'
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First M. Last Suffix
         ]
         # Search all but the first line
+        prevKeyword = ""
         for i, line in enumerate(lines_for_name):
+            prevLine = lines_for_name[i-1] if i > 0 else "" 
+            line_clean = line.lower()
             for keyword in self.name_keywords:
-                if keyword.lower() in line.lower():
+                if keyword.lower() == "name":
+                    if any(prefix + " name" in line_clean for prefix in self.non_name_prefixes):
+                        continue  # skip this keyword match
+                    if prevLine.lower() in self.non_name_prefixes:
+                        continue 
+                if keyword.lower() in line_clean:
                     found_keyword = True
                     after = re.split(rf'{keyword}[:\-]*', line, flags=re.IGNORECASE)
-                    candidate = after[1].strip() if len(after) > 1 else ''
+                    if after in self.non_name:
+                        continue
+                    else:
+                        candidate = after[1].strip() if len(after) > 1 else ''
                     if not candidate:
                         if i + NEXT_LINE_OFFSET < len(lines):
                             candidate = lines[i + NEXT_LINE_OFFSET].strip()
@@ -115,7 +143,7 @@ class InstructorDetector:
                         pattern_match = re.search(pattern, candidate)
                         if pattern_match:
                             possible_name = pattern_match.group(1)
-                            if self.is_valid_name(possible_name):
+                            if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                                 name = possible_name
                                 break
                     if name:
@@ -131,11 +159,13 @@ class InstructorDetector:
                             break
                     if MIN_NAME_CANDIDATE_LENGTH <= len(name_candidate) <= MAX_NAME_CANDIDATE_LENGTH:
                         possible_name = ' '.join(name_candidate)
-                        if self.is_valid_name(possible_name):
+                        if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                             name = possible_name
                             break
+                prevKeyword = keyword
             if name:
                 break
+
         # If no name found, check the first line
         if not name and len(lines) > 0:
             first_line = lines[0]
@@ -147,7 +177,7 @@ class InstructorDetector:
                         pattern_match = re.search(pattern, candidate)
                         if pattern_match:
                             possible_name = pattern_match.group(1)
-                            if self.is_valid_name(possible_name):
+                            if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                                 name = possible_name
                                 break
                     if name:
@@ -163,7 +193,7 @@ class InstructorDetector:
                             break
                     if MIN_NAME_CANDIDATE_LENGTH <= len(name_candidate) <= MAX_NAME_CANDIDATE_LENGTH:
                         possible_name = ' '.join(name_candidate)
-                        if self.is_valid_name(possible_name):
+                        if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                             name = possible_name
                             break
 
@@ -172,7 +202,7 @@ class InstructorDetector:
             for pattern in patterns:
                 for line in lines_for_name:
                     for possible_name in re.findall(pattern, line.strip()):
-                        if self.is_valid_name(possible_name):
+                        if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                             name = possible_name
                             break
                     if name:
@@ -189,7 +219,7 @@ class InstructorDetector:
                         checked.add(j)
                         for pattern in patterns:
                             for possible_name in re.findall(pattern, lines_for_name[j].strip()):
-                                if self.is_valid_name(possible_name):
+                                if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                                     name = possible_name
                                     break
                             if name:
@@ -222,11 +252,7 @@ class InstructorDetector:
                 elif keyword.lower() in ['phd', 'ph.d']:
                     if keyword.lower() in line.lower():
                         found_title = keyword.title() if keyword.islower() else keyword
-        # If no other title found, use 'Dr'/'Dr.' if present
-        for line in lines:
-            for keyword in ['Dr', 'Dr.']:
-                if keyword in line:
-                    return keyword
+
 
     def extract_department(self, lines):
         """
