@@ -55,12 +55,11 @@ class InstructorDetector:
         self.non_name_prefixes = [
             "course", "class", "program", "degree", "assignment"
         ]
-
         self.non_name_keywords = [
             'Course Name', 'Course Name:', 'class name', 'class name:'
         ]
         self.title_keywords = [
-            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor'
+            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor', "adjunct"
         ]
         self.dept_keywords = [
             'Department', 'Dept.', 'School of', 'Division of', 'Program', 'College of', 'Department/Program', 'Department and Program'
@@ -253,11 +252,7 @@ class InstructorDetector:
                 elif keyword.lower() in ['phd', 'ph.d']:
                     if keyword.lower() in line.lower():
                         found_title = keyword.title() if keyword.islower() else keyword
-        # If no other title found, use 'Dr'/'Dr.' if present
-        for line in lines:
-            for keyword in ['Dr', 'Dr.']:
-                if keyword in line:
-                    return keyword
+
 
     def extract_department(self, lines):
         """
