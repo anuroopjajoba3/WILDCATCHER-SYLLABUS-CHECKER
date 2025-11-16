@@ -38,6 +38,9 @@ from detectors.credit_hours_detection import CreditHoursDetector
 from detectors.workload_detection import WorkloadDetector
 from detectors.assignment_delivery_detection import AssignmentDeliveryDetector
 from detectors.assignment_types_detection import AssignmentTypesDetector
+from detectors.grading_process_detection import GradingProcessDetector
+from detectors.response_time_detector import ResponseTimeDetector
+from detectors.class_location_detector import ClassLocationDetector
 
 
 # -----------------------------------------------------------------------------
@@ -355,6 +358,54 @@ def _process_single_file(file, temp_dir: str) -> dict:
             "found": bool(at_info.get("found")),
             "content": at_info.get("content")
         }
+
+        # --- Grading Process detection ---
+        try:
+            grading_process_detector = GradingProcessDetector()
+            gp_info = grading_process_detector.detect(extracted_text)
+            result["grading_process"] = {
+                "found": bool(gp_info.get("found")),
+                "content": gp_info.get("content"),
+                "confidence": gp_info.get("confidence", 0.0)
+            }
+        except:
+            result["grading_process"] = {
+                "found": False,
+                "content": None,
+                "confidence": 0.0
+            }
+
+        # --- Response Time detection ---
+        try:
+            response_time_detector = ResponseTimeDetector()
+            rt_info = response_time_detector.detect(extracted_text)
+            result["response_time"] = {
+                "found": bool(rt_info.get("found")),
+                "content": rt_info.get("content"),
+                "confidence": rt_info.get("confidence", 0.0)
+            }
+        except:
+            result["response_time"] = {
+                "found": False,
+                "content": None,
+                "confidence": 0.0
+            }
+
+        # --- Class Location detection ---
+        try:
+            class_location_detector = ClassLocationDetector()
+            cl_info = class_location_detector.detect(extracted_text)
+            result["class_location"] = {
+                "found": bool(cl_info.get("found")),
+                "content": cl_info.get("content"),
+                "confidence": cl_info.get("confidence", 0.0)
+            }
+        except:
+            result["class_location"] = {
+                "found": False,
+                "content": None,
+                "confidence": 0.0
+            }
 
         return result
 
