@@ -440,10 +440,11 @@ def detect_all_fields(text: str) -> dict:
         if isinstance(content, list):
             preds["slos_text"] = "\n".join(map(str, content))
         else:
-            preds["slos_text"] = content or ""
+            # FIXED: Properly handle Missing value
+            preds["slos_text"] = content if content else "Missing"
     else:
         preds["has_slos"] = False
-        preds["slos_text"] = ""
+        preds["slos_text"] = "Missing"
 
     # Email
     if EMAIL_AVAILABLE:
@@ -536,7 +537,7 @@ def detect_all_fields(text: str) -> dict:
     else:
         preds["final_grade_scale"] = "Missing"
 
-    # Response Time - NEW
+    # Response Time
     if RESPONSE_TIME_AVAILABLE:
         rt = ResponseTimeDetector().detect(text)
         preds["response_time"] = rt.get("content", "Missing") if rt.get("found") else "Missing"
@@ -553,16 +554,9 @@ def detect_all_fields(text: str) -> dict:
     # Class Location
     if CLASS_LOCATION_AVAILABLE:
         cl = ClassLocationDetector().detect(text)
-        preds["class_location"] = cl.get("content", "") if cl.get("found") else ""
+        preds["class_location"] = cl.get("content", "Missing") if cl.get("found") else "Missing"
     else:
-        preds["class_location"] = ""
-
-    # Response Time
-    if RESPONSE_TIME_AVAILABLE:
-        rt = ResponseTimeDetector().detect(text)
-        preds["response_time"] = rt.get("content", "") if rt.get("found") else ""
-    else:
-        preds["response_time"] = ""
+        preds["class_location"] = "Missing"
 
     return preds
 
@@ -624,12 +618,15 @@ def main():
             match = compare_modality(gt_val, pred_val)
             update_field_stats(field_stats["modality"], gt_val, pred_val, match)
             result["modality"] = {"gt": gt_val, "pred": pred_val, "match": match}
+            
         # SLOs: compare presence, store texts (JSON only)
         if "SLOs" in record:
             gt_val = record.get("SLOs", "")
-            pred_val = preds.get("slos_text", "") if preds.get("has_slos") else ""
-            gt_has = bool(norm(gt_val))
-            pred_has = bool(preds.get("has_slos"))
+            pred_val = preds.get("slos_text", "Missing")
+            
+            # FIXED: Use has_value() to properly determine if GT has SLOs
+            gt_has = has_value(gt_val)
+            pred_has = has_value(pred_val)
             match = (gt_has == pred_has)
 
             update_field_stats(field_stats["SLOs"], gt_val, pred_val, match)
@@ -639,7 +636,7 @@ def main():
                 "pred_present": pred_has,
                 "match": match,
                 "gt_text": str(gt_val).strip(),
-                "pred_text": preds.get("slos_text", "")
+                "pred_text": pred_val
             }
 
         # Email
