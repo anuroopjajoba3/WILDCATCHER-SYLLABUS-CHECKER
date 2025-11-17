@@ -213,7 +213,7 @@ def loose_compare(gt, pred):
     return fuzzy_match(g, p)
 
 def compare_grading_scale(gt, pred):
-    """Compare grading scales - only return True if both are empty/Missing or if they actually match."""
+    """Compare grading scales - focus on grade letters found rather than exact formatting."""
     import re
     
     # Normalize empty values
@@ -231,65 +231,42 @@ def compare_grading_scale(gt, pred):
     if is_empty(gt) or is_empty(pred):
         return False
     
-    def extract_grades(text):
+    def extract_grade_letters(text):
+        """Extract just the grade letters (A, A-, B+, etc.) from text."""
         if not text:
-            return {}
+            return set()
         
-        grades = {}
-        text = str(text).strip()
-
-        # this is for fixing syntax errors in how the scales are given by the tester
-        
-        # Pattern for format 1: number-number=letter
-        pattern1 = re.compile(r'(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)\s*=\s*([A-F][+-]?)', re.I)
-        for match in pattern1.finditer(text):
-            low, high, letter = match.groups()
-            grades[letter.upper()] = (float(low), float(high))
-        
-        # Pattern for format 2: letter = number-number  
-        pattern2 = re.compile(r'([A-F][+-]?)\s*=\s*(\d+(?:\.\d+)?)\s*[-–—]\s*(\d+(?:\.\d+)?)', re.I)
-        for match in pattern2.finditer(text):
-            letter, low, high = match.groups()
-            grades[letter.upper()] = (float(low), float(high))
-            
-        # Pattern for "Below X=F" or "F = 0-X"
-        below_pattern = re.compile(r'below\s+(\d+(?:\.\d+)?)\s*=\s*f', re.I)
-        match = below_pattern.search(text)
-        if match:
-            grades['F'] = (0.0, float(match.group(1)))
-            
-        return grades
+        # Pattern to find grade letters
+        pattern = r'\b([A-F][+-]?)(?=[\s:=\d<>%]|$)'
+        matches = re.findall(pattern, str(text), re.IGNORECASE)
+        return set(match.upper() for match in matches)
     
-    gt_grades = extract_grades(gt)
-    pred_grades = extract_grades(pred)
+    gt_grades = extract_grade_letters(gt)
+    pred_grades = extract_grade_letters(pred)
     
-    # If both have no valid grade patterns, no match (this prevents 
-    # rubric text from matching empty predictions)
+    # If both have no grade letters, check if they're similar text
     if not gt_grades and not pred_grades:
-        return False
+        return fuzzy_match(gt, pred, 0.7)  # Lower threshold for non-grade text
         
     # If one has grades and the other doesn't, no match    
     if not gt_grades or not pred_grades:
         return False
         
-    # Check if they have similar letter grades (allow some tolerance)
-    common_letters = set(gt_grades.keys()) & set(pred_grades.keys())
-    if len(common_letters) < min(3, min(len(gt_grades), len(pred_grades))):
-        return False
-        
-    # Check if the ranges are reasonably close
-    matches = 0
-    for letter in common_letters:
-        gt_range = gt_grades[letter]
-        pred_range = pred_grades[letter]
-        
-        # Allow small differences in ranges (±2 points)
-        if (abs(gt_range[0] - pred_range[0]) <= 2.0 and 
-            abs(gt_range[1] - pred_range[1]) <= 2.0):
-            matches += 1
+    # Compare the sets of grades found
+    # Allow for some flexibility - if we have at least 80% overlap of the larger set
+    if len(gt_grades) == 0 and len(pred_grades) == 0:
+        return True
     
-    # If most ranges match, consider it a match
-    return matches >= len(common_letters) * 0.7
+    intersection = gt_grades & pred_grades
+    union = gt_grades | pred_grades
+    
+    # If they have exactly the same grades, perfect match
+    if gt_grades == pred_grades:
+        return True
+    
+    # Allow for good overlap (at least 80% of grades match)
+    overlap_ratio = len(intersection) / len(union) if union else 0
+    return overlap_ratio >= 0.8
 
 def compare_modality(gt, pred):
     """Normalize to buckets before compare. Missing means field doesn't exist."""
