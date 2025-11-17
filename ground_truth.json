@@ -43,7 +43,7 @@
     "deadline_expectations_title": "Late/Make-Up Work:",
     "assignment_delivery": "myCourses",
     "final_grade_scale": "A: 93 - 100 A-: 90 - 92.9 B+: 87 - 89.9 B: 83 - 86.9 B-: 80 - 82.9 C+: 77 - 79.9 C: 73 - 76.9 C-: 70 - 72.9 D+: 67 - 69.9 D: 63 - 66.9 D-: 60 - 62.9 F: 59.9 or below",
-    "grading_process": "Grading Policy: Assignments Homework 30% Projects 70%"
+    "grading_process": "Assignments Value\nHomework 30%\nProjects 70%"
   },
   {
     "filename": "ANTH 411W.pdf",
@@ -756,7 +756,7 @@
     "deadline_expectations_title": "Late submissions and make-up exams",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Final grade is calculated as follows: ● 5 homework assignments @ 4 points each, for a total of 20 points ● 12 weekly reflections @ 1 point each, for a total of 12 points ● Lab practice, 8 points ● Team project, 20 points, broken down into: ● 2 logs @ 3 points each, for a total of 6 points ● codebase, 5 points ● Winter Science Symposium poster & presentation, 6 points ● final report, 3 points ● Midterm exam and final exam @ 20 points each, for a total of 40 points"
+    "grading_process": "● Team project, 20 points, broken down into:\n● 2 logs @ 3 points each, for a total of 6 points\n● codebase, 5 points\n● Winter Science Symposium poster & presentation, 6 points\n● final report, 3 points\n● Midterm exam and final exam @ 20 points each, for a total of 40 points"
   },
   {
     "filename": "COMP_415 - Sabin Spring 2017.pdf",
@@ -1952,7 +1952,7 @@
     "deadline_expectations_title": "Unexcused late submissions will receive a 10% deduction; no submissions will be accepted more than 7 days after the original due date",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
-    "grading_process": "Grading Percentages: Discussions/Journal 100 points per assignment, Chapter Problems 150 points per assignment, Chapter Problems Portfolio 400 points, Case Study 200 points, Final Project Milestone 1 150 points, Final Project Milestone 2 150 points, Final Project Milestone 3 150 points, Final Project 900 points, Microsoft OneNote 500 points."
+    "grading_process": "Missing"
   },
   {
     "filename": "COMP_780.880 - Jonas_Spring - Spring 2021.pdf",
@@ -2021,7 +2021,7 @@
     "deadline_expectations_title": "Late Assignments and Make-Up Exams:",
     "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
-    "grading_process": "20% Final Report\nA : Exceptional team member – went above and beyond what was required\nB : Average team member – met requirements consistently\nC : Below Average team member - tasks were consistently late, bad at communication\nD : Troublesome team member - lack of communication, missed many status reports\nF : Failed as team member - no significant contribution or team participation"
+    "grading_process": "Grades are divided as follows:\n6% Participation (-1% per missed class, -½% late arrival)\n15% Individual documents\n12% Status Updates\n3% Member Evaluations\n34% Collaborative documents (14% Proposal, 20% Final Report)\n45% Work as graded by peers"
   },
   {
     "filename": "COMP_801 - Sabin_Fall - Fall 2025.docx",
@@ -2182,7 +2182,7 @@
     "deadline_expectations_title": "Policy on Late Submissions",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "A 100 % to 94 % A- < 94 % to 90 % B+ < 90 % to 87 % B < 87 % to 84 % B- < 84 % to 80 % C+ < 80 % to 77 % C < 77 % to 74 % C- < 74 % to 70 % D+ < 70 % to 67 % D < 67 % to 64 % D- < 64 % to 60 % F < 60 % to 0 %",
-    "grading_process": "Assignment breakdown by points and timeframe: Introductions (video) 10 points Week one, Certificate (from FEMA IS course) 10 points Week two, Mini-writing assignment 20 points, Discussion post 20 points Week three, Knowledge check 15 points Week four, Extra Credit opportunity available, Exam (cumulative) 40 points Week five, Knowledge check 15 points Week six, Presentation (video) 30 points Week seven, Extra Credit opportunity available, Writing assignment 40 points Week eight."
+    "grading_process": "Assignments: The course grade is based on 200 points and is developed from a variety of assignments and tests. Assignments will be due weekly."
   },
   {
     "filename": "ENGL401M1-F25Syllabus.pdf",
@@ -2320,7 +2320,7 @@
     "deadline_expectations_title": "Late Assignments",
     "assignment_delivery": "MyCourses",
     "final_grade_scale": "Missing",
-    "grading_process": "Assignment Description Total Points Participation Weekly class discussion/quizzes/assignments/student-instructor dialogue 40 Exam 1 Midterm 30 Exam 2 Final 30 Total 100"
+    "grading_process": "Missing"
   },
   {
     "filename": "HLS 770 - Introduction to Homeland Security.docx",
@@ -2458,7 +2458,7 @@
     "deadline_expectations_title": "Late Assignments",
     "assignment_delivery": "UNH MyCourses",
     "final_grade_scale": "Letter Grade | Range | Range\nA | 100%to94% |\nA- | < 94%to90% |\nB+ | < 90%to87% |\nB | < 87%to84% |\nB- | < 84%to80% |\nC+ | < 80%to77% |\nC | < 77%to74% |\nC- | < 74%to70% |\nD+ | < 70%to67% |\nD | < 67%to64% |\nD- | < 64%to60% |\nF | < 60%to0% |\nModule 1 | Topic",
-    "grading_process": "Assignment"
+    "grading_process": "Missing"
   },
   {
     "filename": "PHYS 401 (M1) Syllabus (Fall 2025).pdf",
@@ -2573,7 +2573,7 @@
     "deadline_expectations_title": "PAPER ASSIGNMENT / POWERPOINT PRESENTATIONS",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 0 - 59%",
-    "grading_process": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79"
+    "grading_process": "Final grades will consist of all of the elements outlined above. Specifically:\nReading Questions: 18%\nOnline Discussions: 7%\nExam 1: 15%\nExam 2: 15%\nExam 3: 15%\nPaper Assignment / PowerPoint Presentation: 20%\nClass Participation: 10%"
   },
   {
     "filename": "Psyc 710 Syllabus Fall 2025.pdf",
@@ -2596,7 +2596,7 @@
     "deadline_expectations_title": "PENALTY FOR LATE ASSIGNMENTS",
     "assignment_delivery": "Canvas (myCourses)",
     "final_grade_scale": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 00 - 59%",
-    "grading_process": "experiments/demonstrations. Overall, then, grades will be broken down as follows:\nExam 1 - 22%\nExam 2 - 22%\nExam 3 - 22%\nOnline Quizzes - 10%\nExperiments/Demonstrations\n(combined) - 20%\nAttendance/Participation - 4%\n--------------------------------------------------------------------------------------\nTotal = 100%\nFinal grades will be based on the following percentage cutoff points:\nA = 93 - 100% A- = 90 - 92 B+ = 87 - 89\nB = 83 - 86 B- = 80 - 82 C+ = 77 - 79"
+    "grading_process": "Overall, then, grades will be broken down as follows:\nExam 1 17%\nExam 2 17%\nExam 3 17%\nExam 4 17%\nLaboratory projects/APA Report (combined) 14%\nIndependent Research Project/APA Review 14%\nAttendance/Participation 4%"
   },
   {
     "filename": "Syllabus BIOL 413 LM1 Phage Discovery FA25 MacLea.pdf",
@@ -2664,7 +2664,8 @@
     "grading_procedures_title": "SUMMARY OF STUDENT EVALUATION",
     "deadline_expectations_title": "PENALTY FOR LATE ASSIGNMENTS",
     "assignment_delivery": "Canvas (myCourses)",
-    "final_grade_scale": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 00 - 59%"
+    "final_grade_scale": "A = 93 - 100% A- = 90 - 92% B+ = 87 - 89% B = 83 - 86% B- = 80 - 82% C+ = 77 - 79% C = 73 - 76% C- = 70 - 72% D+ = 67 - 69% D = 63 - 66% D- = 60 - 62% F = 00 - 59%",
+    "grading_process": "Overall, then, grades will be broken down as follows:\nExam 1 17%\nExam 2 17%\nExam 3 17%\nExam 4 17%\nLaboratory projects/APA Report (combined) 14%\nIndependent Research Project/APA Review 14%\nAttendance/Participation 4%"
   },
   {
     "filename": "Syllabus BIOL 413 LM1 Phage Discovery FA25 MacLea.pdf",
@@ -2754,7 +2755,7 @@
     "deadline_expectations_title": "Policy on Attendance, Late Submissions",
     "assignment_delivery": "Canvas",
     "final_grade_scale": "Missing",
-    "grading_process": "Grades See below for an outline of assignments and points"
+    "grading_process": "Missing"
   },
   {
     "filename": "UMST 401 M3 Fall 2025 Syllabus.pdf",
@@ -3229,7 +3230,7 @@
     "deadline_expectations_title": "Missing",
     "assignment_delivery": "Missing",
     "final_grade_scale": "Missing",
-    "grading_process": "Missing"
+    "grading_process": "Knowledge Exams                                           3 | 0 to -20 | 00 |\nMidterm Self Assessment | Midterm Self Assessment | 1 | 20 | 20 | 2.5%\nLaunch Plan | Launch Plan | 1 | 20 | 20 | 2.5%\nCase Analyses | Case Analyses | 4 | 50 | 200 | 26%\nProject report | Project report | 6 | 210 | 210 | 28%\n | Abstract/Annotated Bib | Abstract/Annotated Bib | 10 |  |\n | Final Presentation | Final Presentation | 25 |  |\nPortfolio | Portfolio | 1 | 30 | 30 | 4%\nTotal |  |  |  | 750 | 100%"
   },
   {
     "filename": "Troy Fall 2024.docx",
