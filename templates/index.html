@@ -11,7 +11,7 @@ Date: 2025-09-20
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NECHEcker</title>
+  <title>WildCatcher: Wildcat Syllabus Checker</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
@@ -93,8 +93,8 @@ Date: 2025-09-20
     #send-button { width: 45px; height: 45px; border-radius: 50%; background: #0b5ed7; color: var(--btn-text); display: flex; align-items: center; justify-content: center; transition: all .3s; margin-right: .5rem; }
     #send-button:hover { background: #0b5ed7; transform: scale(1.05); }
 
-    .plus-symbol i { color: #007bff; } .folder-symbol i { color: #28a745; }
-    .plus-symbol i:hover { color: #0056b3; } .folder-symbol i:hover { color: #1e7e34; }
+    .plus-symbol i { color: #007bff; }
+    .plus-symbol i:hover { color: #0056b3; }
 
     .edit-button { position: absolute; top: .5rem; right: .5rem; background: rgba(255,255,255,.2); border: none; color: var(--unh-black);
       padding: .25rem .5rem; border-radius: .5rem; font-size: .8rem; cursor: pointer; transition: .2s; }
@@ -133,7 +133,6 @@ Date: 2025-09-20
 <body>
   <!-- Hidden file inputs -->
   <input type="file" id="file-input" style="display:none"/>
-  <input type="file" id="folder-input" style="display:none" multiple webkitdirectory/>
   <input type="file" id="zip-input" style="display:none" accept=".zip"/>
 
   <div class="page-container">
@@ -143,7 +142,7 @@ Date: 2025-09-20
           <div class="chat-container">
             <div class="chat-header">
               <div class="header-content">
-                <h1 class="chat-header-title">NECHEcker</h1>
+                <h1 class="chat-header-title">WildCatcher: Wildcat Syllabus Checker</h1>
               </div>
             </div>
 
@@ -153,9 +152,6 @@ Date: 2025-09-20
               <div class="input-group">
                 <span class="input-group-text plus-symbol" id="plus-btn" style="cursor:pointer" title="Upload a file">
                   <i class="fas fa-paperclip"></i>
-                </span>
-                <span class="input-group-text folder-symbol" id="folder-btn" style="cursor:pointer" title="Upload a folder">
-                  <i class="fas fa-folder-open"></i>
                 </span>
                 <span class="input-group-text zip-symbol" id="zip-btn" style="cursor:pointer" title="Upload a zip file">
                   <i class="fas fa-file-archive"></i>
@@ -184,29 +180,15 @@ Date: 2025-09-20
 
     // File buttons
     document.getElementById('plus-btn').addEventListener('click', () => document.getElementById('file-input').click());
-    document.getElementById('folder-btn').addEventListener('click', () => document.getElementById('folder-input').click());
-    document.getElementById('folder-input').addEventListener('change', (e) => { if (e.target.files.length) uploadFolder(e.target.files); });
     document.getElementById('zip-btn').addEventListener('click', () => document.getElementById('zip-input').click());
     document.getElementById('zip-input').addEventListener('change', (e) => { if (e.target.files[0]) uploadZip(e.target.files[0]); });
 
     // Welcome
     window.addEventListener('load', () => {
       addHTMLMessage(`
-        <strong>Welcome to NECHEcker!</strong><br>
-        This tool now checks:
-        <ul style="margin:8px 0 0 18px;">
-          <li><strong>SLOs</strong> (regex-based headings & bullets)</li>
-          <li><strong>Email</strong> </li>
-          <li><strong>Preferred Contact</strong> </li>
-          <li><strong>Late work</strong> </li>
-          <li><strong>Instructor information</strong> </li>
-          <li><strong>Office information</strong> </li>
-          <li><strong>Workload information</strong> </li>
-          <li><strong>Grading process and scale</strong></li>
-          <li><strong>assignment information</strong></li>
-          <li><strong>Course Delivery</strong> — Online / Hybrid / In-Person (rule-based detector)</li>
-        </ul>
-        Upload a PDF or DOCX (or a ZIP/folder) to get results.
+        <strong>Welcome to WildCatcher: Wildcat Syllabus Checker!</strong><br>
+        This tool will help you check Syllabi compliance with the NECHE standards.
+        To start, Upload a PDF or DOCX to be graded, or type "Help" to learn more about this tool!
       `, false);
     });
 
@@ -280,17 +262,50 @@ Date: 2025-09-20
       addMessage(message, true);
       userInput.value = '';
       addTypingIndicator();
-      try {
-        const res = await fetch('/ask', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ message }) });
-        removeTypingIndicator();
-        if (res.ok) {
-          const data = await res.json();
-          addMessage(data.response || 'No response.', false);
-        } else addMessage('Error: Unable to get a response.', false);
-      } catch (e) {
-        removeTypingIndicator();
-        addMessage('Error: Unable to communicate with the server.', false);
+      
+      // Simple response handler
+      const messageLower = message.toLowerCase().replace(/[.,!?]/g, '');
+      let response;
+      
+      if (messageLower === 'help') {
+        response = `🔍 **WildCatcher Help Guide**
+
+**What I can do:**
+ **File Upload**: Upload PDF or DOCX files to check NECHE standard compliance
+ **Analysis**: I check 15+ syllabus requirements including:
+   • Instructor information such as instructor name and title
+   • Class location and modality
+   • Grading scale and process
+   • Student Learning Outcomes (SLOs)
+   • Assignment types and deliverables
+   • Response time policies
+   • And much more!
+
+**How to use:**
+1. Click the 📎 paperclip icon
+2. Select your PDF or DOCX file
+3. Wait for analysis to complete
+The overall grade is shown in Overview, and you are able to click on a specific tab to learn more about a given subject
+
+**Supported files:**
+• PDF files (.pdf)
+• Word documents (.docx)
+
+Upload your syllabus file to get started with compliance checking!`;
+      } else {
+        response = `Thanks for your message! 
+
+I'm designed to help you check syllabus compliance with NECHE standards. Here's what you can do:
+
+ **Upload a syllabus**: Click the 📎 button to upload a PDF or DOCX file
+❓ **Get help**: Type "Help" for detailed instructions
+ **Bulk processing**: Upload ZIP files containing multiple syllabi
+
+I'll analyze your uploaded files and show you detailed results for each compliance requirement. Try uploading a syllabus file to see what I can do!`;
       }
+      
+      removeTypingIndicator();
+      addMessage(response, false);
     }
 
     // ---------- DETECTION RENDERERS ----------
@@ -390,19 +405,22 @@ Date: 2025-09-20
           <div class="upload-result" style="margin-top: 12px;">
             <h3><i class="fas fa-list"></i> Overview</h3>
             <div class="analysis-summary">
-              <div><strong>SLOs:</strong> ${getStatus(data.slo_status === 'PASS')}</div>
               <div><strong>Instructor:</strong> ${getStatus(data.instructor && data.instructor.found)}</div>
+              <div><strong>Class Location:</strong> ${getStatus(data.class_location && data.class_location.found)}</div>
               <div><strong>Modality:</strong> ${getStatus(data.modality_status === 'PASS')}</div>
               <div><strong>Office:</strong> ${getStatus(data.office_information && data.office_information.found)}</div>
               <div><strong>Email:</strong> ${getStatus(data.email_information && data.email_information.found)}</div>
+              <div><strong>Response Time:</strong> ${getStatus(data.response_time && data.response_time.found)}</div>
               <div><strong>Preferred Contact:</strong> ${getStatus(data.preferred_information && data.preferred_information.found)}</div>
               <div><strong>Credit Hours:</strong> ${getStatus(data.credit_hours && data.credit_hours.found)}</div>
               <div><strong>Workload:</strong> ${getStatus(data.workload_information && data.workload_information.found)}</div>
-              <div><strong>Grading process & Scale:</strong> ${getStatus(data.grading_scale && data.grading_scale.found)}</div>
+              <div><strong>SLOs:</strong> ${getStatus(data.slo_status === 'PASS')}</div>
+              <div><strong>Grading Scale:</strong> ${getStatus(data.grading_scale && data.grading_scale.found)}</div>
               <div><strong>Late Work:</strong> ${getStatus(data.late_information && data.late_information.found)}</div>
               <div><strong>Assignment Type:</strong> ${getStatus(data.assignment_types && data.assignment_types.found)}</div>
               <div><strong>Assignment Deliverables:</strong> ${getStatus(data.assignment_delivery && data.assignment_delivery.found)}</div>
-            </div>
+              <div><strong>Grading Process:</strong> ${getStatus(data.grading_process && data.grading_process.found)}</div>
+              </div>
           </div>
         `;
       const status = data.slo_status === 'PASS'
@@ -543,18 +561,21 @@ Date: 2025-09-20
         // Tab system for detector outputs
         const tabNames = [
           { id: 'overview', label: 'Overview', icon: 'fa-list', html: overviewHTML },
-          { id: 'slo', label: 'SLOs', icon: 'fa-file-pdf', html: sloHTML },
           { id: 'instructor', label: 'Instructor', icon: 'fa-user-tie', html: instructorHTML },
+          { id: 'class_location', label: 'Class Location', icon: 'fa-map-marker-alt'},
           { id: 'modality', label: 'Modality', icon: 'fa-chalkboard-teacher', html: modalityHTML },
           { id: 'office', label: 'Office', icon: 'fa-building', html: officeHTML },
           { id: 'email', label: 'Email', icon: 'fa-envelope', html: emailHTML },
+          { id: 'response_time', label: 'Response Time', icon: 'fa-clock'},
           { id: 'preferred', label: 'Preferred', icon: 'fa-inbox', html: preferredHTML },
           { id: 'credit', label: 'Credit Hours', icon: 'fa-clock', html: creditHTML },
           { id: 'workload', label: 'Workload', icon: 'fa-tasks', html: workloadHTML },
-          { id: 'grade_scale', label: 'Grading Process & Scale', icon: 'fa-percent', html: ''},
+          { id: 'slo', label: 'SLOs', icon: 'fa-file-pdf', html: sloHTML },
+          { id: 'grade_scale', label: 'Grading Scale', icon: 'fa-percent', html: ''},
           { id: 'late_work', label: 'Late Work', icon: 'fa-hourglass'},
           { id: 'assignment_type', label: 'Assignment Type', icon: 'fa-pencil'},
-          { id: 'assignment_deliverable', label: 'Assignment Deliverables', icon: 'fa-paper-plane'}
+          { id: 'assignment_deliverable', label: 'Assignment Deliverables', icon: 'fa-paper-plane'},
+          { id: 'grading_process', label: 'Grading Process', icon: 'fa-clipboard-list'}
         ];
 
         let tabs = '<div class="detector-tabs"><ul class="nav nav-tabs" role="tablist">';
@@ -574,10 +595,12 @@ Date: 2025-09-20
           
           if (tab.id === 'grade_scale') {
             const gs = data.grading_scale || {};
+            const gsFound = Boolean(gs.found);
+            const gsStatus = gsFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
             if (!gs || (!gs.content && !gs.found)) {
-              content = '<div class="upload-result"><div class="analysis-summary"><strong>Not found</strong></div></div>';
+              content = `<div class="upload-result"><h4><i class="fas fa-percent"></i> Grading Scale</h4><div class="analysis-summary"><div class="status-item"><strong>Grading Scale:</strong> ${gsStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
             } else {
-              content = `<div class="upload-result"><h4><i class="fas fa-percent"></i> Grade Scale</h4><div class="analysis-summary"><pre style="white-space: pre-wrap; font-size:12px;">${gs.content || ''}</pre></div></div>`;
+              content = `<div class="upload-result"><h4><i class="fas fa-percent"></i> Grading Scale</h4><div class="analysis-summary"><div class="status-item"><strong>Grading Scale:</strong> ${gsStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${gs.content || ''}</div></div></div></div>`;
             }
           }
           if (tab.id === 'late_work') {
@@ -608,6 +631,36 @@ Date: 2025-09-20
               content = `<div class="upload-result"><h4><i class="fas fa-paper-plane"></i> Assignment Deliverables</h4><div class="analysis-summary"><div class="status-item"><strong>Deliverables:</strong> ${adStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
             } else {
               content = `<div class="upload-result"><h4><i class="fas fa-paper-plane"></i> Assignment Deliverables</h4><div class="analysis-summary"><div class="status-item"><strong>Deliverables:</strong> ${adStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${ad.content || ''}</div></div></div></div>`;
+            }
+          }
+          if (tab.id === 'grading_process') {
+            const gp = data.grading_process || {};
+            const gpFound = Boolean(gp.found);
+            const gpStatus = gpFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+            if (!gp || (!gp.content && !gp.found)) {
+              content = `<div class="upload-result"><h4><i class="fas fa-clipboard-list"></i> Grading Process</h4><div class="analysis-summary"><div class="status-item"><strong>Grading Process:</strong> ${gpStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-clipboard-list"></i> Grading Process</h4><div class="analysis-summary"><div class="status-item"><strong>Grading Process:</strong> ${gpStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${gp.content || ''}</div></div></div></div>`;
+            }
+          }
+          if (tab.id === 'response_time') {
+            const rt = data.response_time || {};
+            const rtFound = Boolean(rt.found);
+            const rtStatus = rtFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+            if (!rt || (!rt.content && !rt.found)) {
+              content = `<div class="upload-result"><h4><i class="fas fa-clock"></i> Response Time</h4><div class="analysis-summary"><div class="status-item"><strong>Response Time:</strong> ${rtStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-clock"></i> Response Time</h4><div class="analysis-summary"><div class="status-item"><strong>Response Time:</strong> ${rtStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${rt.content || ''}</div></div></div></div>`;
+            }
+          }
+          if (tab.id === 'class_location') {
+            const cl = data.class_location || {};
+            const clFound = Boolean(cl.found);
+            const clStatus = clFound ? '<span class="status-pass"><i class="fas fa-check-circle"></i> PASS</span>' : '<span class="status-fail"><i class="fas fa-times-circle"></i> FAIL</span>';
+            if (!cl || (!cl.content && !cl.found)) {
+              content = `<div class="upload-result"><h4><i class="fas fa-map-marker-alt"></i> Class Location</h4><div class="analysis-summary"><div class="status-item"><strong>Class Location:</strong> ${clStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><strong>Not found</strong></div></div></div>`;
+            } else {
+              content = `<div class="upload-result"><h4><i class="fas fa-map-marker-alt"></i> Class Location</h4><div class="analysis-summary"><div class="status-item"><strong>Class Location:</strong> ${clStatus}</div><div style="margin-top:10px; padding:10px; background:#f5f5f5; border-radius:5px;"><div style="white-space: pre-wrap; font-size:12px;">${cl.content || ''}</div></div></div></div>`;
             }
           }
           // assignment_type and assignment_deliverable rendering handled above (boxed versions). Duplicate legacy blocks removed.
@@ -658,36 +711,6 @@ Date: 2025-09-20
 
       } catch (err) {
         console.error(err); addMessage('Failed to upload ZIP file. Please try again.', false);
-      }
-    }
-
-    async function uploadFolder(files) {
-      const formData = new FormData();
-      for (const f of files) formData.append('files', f);
-
-      const msg = document.createElement('div'); msg.classList.add('message','assistant-message');
-      msg.innerHTML = `<div class="message-content">Uploading folder: <strong>${files.length}</strong> files...</div>`;
-      chatHistory.appendChild(msg); chatHistory.scrollTop = chatHistory.scrollHeight;
-
-      try {
-        const response = await fetch('/upload', { method:'POST', body: formData });
-        const data = await response.json();
-        if (!response.ok) { addMessage(`Error: ${data.error || 'Folder upload failed.'}`, false); return; }
-
-        msg.querySelector('.message-content').innerHTML = `✅ Uploaded folder: <strong>${files.length}</strong> files`;
-
-        const list = data.results || data.extracted_information || [];
-        addMessage(`Processed ${list.length} files.`, false);
-
-        if (Array.isArray(list) && list.length && ('slo_status' in list[0] || 'modality' in list[0] || 'course_delivery' in list[0])) {
-          list.forEach(displayDetections);
-          return;
-        }
-
-        addMessage('Legacy folder format detected; please update backend to new detector response.', false);
-
-      } catch (err) {
-        console.error(err); addMessage('Failed to upload folder. Please try again.', false);
       }
     }
 

@@ -113,7 +113,7 @@ class SLODetector:
                 result = {
                     'field_name': self.field_name,
                     'found': False,
-                    'content': None
+                    'content': 'Missing'  # ← FIXED: Changed from None to 'Missing'
                 }
                 self.logger.info(f"NOT_FOUND: {self.field_name}")
                 self.logger.info("No approved SLO titles found")
@@ -126,7 +126,7 @@ class SLODetector:
             return {
                 'field_name': self.field_name,
                 'found': False,
-                'content': None
+                'content': 'Missing'  # ← FIXED: Changed from None to 'Missing'
             }
 
     def _simple_title_detection(self, text: str) -> Tuple[bool, str]:
@@ -256,4 +256,3 @@ class SLODetector:
             return True, content
 
         return False, ""
-
