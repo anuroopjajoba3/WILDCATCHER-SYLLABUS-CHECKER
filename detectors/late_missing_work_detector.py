@@ -62,13 +62,13 @@ class LateDetector:
             "expectations regarding assignment deadlines, late, or missing work",
             "grading (late policy: 10% deduction per day, up to 5 days)",
             "late assignments",
-            "late assignments and make-up exams", 
+            "late assignments and make-up exams",
             "late homework policy",
             "late policy",
             "late submission policy",
             "late submissions",
             "late submissions and make-up exam",
-            "late submissions and make-up exams", 
+            "late submissions and make-up exams",
             "late submissions and makeups",
             "late work",
             "late work policy",
@@ -77,7 +77,7 @@ class LateDetector:
             "make-up policy",
             "make-up work",
             "missing work",
-            "missing work policy", 
+            "missing work policy",
             "paper assignment / powerpoint presentations",
             "penalty for late assignments",
             "policy on attendance, late submissions",
@@ -109,7 +109,7 @@ class LateDetector:
         normalized = normalized.replace('—', '-')  # Em-dash
         normalized = normalized.replace('–', '-')  # En-dash
         normalized = normalized.replace('‐', '-')  # Hyphen (U+2010)
-        normalized = normalized.replace('‑', '-')  # Non-breaking hyphen (U+2011)  
+        normalized = normalized.replace('‑', '-')  # Non-breaking hyphen (U+2011)
         normalized = normalized.replace('⁃', '-')  # Bullet operator (U+2043)
         normalized = normalized.replace('\u2014', '-')  # Em-dash (unicode)
         normalized = normalized.replace('\u2013', '-')  # En-dash (unicode)
@@ -117,11 +117,12 @@ class LateDetector:
         normalized = normalized.replace('\u2011', '-')  # Non-breaking hyphen (unicode)
         normalized = normalized.replace('\u2043', '-')  # Bullet operator (unicode)
         
-        # Handle other common Unicode characters
-        normalized = normalized.replace(''', "'")  # Right single quotation mark
-        normalized = normalized.replace(''', "'")  # Left single quotation mark
-        normalized = normalized.replace('"', '"')  # Left double quotation mark
-        normalized = normalized.replace('"', '"')  # Right double quotation mark
+        # Handle common Unicode quotation marks
+        normalized = normalized.replace("’", "'")   # Right single quote
+        normalized = normalized.replace("‘", "'")   # Left single quote
+        normalized = normalized.replace("“", '"')   # Left double quote
+        normalized = normalized.replace("”", '"')   # Right double quote
+
 
         # Normalize whitespace (multiple spaces -> single space)
         normalized = ' '.join(normalized.split())
@@ -453,7 +454,6 @@ class LateDetector:
             for pattern in content_patterns:
                 if re.search(pattern, line_lower, re.IGNORECASE | re.DOTALL):
                     # Found a content pattern, extract surrounding context
-                    content_lines = []
                     
                     # Balanced content extraction - focused but not too restrictive
                     content_lines = []
