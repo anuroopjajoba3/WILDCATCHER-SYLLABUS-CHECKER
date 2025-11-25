@@ -44,10 +44,15 @@ class InstructorDetector:
         self.logger = logging.getLogger('detector.instructor')
 
         self.name_keywords = [
-            'instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr', 'Dr.'
+            'instructor', 'Instructor Name', 'Instructor Name:', 'Professor', 'Professor:', 'Instructor name:', 'Ms', 'Mr', 'Mrs', 'name', 'Name', 'Adjunct Instructor:', 'Contact Information', 'Dr', 'Dr.', 'Faculty', 'Faculty:'
         ]
         self.non_name = [
             "contact information", "office hours", "office location", "office:", "office", "email", "phone", "building", "room"
+        ]
+        # Lines containing these keywords should be skipped (likely textbook or other info)
+        self.skip_line_keywords = [
+            "textbook", "text:", "published by", "isbn", "edition", "pearson", "mcgraw", "wiley",
+            "o'reilly", "openstax", "cengage"
         ]
         self.name_prev_keywords = [
             'INSTRUCTOR INFORMATION', "instructor information"
@@ -59,17 +64,66 @@ class InstructorDetector:
             'Course Name', 'Course Name:', 'class name', 'class name:'
         ]
         self.title_keywords = [
-            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor', "adjunct"
+            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'adjunct faculty', 'professor', 'prof.', "adjunct"
         ]
         self.dept_keywords = [
             'Department', 'Dept.', 'School of', 'Division of', 'Program', 'College of', 'Department/Program', 'Department and Program'
+        ]
+        # Known department names for fallback detection (when no explicit label exists)
+        # These are searched directly in the text if pattern matching fails
+        # Only include specific, unambiguous department names (avoid generic words like "Business")
+        self.known_departments = [
+            # Full department names (most specific first)
+            'Applied Engineering and Sciences Department',
+            'Applied Engineering and Sciences',
+            'Applied Engineering and Science',
+            'Applied Engineering & Sciences',
+            'Mechanical Engineering Technology',
+            'Electrical Engineering Technology',
+            'Security Studies',
+            'Homeland Security',
         ]
         self.name_stopwords = set([
             'of', 'in', 'on', 'for', 'to', 'by', 'with', 'security', 'studies', 'department', 'college', 'school', 'division', 'program', 'phd', 'ph.d', 'professor', 'lecturer', 'assistant', 'associate', 'adjunct', 'mr', 'ms', 'mrs', 'dr'
         ])
         self.name_non_personal = set([
-            'internship', 'practice', 'course', 'syllabus', 'description', 'outcomes', 'policy', 'schedule', 'grading', 'assignment', 'exam', 'final', 'midterm', 'attendance', 'office', 'email', 'phone', 'building', 'room', 'hall', 'mill', 'university', 'college', 'school', 'class', 'section', 'semester', 'year', 'hours', 'days', 'spring', 'summer', 'fall', 'winter', 'ta', 'teaching', 'staff', 'master', "master's", 'capstone', 'project', 'thesis', 'dissertation', 'portfolio'
+            'internship', 'practice', 'course', 'syllabus', 'description', 'outcomes', 'policy', 'schedule', 'grading', 'assignment', 'exam', 'final', 'midterm', 'attendance', 'office', 'email', 'phone', 'building', 'room', 'hall', 'mill', 'university', 'college', 'school', 'class', 'section', 'semester', 'year', 'hours', 'days', 'spring', 'summer', 'fall', 'winter', 'ta', 'teaching', 'staff', 'master', "master's", 'capstone', 'project', 'thesis', 'dissertation', 'portfolio',
+            # Common false positives from course content
+            'applied', 'engineering', 'network', 'architecture', 'concepts', 'canvas', 'inbox', 'runestone', 'interactive', 'textbook', 'cybersecurity', 'ethics', 'data', 'mining', 'electronic', 'design', 'automation', 'discrete', 'mathematics', 'managerial', 'accounting', 'electrical', 'wildcat', 'community', 'exceptional', 'circumstances', 'first', 'edition', 'demonstrate', 'knowledge', 'hampshire', 'time', 'end', 'lecture', 'topic', 'administration', 'information',
+            # More false positives
+            'tech', 'consultancy', 'workroom', 'google', 'drive', 'graduate', 'students', 'introduction', 'career', 'insight', 'develop', 'academic', 'honesty', 'noise', 'figure', 'credit', 'hour', 'networking', 'technology',
+            # Even more false positives
+            'computing', 'the', 'file', 'system', 'reflect', 'critically', 'classroom', 'behavior', 'fourier', 'transform',
+            # Hyphenated false positives
+            'after-class', 'check-in', 'mid-term', 'midpoint', 'computer-integrated', 'hands-on', 'self-evaluation',
+            'step-by-step', 'face-to-face', 'one-on-one', 'real-world', 'problem-solving', 'decision-making',
+            'help', 'session', 'manufacturing', 'learning', 'goals', 'special', 'accommodations', 'user', 'control',
+            'openstax', 'rice', 'communicate', 'professionally', 'lathi', 'radar', 'range', 'equation'
         ])
+
+    def clean_name_candidate(self, candidate):
+        """
+        Cleans up a name candidate by removing nicknames, suffixes, and normalizing format.
+
+        Args:
+            candidate (str): The raw candidate name string.
+
+        Returns:
+            str: The cleaned name string.
+        """
+        if not candidate:
+            return candidate
+
+        # Remove nicknames in parentheses: "Mateusz (Matt) Pacha" -> "Mateusz Pacha"
+        candidate = re.sub(r'\s*\([^)]+\)\s*', ' ', candidate)
+
+        # Remove Ph.D., PhD, Ph.D and similar suffixes
+        candidate = re.sub(r',?\s*(Ph\.?D\.?|M\.?S\.?|M\.?A\.?|M\.?B\.?A\.?)\s*$', '', candidate, flags=re.IGNORECASE)
+
+        # Normalize multiple spaces
+        candidate = re.sub(r'\s+', ' ', candidate).strip()
+
+        return candidate
 
     def is_valid_name(self, candidate):
         """
@@ -85,10 +139,27 @@ class InstructorDetector:
         if not MIN_NAME_PARTS <= len(parts) <= MAX_NAME_PARTS:
             return False
         for part in parts:
-            # Allow middle initial with period (e.g., W.)
+            # Allow middle initial with period (e.g., W. or A.)
             if re.match(r'^[A-Z]\.$', part):
                 continue
-            if sum(1 for c in part if c.isupper()) > 1 or len(part) < 2 or not re.match(r"^[A-Z][a-zA-Z\-\.]+$", part) or part.isupper() or part.lower() in self.name_stopwords | self.name_non_personal or "'" in part:
+            # Allow single capital letter as initial (e.g., R J Greene -> R, J are valid)
+            if re.match(r'^[A-Z]$', part):
+                continue
+            # Allow initials with periods like K.M. or J.R.
+            if re.match(r'^([A-Z]\.)+$', part):
+                continue
+            # Allow CamelCase names (e.g., TakaHide, McDonald, DeVito) and hyphenated names (Pacha-Sucharzewski)
+            # Check if multiple capitals exist
+            upper_count = sum(1 for c in part if c.isupper())
+            if upper_count > 1:
+                # Allow CamelCase personal names (TakaHide, McDonald, etc.)
+                # Pattern: Starts with capital, has lowercase, then capital
+                is_camelcase = bool(re.match(r'^[A-Z][a-z]+[A-Z][a-z]+$', part))
+                # Allow hyphenated names like Pacha-Sucharzewski (each part starts with capital)
+                is_hyphenated = bool(re.match(r'^[A-Z][a-z]+(-[A-Z][a-z]+)+$', part))
+                if not is_camelcase and not is_hyphenated:
+                    return False
+            if len(part) < 2 or not re.match(r"^[A-Z][a-zA-Z\-\.]+$", part) or part.isupper() or part.lower() in self.name_stopwords | self.name_non_personal or "'" in part:
                 return False
         if any(word.lower() in self.name_non_personal or word.lower() in ['course', 'syllabus', 'outline', 'schedule', 'description', "computer", "Computer", "Contact", "contact", "Using", "using", "New", "Wildcat"] for word in parts):
             return False
@@ -112,23 +183,34 @@ class InstructorDetector:
         name = None
         found_keyword = False
         patterns = [
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First M Last
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.\s+[A-Z][a-zA-Z\-]+)', # First M. Last
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First Last
-            r'([A-Z][a-zA-Z\-]+)\s+\(([A-Z][a-zA-Z\-]+)\)\s+([A-Z][a-zA-Z\-]+(?:-[A-Z][a-zA-Z\-]+)*)'
-            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)', # First M. Last Suffix
+            # Name with nickname in parentheses and hyphenated last name: Mateusz (Matt) Pacha-Sucharzewski
+            r'([A-Z][a-zA-Z\-]+\s+\([A-Za-z]+\)\s+[A-Z][a-zA-Z]+(?:-[A-Z][a-zA-Z]+)+)',
+            # Name with nickname in parentheses: Mateusz (Matt) Smith
+            r'([A-Z][a-zA-Z\-]+\s+\([A-Za-z]+\)\s+[A-Z][a-zA-Z\-]+)',
+            # First Last-Last (hyphenated last name without nickname)
+            r'([A-Z][a-zA-Z]+\s+[A-Z][a-zA-Z]+(?:-[A-Z][a-zA-Z]+)+)',
+            # Initials with periods: K.M. Kilcrease or J.R. Smith
+            r'([A-Z]\.[A-Z]\.?\s+[A-Z][a-zA-Z\-]+)',
+            # Initials with spaces: K. M. Kilcrease or R J Greene
+            r'([A-Z]\.?\s+[A-Z]\.?\s+[A-Z][a-zA-Z\-]+)',
+            # First M. Last (with middle initial)
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z]\.\s+[A-Z][a-zA-Z\-]+)',
+            # First Middle Last (three names)
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
+            # First Last (simple two-word name)
+            r'([A-Z][a-zA-Z\-]+\s+[A-Z][a-zA-Z\-]+)',
         ]
         # Search all but the first line
         prevKeyword = ""
         for i, line in enumerate(lines_for_name):
-            prevLine = lines_for_name[i-1] if i > 0 else "" 
+            prevLine = lines_for_name[i-1] if i > 0 else ""
             line_clean = line.lower()
             for keyword in self.name_keywords:
                 if keyword.lower() == "name":
                     if any(prefix + " name" in line_clean for prefix in self.non_name_prefixes):
                         continue  # skip this keyword match
                     if prevLine.lower() in self.non_name_prefixes:
-                        continue 
+                        continue
                 if keyword.lower() in line_clean:
                     found_keyword = True
                     after = re.split(rf'{keyword}[:\-]*', line, flags=re.IGNORECASE)
@@ -139,10 +221,12 @@ class InstructorDetector:
                     if not candidate:
                         if i + NEXT_LINE_OFFSET < len(lines):
                             candidate = lines[i + NEXT_LINE_OFFSET].strip()
+                    # Clean the candidate (remove nicknames, Ph.D., etc.)
+                    candidate = self.clean_name_candidate(candidate)
                     for pattern in patterns:
                         pattern_match = re.search(pattern, candidate)
                         if pattern_match:
-                            possible_name = pattern_match.group(1)
+                            possible_name = self.clean_name_candidate(pattern_match.group(1))
                             if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
                                 name = possible_name
                                 break
@@ -151,7 +235,8 @@ class InstructorDetector:
                     words = candidate.split()
                     name_candidate = []
                     for word in words:
-                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', word) or re.match(r'^[A-Z]\.$', word):
+                        # Also allow single capital letter (for initials like R J Greene)
+                        if re.match(r'^[A-Z][a-zA-Z\-\.]*$', word) or re.match(r'^[A-Z]\.$', word) or re.match(r'^[A-Z]$', word):
                             name_candidate.append(word)
                             if len(name_candidate) == MAX_NAME_CANDIDATE_LENGTH:
                                 break
@@ -197,13 +282,43 @@ class InstructorDetector:
                             name = possible_name
                             break
 
-        # 2. Only if NO instructor/name keyword was found at all, fall back to pattern search
+        # 2. Check for standalone names on early lines (first 20 lines)
+        # These are lines that contain ONLY a name-like pattern (no other text)
+        # Common in syllabi where instructor name appears alone after course title
+        if not name:
+            early_lines = lines[:20] if len(lines) >= 20 else lines
+            for i, line in enumerate(early_lines):
+                line_stripped = line.strip()
+                # Skip empty lines or lines that are too long (likely sentences)
+                if not line_stripped or len(line_stripped) > 60:
+                    continue
+                # Skip lines that look like course titles, dates, or other non-name content
+                if re.search(r'\b(COMP|ET|BUS|PHYS|HLS|BIOT|course|syllabus|spring|fall|summer|winter|20\d{2}|credits?)\b', line_stripped, re.IGNORECASE):
+                    continue
+                # Skip lines with email, phone, or URL patterns
+                if re.search(r'@|http|www\.|\.edu|\.com|\d{3}[-.\s]?\d{3}', line_stripped, re.IGNORECASE):
+                    continue
+                # Clean the line
+                cleaned_line = self.clean_name_candidate(line_stripped)
+                # Try to match name patterns
+                for pattern in patterns:
+                    pattern_match = re.match(rf'^{pattern}[,\s]*$', cleaned_line)
+                    if pattern_match:
+                        possible_name = self.clean_name_candidate(pattern_match.group(1))
+                        if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
+                            name = possible_name
+                            break
+                if name:
+                    break
+
+        # 3. Only if NO instructor/name keyword was found at all, fall back to pattern search
         if not name and not found_keyword:
             for pattern in patterns:
                 for line in lines_for_name:
                     for possible_name in re.findall(pattern, line.strip()):
-                        if self.is_valid_name(possible_name) and not self.contains_non_name_keyword(possible_name):
-                            name = possible_name
+                        cleaned_name = self.clean_name_candidate(possible_name)
+                        if self.is_valid_name(cleaned_name) and not self.contains_non_name_keyword(cleaned_name):
+                            name = cleaned_name
                             break
                     if name:
                         break
@@ -315,6 +430,30 @@ class InstructorDetector:
 
         return None
 
+    def _search_known_departments(self, text: str):
+        """
+        Fallback search for known department names in text.
+        Only searches near instructor info (top 30 lines) to avoid false positives
+        from program descriptions or footers.
+
+        Args:
+            text (str): The full syllabus text.
+
+        Returns:
+            str: The department name if found, or None.
+        """
+        # Only search first 30 lines (where instructor info typically appears)
+        # This avoids matching department names in course descriptions or footers
+        lines = text.split('\n')[:30]
+        search_text = '\n'.join(lines).lower()
+
+        # Search for known departments (list is ordered from most specific to least)
+        for dept in self.known_departments:
+            if dept.lower() in search_text:
+                return dept
+
+        return None
+
     def detect(self, text: str) -> Dict[str, Any]:
         """
         Detects instructor name, title, and department from syllabus text.
@@ -331,6 +470,10 @@ class InstructorDetector:
         name = self.extract_name(lines)
         title = self.extract_title(lines)
         department = self.extract_department(lines)
+
+        # Fallback: if no department found by pattern matching, search for known departments
+        if not department:
+            department = self._search_known_departments(text)
 
         # Fallback: if no name was found by the normal logic, scan every
         # PAGE_SIZE-line "page" for a simple "Dr. Lastname" pattern and return

@@ -77,6 +77,9 @@ class WorkloadDetector:
             # "minimum of three hours of student academic work" (with word numbers)
             r'minimum\s+of\s+(three|four|five|six|seven|eight|nine|ten|one|two)\s+hours?\s+(?:of\s+)?student\s+academic\s+work',
 
+            # "minimum of three hours of academic work each week for each credit hour"
+            r'minimum\s+of\s+(three|four|five|six|seven|eight|nine|ten|one|two|\d+)\s+hours?\s+(?:of\s+)?academic\s+work\s+each\s+week\s+for\s+each\s+credit',
+
             # "45 hours of student academic work per credit per term"
             r'(\d+)\s+hours?\s+(?:of\s+)?(?:student\s+)?academic\s+work\s+per\s+credit',
 
@@ -86,20 +89,47 @@ class WorkloadDetector:
             # "expected to involve a minimum of X hours"
             r'expected\s+to\s+involve\s+a\s+minimum\s+of\s+(\d+)\s+hours?',
 
+            # "expected to spend a minimum of X hours each week on their academic work"
+            r'expected\s+to\s+spend\s+a\s+minimum\s+of\s+(\d+)\s+hours?\s+each\s+week\s+on\s+their\s+academic\s+work',
+
             # "expected to spend at least X hours per week on this class"
             r'expected\s+to\s+spend\s+at\s+least\s+(\d+)\s+hours?\s+per\s+week\s+on\s+this\s+class',
 
             # "You are expected to study at least X hours outside class every week" (very common!)
             r'expected\s+to\s+study\s+at\s+least\s+(\d+(?:-\d+)?)\s+hours?\s+outside\s+(?:of\s+)?class\s+every\s+week',
 
+            # "You are expected to study at least X hours outside class" (without "every week")
+            r'expected\s+to\s+study\s+at\s+least\s+(\d+(?:-\d+)?)\s+hours?\s+outside\s+(?:of\s+)?class',
+
             # "You are expected to study X hours outside class every week" (without "at least")
             r'expected\s+to\s+study\s+(\d+(?:-\d+)?)\s+hours?\s+outside\s+(?:of\s+)?class\s+every\s+week',
 
-            # "You are expected to engage in outside class learning X hours"
+            # "expected to at least study X hours outside class" (different word order)
+            r'expected\s+to\s+at\s+least\s+study\s+(\d+(?:-\d+)?)\s+hours?\s+outside\s+(?:of\s+)?class',
+
+            # "expected to allocate X to Y hours outside of class"
+            r'expected\s+to\s+allocate\s+(\d+)\s+to\s+(\d+)\s+hours?\s+outside\s+(?:of\s+)?class',
+
+            # "You are expected to engage in outside class learning X hours every week"
+            r'expected\s+to\s+engage\s+in\s+outside\s+class\s+learning\s+(\d+)\s+hours\s+every\s+week',
+
+            # "You are expected to engage in outside class learning X hours" (without every week)
             r'expected\s+to\s+engage\s+in\s+outside\s+class\s+learning\s+(\d+)\s+hours',
 
             # "minimum of 180 hours in a professional setting"
             r'minimum\s+of\s+(\d+)\s+hours?\s+in\s+a\s+professional\s+setting',
+
+            # "complete the minimal X hours of onsite work"
+            r'complete\s+the\s+minim(?:al|um)\s+(\d+)\s+hours?\s+(?:of\s+)?(?:onsite|on-site)\s+work',
+
+            # "X hours per week for graduate students" or "X hours per week"
+            r'(\d+)\s+hours?\s+per\s+week(?:\s+for\s+(?:graduate|undergraduate)\s+students)?',
+
+            # "1 credit = 3 hours of academic work per week"
+            r'(\d+)\s+credit\s*=\s*(\d+)\s+hours?\s+(?:of\s+)?academic\s+work\s+per\s+week',
+
+            # "X work hours for Y credits" or "X hours for Y credit"
+            r'(\d+)\s+(?:work\s+)?hours?\s+for\s+(\d+)\s+credits?',
 
             # "12 hours/week (4 credits x 3 hours per credit)" - this should be lower priority
             r'(\d+)\s+hours?/week\s*\([^)]*credits?\s*x\s*\d+\s+hours?\s+per\s+credit[^)]*\)',
@@ -161,28 +191,43 @@ class WorkloadDetector:
             Tuple[bool, Optional[str]]: (found, workload_text)
         """
         # Clean up text: normalize whitespace and remove special characters
+        # First, normalize various dash/hyphen characters to standard hyphen
+        cleaned_text = text
+        # Unicode dashes: en-dash, em-dash, hyphen, non-breaking hyphen, figure dash, etc.
+        cleaned_text = re.sub(r'[\u2010\u2011\u2012\u2013\u2014\u2015\u2212\uFE58\uFE63\uFF0D]', '-', cleaned_text)
         # Replace newlines with spaces
-        cleaned_text = re.sub(r'\s+', ' ', text)
-        # Remove special characters like bullets, diamonds, etc.
+        cleaned_text = re.sub(r'\s+', ' ', cleaned_text)
+        # Remove remaining special characters like bullets, diamonds, etc.
         cleaned_text = re.sub(r'[^\x00-\x7F]+', ' ', cleaned_text)
 
-        # Collect all potential matches with their positions
+        # Collect all potential matches with their positions and pattern index
         candidates = []
 
-        for pattern in self.workload_patterns:
+        # Generic boilerplate patterns (UNH policy text) - these should be deprioritized
+        # These patterns often appear in syllabi as policy text, not course-specific workload
+        generic_patterns = {
+            r'(\d+)\s+hours?\s+(?:of\s+)?(?:student\s+)?academic\s+work\s+per\s+credit',
+            r'(\d+)\s+hours?\s+(?:of\s+)?course\s+work\s+per\s+credit',
+            r'(\d+)\s+credit\s*=\s*(\d+)\s+hours?\s+(?:of\s+)?academic\s+work\s+per\s+week',
+            r'(three|four|five|six|seven|eight|nine|ten|one|two)\s+hours?\s+of\s+student\s+academic\s+work\s+each\s+week',
+        }
+
+        for pattern_idx, pattern in enumerate(self.workload_patterns):
+            is_generic = pattern in generic_patterns
             for match in re.finditer(pattern, cleaned_text, re.IGNORECASE):
                 full_match = match.group(0).strip()
                 position = match.start()
 
-                # Add to candidates with position (earlier is better)
-                candidates.append((position, full_match))
-                self.logger.debug(f"Found potential workload: {full_match} at position {position}")
+                # Add to candidates with (is_generic, position, pattern_idx, match)
+                # Non-generic patterns (is_generic=False=0) sort before generic (is_generic=True=1)
+                candidates.append((is_generic, position, pattern_idx, full_match))
+                self.logger.debug(f"Found potential workload: {full_match} at position {position} (generic={is_generic})")
 
-        # If we found candidates, return the earliest one
+        # If we found candidates, prefer non-generic patterns, then earliest position
         if candidates:
-            candidates.sort(key=lambda x: x[0])  # Sort by position
-            position, best_match = candidates[0]
-            self.logger.info(f"Found workload declaration: {best_match}")
+            candidates.sort(key=lambda x: (x[0], x[1]))  # Sort by is_generic, then position
+            is_generic, position, pattern_idx, best_match = candidates[0]
+            self.logger.info(f"Found workload declaration: {best_match} (generic={is_generic})")
             return True, best_match
 
         return False, None

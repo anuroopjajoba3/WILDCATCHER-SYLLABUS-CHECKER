@@ -317,10 +317,11 @@ def normalize_location(s):
     s = s.replace("pandra", "pandora")
     s = s.replace("hamilton smith", "hamiltonsmith")  # Consistent handling
 
-    # Room prefix variations
-    s = s.replace("rm.", "room")
-    s = s.replace("rm ", "room ")
-    s = s.replace("classroom:", "room")
+    # Room prefix variations - normalize all "rm" variants to "room "
+    # Handle "rm." "rm " and "rm" followed by number
+    import re as re_local
+    s = re_local.sub(r'\brm\.?\s*', 'room ', s)
+    s = s.replace("classroom:", "room ")
     s = s.replace("classroom ", "room ")
 
     # Normalize separators
@@ -334,6 +335,12 @@ def normalize_location(s):
     # "pandora 149" -> "p149" and "room p149" -> "p149"
     # This allows "PANDRA 149" and "Room P149" to match
     import re
+
+    # First, normalize "P 146" (with space) to "p146" (no space)
+    s = re.sub(r'\bp\s+(\d+)\b', r'p\1', s)
+
+    # Handle "Pandora Building (UNHM) P146" -> extract just p146
+    s = re.sub(r'pandora\s+(?:building|mill|hall)?\s*(?:\([^)]+\))?\s*(p\d+)', r'\1', s)
 
     # If format is "pandora 123" or "pandora hall 123", convert to "p123"
     s = re.sub(r'pandora\s+(?:hall\s+)?(\d+)', r'p\1', s)
