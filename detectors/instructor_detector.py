@@ -59,10 +59,24 @@ class InstructorDetector:
             'Course Name', 'Course Name:', 'class name', 'class name:'
         ]
         self.title_keywords = [
-            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'professor', "adjunct"
+            'assistant professor', 'associate professor', 'senior lecturer', 'lecturer', 'adjunct professor', 'adjunct instructor', 'adjunct faculty', 'professor', 'prof.', "adjunct"
         ]
         self.dept_keywords = [
             'Department', 'Dept.', 'School of', 'Division of', 'Program', 'College of', 'Department/Program', 'Department and Program'
+        ]
+        # Known department names for fallback detection (when no explicit label exists)
+        # These are searched directly in the text if pattern matching fails
+        # Only include specific, unambiguous department names (avoid generic words like "Business")
+        self.known_departments = [
+            # Full department names (most specific first)
+            'Applied Engineering and Sciences Department',
+            'Applied Engineering and Sciences',
+            'Applied Engineering and Science',
+            'Applied Engineering & Sciences',
+            'Mechanical Engineering Technology',
+            'Electrical Engineering Technology',
+            'Security Studies',
+            'Homeland Security',
         ]
         self.name_stopwords = set([
             'of', 'in', 'on', 'for', 'to', 'by', 'with', 'security', 'studies', 'department', 'college', 'school', 'division', 'program', 'phd', 'ph.d', 'professor', 'lecturer', 'assistant', 'associate', 'adjunct', 'mr', 'ms', 'mrs', 'dr'
@@ -315,6 +329,30 @@ class InstructorDetector:
 
         return None
 
+    def _search_known_departments(self, text: str):
+        """
+        Fallback search for known department names in text.
+        Only searches near instructor info (top 30 lines) to avoid false positives
+        from program descriptions or footers.
+
+        Args:
+            text (str): The full syllabus text.
+
+        Returns:
+            str: The department name if found, or None.
+        """
+        # Only search first 30 lines (where instructor info typically appears)
+        # This avoids matching department names in course descriptions or footers
+        lines = text.split('\n')[:30]
+        search_text = '\n'.join(lines).lower()
+
+        # Search for known departments (list is ordered from most specific to least)
+        for dept in self.known_departments:
+            if dept.lower() in search_text:
+                return dept
+
+        return None
+
     def detect(self, text: str) -> Dict[str, Any]:
         """
         Detects instructor name, title, and department from syllabus text.
@@ -331,6 +369,10 @@ class InstructorDetector:
         name = self.extract_name(lines)
         title = self.extract_title(lines)
         department = self.extract_department(lines)
+
+        # Fallback: if no department found by pattern matching, search for known departments
+        if not department:
+            department = self._search_known_departments(text)
 
         # Fallback: if no name was found by the normal logic, scan every
         # PAGE_SIZE-line "page" for a simple "Dr. Lastname" pattern and return
