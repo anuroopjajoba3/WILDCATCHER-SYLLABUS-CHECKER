@@ -118,6 +118,11 @@ class LocationDetector(BaseDetector):
             # Pattern 2: "Office: Room 628"
             # Direct office-to-room association
             r'Office:\s*Room\s*(\d+[A-Z]?)',
+            r'Office:\s*Rm\s*(\d+[A-Z]?)',
+#Office: Rm 139, Pandora Mill building 
+
+ #           r'Office:\s*([A-Z]?\d+)',
+
 
             # Pattern 3: "Pandora Rm. 103" or "Pandora Room 103"
             # Note: Pand[o]?ra handles common typo "Pandra"

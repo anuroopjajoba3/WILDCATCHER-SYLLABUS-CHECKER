@@ -32,27 +32,40 @@ class CreditHoursDetector:
         self.credit_patterns = [
             # "4 credits", "3 credit", "4.0 credits"
             r'(\d+(?:\.\d+)?)\s*credits?\b',
-            
-            # "4 cr.", "3 cr.", "4.0 cr."
-            r'(\d+(?:\.\d+)?)\s*cr\b',
 
+            # "(4 credit hour)", "(3.0 credit hours)"
+            r'(\(\d+(?:\.\d+)?)\s*credits?\shour\s\)\b',
+            
             # "4-credit", "3-credit course"
             r'(\d+(?:\.\d+)?)-credits?\b',
             
+            
+            r'\((\d+(?:\.\d+)?)-credits?\)\b',
+
+
             # "Credits: 4", "Credit: 3.0"
             r'\bCredits?:\s*(\d+(?:\.\d+)?)\b',
             
-            # "Variable credits 3-9"
-            r'\bVariable credits(\d+\s*[-–]\s*\d+)\b',
+            # "Variable credits 3-5", "Variable credits 2–4"
+            r'\bVariable credits\s*(\d+\s*[-–]\s*\d+)\b',
 
             # "credit hours: 4", "Credit Hours: 3"
             r'\bCredit\s+Hours?:\s*(\d+(?:\.\d+)?)\b',
-            
+
             # "4.0 credit course", "3 credit hours"
             r'(\d+(?:\.\d+)?)\s*credit\s+(?:hours?|course)\b',
             
             # "This is a 4-credit course"
             r'\ba\s+(\d+(?:\.\d+)?)-credits?\s+course\b',
+            
+            # "A three-credit hour course", "A 4 credit hours"
+            r'\b[aA]n?\s+(?:(?:zero|one|two|three|four|five|six)|\d+)[-\s]?credits?\s+hours?\b',
+
+            # "A 4-credit course"
+            r'\ba\s+(\d+(?:\.\d+)?)-credits?\s+course\b',
+                        
+            # "4 cr.", "3 cr.", "4.0 cr."
+            r'(\d+(?:\.\d+)?)\s*cr\.?\b',
             
             # "This is a 4.0 credit course"
             r'\ba\s+(\d+(?:\.\d+)?)\s*credits?\s+course\b',
