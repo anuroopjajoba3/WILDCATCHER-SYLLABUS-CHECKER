@@ -1146,7 +1146,7 @@
     "grading_procedures_title": "Missing",
     "deadline_expectations_title": "You will receive a grade of 0 for any quiz or exam that you miss.",
     "assignment_delivery": "Canvas",
-    "final_grade_scale": "A: 93% – 100% A-: 90% – 92.99% B+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99% C+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99% D+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99% F: 0% – 59.99%",
+    "final_grade_scale": "Final grade will be based on your overall percentage in the following way: A: 93% – 100% A-: 90% – 92.99% B+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99% C+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99% D+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99% F: 0% – 59.99%",
     "grading_process": "Final grade will be based on your overall percentage in the following way:\nA: 93% – 100% A-: 90% – 92.99%\nB+: 87% – 89.99% B: 83% – 86.99% B-: 80% – 82.99%\nC+: 77% – 79.99% C: 73% – 76.99% C-: 70% – 72.99%\nD+: 67% – 69.99% D: 63% – 66.99% D-: 60% – 62.99%\nF: 0% – 59.99%"
   },
   {
@@ -2388,7 +2388,7 @@
     "grading_procedures_title": "Grading Procedures:",
     "deadline_expectations_title": "Late Work:",
     "assignment_delivery": "MyOpenMath (embedded in Canvas); Written Assignments collected in class",
-    "final_grade_scale": "Missing",
+    "final_grade_scale": "A 92.5-100 B- 80-82.4 D+ 67.5-69.9 A- 90 -92.4 C+ 77.5-79.9 D 62.5-67.4 B+ 87.5-89.9 C 72.5-77.4 D- 60 -62.4 B 82.5-87.4 C- 70 -72.4 F below 60",
     "grading_process": "Attendance/Participation 5%\nQuizzes 20% *The lowest quiz grade will be dropped if all quizzes have been taken.\nMyOpenMath HW 10% *For MyOpenMath assignments only, if you earn 82% or better on a\nhomework assignment, that grade will be counted as 100%.\nWritten Assignments 5% *Late passes not accepted. Late work reduced to 50% of your score.\nExam 1, 2 20% *for each exam\nFinal Exam 20% *12/10/25\nLetter grade equivalences are given below."
   },
   {
@@ -3457,7 +3457,7 @@
     "grading_procedures_title": "no need",
     "deadline_expectations_title": "Late Work:",
     "assignment_delivery": "Canvas",
-    "final_grade_scale": "I will use the standard university grading scale on all assignments in this class (i.e., A, B,\n\nC, D, F).",
+    "final_grade_scale": "Missing",
     "grading_process": "Your grade will be calculated as follows:\n\n• 20% Class Presence and Discussion (i.e. how much you contribute to reading discussions and group work online and on days we meet in person)\n\n• 10% Short Individual Activities (includes small writing projects, peer reviews, in-class\n\nprojects, etc.)\n\n• 70% Final Portfolio, which includes the following:\n\n▪ Professional Development Packet (20%)\n\n▪ Instructions and Usability (20%)\n\n▪ Technical Writing Consultation (25%)\n\n▪ 2-page final memo (5%)"
   },
   {
@@ -3572,7 +3572,7 @@
     "grading_procedures_title": "Grading Procedure and Scale",
     "deadline_expectations_title": "Missing",
     "assignment_delivery": "Canvas",
-    "final_grade_scale": "Graduate students must earn 80% (B- or better) to earn graduate credit",
+    "final_grade_scale": "Missing",
     "grading_process": "Capstone Participation 200 pts (Initial Check-in Meeting 50 pts, Midpoint Meeting 25 pts, Midpoint Reflection/Report 25 pts, Final Reflection 50 pts, Participation 50 pts); Supervisor Evaluation 200 pts; Final Capstone Presentation 200 pts; Total 600 pts. Each portion must be passed at 80% level to receive passing grade"
   },
   {

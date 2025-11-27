@@ -69,20 +69,28 @@ class EmailDetector:
         window_lines = lines[:MAX_HEADING_SCAN_LINES] if len(lines) > MAX_HEADING_SCAN_LINES else lines
         candidate = self._find_near_heading(window_lines)
         if candidate:
-            return self._found(candidate, method="heading_window")
+            email = candidate
+            method = "heading_window"
+        else:
+            # 2) Try: any valid email in the first N chars (header area)
+            header = text[:MAX_HEADER_CHARS]
+            header_emails = EMAIL_RX.findall(header)
+            if header_emails:
+                email = header_emails[0]
+                method = "header_any"
+            else:
+                # 3) Fallback: first valid email anywhere in the doc
+                all_emails = EMAIL_RX.findall(text)
+                if all_emails:
+                    email = all_emails[0]
+                    method = "fallback_any"
+                else:
+                    return self._not_found()
 
-        # 2) Try: any valid email in the first N chars (header area)
-        header = text[:MAX_HEADER_CHARS]
-        header_emails = EMAIL_RX.findall(header)
-        if header_emails:
-            return self._found(header_emails[0], method="header_any")
-
-        # 3) Fallback: first valid email anywhere in the doc
-        all_emails = EMAIL_RX.findall(text)
-        if all_emails:
-            return self._found(all_emails[0], method="fallback_any")
-
-        return self._not_found()
+        # Exclude specific emails at the very end
+        if email in {"Janessa.zurek@unh.edu", "sas.office@unh.edu", "unhm.studentdevelopment@unh.edu"}:
+            return self._not_found()
+        return self._found(email, method=method)
 
     # ---------------- helpers ----------------
 
