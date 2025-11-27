@@ -25,13 +25,29 @@ MAX_DOCUMENT_LENGTH = 30000
 
 class WorkloadDetector:
     """
-    Detector for workload/engaged time information.
+    Detector for workload/engaged time information in syllabus documents.
 
-    Looks for workload and time commitment declarations.
+    This detector identifies workload expectations and time commitment declarations
+    commonly found in academic syllabi. It searches for patterns describing:
+    - Hours of engaged time per week per credit
+    - Total hours of student work per term
+    - Expected study hours outside of class
+    - Minimum work hour requirements
+
+    Attributes:
+        field_name (str): The name of the field being detected ('workload').
+        logger (logging.Logger): Logger instance for this detector.
+        word_to_number (dict): Mapping of word numbers to digit strings.
+        workload_patterns (list): List of regex patterns for workload detection.
     """
 
     def __init__(self):
-        """Initialize the Workload detector."""
+        """
+        Initialize the Workload detector.
+
+        Sets up the field name, logger, word-to-number mappings, and compiles
+        the list of regex patterns used to detect workload declarations.
+        """
         self.field_name = 'workload'
         self.logger = logging.getLogger('detector.workload')
 

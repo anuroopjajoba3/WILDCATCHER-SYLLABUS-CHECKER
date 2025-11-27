@@ -166,6 +166,18 @@ class InstructorDetector:
         return True
 
     def contains_non_name_keyword(self, text: str) -> bool:
+        """
+        Checks if the text contains keywords that indicate it's not a personal name.
+
+        This method filters out false positives like "Course Name" or "Class Name"
+        that might otherwise be mistakenly identified as instructor names.
+
+        Args:
+            text (str): The text string to check for non-name keywords.
+
+        Returns:
+            bool: True if the text contains a non-name keyword, False otherwise.
+        """
         t = text.lower()
         return any(bad.lower() in t for bad in self.non_name_keywords)
 

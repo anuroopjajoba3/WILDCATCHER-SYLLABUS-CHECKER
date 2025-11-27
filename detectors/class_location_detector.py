@@ -292,7 +292,18 @@ class ClassLocationDetector:
         self.room_normalize_pattern = re.compile(r'((?:room|rm)\.?)([A-Za-z]?\d)', re.IGNORECASE)
 
     def _normalize_text(self, text: str) -> str:
-        """Normalize text for consistent matching."""
+        """
+        Normalize text for consistent matching.
+
+        Applies Unicode normalization (NFKC) and collapses multiple spaces/tabs
+        into single spaces to ensure consistent pattern matching.
+
+        Args:
+            text (str): The raw text to normalize.
+
+        Returns:
+            str: The normalized text with standardized whitespace.
+        """
         if not text:
             return ""
         t = unicodedata.normalize("NFKC", text)
@@ -302,12 +313,24 @@ class ClassLocationDetector:
     def _check_line_context(self, lines: List[str], line_index: int) -> ContextType:
         """
         Check the context of a specific line by examining surrounding lines.
-        Returns: ContextType enum value
+
+        Determines whether a line containing a potential location is in a class
+        context (what we want), office context (reject), or neutral context.
+
+        Args:
+            lines (List[str]): All lines from the document.
+            line_index (int): The index of the line to check context for.
+
+        Returns:
+            ContextType: The context type enum value:
+                - ContextType.CLASS: Line is in a class location context (accept)
+                - ContextType.OFFICE: Line is in an office/non-class context (reject)
+                - ContextType.NEUTRAL: No clear context indicator found
 
         Priority:
-        1. If CURRENT line has class keywords -> 'CLASS' (overrides everything)
-        2. If CURRENT line has office keywords -> 'OFFICE' (reject)
-        3. Check surrounding lines for context
+            1. If CURRENT line has class keywords -> 'CLASS' (overrides everything)
+            2. If CURRENT line has office keywords -> 'OFFICE' (reject)
+            3. Check surrounding lines for context
         """
         if line_index >= len(lines):
             return ContextType.NEUTRAL
@@ -348,8 +371,21 @@ class ClassLocationDetector:
 
     def _is_course_code(self, text: str) -> bool:
         """
-        Check if text looks like a course code (e.g., COMP 405, BIOL 413, DATA 557).
-        Uses pre-compiled patterns for performance.
+        Check if text looks like a course code.
+
+        Identifies course codes to avoid false positives where course codes
+        might be mistaken for room numbers (e.g., "COMP 405" vs "Room 405").
+
+        Args:
+            text (str): The text string to check.
+
+        Returns:
+            bool: True if the text matches a course code pattern, False otherwise.
+
+        Examples:
+            - "COMP 405" -> True
+            - "BIOL 413A" -> True
+            - "Room 405" -> False
         """
         for pattern in self.course_code_patterns:
             if pattern.search(text):
