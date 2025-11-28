@@ -1,7 +1,19 @@
 """
-Assignment Delivery Detector - Improved Version
-Detects where/how assignments are submitted in syllabi
-Optimized based on ground truth analysis
+Assignment Delivery Detector
+
+Finds where students submit assignments in a syllabus.
+Examples: Canvas, MyCourses, "Collected in class"
+
+How it works:
+1. Searches for platform names (Canvas, MyCourses, etc.)
+2. Prefers lines that say "submit" or "upload"
+3. Ignores weak phrases like "grades posted on"
+4. Scores matches - higher score = more confident
+5. Returns best match with confidence percentage
+
+Example:
+    Input: "Submit all work via Canvas"
+    Output: "Canvas" (confidence: 95%)
 """
 
 import re
@@ -9,22 +21,24 @@ from typing import Dict, Any, List, Set
 
 
 class AssignmentDeliveryDetector:
-    """Detector for assignment delivery platforms/methods in syllabi"""
+    """Finds where students submit assignments in syllabi"""
     
     def __init__(self):
-        # Platform detection patterns - order matters!
+        # Platform patterns - checked in order (most specific first)
+        # Format: (regex pattern, display name)
+        
         self.platform_patterns = [
-            # MyCourses variations (check these first before Canvas)
+            # MyCourses variations (check before Canvas)
             (r'(?i)\bunh\s+mycourses\b', 'UNH MyCourses'),
             (r'(?i)\bmycourses\b', 'MyCourses'),
             
-            # Canvas with MyCourses in parentheses
+            # Canvas with MyCourses
             (r'(?i)\bcanvas\s*\(\s*mycourses\s*\)', 'Canvas (MyCourses)'),
             
-            # Plain Canvas (after checking for MyCourses variations)
+            # Plain Canvas
             (r'(?i)\bcanvas\b', 'Canvas'),
             
-            # Assignment-specific platforms
+            # Assignment platforms
             (r'(?i)\bmyopenmath\b', 'MyOpenMath'),
             (r'(?i)\bmastering\s*(?:a\s*&\s*p|anatomy\s*(?:and|&)\s*physiology)', 'Mastering A&P'),
             (r'(?i)\bmasteringphysics\b', 'MasteringPhysics'),
@@ -36,22 +50,22 @@ class AssignmentDeliveryDetector:
             (r'(?i)\bmoodle\b', 'Moodle'),
             (r'(?i)\bturnitin\b', 'Turnitin'),
             
-            # Physical delivery methods - check for longer phrases first
+            # Physical delivery
             (r'(?i)\bwritten\s+assignments?\s+collected\s+in\s+class\b', 'Written assignments collected in class'),
             (r'(?i)\bcollected\s+in\s+class\b', 'Collected in class'),
             (r'(?i)\bin\s*-?\s*person\s+submission\b', 'In-person submission'),
             (r'(?i)\bhanded?\s+in\b', 'Handed in'),
         ]
         
-        # Noise phrases to remove when extracting platforms
+        # Noise phrases to remove
         self.noise_patterns = [
-            r'\(embedded\s+in\s+[^)]+\)',  # (embedded in Canvas)
-            r'\([^)]*grades?[^)]*\)',      # (grades)
+            r'\(embedded\s+in\s+[^)]+\)',
+            r'\([^)]*grades?[^)]*\)',
             r'\bembedded\s+in\b',
             r'\bfor\s+grades?\b',
         ]
         
-        # Strong section indicators
+        # Section headers (strong signals)
         self.section_indicators = [
             r'(?i)^\s*assignment\s+(?:delivery|submission|platform)\s*:?',
             r'(?i)^\s*submission\s+(?:method|platform|process)\s*:?',
@@ -60,7 +74,7 @@ class AssignmentDeliveryDetector:
             r'(?i)^\s*(?:course|class)\s+(?:platform|management\s+system)\s*:?',
         ]
         
-        # Context patterns indicating assignment delivery
+        # Delivery context (words about submitting)
         self.context_patterns = [
             r'(?i)assignments?\s+(?:are\s+)?(?:submitted|uploaded|turned\s+in|posted|delivered)\s+(?:via|on|to|through|using|in)',
             r'(?i)submit\s+(?:all\s+)?(?:your\s+)?(?:assignments?|work|papers?|homework)\s+(?:via|on|to|through|using|in)',
@@ -69,7 +83,7 @@ class AssignmentDeliveryDetector:
             r'(?i)(?:assignments?|homework)\s+(?:should|must)\s+be\s+(?:submitted|uploaded|posted|turned\s+in)\s+(?:via|on|to|in)',
         ]
         
-        # Weak signals (grades posting, course materials location)
+        # Weak signals to ignore (grades, materials)
         self.weak_signal_patterns = [
             r'(?i)\bgrades?\s+(?:are\s+)?(?:posted|available|viewable)\s+(?:on|in)',
             r'(?i)\bcourse\s+materials?\s+(?:are\s+)?(?:on|in|available\s+(?:on|in))',
@@ -78,20 +92,19 @@ class AssignmentDeliveryDetector:
         ]
     
     def _clean_line_for_extraction(self, line: str) -> str:
-        """Remove noise phrases from line"""
+        """Remove noise phrases like '(embedded in Canvas)' from line"""
         cleaned = line
+        
         for pattern in self.noise_patterns:
             cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE)
+        
         return cleaned.strip()
     
     def _extract_platforms_from_text(self, text: str) -> Set[str]:
-        """Extract all platform names from text"""
+        """Find all platform names in text (e.g., {'Canvas', 'MyOpenMath'})"""
         platforms = set()
-        
-        # Clean the text
         cleaned = self._clean_line_for_extraction(text)
         
-        # Apply each pattern
         for pattern, platform_name in self.platform_patterns:
             if re.search(pattern, cleaned):
                 platforms.add(platform_name)
@@ -99,36 +112,26 @@ class AssignmentDeliveryDetector:
         return platforms
     
     def _has_section_indicator(self, line: str) -> bool:
-        """Check if line is a section header about assignment delivery"""
+        """Check if line is a section header like 'Assignment Submission:'"""
         return any(re.search(p, line) for p in self.section_indicators)
     
     def _has_delivery_context(self, line: str) -> bool:
-        """Check if line has strong assignment delivery context"""
+        """Check if line talks about submitting (e.g., 'Submit work via Canvas')"""
         return any(re.search(p, line) for p in self.context_patterns)
     
     def _is_weak_signal(self, line: str) -> bool:
-        """Check if line is just about grades/materials (not submission)"""
+        """Check if line is about grades/materials, not submission"""
         return any(re.search(p, line) for p in self.weak_signal_patterns)
     
     def detect(self, text: str) -> Dict[str, Any]:
         """
-        Detect assignment delivery platform/method in syllabus text.
+        Find assignment delivery platform in syllabus.
         
-        Args:
-            text: Full syllabus text
-            
-        Returns:
-            Dict with:
-                - 'found' (bool): Whether delivery info was detected
-                - 'content' (str): The detected platform(s)
-                - 'confidence' (float): Confidence score (0-100)
+        Returns dict with 'found' (bool), 'content' (str), 'confidence' (float)
+        Example: {'found': True, 'content': 'Canvas', 'confidence': 95.5}
         """
         if not text or not text.strip():
-            return {
-                "found": False,
-                "content": "",
-                "confidence": 0.0
-            }
+            return {"found": False, "content": "", "confidence": 0.0}
         
         lines = text.split('\n')
         candidates = []
@@ -136,36 +139,26 @@ class AssignmentDeliveryDetector:
         for i, line in enumerate(lines):
             line_stripped = line.strip()
             
-            # Skip empty, very short, or very long lines
             if not line_stripped or len(line_stripped) < 5 or len(line_stripped) > 500:
                 continue
             
-            # Skip weak signal lines (grades posting, etc.)
             if self._is_weak_signal(line_stripped) and not self._has_delivery_context(line_stripped):
                 continue
             
-            # Check for section indicators and context
             is_section = self._has_section_indicator(line_stripped)
             has_context = self._has_delivery_context(line_stripped)
-            
-            # Extract platforms from this line
             platforms = self._extract_platforms_from_text(line_stripped)
             
             if not platforms:
                 continue
             
             # Calculate score
-            score = 50  # Base score for finding platform(s)
-            
-            # Major boost for section headers
+            score = 50
             if is_section:
                 score += 40
-            
-            # Boost for explicit delivery context
             if has_context:
                 score += 35
             
-            # Position boost (earlier in document = more authoritative)
             position_ratio = i / max(len(lines), 1)
             if position_ratio < 0.15:
                 score += 25
@@ -176,12 +169,9 @@ class AssignmentDeliveryDetector:
             elif position_ratio < 0.75:
                 score += 5
             
-            # Boost for multiple platforms
             if len(platforms) > 1:
                 score += 12
             
-            # Format content - join multiple platforms
-            # Sort for consistency but preserve original casing
             platform_list = sorted(list(platforms), key=lambda x: x.lower())
             content = '; '.join(platform_list)
             
@@ -194,54 +184,31 @@ class AssignmentDeliveryDetector:
                 'platform_count': len(platforms)
             })
         
-        # Select best candidate
+        # Select best match
         if candidates:
-            # Sort by multiple criteria
             best = max(candidates, key=lambda x: (
-                x['score'],
-                x['is_section'],
-                x['has_context'],
-                x['platform_count'],
-                -x['line']  # Earlier is better (negative for max)
+                x['score'], x['is_section'], x['has_context'], 
+                x['platform_count'], -x['line']
             ))
             
-            # Calculate confidence (max theoretical score ~162)
             confidence = min(100.0, (best['score'] / 162.0) * 100)
-            
-            # Set minimum confidence
             if confidence < 45:
                 confidence = 45
             
-            return {
-                'found': True,
-                'content': best['content'],
-                'confidence': round(confidence, 2)
-            }
+            return {'found': True, 'content': best['content'], 'confidence': round(confidence, 2)}
         
-        return {
-            'found': False,
-            'content': '',
-            'confidence': 0.0
-        }
+        return {'found': False, 'content': '', 'confidence': 0.0}
 
 
 def detect_assignment_delivery(text: str) -> str:
-    """
-    Standalone convenience function.
-    
-    Args:
-        text: Full syllabus text
-        
-    Returns:
-        The detected platform(s) or empty string
-    """
+    """Simple wrapper - returns platform name or empty string"""
     detector = AssignmentDeliveryDetector()
     result = detector.detect(text)
     return result.get('content', '') if result.get('found') else ''
 
 
 if __name__ == "__main__":
-    # Test cases based on actual ground truth
+    # Test cases
     test_cases = [
         ("Assignments are submitted via myCourses.", "MyCourses"),
         ("Submit all work through Canvas.", "Canvas"),
@@ -266,7 +233,6 @@ if __name__ == "__main__":
         found = result.get('content', '')
         confidence = result.get('confidence', 0)
         
-        # Normalize for comparison
         found_norm = {p.strip().lower() for p in found.split(';') if p.strip()}
         expected_norm = {p.strip().lower() for p in expected.split(';') if p.strip()}
         
