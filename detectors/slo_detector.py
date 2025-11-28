@@ -1,14 +1,22 @@
 """
 Student Learning Outcomes (SLO) Detector
-=========================================
 
-This detector identifies Student Learning Outcomes in syllabus documents.
-It uses pattern matching and keyword detection to find SLO sections.
+Finds Student Learning Outcomes sections in syllabi.
+Examples: "Student Learning Outcomes", "Learning Objectives", "SLOs"
 
-Developer Notes:
----------------
-This is a simple example of a field detector. When creating new detectors,
-use this as a template for structure and patterns.
+Business Rule: Only "Student Learning" or "Learning" titles are valid.
+"Course Objectives" and "Course Goals" are NOT valid SLO sections.
+
+How it works:
+1. Searches for approved SLO titles (Student Learning Outcomes, etc.)
+2. Validates title appears as section header (not in sentence)
+3. Scores matches based on header characteristics
+4. Extracts content following the highest-scoring match
+5. Returns title + content or "Missing" if not found
+
+Example:
+    Input: "Student Learning Outcomes:\n- Understand key concepts\n- Apply knowledge"
+    Output: "Student Learning Outcomes:\n- Understand key concepts\n- Apply knowledge"
 """
 
 import re
@@ -17,34 +25,27 @@ from typing import Dict, Any, Tuple
 
 
 class SLODetector:
-    """
-    Detector for Student Learning Outcomes.
+    """Detects Student Learning Outcomes in syllabi"""
 
-    This detector looks for common SLO patterns including:
-    - Keywords like "Student Learning Outcomes", "Learning Objectives"
-    - Action verbs in bulleted lists
-    - Structured learning outcome statements
-    """
+    # Document processing limits
+    MAX_DOCUMENT_LENGTH = 20000  # Prevent hanging on large files
+    MAX_CONTENT_LINES = 10       # Lines to extract after title
+    MAX_CONTENT_LENGTH = 500     # Max characters to extract
 
-    # Detection Configuration Constants
-    MAX_DOCUMENT_LENGTH = 20000
-    MAX_CONTENT_LINES = 10
-    MAX_CONTENT_LENGTH = 500
+    # Scoring weights for header detection
+    SCORE_STARTS_WITH_TITLE = 10    # Title at start of line
+    SCORE_SHORT_LINE = 5            # Short line (likely header)
+    SCORE_LONG_LINE_PENALTY = -5    # Long line (likely sentence)
+    SCORE_HAS_COLON = 3             # Has colon (section header)
+    SCORE_ALL_CAPS = 2              # All caps (section header)
+    MIN_SCORE_THRESHOLD = 5         # Minimum score to accept
 
-    # Scoring thresholds for header detection
-    SCORE_STARTS_WITH_TITLE = 10
-    SCORE_SHORT_LINE = 5
-    SCORE_LONG_LINE_PENALTY = -5
-    SCORE_HAS_COLON = 3
-    SCORE_ALL_CAPS = 2
-    MIN_SCORE_THRESHOLD = 5
-
-    # Line length thresholds for header detection
-    SHORT_LINE_THRESHOLD = 50
-    LONG_LINE_THRESHOLD = 100
-    MAX_EXTRA_WORDS_HEADER = 2
-    MAX_EXTRA_WORDS_START = 4
-    MAX_EXTRA_WORDS_END = 3
+    # Line length thresholds
+    SHORT_LINE_THRESHOLD = 50       # Short line cutoff
+    LONG_LINE_THRESHOLD = 100       # Long line cutoff
+    MAX_EXTRA_WORDS_HEADER = 2      # Max extra words in short title
+    MAX_EXTRA_WORDS_START = 4       # Max extra words when title at start
+    MAX_EXTRA_WORDS_END = 3         # Max extra words when title at end
 
     # Section headers that indicate end of SLO content
     SECTION_HEADERS = [
@@ -53,26 +54,26 @@ class SLODetector:
     ]
 
     def __init__(self):
-        """Initialize the SLO detector with strict business rules."""
+        """Initialize with strict business rules for valid SLO titles"""
         self.field_name = 'slos'
         self.logger = logging.getLogger('detector.slos')
 
-        # STRICT BUSINESS RULE: Only these specific titles are considered valid SLO sections
+        # STRICT BUSINESS RULE: Only these titles are valid SLO sections
         # Must contain "Student Learning" or just "Learning" (without "Course")
-        # "Course Objectives", "Course Goals", etc. are NOT valid SLO sections
+        # "Course Objectives" and "Course Goals" are NOT valid
         self.approved_titles = [
             "student learning outcomes",
             "student learning outcome",
             "student learning objectives",
             "student learning objective",
-            "student/program learning outcomes",  # Program variant
+            "student/program learning outcomes",
             "learning outcomes",
             "learning outcome",
             "learning objectives",
             "learning objective"
         ]
 
-        # Also accept abbreviated forms
+        # Abbreviated forms
         self.approved_abbreviations = [
             "slos",
             "slo"
@@ -80,25 +81,22 @@ class SLODetector:
 
     def detect(self, text: str) -> Dict[str, Any]:
         """
-        Detect Student Learning Outcomes in the text.
-        Simplified approach: just look for specific approved titles.
-
-        Args:
-            text (str): Document text to analyze
-
-        Returns:
-            Dict[str, Any]: Detection result with SLO content if found
+        Detect Student Learning Outcomes in syllabus.
+        
+        Returns dict with:
+            - 'field_name': 'slos'
+            - 'found': bool
+            - 'content': SLO text or 'Missing'
         """
-        self.logger.info("Starting simplified SLO detection")
+        self.logger.info("Starting SLO detection")
 
-        # Limit text size to prevent hanging on large documents
+        # Limit text size to prevent hanging
         original_length = len(text)
         if len(text) > self.MAX_DOCUMENT_LENGTH:
             text = text[:self.MAX_DOCUMENT_LENGTH]
-            self.logger.info(f"Truncated large document from {original_length} to {self.MAX_DOCUMENT_LENGTH} characters")
+            self.logger.info(f"Truncated document from {original_length} to {self.MAX_DOCUMENT_LENGTH} chars")
 
         try:
-            # Simple title-based detection
             found, content = self._simple_title_detection(text)
 
             if found:
@@ -108,17 +106,14 @@ class SLODetector:
                     'content': content
                 }
                 self.logger.info(f"FOUND: {self.field_name}")
-                self.logger.info("SUCCESS: Found approved SLO title")
             else:
                 result = {
                     'field_name': self.field_name,
                     'found': False,
-                    'content': 'Missing'  # ← FIXED: Changed from None to 'Missing'
+                    'content': 'Missing'
                 }
                 self.logger.info(f"NOT_FOUND: {self.field_name}")
-                self.logger.info("No approved SLO titles found")
 
-            self.logger.info(f"Detection complete for {self.field_name}: {'SUCCESS' if found else 'NO_MATCH'}")
             return result
 
         except Exception as e:
@@ -126,61 +121,58 @@ class SLODetector:
             return {
                 'field_name': self.field_name,
                 'found': False,
-                'content': 'Missing'  # ← FIXED: Changed from None to 'Missing'
+                'content': 'Missing'
             }
 
     def _simple_title_detection(self, text: str) -> Tuple[bool, str]:
         """
-        Simple title-based SLO detection.
-        Just looks for exact approved titles and extracts following content.
-
-        Args:
-            text (str): Text to search
-
+        Find approved SLO titles and extract content.
+        
+        Validation:
+        - Title must appear as section header (not in sentence)
+        - Three valid formats:
+          1. Very short line with proper formatting
+          2. Title at start with colon or short line
+          3. Title at end if short line
+        
         Returns:
             tuple: (found, content)
         """
         lines = text.split('\n')
-
-        # Find all potential matches first, then pick the best one
         potential_matches = []
 
         for i, line in enumerate(lines):
             line_normalized = line.strip().lower()
             line_without_punctuation = line_normalized.replace(':', '').replace('.', '').strip()
 
-            # Check if any approved title appears properly (not just as part of a sentence)
+            # Check if line contains approved title
             contains_approved_title = False
             for title in self.approved_titles:
                 if title in line_without_punctuation:
-                    # Additional check: line should be relatively short and not part of a long sentence
-                    # or the title should be at the start/end of the line
                     line_words = line_without_punctuation.split()
                     title_words = title.split()
 
-                    # Much stricter check: title must appear in header-like format
+                    # Validate it's a header (not just mentioned in text)
                     is_valid_header = False
 
-                    # Case 1: Very short line (title + max 2 extra words) with proper formatting
+                    # Case 1: Very short line (title + max 2 extra words)
                     if len(line_words) <= len(title_words) + self.MAX_EXTRA_WORDS_HEADER:
                         has_proper_formatting = (
-                            ':' in line or                           # Has colon (section header)
-                            line.strip().isupper() or              # All caps
-                            (len(line_words) == len(title_words) and  # Exact title match
+                            ':' in line or
+                            line.strip().isupper() or
+                            (len(line_words) == len(title_words) and
                              not line_normalized.endswith((',', ';', '.', '!', '?')))
                         )
                         if has_proper_formatting:
                             is_valid_header = True
 
-                    # Case 2: Title at the very beginning of line (starts with title)
+                    # Case 2: Title at start (with colon or short)
                     elif line_without_punctuation.startswith(title):
-                        # But only if it looks like a header (has colon or is short)
                         if ':' in line or len(line_words) <= len(title_words) + self.MAX_EXTRA_WORDS_START:
                             is_valid_header = True
 
-                    # Case 3: Title at the very end of line (ends with title)
+                    # Case 3: Title at end (if short line)
                     elif line_without_punctuation.endswith(title):
-                        # Only if it's a short line
                         if len(line_words) <= len(title_words) + self.MAX_EXTRA_WORDS_END:
                             is_valid_header = True
 
@@ -189,46 +181,44 @@ class SLODetector:
                         break
 
             if contains_approved_title:
-                # Score this match based on how likely it is to be a section header
+                # Score this match
                 score = 0
 
-                # Higher score for lines that start with approved titles
+                # Check if starts with approved title
                 starts_with_approved = False
                 for title in self.approved_titles:
                     if line_without_punctuation.startswith(title):
                         starts_with_approved = True
                         break
+                
                 if starts_with_approved:
                     score += self.SCORE_STARTS_WITH_TITLE
 
-                # Higher score for shorter lines (more likely to be headers)
+                # Score based on line characteristics
                 if len(line_without_punctuation) < self.SHORT_LINE_THRESHOLD:
                     score += self.SCORE_SHORT_LINE
 
-                # Lower score for very long lines (likely mentions in text)
                 if len(line_without_punctuation) > self.LONG_LINE_THRESHOLD:
                     score += self.SCORE_LONG_LINE_PENALTY
 
-                # Higher score for lines with colons (section headers often have colons)
                 if ':' in line:
                     score += self.SCORE_HAS_COLON
 
-                # Higher score for lines in ALL CAPS
                 if line.strip().isupper():
                     score += self.SCORE_ALL_CAPS
 
                 potential_matches.append((score, i, line))
 
-        # Sort by score (highest first) and pick the best match
+        # Select best match
         if potential_matches:
             potential_matches.sort(key=lambda x: x[0], reverse=True)
             best_score, best_i, best_line = potential_matches[0]
 
-            # Only accept matches with a reasonable score (likely section headers)
+            # Only accept if score is high enough
             if best_score < self.MIN_SCORE_THRESHOLD:
                 return False, ""
 
-            # Extract content from the best match
+            # Extract content after title
             title = best_line.strip()
             content_lines = [title]
             content_length = len(title)
@@ -241,14 +231,14 @@ class SLODetector:
                 if not next_line:
                     continue
 
-                # Stop if we hit another section title
+                # Stop at next section header
                 if any(section in next_line.lower() for section in self.SECTION_HEADERS):
                     break
 
                 content_lines.append(next_line)
                 content_length += len(next_line)
 
-                # Stop after reasonable amount of content
+                # Stop after reasonable amount
                 if content_length > self.MAX_CONTENT_LENGTH:
                     break
 
