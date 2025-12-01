@@ -1,13 +1,14 @@
 """
+Authors: Jackie E, Team Alpha fall 2025
+Date 12/1/2025
+
 Grading scale detection module.
 
 This module provides the GradingScaleDetector class for extracting letter-based grading scales 
 from syllabus text by finding A-F grade patterns.
 
-Typical usage example:
-    detector = GradingScaleDetector()
-    result = detector.detect(syllabus_text)
-    print(result)
+we literally just look for A-F grading scales. They need to have all 12 letters (A, A-, B+, B, etc...) to be considered
+
 """
 
 from typing import Dict, Any, List, Set

@@ -1,8 +1,15 @@
 """
+Authors: Erik Bailey, Team Alpha fall 2025
+Contributers: Jackie
+Date 12/1/2025
 Email Detector
 =========================================
 Detects instructor email addresses in syllabus documents.
 Prefers emails near typical headings; falls back to first valid email.
+
+We basically look for unh emails (@unh.edu, @ wildcats.unh.edu)
+notably, you should modify this to exclude certain emails that belong to specific departments at UNH, as they are always
+on a syllabus and may get picked up accidentally.
 """
 
 import re
