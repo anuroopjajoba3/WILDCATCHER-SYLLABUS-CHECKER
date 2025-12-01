@@ -1,5 +1,9 @@
 """
 Detects professor office location, office hours, and phone number from syllabus text.
+This detector uses regex patterns to find various formats of office information.
+office_information_detection.py starts in the OfficeInformationDetector class and
+contains three sub-detectors: LocationDetector and HoursDetector and PhoneDetector.
+
 """
 
 import re
@@ -38,6 +42,9 @@ class BaseDetector:
     def __init__(self, field_name: str, search_limit: int = 5000):
         """
         Initialize the base detector.
+        Args:
+            field_name (str): Name of the field being detected.
+            search_limit (int): Character limit for searching text.
         """
         self.field_name = field_name
         self.search_limit = search_limit
@@ -47,12 +54,18 @@ class BaseDetector:
     def _init_patterns(self) -> List[re.Pattern]:
         """
         Initialize regex patterns for this detector.
+        Returns:
+            List[re.Pattern]: Compiled regex patterns for detection.
         """
         raise NotImplementedError
 
     def detect(self, text: str) -> DetectionResult:
         """
         Detect the field in the given text.
+        Args:
+            text (str): The syllabus text to search.
+        Returns:
+            DetectionResult: The result of the detection.
         """
         # Limit search to first N characters for performance
         search_text = text[:self.search_limit] if len(text) > self.search_limit else text
@@ -74,6 +87,10 @@ class BaseDetector:
         """
         Apply all regex patterns to find matches.
         Returns list that may contain strings or tuples depending on regex capture groups.
+        Args:
+            text (str): Text to search
+        Returns:
+            List[Any]: List of all raw matches found
         """
         all_matches = []
         for i, pattern in enumerate(self.patterns):
@@ -86,6 +103,11 @@ class BaseDetector:
     def _process_matches(self, matches: List, text: str) -> List[str]:
         """
         Process and validate raw matches.
+        Args:
+            matches (List): Raw regex matches.
+            text (str): Full syllabus text for context.
+        Returns:
+            List[str]: Processed, valid field strings.
         """
         raise NotImplementedError
 
@@ -109,6 +131,8 @@ class LocationDetector(BaseDetector):
     def _init_patterns(self) -> List[re.Pattern]:
         """
         Initialize all location detection patterns.
+        Returns:
+            List[re.Pattern]: Compiled regex patterns for location detection.
         """
         patterns = [
             # Pattern 1: "Office Hours: ..., Room 105"
@@ -118,11 +142,8 @@ class LocationDetector(BaseDetector):
             # Pattern 2: "Office: Room 628"
             # Direct office-to-room association
             r'Office:\s*Room\s*(\d+[A-Z]?)',
+            # Pattern 2a: "Office: Rm 628" or "Office: Rm. 628"
             r'Office:\s*Rm\s*(\d+[A-Z]?)',
-#Office: Rm 139, Pandora Mill building 
-
- #           r'Office:\s*([A-Z]?\d+)',
-
 
             # Pattern 3: "Pandora Rm. 103" or "Pandora Room 103"
             # Note: Pand[o]?ra handles common typo "Pandra"
@@ -162,6 +183,11 @@ class LocationDetector(BaseDetector):
     def _process_matches(self, matches: List[str], text: str) -> List[str]:
         """
         Process location matches to return unique, valid room numbers.
+        Args:
+            matches (List[str]): Raw regex matches.
+            text (str): syllabus text for context.
+        Returns:
+            List[str]: Processed, valid office location strings.
         """
         unique_rooms = []
         seen = set()
@@ -188,6 +214,11 @@ class LocationDetector(BaseDetector):
         """
         Format room number to match how it appears in the document.
         Priority: P### > Pandora Room ### > Room ###
+        Args:
+            room (str): Room number (e.g., "529")
+            text (str): syllabus text for context.
+        Returns:
+            str: Formatted room string.
         """
         search_text = text[:DEFAULT_LOCATION_SEARCH_LIMIT]
 
@@ -214,6 +245,11 @@ class LocationDetector(BaseDetector):
         """
         Extract building name from text near the room number.
         Returns building name if found, empty string otherwise.
+        Args:
+            room (str): Room number (e.g., "529")
+            text (str): syllabus text for context.
+        Returns:
+            str: Building name if found, else empty string.
         """
         # Search for "Pandora" (or "Pandra" typo) near this room number
         # Look in first 5000 chars for performance
@@ -232,6 +268,11 @@ class LocationDetector(BaseDetector):
     def _is_office_context(self, room: str, text: str) -> bool:
         """
         Check if room number is in office context (not classroom).
+        Args:
+            room (str): Room number (e.g., "529")
+            text (str): syllabus text for context.
+        Returns:
+            bool: True if room is in office context, False if likely a classroom.
         """
         room_pattern = rf'(?:Room|Rm\.?)\s*{re.escape(room)}'
 
@@ -309,7 +350,12 @@ class HoursDetector(BaseDetector):
         super().__init__('hours', DEFAULT_HOURS_SEARCH_LIMIT)
     
     def _init_patterns(self) -> List[re.Pattern]:
-        """Initialize all hours detection patterns."""
+        """
+        Initialize all hours detection patterns.
+
+        Returns:
+            List[re.Pattern]: Compiled regex patterns for hours detection.
+        """
         patterns = [
             # TBD patterns - highest priority
             r'(?:Office\s*)?Hours?\s*[:]\s*(TBD)',
@@ -439,7 +485,13 @@ class HoursDetector(BaseDetector):
         return [re.compile(p, re.IGNORECASE | re.MULTILINE) for p in patterns]
     
     def detect(self, text: str) -> DetectionResult:
-        """Special detection for hours to handle TBD priority."""
+        """
+        Special detection for hours to handle TBD priority.
+        
+        Args:
+            text (str): The syllabus text to search.
+        Returns:
+            DetectionResult: The result of the detection."""
         search_text = text[:self.search_limit] if len(text) > self.search_limit else text
         
         # Check for TBD first
@@ -457,7 +509,15 @@ class HoursDetector(BaseDetector):
         return super().detect(text)
     
     def _process_matches(self, matches: List[str], text: str) -> List[str]:
-        """Process hours matches."""
+        """
+        Process hours matches.
+        
+        args:
+            matches (List[str]): Raw regex matches.
+            text (str): Full syllabus text for context.
+        Returns:
+            List[str]: Processed, valid office hours strings.
+        """
         valid_hours = []
         seen = set()
 
@@ -580,7 +640,13 @@ class HoursDetector(BaseDetector):
         return []
     
     def _clean_hours(self, hours: str) -> str:
-        """Clean office hours text."""
+        """
+        Clean office hours text.
+        Args:
+            hours (str): Raw office hours text.
+        Returns:
+            str: Cleaned office hours text.
+        """
         # IMPROVEMENT 1: Normalize various dash characters (en-dash, em-dash, hyphen)
         # Replace en-dash (–), em-dash (—), and other dash variants with standard hyphen
         hours = re.sub(r'[\u2013\u2014\u2015\u2212]', '-', hours)
@@ -616,7 +682,13 @@ class HoursDetector(BaseDetector):
         return hours.strip()
     
     def _is_valid_hours(self, text: str) -> bool:
-        """Check if text is likely valid office hours."""
+        """
+        Check if text is likely valid office hours.
+        Args:
+            text (str): Office hours text to validate.
+        Returns:
+            bool: True if valid hours, False otherwise.
+        """
         if not text:
             return False
 
@@ -642,7 +714,13 @@ class HoursDetector(BaseDetector):
         return any(re.search(pattern, text, re.IGNORECASE) for pattern in self.VALID_INDICATORS)
     
     def _select_best_hours(self, hours_list: List[str]) -> str:
-        """Select the most descriptive office hours."""
+        """
+        Select the most descriptive office hours.
+        Args:
+            hours_list (List[str]): List of valid office hours strings.
+        Returns:
+            str: The most descriptive office hours string.
+        """
         if not hours_list:
             return None
 
@@ -708,10 +786,17 @@ class PhoneDetector(BaseDetector):
     """Detector for phone number information."""
 
     def __init__(self):
+        """Initialize phone detector with DEFAULT_PHONE_SEARCH_LIMIT char search limit."""
         super().__init__('phone', DEFAULT_PHONE_SEARCH_LIMIT)
     
     def _init_patterns(self) -> List[re.Pattern]:
-        """Initialize all phone detection patterns."""
+        """
+        Initialize all phone detection patterns.
+
+        Returns:
+            List[re.Pattern]: Compiled regex patterns for phone detection.
+        """
+
         digit_pattern = r'([(\d][\d\s().-]{8,14})'
         
         patterns = [
@@ -740,7 +825,16 @@ class PhoneDetector(BaseDetector):
         return [re.compile(p, re.IGNORECASE | re.MULTILINE) for p in patterns]
     
     def _process_matches(self, matches: List[str], text: str) -> List[str]:
-        """Process phone matches."""
+        """
+        Process phone matches.
+        
+        Args:
+            matches (List[str]): List of matched phone strings.
+            text (str): The original text being analyzed.
+        
+        Returns:
+            List[str]: List of cleaned and validated unique phone numbers.
+        """
         unique_phones = []
         seen_normalized = set()
         
@@ -759,7 +853,13 @@ class PhoneDetector(BaseDetector):
         return unique_phones
     
     def _clean_phone(self, phone: str) -> str:
-        """Clean phone number formatting."""
+        """
+        Clean phone number formatting.
+        args:
+            phone (str): Raw phone number string.
+        Returns:
+            str: Cleaned phone number string.
+        """
         # Keep only valid phone characters
         phone = re.sub(r'[^0-9().\-\s]', '', phone)
         # Normalize whitespace
@@ -767,7 +867,13 @@ class PhoneDetector(BaseDetector):
         return phone.strip()
     
     def _validate_phone(self, phone: str) -> bool:
-        """Validate phone number."""
+        """
+        Validate phone number.
+        Args:
+            phone (str): Cleaned phone number string.
+        Returns:
+            bool: True if valid phone number, False otherwise.
+        """
         digits = re.sub(r'\D', '', phone)
         return len(digits) in [7, 10]  # US phone formats
 
@@ -775,11 +881,26 @@ class PhoneDetector(BaseDetector):
 class OfficeInformationDetector:
     """
     Main office information detector - combines all field detectors.
+    This detector identifies office information commonly found in academic syllabi. 
+    It searches for patterns describing:
+    - Office location
+    - Office hours
+    - Office Phone number
 
+    Attributes:
+        field_name (str): The name of the field being detected ('office_information').
+        logger (logging.Logger): Logger instance for this detector.
+        location_detector (LocationDetector): Detector for office location.
+        hours_detector (HoursDetector): Detector for office hours.
+        phone_detector (PhoneDetector): Detector for office phone number.
     """
 
     def __init__(self):
-        """Initialize the office information detector with all sub-detectors."""
+        """
+        Initialize the office information detector with all sub-detectors.
+        Sets up the field name, logger, location_detector, hours_detector, phone_detector, and compiles
+        the list of regex patterns used to detect office information declarations.
+        """
         self.field_name = 'office_information'
         self.logger = logging.getLogger('detector.office_information')
 
@@ -790,8 +911,13 @@ class OfficeInformationDetector:
 
     def detect(self, text: str) -> Dict[str, Any]:
         """
-        Detect all office information from syllabus text.
+        Detect all office information declarations in the text.
 
+        Args:
+            text (str): Document text to analyze
+
+        Returns:
+            Dict[str, Any]: Detection result with office information if found
         """
         self.logger.info(f"Starting detection for field: {self.field_name}")
 
