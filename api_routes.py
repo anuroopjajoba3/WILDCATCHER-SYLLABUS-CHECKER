@@ -1,7 +1,16 @@
 """
+Created: Spring 2025
+updated: Fall 2025
+Authors: Spring 2024 team, Fall 2025 Team Alpha
 API Routes Module
 Flask route handlers for detectors application.
-Handles file uploads, SLO detection, and course delivery (Online/Hybrid/In-Person).
+Handles all current detectors as of the end of Fall 2025
+
+This file currently handles all of the back-to-front end integration. If you need to make a new detector, or a new function, 
+this is where you will start it, then move onto index.html in the templates dir
+
+this file could use an overhaul, as we modified the front end this semester and removed the AI components. I added onto the file
+instead of remaking it, and never got a chance to clean up the file fully. 
 """
 
 from __future__ import annotations

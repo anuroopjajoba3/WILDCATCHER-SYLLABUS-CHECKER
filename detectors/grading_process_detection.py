@@ -1,8 +1,11 @@
 """
+Authors: Jackie E, Team Alpha fall 2025
+Date 12/1/2025
 Grading Process Detector
 Detects grading processes in syllabi: percentage breakdowns (Exam 1 - 22%),
-grouped assignment->percentage lists, and letter-grade blocks (A:, B:, C:, D:, F:).
-This detector handles everything that is NOT canonical A..F letter-range mappings.
+
+This detector handles everything that is NOT canonical A..F letter-range mappings, so how a professor might assign points to assignments.
+
 """
 
 import re

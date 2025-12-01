@@ -1,9 +1,15 @@
 """
+Authors: Erik Bailey, Team Alpha fall 2025
+Contributers: Jackie
+Date 12/1/2025
 Late Missing Work Detector
 =========================================
 
 This detector identifies late work policies in syllabus documents.
 It uses pattern matching and keyword detection to find late sections.
+
+It looks for titles like "Late Work", and if it cannot find any titles it'll try combing through a syllabus to find any mention on
+"late work", like "late work will not be accepted."
 
 """
 
