@@ -39,9 +39,8 @@ class CreditHoursDetector:
             # "4-credit", "3-credit course"
             r'(\d+(?:\.\d+)?)-credits?\b',
             
-            
+            # "(4-credits)", "(3-credit)"
             r'\((\d+(?:\.\d+)?)-credits?\)\b',
-
 
             # "Credits: 4", "Credit: 3.0"
             r'\bCredits?:\s*(\d+(?:\.\d+)?)\b',
@@ -170,7 +169,8 @@ class CreditHoursDetector:
                     # Sanity check: typical course credits are 0 to 12
                     # Allow 0-credit courses (co-requisites, labs, etc.)
                     # This filters out obvious false positives like CRNs
-                    if not (0.0 <= credit_number <= 12.0):
+#                    if not (0.0 <= credit_number <= 12.0):
+                    if not (credit_number <= 12.0):
                         self.logger.debug(f"Skipping unrealistic credit value: {full_match}")
                         continue
 
