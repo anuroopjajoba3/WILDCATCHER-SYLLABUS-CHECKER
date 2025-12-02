@@ -30,6 +30,15 @@ https://fontawesome.com/v4/icons/
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
   <style>
+    /* Make Assignment Type and Assignment Deliverables tabs just a touch wider */
+    .detector-tabs .nav-tabs .nav-link#assignment_type-tab {
+      min-width: 110px;
+      max-width: 140px;
+    }
+    .detector-tabs .nav-tabs .nav-link#assignment_deliverable-tab {
+      min-width: 120px;
+      max-width: 170px;
+    }
     :root {
       --unh-blue: #002B7D;
       --unh-white: #ffffff;
@@ -141,6 +150,58 @@ https://fontawesome.com/v4/icons/
       .input-group { flex-direction: column; width: 100%; margin-left: 0; }
       #user-input { width: 100%; margin-top: .5rem; }
       #send-button { margin: 0 auto; margin-top: .5rem; }
+    }
+    /* --- Detector Tabs 2-line Layout --- */
+    .detector-tabs .nav-tabs {
+      flex-wrap: wrap;
+      max-height: 2.8em;
+      overflow: hidden;
+      row-gap: 0;
+      margin-bottom: 0;
+    }
+    .detector-tabs .nav-tabs .nav-item {
+      margin-bottom: 0;
+      padding: 0;
+    }
+    .detector-tabs .nav-tabs .nav-link {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.5rem;
+      min-width: 80px;
+      max-width: 120px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: 2.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3em;
+    }
+    .detector-tabs .nav-tabs {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      line-height: 1.1;
+    }
+    .detector-tabs .nav-tabs .nav-link i {
+      font-size: 1em;
+      margin-right: 0.3em;
+    }
+    /* Allow tabs to wrap to 2 lines max */
+    .detector-tabs .nav-tabs {
+      max-height: 4.5em;
+      overflow-y: hidden;
+    }
+    @media (max-width: 600px) {
+      .detector-tabs .nav-tabs .nav-link {
+        font-size: 0.75rem;
+        min-width: 60px;
+        max-width: 90px;
+        padding: 0.15rem 0.3rem;
+      }
+      .detector-tabs .nav-tabs {
+        max-height: 5.5em;
+      }
     }
   </style>
 </head>
