@@ -2,15 +2,7 @@
 Created: Spring 2025
 updated: Fall 2025
 Authors: Spring 2024 team, Fall 2025 Team Alpha
-API Routes Module
-Flask route handlers for detectors application.
-Handles all current detectors as of the end of Fall 2025
-
-This file currently handles all of the back-to-front end integration. If you need to make a new detector, or a new function, 
-this is where you will start it, then move onto index.html in the templates dir
-
-this file could use an overhaul, as we modified the front end this semester and removed the AI components. I added onto the file
-instead of remaking it, and never got a chance to clean up the file fully. 
+API Routes Module - Updated with Gemini AI integration
 """
 
 from __future__ import annotations
@@ -25,20 +17,15 @@ import zipfile
 from flask import request, jsonify, render_template
 
 from document_processing import extract_text_from_pdf, extract_text_from_docx
+from gemini_analyzer import analyze_compliance_summary, answer_syllabus_question
 
-# SLO regex detector (your existing detector)
 from detectors.slo_detector import SLODetector
 from detectors.grading_scale_detection import GradingScaleDetector
-
-# Modality (Online / Hybrid / In-Person) rule-based detector (procedural API)
 from detectors.online_detection import (
     detect_course_delivery,
     format_modality_card,
     quick_course_metadata,
 )
-
-
-# Optional detectors (now required in this repo) imported at module top
 from detectors.office_information_detection import OfficeInformationDetector
 from detectors.email_detector import EmailDetector
 from detectors.preferred_contact_detector import PreferredDetector
@@ -51,16 +38,15 @@ from detectors.grading_process_detection import GradingProcessDetector
 from detectors.response_time_detector import ResponseTimeDetector
 from detectors.class_location_detector import ClassLocationDetector
 
+# In-memory store for last uploaded syllabus text (for /ask endpoint)
+_last_syllabus_text: dict[str, str] = {}
+
 
 # -----------------------------------------------------------------------------
-# Helpers
+# Helpers (unchanged)
 # -----------------------------------------------------------------------------
 
 def detect_slos_with_regex(text: str) -> tuple[bool, str | None]:
-    """
-    SLO detection using the SLO detector.
-    Returns (has_slos: bool, slo_content: str or None)
-    """
     slo_detector = SLODetector()
     result = slo_detector.detect(text)
     has_slos = bool(result.get("found"))
@@ -69,9 +55,6 @@ def detect_slos_with_regex(text: str) -> tuple[bool, str | None]:
 
 
 def _format_slo_card_from_info(has_slos: bool, slo_content: str | None) -> dict:
-    """
-    Build a simple PASS/FAIL card for SLOs that your UI can render directly.
-    """
     if has_slos:
         first_lines = []
         if slo_content:
@@ -99,21 +82,12 @@ def _safe_ext(name: str) -> str:
 
 
 def _massage_modality_card(card: dict, meta: dict) -> dict:
-    """
-    Make the modality card render the way you want:
-
-    - Put course & instructor/email as the first "evidence" lines.
-    - Rename the display line to “Modality: …” (while keeping card['label'] for compatibility).
-    - Keep confidence as a decimal (0–1), never percent.
-    - Filter evidence down to lines that actually talk about delivery.
-    """
     if not isinstance(card, dict):
         return card or {}
 
     label = card.get("label", "Unknown")
     confidence = float(card.get("confidence") or 0.0)
 
-    # Build friendly header lines
     header_lines = []
     course_line = (meta or {}).get("course") or ""
     instr = (meta or {}).get("instructor") or ""
@@ -125,31 +99,24 @@ def _massage_modality_card(card: dict, meta: dict) -> dict:
     if instr_email:
         header_lines.append(instr_email)
 
-    # Keep only relevant evidence sentences (avoid random admin/contact lines)
     EVIDENCE_KEEP = re.compile(
         r"\b(in-?person|on\s*campus|room\s+[A-Za-z]?\d{1,4}|hall|building|"
         r"online|zoom|teams|synchronous|asynchronous|hybrid|blended|canvas)\b",
         re.IGNORECASE,
     )
     evidence = [e.strip() for e in (card.get("evidence") or []) if e and EVIDENCE_KEEP.search(e)]
-    # Cap to 3 best lines
     evidence = evidence[:3]
-
-    # Final evidence list begins with header lines
     final_evidence = header_lines + evidence
-
-    # Message: “In-Person modality detected” etc.
     message = f"{label} modality detected" if label != "Unknown" else "Detected delivery"
 
-    # Return a normalized card the UI can just render
     return {
         "status": card.get("status", "PASS" if label != "Unknown" else "FAIL"),
         "heading": "Course Delivery",
         "message": message,
-        "label": label,                        # keep for compatibility
-        "modality": label,                     # nicer key if you want it on the FE
-        "confidence": round(confidence, 2),    # 0–1 decimal; no %
-        "evidence": final_evidence,            # first lines are course/instructor/email
+        "label": label,
+        "modality": label,
+        "confidence": round(confidence, 2),
+        "evidence": final_evidence,
     }
 
 
@@ -161,7 +128,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
     logging.info(f"Uploaded file: {filename}")
 
     try:
-        # Extract text
         ext = _safe_ext(filename)
         if ext == ".pdf":
             extracted_text = extract_text_from_pdf(file_path)
@@ -183,8 +149,10 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "message": "Could not extract text from file",
             }
 
+        # Store syllabus text for /ask endpoint
+        _last_syllabus_text["text"] = extracted_text
 
-        # --- SLO detection (existing behavior) ---
+        # --- SLO detection ---
         has_slos, slo_content = detect_slos_with_regex(extracted_text)
 
         result = {
@@ -201,7 +169,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
         if has_slos and slo_content:
             result["slo_content"] = (slo_content[:300] + "...") if len(slo_content) > 300 else slo_content
 
-        # Provide a dedicated SLO "card" block too
         result["slos"] = _format_slo_card_from_info(has_slos, slo_content)
 
         # --- Instructor detection ---
@@ -217,16 +184,13 @@ def _process_single_file(file, temp_dir: str) -> dict:
         # --- Grading scale detection ---
         grading_detector = GradingScaleDetector()
         grading_info = grading_detector.detect(extracted_text)
-
         result['grading_scale'] = {
             'found': bool(grading_info.get('found')),
             'content': grading_info.get('content')
         }
 
-
-        # --- Modality detection (Online / Hybrid / In-Person) ---
+        # --- Modality detection ---
         if not (detect_course_delivery and format_modality_card and quick_course_metadata):
-            # Detector not present yet
             result.update({
                 "modality_status": "ERROR",
                 "course_delivery": "Unknown",
@@ -235,25 +199,16 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "course_delivery_evidence": [],
             })
         else:
-            # pull course/instructor/email to show at top
             meta = quick_course_metadata(extracted_text)
-
-            # run detector
-            delivery_raw = detect_course_delivery(extracted_text)  # {'modality','confidence','evidence':[...] }
-
-            # pretty lines; keep both your original formatter (if it adds extras)
-            # then normalize with _massage_modality_card so the FE output is consistent
+            delivery_raw = detect_course_delivery(extracted_text)
             pretty = format_modality_card(delivery_raw, meta) or {}
             delivery_card = _massage_modality_card(pretty, meta)
 
-            # Flat fields for quick table display
             result["modality_status"] = delivery_card.get("status", "FAIL")
             result["course_delivery"] = delivery_card.get("modality", "Unknown")
-            result["course_delivery_confidence"] = delivery_card.get("confidence", 0.0)  # decimal (no %)
+            result["course_delivery_confidence"] = delivery_card.get("confidence", 0.0)
             result["course_delivery_message"] = delivery_card.get("message", "")
             result["course_delivery_evidence"] = delivery_card.get("evidence", [])
-
-            # Rich card for chatbot bubble (matches your early example)
             result["modality"] = delivery_card
 
         # --- Office Information detection ---
@@ -267,12 +222,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": office_info.get("found", False)
             }
         else:
-            result["office_information"] = {
-                "location": None,
-                "hours": None,
-                "phone": None,
-                "found": False
-            }
+            result["office_information"] = {"location": None, "hours": None, "phone": None, "found": False}
 
         # --- Email detection ---
         if EmailDetector:
@@ -284,13 +234,9 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "confidence": email_info.get("confidence", 0.0)
             }
         else:
-            result["email_information"] = {
-                "email": None,
-                "found": False,
-                "confidence": 0.0
-            }
+            result["email_information"] = {"email": None, "found": False, "confidence": 0.0}
 
-        # --- Email detection ---
+        # --- Preferred Contact detection ---
         if PreferredDetector:
             preferred_detector = PreferredDetector()
             preferred_info = preferred_detector.detect(extracted_text)
@@ -300,11 +246,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "confidence": preferred_info.get("confidence", 0.0)
             }
         else:
-            result["preferred_information"] = {
-                "preferred": None,
-                "found": False,
-                "confidence": 0.0
-            }
+            result["preferred_information"] = {"preferred": None, "found": False, "confidence": 0.0}
 
         # --- Late detection ---
         if LateDetector:
@@ -316,11 +258,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "confidence": late_info.get("confidence", 0.0)
             }
         else:
-            result["late_information"] = {
-                "late": None,
-                "found": False,
-                "confidence": 0.0
-            }
+            result["late_information"] = {"late": None, "found": False, "confidence": 0.0}
 
         # --- Credit Hours detection ---
         if CreditHoursDetector:
@@ -331,10 +269,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": credit_info.get("found", False)
             }
         else:
-            result["credit_hours"] = {
-                "hours": None,
-                "found": False
-            }
+            result["credit_hours"] = {"hours": None, "found": False}
 
         # --- Workload detection ---
         if WorkloadDetector:
@@ -345,13 +280,9 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "found": workload_info.get("found", False)
             }
         else:
-            result["workload_information"] = {
-                "description": None,
-                "found": False
-            }
+            result["workload_information"] = {"description": None, "found": False}
 
         # --- Assignment Delivery detection ---
-        # Detect where/how assignments should be submitted (Canvas, MyCourses, Mastering, etc.)
         assignment_delivery_detector = AssignmentDeliveryDetector()
         ad_info = assignment_delivery_detector.detect(extracted_text)
         result["assignment_delivery"] = {
@@ -378,11 +309,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "confidence": gp_info.get("confidence", 0.0)
             }
         except:
-            result["grading_process"] = {
-                "found": False,
-                "content": None,
-                "confidence": 0.0
-            }
+            result["grading_process"] = {"found": False, "content": None, "confidence": 0.0}
 
         # --- Response Time detection ---
         try:
@@ -394,11 +321,7 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "confidence": rt_info.get("confidence", 0.0)
             }
         except:
-            result["response_time"] = {
-                "found": False,
-                "content": None,
-                "confidence": 0.0
-            }
+            result["response_time"] = {"found": False, "content": None, "confidence": 0.0}
 
         # --- Class Location detection ---
         try:
@@ -410,11 +333,17 @@ def _process_single_file(file, temp_dir: str) -> dict:
                 "confidence": cl_info.get("confidence", 0.0)
             }
         except:
-            result["class_location"] = {
-                "found": False,
-                "content": None,
-                "confidence": 0.0
-            }
+            result["class_location"] = {"found": False, "content": None, "confidence": 0.0}
+
+        # ✅ --- Gemini AI Compliance Summary ---
+        try:
+            gemini_summary = analyze_compliance_summary(extracted_text, result)
+            if gemini_summary:
+                result["ai_summary"] = gemini_summary
+                logging.info(f"Gemini summary generated: score={gemini_summary.get('compliance_score')}")
+        except Exception as e:
+            logging.error(f"Gemini summary failed: {e}")
+            result["ai_summary"] = None
 
         return result
 
@@ -429,10 +358,6 @@ def _process_single_file(file, temp_dir: str) -> dict:
 
 
 def _process_zip_file(zip_file, temp_dir: str) -> list[dict]:
-    """
-    Process a ZIP file by extracting and processing each document inside.
-    Returns a list of per-file results.
-    """
     zip_path = os.path.join(temp_dir, zip_file.filename)
     zip_file.save(zip_path)
 
@@ -441,7 +366,6 @@ def _process_zip_file(zip_file, temp_dir: str) -> list[dict]:
         with zipfile.ZipFile(zip_path, 'r') as z:
             z.extractall(temp_dir)
 
-        # Process all PDF and DOCX files in the extracted contents
         for root, dirs, files in os.walk(temp_dir):
             for filename in files:
                 if _safe_ext(filename) in (".pdf", ".docx"):
@@ -477,24 +401,13 @@ def _process_zip_file(zip_file, temp_dir: str) -> list[dict]:
 # -----------------------------------------------------------------------------
 
 def create_routes(app):
-    """
-    Register Flask routes on the provided app.
-    """
 
     @app.route('/')
     def home():
-        """Renders the homepage."""
         return render_template('index.html')
 
     @app.route('/upload', methods=['POST'])
     def upload_files():
-        """
-        Handles uploads:
-          - Single file (key: 'file')
-          - Multiple files (key: 'files')
-          - ZIP files (processed recursively)
-        Returns either a single result or {'results': [...]}.
-        """
         if 'file' in request.files:
             file = request.files['file']
             if not file or file.filename == '':
@@ -545,25 +458,28 @@ def create_routes(app):
     @app.route('/ask', methods=['POST'])
     def ask():
         """
-        Optional chat endpoint to keep your frontend happy.
-        We don’t do retrieval/LLM here—just a helpful message.
+        ✅ Updated: Now uses Gemini to answer questions about the uploaded syllabus.
         """
         try:
             data = request.get_json(silent=True) or {}
             user_msg = (data.get("message") or "").strip()
+
             if not user_msg:
-                return jsonify({"response": "Hi! Upload a syllabus PDF/DOCX or a ZIP/folder and I’ll check SLOs and delivery (Online/Hybrid/In-Person)."})
-            return jsonify({
-                "response": (
-                    "I analyze uploaded syllabi for SLOs and course delivery.\n\n"
-                    "• Use the 📎 to upload a single file\n"
-                    "• Use the 📁 to upload a folder\n"
-                    "• Use the archive icon to upload a ZIP\n\n"
-                    "Results will include:\n"
-                    "- SLO status and preview\n"
-                    "- Course delivery label (Online/Hybrid/In-Person) with confidence and evidence"
-                )
-            })
+                return jsonify({
+                    "response": "Hi! Upload a syllabus PDF or DOCX and then ask me anything about it."
+                })
+
+            # Use Gemini if syllabus has been uploaded
+            syllabus_text = _last_syllabus_text.get("text")
+
+            if not syllabus_text:
+                return jsonify({
+                    "response": "Please upload a syllabus first, then I can answer your questions about it."
+                })
+
+            answer = answer_syllabus_question(user_msg, syllabus_text)
+            return jsonify({"response": answer})
+
         except Exception as e:
             logging.exception("Error in /ask")
             return jsonify({"response": f"Server error: {e}"}), 500
